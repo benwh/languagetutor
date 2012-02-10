@@ -3,6 +3,9 @@ package ncl.team22.uml.languagetutor;
 
 public class TestResult extends Result
 {
+	/** 
+	 * @uml.property name="points"
+	 */
 	int points;
 	/**
 	 * @uml.property  name="testResultManager"

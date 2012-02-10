@@ -3,6 +3,9 @@ package ncl.team22.uml.languagetutor;
 
 public class GameResult extends Result
 {
+	/** 
+	 * @uml.property name="score"
+	 */
 	int score;
 	/**
 	 * @uml.property  name="gameResultManager"

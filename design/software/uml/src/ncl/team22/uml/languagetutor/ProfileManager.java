@@ -40,4 +40,11 @@ public class ProfileManager
 			this.profile1 = profile1;
 		}
 
+			
+		/**
+			 */
+		public boolean createNewProfile(String profileName, String password, String secret_q, String secret_a){
+				return false;	
+		}
+
 }

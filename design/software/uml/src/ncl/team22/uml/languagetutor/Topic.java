@@ -57,4 +57,29 @@ public class Topic
 		this.languageEntity = languageEntity;
 	}
 
+	/** 
+	 * @uml.property name="unlocked"
+	 */
+	boolean unlocked;
+
+	/** 
+	 * Getter of the property <tt>unlocked</tt>
+	 * @return  Returns the unlocked.
+	 * @uml.property  name="unlocked"
+	 */
+	public boolean isUnlocked()
+	{
+		return unlocked;
+	}
+
+	/** 
+	 * Setter of the property <tt>unlocked</tt>
+	 * @param unlocked  The unlocked to set.
+	 * @uml.property  name="unlocked"
+	 */
+	public void setUnlocked(boolean unlocked)
+	{
+		this.unlocked = unlocked;
+	}
+
 }
