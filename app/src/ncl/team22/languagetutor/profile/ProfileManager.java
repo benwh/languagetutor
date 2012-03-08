@@ -1,20 +1,34 @@
 package ncl.team22.languagetutor.profile;
 
 import ncl.team22.languagetutor.data.DatabaseAdapter;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 public class ProfileManager {
 
 	private DatabaseAdapter dbAdapter;
-
+	private SQLiteDatabase db;
+	
 	// Constructor
-	public ProfileManager() {
+	public ProfileManager(Context ctx) {
+		dbAdapter = new DatabaseAdapter(ctx);
+		db = dbAdapter.getWritableDatabase();
 		// TODO ProfileManager constructor
 	}
 
 	// Creates a new profile in the database with the values given
 	public void createProfile(String userName, String password, String secretQ,
 			String secretA) {
-		// TODO createProfile method body
+		
+		ContentValues cv = new ContentValues();
+		cv.put("profileID", 1);
+		cv.put("display_name", "test");
+		cv.put("password_hash", "123");
+
+		db.insert("profile", null, cv);
+
+		dbAdapter.close();
 	}
 
 	// Returns a specific users password
