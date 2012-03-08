@@ -8,28 +8,76 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 
 import android.content.Context;
+import android.content.res.Resources.NotFoundException;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DatabaseAdapter extends SQLiteOpenHelper {
-	final static String NAME = "languagetutor";
-	final static int VERSION = 1;
-	Context ctx;
+
+	public static final String DBNAME = "languagetutor";
+	public static final int DBVERSION = 1;
+
+	private static Context ctx;
+	private static int SQL_CREATE = R.raw.create;
+	private static final String TAG = "DatabaseAdapter";
 
 	public DatabaseAdapter(Context context) {
-		super(context, NAME, null, VERSION);
+		super(context, DBNAME, null, DBVERSION);
 		ctx = context;
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		InputStream sqlfile = ctx.getResources().openRawResource(R.raw.create);
-		
+		String creationString = sqlResourceToString(SQL_CREATE);
+		try {
+			db.execSQL(" PRAGMA foreign_keys = ON ");
+			db.execSQL(creationString);
+		} catch (SQLException ex) {
+			Log.e(TAG, ex.getMessage());
+		}
+	}
+
+	@Override
+	public synchronized SQLiteDatabase getReadableDatabase() {
+		return super.getReadableDatabase();
+	}
+
+	@Override
+	public synchronized SQLiteDatabase getWritableDatabase() {
+		return super.getWritableDatabase();
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		// TODO Add code for dropping tables
+
+	}
+
+	@Override
+	public void onOpen(SQLiteDatabase db) {
+		super.onOpen(db);
+		if (!db.isReadOnly()) {
+			// Enable foreign key constraints
+			db.execSQL("PRAGMA foreign_keys=ON;");
+		}
+	}
+
+	private String sqlResourceToString(int resource) {
+		InputStream sqlfile = null;
+
+		try {
+			sqlfile = ctx.getResources().openRawResource(resource);
+		} catch (NotFoundException ex) {
+			Log.e(TAG, "Failed to open resource " + resource);
+		}
+
 		final char[] buffer = new char[0x10000];
 		StringBuilder out = new StringBuilder();
 		Reader in = new InputStreamReader(sqlfile);
 		int read;
-		
+
 		try {
 			do {
 				read = in.read(buffer, 0, buffer.length);
@@ -40,28 +88,8 @@ public class DatabaseAdapter extends SQLiteOpenHelper {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		String result = out.toString();
-
-		db.execSQL(result);
+		return result;
 	}
-
-	@Override
-	public synchronized SQLiteDatabase getReadableDatabase() {
-		// TODO Auto-generated method stub
-		return super.getReadableDatabase();
-	}
-
-	@Override
-	public synchronized SQLiteDatabase getWritableDatabase() {
-		// TODO Auto-generated method stub
-		return super.getWritableDatabase();
-	}
-
-	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
