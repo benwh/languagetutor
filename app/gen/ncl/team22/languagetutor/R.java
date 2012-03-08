@@ -32,9 +32,10 @@ public final class R {
         public static final int tutorialsbutton=0x7f06000b;
     }
     public static final class layout {
-        public static final int create_profile_layout=0x7f030000;
-        public static final int login_layout=0x7f030001;
-        public static final int main=0x7f030002;
+        public static final int create_profile=0x7f030000;
+        public static final int login=0x7f030001;
+        public static final int login_profile_list=0x7f030002;
+        public static final int main=0x7f030003;
     }
     public static final class raw {
         public static final int create=0x7f040000;
