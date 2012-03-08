@@ -17,7 +17,7 @@ public class Login extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.login_layout);
+		setContentView(R.layout.login);
 
 		userName = (EditText) findViewById(R.id.input_username);
 		password = (EditText) findViewById(R.id.input_password);
