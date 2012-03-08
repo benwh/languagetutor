@@ -36,7 +36,7 @@ public class Login extends Activity {
 
 	private boolean validate(String user, String pass) {
 		boolean valid = false;
-		ProfileManager pManager = new ProfileManager();
+		ProfileManager pManager = new ProfileManager(this);
 
 		if (pManager.checkName(userString)) {
 			if (pManager.getPass(userString).equals(passString)) {
