@@ -3,6 +3,7 @@ package ncl.team22.languagetutor.profile;
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class ProfileManager {
@@ -10,11 +11,20 @@ public class ProfileManager {
 	private DatabaseAdapter dbAdapter;
 	private SQLiteDatabase db;
 	
+	public static final String TABLE_PROFILE = "profile";
+
 	// Constructor
 	public ProfileManager(Context ctx) {
 		dbAdapter = new DatabaseAdapter(ctx);
 		db = dbAdapter.getWritableDatabase();
 		// TODO ProfileManager constructor
+	}
+
+	public Cursor getProfiles()
+	{
+		return db.query(TABLE_PROFILE,
+				new String[]{"profileID _id", "display_name"},
+				null, null, null, null, null);
 	}
 
 	// Creates a new profile in the database with the values given
