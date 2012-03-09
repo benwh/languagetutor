@@ -21,6 +21,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper {
 
 	private static Context ctx;
 	private static int SQL_CREATE = R.raw.create;
+	private static int SQL_TESTDATA = R.raw.testdata;
 	private static final String TAG = "DatabaseAdapter";
 
 	public DatabaseAdapter(Context context) {
@@ -30,10 +31,12 @@ public class DatabaseAdapter extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		String creationString = sqlResourceToString(SQL_CREATE);
+		String creationSQL = sqlResourceToString(SQL_CREATE);
+		String testDataSQL = sqlResourceToString(SQL_TESTDATA);
 		try {
 			db.execSQL(" PRAGMA foreign_keys = ON ");
-			db.execSQL(creationString);
+			db.execSQL(creationSQL);
+			db.execSQL(testDataSQL);
 		} catch (SQLException ex) {
 			Log.e(TAG, ex.getMessage());
 		}
