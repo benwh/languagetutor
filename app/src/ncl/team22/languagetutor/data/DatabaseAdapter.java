@@ -23,6 +23,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 	private static Context ctx;
 	private static int SQL_CREATE = R.raw.create;
 	private static int SQL_TESTDATA = R.raw.testdata;
+	private static int SQL_DROP = R.raw.drop;
 	private static final String TAG = "DatabaseAdapter";
 
 	public DatabaseAdapter(Context context)
@@ -60,7 +61,11 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
 	{
-		// TODO Add code for dropping tables
+		Log.i(TAG, "Dropping all tables for DB upgrade from " + oldVersion
+				+ " to " + newVersion);
+		String dropSQL = sqlResourceToString(SQL_DROP);
+		db.execSQL(dropSQL);
+		onCreate(db);
 
 	}
 
