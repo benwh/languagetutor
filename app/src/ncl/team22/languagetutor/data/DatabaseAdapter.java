@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.regex.Pattern;
 
 import android.content.Context;
 import android.content.res.Resources.NotFoundException;
@@ -17,14 +18,14 @@ import ncl.team22.languagetutor.R;
 public class DatabaseAdapter extends SQLiteOpenHelper
 {
 
-	public static final String DBNAME = "languagetutor";
-	public static final int DBVERSION = 1;
+	public static final String	DBNAME			= "languagetutor";
+	public static final int		DBVERSION		= 1;
 
-	private static Context ctx;
-	private static int SQL_CREATE = R.raw.create;
-	private static int SQL_TESTDATA = R.raw.testdata;
-	private static int SQL_DROP = R.raw.drop;
-	private static final String TAG = "DatabaseAdapter";
+	private static Context		ctx;
+	private static int			SQL_CREATE		= R.raw.create;
+	private static int			SQL_TESTDATA	= R.raw.testdata;
+	private static int			SQL_DROP		= R.raw.drop;
+	private static final String	TAG				= "DatabaseAdapter";
 
 	public DatabaseAdapter(Context context)
 	{
@@ -37,11 +38,21 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 	{
 		String creationSQL = sqlResourceToString(SQL_CREATE);
 		String testDataSQL = sqlResourceToString(SQL_TESTDATA);
-		try {
+		try
+		{
 			db.execSQL(" PRAGMA foreign_keys = ON ");
-			db.execSQL(creationSQL);
+			String[] tables = Pattern.compile("-- -+\n--\\sTable.+\n.+",
+					Pattern.MULTILINE).split(creationSQL);
+			for (int i = 0; i < tables.length; i++)
+			{
+				if (!tables[i].isEmpty())
+				{
+					db.execSQL(tables[i]);
+				}
+			}
 			db.execSQL(testDataSQL);
-		} catch (SQLException ex) {
+		} catch (SQLException ex)
+		{
 			Log.e(TAG, ex.getMessage());
 		}
 	}
@@ -73,7 +84,8 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 	public void onOpen(SQLiteDatabase db)
 	{
 		super.onOpen(db);
-		if (!db.isReadOnly()) {
+		if (!db.isReadOnly())
+		{
 			// Enable foreign key constraints
 			db.execSQL("PRAGMA foreign_keys=ON;");
 		}
@@ -83,9 +95,11 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 	{
 		InputStream sqlfile = null;
 
-		try {
+		try
+		{
 			sqlfile = ctx.getResources().openRawResource(resource);
-		} catch (NotFoundException ex) {
+		} catch (NotFoundException ex)
+		{
 			Log.e(TAG, "Failed to open resource " + resource);
 		}
 
@@ -94,14 +108,18 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 		Reader in = new InputStreamReader(sqlfile);
 		int read;
 
-		try {
-			do {
+		try
+		{
+			do
+			{
 				read = in.read(buffer, 0, buffer.length);
-				if (read > 0) {
+				if (read > 0)
+				{
 					out.append(buffer, 0, read);
 				}
 			} while (read >= 0);
-		} catch (IOException e) {
+		} catch (IOException e)
+		{
 			e.printStackTrace();
 		}
 
