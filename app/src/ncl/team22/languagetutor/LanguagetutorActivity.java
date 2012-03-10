@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import ncl.team22.languagetutor.profile.ProfileOptions;
 import ncl.team22.languagetutor.profile.ProfileSelection;
+import ncl.team22.languagetutor.test.Setup;
 
 public class LanguagetutorActivity extends Activity
 {
@@ -37,6 +38,15 @@ public class LanguagetutorActivity extends Activity
 			{
 				Intent i = new Intent(LanguagetutorActivity.this,
 						ProfileOptions.class);
+			}
+		});
+		// Add click listener to test button
+		final Button testButton = (Button) findViewById(R.id.testsbutton);
+		testButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				Intent i = new Intent(LanguagetutorActivity.this, Setup.class);
 				startActivity(i);
 			}
 		});

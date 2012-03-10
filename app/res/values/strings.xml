@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">Language Tutor</string>
     <string name="no_profiles">No profiles available</string>
+    <string name="no_topics">No topics available</string>
+    <string name="mix_test">Take a mixed test</string>
 </resources>

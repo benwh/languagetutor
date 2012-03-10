@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".profile.ProfileSelection"></activity>
+        <activity android:name=".test.Setup"></activity>
+        <activity android:name=".test.Topics1"></activity>
     </application>
 
 </manifest>
