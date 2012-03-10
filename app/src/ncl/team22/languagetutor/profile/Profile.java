@@ -7,30 +7,32 @@ import android.database.sqlite.SQLiteDatabase;
 
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 
-public class ProfileManager
+public class Profile
 {
 
-	private DatabaseAdapter dbAdapter;
-	private SQLiteDatabase db;
+	private DatabaseAdapter		dbAdapter;
+	private SQLiteDatabase		db;
 
-	public static final String TABLE_PROFILE = "profile";
+	public static final String	TABLE_PROFILE	= "profile";
 
 	// Constructor
-	public ProfileManager(Context ctx)
+	public Profile(Context ctx)
 	{
 		dbAdapter = new DatabaseAdapter(ctx);
 		db = dbAdapter.getWritableDatabase();
-		// TODO ProfileManager constructor
+		// TODO Profile constructor
 	}
 
-	public Cursor getProfiles()
+	public static Cursor getProfiles(Context ctx)
 	{
-		return db.query(TABLE_PROFILE, new String[]{"profileID _id",
-				"display_name"}, null, null, null, null, null);
+		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
+		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		return sDb.query(TABLE_PROFILE, new String[]
+		{"profileID _id", "display_name"}, null, null, null, null, null);
 	}
 
 	// Creates a new profile in the database with the values given
-	public void createProfile(String userName, String password, String secretQ,
+	public void create(String userName, String password, String secretQ,
 			String secretA)
 	{
 
@@ -42,6 +44,11 @@ public class ProfileManager
 		db.insert("profile", null, cv);
 
 		dbAdapter.close();
+	}
+
+	public void load(int profileID)
+	{
+		// TODO load method body
 	}
 
 	// Returns a specific users password
@@ -59,4 +66,5 @@ public class ProfileManager
 		// TODO checkName method body
 		return exists;
 	}
+
 }

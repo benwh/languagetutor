@@ -20,13 +20,13 @@ public class ProfileSelection extends ListActivity
 
 	private void populateListView()
 	{
-		ProfileManager pm = new ProfileManager(this);
-
-		Cursor c = pm.getProfiles();
+		Cursor c = Profile.getProfiles(this);
 		startManagingCursor(c);
 
-		String[] from = new String[]{"display_name"};
-		int[] to = new int[]{R.id.profile_list_rowtext};
+		String[] from = new String[]
+		{"display_name"};
+		int[] to = new int[]
+		{R.id.profile_list_rowtext};
 
 		SimpleCursorAdapter profiles = new SimpleCursorAdapter(this,
 				R.layout.login_profile_list_row, c, from, to);
