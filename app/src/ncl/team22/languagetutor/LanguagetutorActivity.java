@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import ncl.team22.languagetutor.profile.ProfileOptions;
 import ncl.team22.languagetutor.profile.ProfileSelection;
 
 public class LanguagetutorActivity extends Activity
@@ -24,6 +25,18 @@ public class LanguagetutorActivity extends Activity
 			{
 				Intent i = new Intent(LanguagetutorActivity.this,
 						ProfileSelection.class);
+				startActivity(i);
+			}
+		});
+
+		// repeated code(thinking of using an array/2Darray of some sort...)
+		final Button optionsButton = (Button) findViewById(R.id.optionsbutton);
+		optionsButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				Intent i = new Intent(LanguagetutorActivity.this,
+						ProfileOptions.class);
 				startActivity(i);
 			}
 		});
