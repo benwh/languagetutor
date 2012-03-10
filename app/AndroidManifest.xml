@@ -21,6 +21,9 @@
         <activity android:name=".profile.ProfileSelection"></activity>
         <activity android:name=".test.Setup"></activity>
         <activity android:name=".test.Topics1"></activity>
+        <activity android:name=".profile.ProfileOptions"></activity>
+        <activity android:name=".profile.ReplacePassword"></activity>
+        <activity android:name=".profile.ReplaceQA"></activity>
     </application>
 
 </manifest>
