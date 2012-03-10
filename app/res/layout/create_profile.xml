@@ -8,8 +8,9 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="20dp"
-	    android:text="Username:" />
+	    android:text="@string/username" />
 	<EditText
+	    android:inputType="text"
 	    android:id="@+id/create_username"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content" />
@@ -18,8 +19,32 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="10dp"
-	    android:text="Password:" />
-	<EditText android:id="@+id/create_password" 
+	    android:text="@string/password" />
+	<EditText 
+	    android:id="@+id/create_password" 
+	    android:layout_width="match_parent"
+	    android:inputType="textPassword"
+		android:layout_height="wrap_content"/>
+	
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:text="@string/c_password" />
+	<EditText 
+	    android:id="@+id/confirm_password" 
+	    android:layout_width="match_parent"
+	    android:inputType="textPassword"
+		android:layout_height="wrap_content"/>
+	
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:text="@string/s_question" />
+	<EditText
+	    android:id="@+id/create_sq" 
+	    android:inputType="text"
 	    android:layout_width="match_parent"
 		android:layout_height="wrap_content"/>
 	
@@ -27,36 +52,19 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="10dp"
-	    android:text="Confirm password:" />
-	<EditText android:id="@+id/confirm_password" 
-	    android:layout_width="match_parent"
-		android:layout_height="wrap_content"/>
-	
-	<TextView
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_marginTop="10dp"
-	    android:text="Secret question:" />
-	<EditText android:id="@+id/create_sq" 
-	    android:layout_width="match_parent"
-		android:layout_height="wrap_content"/>
-	
-	<TextView
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_marginTop="10dp"
-	    android:text="Secret answer:" />
-	<EditText android:id="@+id/create_sa" 
+	    android:text="@string/s_answer" />
+	<EditText 
+	    android:id="@+id/create_sa" 
+	    android:inputType="text"
 	    android:layout_width="match_parent"
 		android:layout_height="wrap_content"/>
 	
 	<Button
 	    android:id="@+id/create_profile_button"
 	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
+	    android:layout_height="0dp"
 	    android:layout_gravity="center_horizontal"
 	    android:layout_marginTop="20dp"
 	    android:layout_weight="0"
-	    android:text="Create profile" />
-
+	    android:text="@string/create_profile" />
 </LinearLayout>
