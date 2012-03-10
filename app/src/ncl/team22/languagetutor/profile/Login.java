@@ -1,13 +1,15 @@
 package ncl.team22.languagetutor.profile;
 
-import ncl.team22.languagetutor.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Login extends Activity {
+import ncl.team22.languagetutor.R;
+
+public class Login extends Activity
+{
 
 	private EditText userName;
 	private EditText password;
@@ -15,7 +17,8 @@ public class Login extends Activity {
 	private String passString;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
 
@@ -24,7 +27,8 @@ public class Login extends Activity {
 		Button loginButton = (Button) findViewById(R.id.login_button);
 
 		loginButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View view) {
+			public void onClick(View view)
+			{
 				userString = userName.getText().toString();
 				passString = password.getText().toString();
 				if (validate(userString, passString)) {
@@ -34,7 +38,8 @@ public class Login extends Activity {
 		});
 	}
 
-	private boolean validate(String user, String pass) {
+	private boolean validate(String user, String pass)
+	{
 		boolean valid = false;
 		ProfileManager pManager = new ProfileManager(this);
 

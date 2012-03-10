@@ -1,13 +1,15 @@
 package ncl.team22.languagetutor.profile;
 
-import ncl.team22.languagetutor.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class CreateProfile extends Activity {
+import ncl.team22.languagetutor.R;
+
+public class CreateProfile extends Activity
+{
 
 	private EditText userName;
 	private EditText password;
@@ -16,7 +18,8 @@ public class CreateProfile extends Activity {
 	private EditText secretAnswer;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_profile);
 
@@ -28,7 +31,8 @@ public class CreateProfile extends Activity {
 		Button createProfileButton = (Button) findViewById(R.id.create_profile_button);
 
 		createProfileButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View view) {
+			public void onClick(View view)
+			{
 				if (validate(userName, password, confirmPass, secretQuestion,
 						secretAnswer)) {
 					// START THE LANGUAGETUTORACTIVITY TO BE DONE
@@ -38,7 +42,8 @@ public class CreateProfile extends Activity {
 	}
 
 	private boolean validate(EditText vUsename, EditText vPass,
-			EditText vCPass, EditText vSQ, EditText vSA) {
+			EditText vCPass, EditText vSQ, EditText vSA)
+	{
 		boolean valid = false;
 
 		// TODO: Write validation method

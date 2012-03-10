@@ -1,20 +1,23 @@
 package ncl.team22.languagetutor.profile;
 
-import ncl.team22.languagetutor.data.DatabaseAdapter;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-public class ProfileManager {
+import ncl.team22.languagetutor.data.DatabaseAdapter;
+
+public class ProfileManager
+{
 
 	private DatabaseAdapter dbAdapter;
 	private SQLiteDatabase db;
-	
+
 	public static final String TABLE_PROFILE = "profile";
 
 	// Constructor
-	public ProfileManager(Context ctx) {
+	public ProfileManager(Context ctx)
+	{
 		dbAdapter = new DatabaseAdapter(ctx);
 		db = dbAdapter.getWritableDatabase();
 		// TODO ProfileManager constructor
@@ -22,15 +25,15 @@ public class ProfileManager {
 
 	public Cursor getProfiles()
 	{
-		return db.query(TABLE_PROFILE,
-				new String[]{"profileID _id", "display_name"},
-				null, null, null, null, null);
+		return db.query(TABLE_PROFILE, new String[]{"profileID _id",
+				"display_name"}, null, null, null, null, null);
 	}
 
 	// Creates a new profile in the database with the values given
 	public void createProfile(String userName, String password, String secretQ,
-			String secretA) {
-		
+			String secretA)
+	{
+
 		ContentValues cv = new ContentValues();
 		cv.put("profileID", 1);
 		cv.put("display_name", "test");
@@ -42,14 +45,16 @@ public class ProfileManager {
 	}
 
 	// Returns a specific users password
-	public String getPass(String userName) {
+	public String getPass(String userName)
+	{
 		String pass = "";
 		// TODO getPass method body
 		return pass;
 	}
 
 	// Checks the username given exists in the database
-	public boolean checkName(String userName) {
+	public boolean checkName(String userName)
+	{
 		boolean exists = false;
 		// TODO checkName method body
 		return exists;

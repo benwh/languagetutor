@@ -1,10 +1,11 @@
 package ncl.team22.languagetutor.profile;
 
-import ncl.team22.languagetutor.R;
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.SimpleCursorAdapter;
+
+import ncl.team22.languagetutor.R;
 
 public class ProfileSelection extends ListActivity
 {

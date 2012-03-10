@@ -1,7 +1,5 @@
 package ncl.team22.languagetutor.data;
 
-import ncl.team22.languagetutor.R;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -14,7 +12,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DatabaseAdapter extends SQLiteOpenHelper {
+import ncl.team22.languagetutor.R;
+
+public class DatabaseAdapter extends SQLiteOpenHelper
+{
 
 	public static final String DBNAME = "languagetutor";
 	public static final int DBVERSION = 1;
@@ -24,13 +25,15 @@ public class DatabaseAdapter extends SQLiteOpenHelper {
 	private static int SQL_TESTDATA = R.raw.testdata;
 	private static final String TAG = "DatabaseAdapter";
 
-	public DatabaseAdapter(Context context) {
+	public DatabaseAdapter(Context context)
+	{
 		super(context, DBNAME, null, DBVERSION);
 		ctx = context;
 	}
 
 	@Override
-	public void onCreate(SQLiteDatabase db) {
+	public void onCreate(SQLiteDatabase db)
+	{
 		String creationSQL = sqlResourceToString(SQL_CREATE);
 		String testDataSQL = sqlResourceToString(SQL_TESTDATA);
 		try {
@@ -43,23 +46,27 @@ public class DatabaseAdapter extends SQLiteOpenHelper {
 	}
 
 	@Override
-	public synchronized SQLiteDatabase getReadableDatabase() {
+	public synchronized SQLiteDatabase getReadableDatabase()
+	{
 		return super.getReadableDatabase();
 	}
 
 	@Override
-	public synchronized SQLiteDatabase getWritableDatabase() {
+	public synchronized SQLiteDatabase getWritableDatabase()
+	{
 		return super.getWritableDatabase();
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
+	{
 		// TODO Add code for dropping tables
 
 	}
 
 	@Override
-	public void onOpen(SQLiteDatabase db) {
+	public void onOpen(SQLiteDatabase db)
+	{
 		super.onOpen(db);
 		if (!db.isReadOnly()) {
 			// Enable foreign key constraints
@@ -67,7 +74,8 @@ public class DatabaseAdapter extends SQLiteOpenHelper {
 		}
 	}
 
-	private String sqlResourceToString(int resource) {
+	private String sqlResourceToString(int resource)
+	{
 		InputStream sqlfile = null;
 
 		try {
