@@ -38,4 +38,9 @@ public class LanguageSetManager
 
 		return tlist;
 	}
+
+	public SQLiteDatabase getDb()
+	{
+		return db;
+	}
 }

@@ -35,6 +35,7 @@ public class Topics1 extends ListActivity
 
 		setListAdapter(new ArrayAdapter<Topic>(this,
 				R.layout.test_topics_list_row, lsAdapter.getTopics()));
+		lsAdapter.getDb().close();
 
 		ListView lv = getListView();
 
