@@ -18,4 +18,10 @@ public class Topic
 		this.displayable = displayable;
 	}
 
+	@Override
+	public String toString()
+	{
+		String str = name;
+		return str;
+	}
 }

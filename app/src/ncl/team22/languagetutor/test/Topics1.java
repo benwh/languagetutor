@@ -1,5 +1,7 @@
 package ncl.team22.languagetutor.test;
 
+import java.util.ArrayList;
+
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -33,11 +35,30 @@ public class Topics1 extends ListActivity
 		setContentView(R.layout.test_topics);
 		lsAdapter = new LanguageSetManager(this);
 
-		setListAdapter(new ArrayAdapter<Topic>(this,
-				R.layout.test_topics_list_row, lsAdapter.getTopics()));
+		ArrayList<Topic> temp = new ArrayList<Topic>();
+		temp.add(new Topic(0, "Test", 1, false, true));
+		temp.add(new Topic(1, "Another", 1, false, true));
+		temp.add(new Topic(2, "Third", 1, false, true));
+
+		System.out.println("Temp size is: " + temp.size());
+		// just trying this hard coded data until stuff implemented
+		// I'm thinking of adding toString override for Topic
+		// to display the name perhaps?
+		// then making the list adapter of type string instead
+		String[] temp2 = new String[temp.size()];
+		for (int i = 0; i < temp.size(); i++)
+		{
+			temp2[i] = temp.get(i).toString();
+		}
+
+		setListAdapter(new ArrayAdapter<String>(this,
+				R.layout.test_topics_list_row, temp2/*
+													 * lsAdapter.getTopics ()
+													 */));
 		lsAdapter.getDb().close();
 
 		ListView lv = getListView();
+		lv.setTextFilterEnabled(true);
 
 		// Disable mixed test option until all tests are complete
 		final Button mix = (Button) findViewById(R.id.mixtest);
