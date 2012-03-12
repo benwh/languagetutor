@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import ncl.team22.languagetutor.R;
 import ncl.team22.languagetutor.data.LanguageSetManager;
+import ncl.team22.languagetutor.data.Topic;
 
 /**
  * Activity to allow selection of topics from level one bank of database, show
@@ -32,14 +33,8 @@ public class Topics1 extends ListActivity
 		setContentView(R.layout.test_topics);
 		lsAdapter = new LanguageSetManager(this);
 
-		String[] temp = new String[lsAdapter.getTopics().size()];
-		for (int i = 0; i < lsAdapter.getTopics().size(); i++)
-		{
-			temp[i] = lsAdapter.getTopics().get(i).toString();
-		}
-
-		setListAdapter(new ArrayAdapter<String>(this,
-				R.layout.test_topics_list_row, temp));
+		setListAdapter(new ArrayAdapter<Topic>(this,
+				R.layout.test_topics_list_row, lsAdapter.getTopics()));
 
 		ListView lv = getListView();
 
