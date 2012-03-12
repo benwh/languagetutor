@@ -36,6 +36,6 @@ public class LanguageSetManager
 			c.moveToNext();
 		}
 
-		return null;
+		return tlist;
 	}
 }
