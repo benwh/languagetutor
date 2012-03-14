@@ -21,7 +21,6 @@ public class Topic
 	@Override
 	public String toString()
 	{
-		String str = name;
-		return str;
+		return this.name;
 	}
 }
