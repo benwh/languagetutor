@@ -27,6 +27,7 @@ public class Profile
 	{
 		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
 		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		sDba.close();
 		return sDb.query(TABLE_PROFILE, new String[]
 		{"profileID _id", "display_name"}, null, null, null, null, null);
 	}
