@@ -35,10 +35,12 @@ public class Topics1 extends ListActivity
 		setContentView(R.layout.test_topics);
 		lsAdapter = new LanguageSetManager(this);
 
-		ArrayList<Topic> temp = new ArrayList<Topic>();
-		temp.add(new Topic(0, "Test", 1, false, true));
-		temp.add(new Topic(1, "Another", 1, false, true));
-		temp.add(new Topic(2, "Third", 1, false, true));
+		// ArrayList<Topic> temp = new ArrayList<Topic>();
+		// temp.add(new Topic(0, "Test", 1, false, true));
+		// temp.add(new Topic(1, "Another", 1, false, true));
+		// temp.add(new Topic(2, "Third", 1, false, true));
+
+		ArrayList<Topic> temp = lsAdapter.getTopics();
 
 		System.out.println("Temp size is: " + temp.size());
 		// just trying this hard coded data until stuff implemented

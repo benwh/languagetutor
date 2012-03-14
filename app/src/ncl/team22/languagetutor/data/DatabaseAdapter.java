@@ -53,9 +53,10 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 			String[] testdata = testDataSQL.split(";");
 			for (int i = 0; i < testdata.length; i++)
 			{
-				if (!testdata[i].isEmpty())
+				String curStatement = testdata[i].replace("\n", "");
+				if (!curStatement.isEmpty())
 				{
-					db.execSQL(testdata[i]);
+					db.execSQL(curStatement);
 				}
 			}
 		} catch (SQLException ex)
