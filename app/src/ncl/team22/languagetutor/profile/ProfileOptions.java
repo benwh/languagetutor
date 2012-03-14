@@ -1,6 +1,6 @@
 package ncl.team22.languagetutor.profile;
 
-//kyran wrote this :D
+// kyran wrote this :D
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,8 +22,7 @@ public class ProfileOptions extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				Intent i = new Intent(ProfileOptions.this,
-						ReplacePassword.class);
+				Intent i = new Intent(ProfileOptions.this, ReplacePassword.class);
 				startActivity(i);
 			}
 		});
@@ -33,8 +32,7 @@ public class ProfileOptions extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				Intent i = new Intent(ProfileOptions.this,
-						ReplaceQA.class);
+				Intent i = new Intent(ProfileOptions.this, ReplaceQA.class);
 				startActivity(i);
 			}
 		});

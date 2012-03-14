@@ -23,8 +23,7 @@ public class LanguagetutorActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				Intent i = new Intent(LanguagetutorActivity.this,
-						ProfileSelection.class);
+				Intent i = new Intent(LanguagetutorActivity.this, ProfileSelection.class);
 				startActivity(i);
 			}
 		});
@@ -35,8 +34,7 @@ public class LanguagetutorActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				Intent i = new Intent(LanguagetutorActivity.this,
-						ProfileOptions.class);
+				Intent i = new Intent(LanguagetutorActivity.this, ProfileOptions.class);
 				startActivity(i);
 			}
 		});
@@ -47,8 +45,7 @@ public class LanguagetutorActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				Intent i = new Intent(LanguagetutorActivity.this,
-						ncl.team22.languagetutor.test.Setup.class);
+				Intent i = new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.test.Setup.class);
 				startActivity(i);
 			}
 		});

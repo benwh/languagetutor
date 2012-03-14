@@ -41,8 +41,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 		try
 		{
 			db.execSQL(" PRAGMA foreign_keys = ON ");
-			String[] tables = Pattern.compile("-- -+\n--\\sTable.+\n.+",
-					Pattern.MULTILINE).split(creationSQL);
+			String[] tables = Pattern.compile("-- -+\n--\\sTable.+\n.+", Pattern.MULTILINE).split(creationSQL);
 			for (int i = 0; i < tables.length; i++)
 			{
 				if (!tables[i].isEmpty())
@@ -50,7 +49,15 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 					db.execSQL(tables[i]);
 				}
 			}
-			db.execSQL(testDataSQL);
+
+			String[] testdata = testDataSQL.split(";");
+			for (int i = 0; i < testdata.length; i++)
+			{
+				if (!testdata[i].isEmpty())
+				{
+					db.execSQL(testdata[i]);
+				}
+			}
 		} catch (SQLException ex)
 		{
 			Log.e(TAG, ex.getMessage());

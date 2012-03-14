@@ -26,13 +26,11 @@ public class LanguageSetManager
 		ArrayList<Topic> tlist = new ArrayList<Topic>();
 
 		Cursor c = db.query(TABLE_LANGSET, new String[]
-		{"setID", "name", "level", "locked", "displayable"}, null, null, null,
-				null, null);
+		{"setID", "name", "level", "locked", "displayable"}, null, null, null, null, null);
 		c.moveToFirst();
 		while (!c.isAfterLast())
 		{
-			tlist.add(new Topic(c.getInt(0), c.getString(1), c.getInt(2), (c
-					.getInt(3) > 0), (c.getInt(4) > 0)));
+			tlist.add(new Topic(c.getInt(0), c.getString(1), c.getInt(2), (c.getInt(3) > 0), (c.getInt(4) > 0)));
 			c.moveToNext();
 		}
 

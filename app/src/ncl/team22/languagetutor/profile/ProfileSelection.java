@@ -31,8 +31,7 @@ public class ProfileSelection extends ListActivity
 		int[] to = new int[]
 		{R.id.profile_list_rowtext};
 
-		SimpleCursorAdapter profiles = new SimpleCursorAdapter(this,
-				R.layout.login_profile_list_row, c, from, to);
+		SimpleCursorAdapter profiles = new SimpleCursorAdapter(this, R.layout.login_profile_list_row, c, from, to);
 		setListAdapter(profiles);
 	}
 

@@ -44,12 +44,10 @@ public class CreateProfile extends Activity
 				cPassString = confirmPass.getText().toString();
 				sQString = secretQuestion.getText().toString();
 				sAString = secretAnswer.getText().toString();
-				if (validate(userString, passString, cPassString, sQString,
-						sAString))
+				if (validate(userString, passString, cPassString, sQString, sAString))
 				{
 					// SET THE PROFILE TO THE RELEVENT USER TO BE ADDED
-					Intent i = new Intent(CreateProfile.this,
-							LanguagetutorActivity.class);
+					Intent i = new Intent(CreateProfile.this, LanguagetutorActivity.class);
 					startActivity(i);
 				}
 			}

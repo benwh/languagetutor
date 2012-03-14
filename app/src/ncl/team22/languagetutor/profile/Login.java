@@ -40,8 +40,7 @@ public class Login extends Activity
 				if (validate(userString, passString))
 				{
 					// SET THE PROFILE TO THE RELEVENT USER TO BE ADDED
-					Intent i = new Intent(Login.this,
-							LanguagetutorActivity.class);
+					Intent i = new Intent(Login.this, LanguagetutorActivity.class);
 					startActivity(i);
 				}
 			}
@@ -63,13 +62,11 @@ public class Login extends Activity
 		switch (item.getItemId())
 		{
 			case CREATE_NEW_PROFILE :
-				Intent createProfile_intent = new Intent(Login.this,
-						CreateProfile.class);
+				Intent createProfile_intent = new Intent(Login.this, CreateProfile.class);
 				startActivity(createProfile_intent);
 				break;
 			case RECOVER_PASS :
-				Intent recover_intent = new Intent(Login.this,
-						ProfileSelection.class);
+				Intent recover_intent = new Intent(Login.this, ProfileSelection.class);
 				startActivity(recover_intent);
 				break;
 		}
