@@ -22,10 +22,9 @@ import ncl.team22.languagetutor.data.Topic;
 public class Topics1 extends ListActivity
 {
 	final static int			level			= 1;
-	public static final String	TABLE_LANGSET	= "langset";
 	private LanguageSetManager	lsAdapter;
-	private boolean				testsComplete	= false;		// temp variable
-																// for testing
+	private boolean				testsComplete	= false;	// temp variable
+															// for testing
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -35,25 +34,17 @@ public class Topics1 extends ListActivity
 		setContentView(R.layout.test_topics);
 		lsAdapter = new LanguageSetManager(this);
 
-		// ArrayList<Topic> temp = new ArrayList<Topic>();
-		// temp.add(new Topic(0, "Test", 1, false, true));
-		// temp.add(new Topic(1, "Another", 1, false, true));
-		// temp.add(new Topic(2, "Third", 1, false, true));
-
-		ArrayList<Topic> temp = lsAdapter.getTopics();
+		ArrayList<Topic> temp = lsAdapter.getTopics(level); // Gets topic values
 
 		System.out.println("Temp size is: " + temp.size());
-		// just trying this hard coded data until stuff implemented
-		// I'm thinking of adding toString override for Topic
-		// to display the name perhaps?
-		// then making the list adapter of type string instead
-		String[] temp2 = new String[temp.size()];
+
+		String[] topicNames = new String[temp.size()];
 		for (int i = 0; i < temp.size(); i++)
 		{
-			temp2[i] = temp.get(i).toString();
+			topicNames[i] = temp.get(i).toString();
 		}
 
-		setListAdapter(new ArrayAdapter<String>(this, R.layout.test_topics_list_row, temp2));
+		setListAdapter(new ArrayAdapter<String>(this, R.layout.test_topics_list_row, topicNames));
 		lsAdapter.getDb().close();
 
 		ListView lv = getListView();

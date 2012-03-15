@@ -21,12 +21,16 @@ public class LanguageSetManager
 	}
 
 	// May need to return a Cursor instead
-	public ArrayList<Topic> getTopics()
+	public ArrayList<Topic> getTopics(int level)
 	{
+		final String levelS = Integer.toString(level);
+		System.out.println("level is: " + levelS); // TRACE
+
 		ArrayList<Topic> tlist = new ArrayList<Topic>();
 
 		Cursor c = db.query(TABLE_LANGSET, new String[]
-		{"setID", "name", "level", "locked", "displayable"}, null, null, null, null, null);
+		{"setID", "name", "level", "locked", "displayable"}, "level = " + "?", new String[]
+		{levelS}, null, null, null);
 		c.moveToFirst();
 		while (!c.isAfterLast())
 		{
