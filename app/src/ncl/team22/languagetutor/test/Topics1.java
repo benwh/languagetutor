@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import ncl.team22.languagetutor.R;
-import ncl.team22.languagetutor.data.LanguageSetManager;
 import ncl.team22.languagetutor.data.Topic;
 
 /**
@@ -21,10 +20,9 @@ import ncl.team22.languagetutor.data.Topic;
  */
 public class Topics1 extends ListActivity
 {
-	final static int			level			= 1;
-	private LanguageSetManager	lsAdapter;
-	private boolean				testsComplete	= false;	// temp variable
-															// for testing
+	final static int	level			= 1;
+	private boolean		testsComplete	= false;	// temp variable
+													// for testing
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -32,9 +30,8 @@ public class Topics1 extends ListActivity
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_topics);
-		lsAdapter = new LanguageSetManager(this);
 
-		ArrayList<Topic> temp = lsAdapter.getTopics(level); // Gets topic values
+		ArrayList<Topic> temp = Topic.getTopics(this, level);
 
 		System.out.println("Temp size is: " + temp.size());
 
@@ -45,7 +42,6 @@ public class Topics1 extends ListActivity
 		}
 
 		setListAdapter(new ArrayAdapter<String>(this, R.layout.test_topics_list_row, topicNames));
-		lsAdapter.getDb().close();
 
 		ListView lv = getListView();
 		lv.setTextFilterEnabled(true);
