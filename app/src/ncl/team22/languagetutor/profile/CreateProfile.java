@@ -58,9 +58,8 @@ public class CreateProfile extends Activity
 			String vSQ, String vSA)
 	{
 		boolean valid = false;
-		Profile pManager = new Profile(this);
 		// TODO: Write validation method
-		if ((!pManager.checkName(vUsename)))
+		if ((!Profile.checkName(vUsename, this)))
 		{
 			if (vCPass.equals(vPass) && (vPass.length() > 0))
 			{

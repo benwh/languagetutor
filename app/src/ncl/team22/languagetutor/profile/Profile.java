@@ -53,18 +53,38 @@ public class Profile
 	}
 
 	// Returns a specific users password
-	public String getPass(String userName)
+	public static String getPass(String userName, Context cxt)
 	{
 		String pass = "";
-		// TODO getPass method body
+		Cursor c;
+		DatabaseAdapter sDba = new DatabaseAdapter(cxt);
+		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		sDba.close();
+		c = sDb.query(TABLE_PROFILE, new String[]
+		{"password_hash", "display_name"}, "display_name = '" + userName + "'", null, null, null, null);
+
+		if (!c.isNull(c.getColumnIndex("password_hash")))
+		{
+			pass = c.getString(c.getColumnIndex("password_hash"));
+		}
 		return pass;
 	}
 
 	// Checks the username given exists in the database
-	public boolean checkName(String userName)
+	public static boolean checkName(String userName, Context cxt)
 	{
 		boolean exists = false;
-		// TODO checkName method body
+		Cursor c;
+		DatabaseAdapter sDba = new DatabaseAdapter(cxt);
+		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		sDba.close();
+		c = sDb.query(TABLE_PROFILE, new String[]
+		{"display_name"}, "display_name = '" + userName + "'", null, null, null, null);
+
+		if (!c.isNull(c.getColumnIndex("display_name")))
+		{
+			exists = true;
+		}
 		return exists;
 	}
 
