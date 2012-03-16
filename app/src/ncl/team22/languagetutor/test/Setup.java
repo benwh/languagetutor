@@ -15,6 +15,7 @@ import ncl.team22.languagetutor.R;
  */
 public class Setup extends Activity
 {
+	private static int	level	= 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -29,9 +30,39 @@ public class Setup extends Activity
 			@Override
 			public void onClick(View v)
 			{
+				level = 1;
 				Intent i = new Intent(Setup.this, Topics1.class);
 				startActivity(i);
 			}
 		});
+
+		// Launch level two test options
+		final Button two = (Button) findViewById(R.id.level2);
+		two.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				level = 2;
+				Intent i = new Intent(Setup.this, Topics1.class);
+				startActivity(i);
+			}
+		});
+
+		// Launch level three test options
+		final Button three = (Button) findViewById(R.id.level3);
+		three.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				level = 3;
+				Intent i = new Intent(Setup.this, Topics1.class);
+				startActivity(i);
+			}
+		});
+	}
+
+	public static int getLevel()
+	{
+		return level;
 	}
 }

@@ -31,7 +31,7 @@ public class Topics1 extends ListActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_topics);
 
-		ArrayList<Topic> temp = Topic.getTopics(this, level);
+		ArrayList<Topic> temp = Topic.getTopics(this, Setup.getLevel());
 
 		System.out.println("Temp size is: " + temp.size());
 
