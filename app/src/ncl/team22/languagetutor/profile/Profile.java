@@ -1,19 +1,28 @@
 package ncl.team22.languagetutor.profile;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Base64;
+import android.util.Log;
 
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 
 public class Profile
 {
 
-	private DatabaseAdapter		dbAdapter;
-	private SQLiteDatabase		db;
+	private static DatabaseAdapter	dbAdapter;
+	private static SQLiteDatabase	db;
 
-	public static final String	TABLE_PROFILE	= "profile";
+	public static final String		TABLE_PROFILE	= "profile";
+	public static final String		TAG				= "LT-Profile";
+	private static final String		SALT			= "93nsa9j2b0sb0f6v3lstzlpu2n";
+	private static int				HASH_ITERATIONS	= 5000;
 
 	// Constructor
 	public Profile(Context ctx)
@@ -27,29 +36,33 @@ public class Profile
 	{
 		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
 		SQLiteDatabase sDb = sDba.getWritableDatabase();
-		sDba.close();
+		// sDba.close();
 		return sDb.query(TABLE_PROFILE, new String[]
 		{"profileID _id", "display_name"}, null, null, null, null, null);
 	}
 
 	// Creates a new profile in the database with the values given
-	public void create(String userName, String password, String secretQ,
-			String secretA)
+	public static Profile create(String userName, String password,
+			String secretQ, String secretA)
 	{
-
 		ContentValues cv = new ContentValues();
-		cv.put("profileID", 1);
-		cv.put("display_name", "test");
-		cv.put("password_hash", "123");
+		// cv.put("profileID", 1);
+		cv.put("display_name", userName);
+		cv.put("password_hash", hashPassword(password));
+		cv.put("secret_q", secretQ);
+		cv.put("secret_a", secretA);
+		cv.put("theme", 1);
 
-		db.insert("profile", null, cv);
+		int profileID = (int) db.insert("profile", null, cv);
 
-		dbAdapter.close();
+		return Profile.load(profileID);
+
 	}
 
-	public void load(int profileID)
+	public static Profile load(int profileID)
 	{
 		// TODO load method body
+		return null;
 	}
 
 	// Returns a specific users password
@@ -86,6 +99,46 @@ public class Profile
 			exists = true;
 		}
 		return exists;
+	}
+
+	private static String hashPassword(String password)
+	{
+		MessageDigest md;
+
+		byte[] salt = null;
+		byte[] pw = null;
+
+		try
+		{
+			md = MessageDigest.getInstance("SHA-256");
+		} catch (NoSuchAlgorithmException e)
+		{
+			// TODO Auto-generated catch block
+			Log.e(TAG, "SHA-256 algorithm not available");
+			throw new RuntimeException("SHA-256 algorithm not available");
+		}
+
+		try
+		{
+			salt = SALT.getBytes("UTF-8");
+			pw = password.getBytes("UTF-8");
+		} catch (UnsupportedEncodingException ex)
+		{
+			ex.printStackTrace();
+		}
+
+		byte[] digest;
+
+		md.update(pw);
+		digest = md.digest(salt);
+
+		for (int i = 0; i < (HASH_ITERATIONS - 1); i++)
+		{
+			md.update(digest);
+			digest = md.digest(salt);
+		}
+
+		return Base64.encodeToString(digest, Base64.DEFAULT);
 	}
 
 }
