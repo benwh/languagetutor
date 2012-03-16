@@ -26,7 +26,6 @@ public class CreateProfile extends Activity
 	private String				sAString;
 	private String				errorMessage	= "";
 	private AlertDialog.Builder	builder			= new AlertDialog.Builder(this);
-	Profile						newProfile		= new Profile(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -59,7 +58,7 @@ public class CreateProfile extends Activity
 				if (validate(userString, passString, cPassString, sQString, sAString))
 				{
 					// LOAD THE RELEVENT USER TO BE ADDED
-					newProfile.create(userString, passString, sQString, sAString);
+					Profile.create(userString, passString, sQString, sAString);
 					Intent i = new Intent(CreateProfile.this, LanguagetutorActivity.class);
 					startActivity(i);
 				}
