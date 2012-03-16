@@ -1,6 +1,8 @@
 package ncl.team22.languagetutor.profile;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,6 +23,8 @@ public class Login extends Activity
 	private EditText			password;
 	private String				userString;
 	private String				passString;
+	private String				errorMessage		= "";
+	private AlertDialog.Builder	builder				= new AlertDialog.Builder(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -30,8 +34,8 @@ public class Login extends Activity
 
 		userName = (EditText) findViewById(R.id.input_username);
 		password = (EditText) findViewById(R.id.input_password);
-		Button loginButton = (Button) findViewById(R.id.login_button);
 
+		Button loginButton = (Button) findViewById(R.id.login_button);
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view)
 			{
@@ -39,10 +43,17 @@ public class Login extends Activity
 				passString = password.getText().toString();
 				if (validate(userString, passString))
 				{
-					// SET THE PROFILE TO THE RELEVENT USER TO BE ADDED
+					// LOAD THE RELEVENT PROFILE. TO BE ADDED!
 					Intent i = new Intent(Login.this, LanguagetutorActivity.class);
 					startActivity(i);
 				}
+			}
+		});
+
+		builder.setMessage(errorMessage).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id)
+			{
+				dialog.cancel();
 			}
 		});
 	}
@@ -85,15 +96,21 @@ public class Login extends Activity
 			}
 			else
 			{
-				// PASSWORD INVALID MESSAGE TO BE ADDED
+				errorMessage = "Incorrect password, please try again.";
 			}
 
 		}
 		else
 		{
-			// USERNAME INVALID MESSAGE TO BE ADDED
+			errorMessage = "No such user, please try again.";
 		}
 
+		if (!valid)
+		{
+			builder.setMessage(errorMessage);
+			builder.create();
+			errorMessage = "";
+		}
 		return valid;
 	}
 }

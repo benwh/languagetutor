@@ -1,6 +1,8 @@
 package ncl.team22.languagetutor.profile;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,16 +14,19 @@ import ncl.team22.languagetutor.R;
 
 public class CreateProfile extends Activity
 {
-	private EditText	userName;
-	private String		userString;
-	private EditText	password;
-	private String		passString;
-	private EditText	confirmPass;
-	private String		cPassString;
-	private EditText	secretQuestion;
-	private String		sQString;
-	private EditText	secretAnswer;
-	private String		sAString;
+	private EditText			userName;
+	private String				userString;
+	private EditText			password;
+	private String				passString;
+	private EditText			confirmPass;
+	private String				cPassString;
+	private EditText			secretQuestion;
+	private String				sQString;
+	private EditText			secretAnswer;
+	private String				sAString;
+	private String				errorMessage	= "";
+	private AlertDialog.Builder	builder			= new AlertDialog.Builder(this);
+	Profile						newProfile		= new Profile(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -36,6 +41,13 @@ public class CreateProfile extends Activity
 		secretAnswer = (EditText) findViewById(R.id.input_password);
 		Button createProfileButton = (Button) findViewById(R.id.create_profile_button);
 
+		builder.setMessage(errorMessage).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id)
+			{
+				dialog.cancel();
+			}
+		});
+
 		createProfileButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view)
 			{
@@ -46,7 +58,8 @@ public class CreateProfile extends Activity
 				sAString = secretAnswer.getText().toString();
 				if (validate(userString, passString, cPassString, sQString, sAString))
 				{
-					// SET THE PROFILE TO THE RELEVENT USER TO BE ADDED
+					// LOAD THE RELEVENT USER TO BE ADDED
+					newProfile.create(userString, passString, sQString, sAString);
 					Intent i = new Intent(CreateProfile.this, LanguagetutorActivity.class);
 					startActivity(i);
 				}
@@ -58,15 +71,29 @@ public class CreateProfile extends Activity
 			String vSQ, String vSA)
 	{
 		boolean valid = false;
-		// TODO: Write validation method
-		if ((!Profile.checkName(vUsename, this)))
+		if (!Profile.checkName(vUsename, this))
 		{
 			if (vCPass.equals(vPass) && (vPass.length() > 0))
 			{
 				valid = true;
-				// PASSWORDS DID NOT MATCH OR TO SHORT
+
 			}
-			// USERNAME ALREADY IN USE ERROR MESSAGE
+			else
+			{
+				errorMessage = "Your passwords didn't match please try again.";
+			}
+
+		}
+		else
+		{
+			errorMessage = "Username already taken please try another.";
+		}
+
+		if (!valid)
+		{
+			builder.setMessage(errorMessage);
+			builder.create();
+			errorMessage = "";
 		}
 		return valid;
 	}
