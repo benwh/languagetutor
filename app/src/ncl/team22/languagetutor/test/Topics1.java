@@ -3,7 +3,11 @@ package ncl.team22.languagetutor.test;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -20,9 +24,8 @@ import ncl.team22.languagetutor.data.Topic;
  */
 public class Topics1 extends ListActivity
 {
-	final static int	level			= 1;
-	private boolean		testsComplete	= false;	// temp variable
-													// for testing
+	private boolean	testsComplete	= false;	// temp variable
+												// for testing
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -31,11 +34,11 @@ public class Topics1 extends ListActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_topics);
 
-		ArrayList<Topic> temp = Topic.getTopics(this, Setup.getLevel());
+		final ArrayList<Topic> temp = Topic.getTopics(this, Setup.getLevel());
 
 		System.out.println("Temp size is: " + temp.size());
 
-		String[] topicNames = new String[temp.size()];
+		final String[] topicNames = new String[temp.size()];
 		for (int i = 0; i < temp.size(); i++)
 		{
 			topicNames[i] = temp.get(i).toString();
@@ -43,8 +46,30 @@ public class Topics1 extends ListActivity
 
 		setListAdapter(new ArrayAdapter<String>(this, R.layout.test_topics_list_row, topicNames));
 
-		ListView lv = getListView();
+		final ListView lv = getListView();
 		lv.setTextFilterEnabled(true);
+
+		// Add tests click-through (experimental code)
+		lv.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> a, View v, int i, long l)
+			{
+				try
+				{
+					// Passes name of topic along as data to Test1.java (this
+					// could be useful in order to form a where clause to get
+					// the setId, and then use that to return a number of (or
+					// all) entities for use in the test)
+					String topicId = lv.getItemAtPosition(i).toString();
+					Intent intent = new Intent(getApplicationContext(), Test1.class);
+					intent.putExtra("ncl.team22.languagetutor.test.topicId", topicId);
+					startActivity(intent);
+				} catch (Exception e)
+				{
+					System.out.println("ERROR" + e);
+				}
+			}
+		});
 
 		// Disable mixed test option until all tests are complete
 		final Button mix = (Button) findViewById(R.id.mixtest);
