@@ -22,13 +22,13 @@ INSERT INTO `langentity` VALUES(7, 'name', 0, 0, 'eight', 'ocho', 0, 'imgasset')
 INSERT INTO `langentity` VALUES(8, 'name', 0, 0, 'nine', 'nueve', 0, 'imgasset');
 INSERT INTO `langentity` VALUES(9, 'name', 0, 0, 'ten', 'diez', 0, 'imgasset');
 
-INSERT INTO `entity_set` VALUES(0, 0);
-INSERT INTO `entity_set` VALUES(1, 0);
-INSERT INTO `entity_set` VALUES(2, 0);
-INSERT INTO `entity_set` VALUES(3, 0);
-INSERT INTO `entity_set` VALUES(4, 0);
-INSERT INTO `entity_set` VALUES(5, 0);
-INSERT INTO `entity_set` VALUES(6, 0);
-INSERT INTO `entity_set` VALUES(7, 0);
-INSERT INTO `entity_set` VALUES(8, 0);
-INSERT INTO `entity_set` VALUES(9, 0);
+INSERT INTO `entity_set` VALUES(0, 2);
+INSERT INTO `entity_set` VALUES(1, 2);
+INSERT INTO `entity_set` VALUES(2, 2);
+INSERT INTO `entity_set` VALUES(3, 2);
+INSERT INTO `entity_set` VALUES(4, 2);
+INSERT INTO `entity_set` VALUES(5, 2);
+INSERT INTO `entity_set` VALUES(6, 2);
+INSERT INTO `entity_set` VALUES(7, 2);
+INSERT INTO `entity_set` VALUES(8, 2);
+INSERT INTO `entity_set` VALUES(9, 2);
