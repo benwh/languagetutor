@@ -11,16 +11,16 @@ INSERT INTO `langset` VALUES (7, 'Verbs', 2, 0, 1);
 INSERT INTO `langset` VALUES (8, 'Clothing', 3, 0, 1);
 INSERT INTO `langset` VALUES (9, 'Male/Female', 3, 0, 1);
 
-INSERT INTO `langentity` VALUES(0, 'name', 0, 0, 'one', 'uno', 0, 'imgasset');
-INSERT INTO `langentity` VALUES(1, 'name', 0, 0, 'two', 'dos', 0, 'imgasset');
-INSERT INTO `langentity` VALUES(2, 'name', 0, 0, 'three', 'tres', 0, 'imgasset');
-INSERT INTO `langentity` VALUES(3, 'name', 0, 0, 'four', 'cuatro', 0, 'imgasset');
-INSERT INTO `langentity` VALUES(4, 'name', 0, 0, 'five', 'cinco', 0, 'imgasset');
-INSERT INTO `langentity` VALUES(5, 'name', 0, 0, 'six', 'seis', 0, 'imgasset');
-INSERT INTO `langentity` VALUES(6, 'name', 0, 0, 'seven', 'siete', 0, 'imgasset');
-INSERT INTO `langentity` VALUES(7, 'name', 0, 0, 'eight', 'ocho', 0, 'imgasset');
-INSERT INTO `langentity` VALUES(8, 'name', 0, 0, 'nine', 'nueve', 0, 'imgasset');
-INSERT INTO `langentity` VALUES(9, 'name', 0, 0, 'ten', 'diez', 0, 'imgasset');
+INSERT INTO `langentity` VALUES(0, 0, 0, 'one', 'uno', 0, 'imgasset');
+INSERT INTO `langentity` VALUES(1, 0, 0, 'two', 'dos', 0, 'imgasset');
+INSERT INTO `langentity` VALUES(2, 0, 0, 'three', 'tres', 0, 'imgasset');
+INSERT INTO `langentity` VALUES(3, 0, 0, 'four', 'cuatro', 0, 'imgasset');
+INSERT INTO `langentity` VALUES(4, 0, 0, 'five', 'cinco', 0, 'imgasset');
+INSERT INTO `langentity` VALUES(5, 0, 0, 'six', 'seis', 0, 'imgasset');
+INSERT INTO `langentity` VALUES(6, 0, 0, 'seven', 'siete', 0, 'imgasset');
+INSERT INTO `langentity` VALUES(7, 0, 0, 'eight', 'ocho', 0, 'imgasset');
+INSERT INTO `langentity` VALUES(8, 0, 0, 'nine', 'nueve', 0, 'imgasset');
+INSERT INTO `langentity` VALUES(9, 0, 0, 'ten', 'diez', 0, 'imgasset');
 
 INSERT INTO `entity_set` VALUES(0, 2);
 INSERT INTO `entity_set` VALUES(1, 2);

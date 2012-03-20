@@ -18,9 +18,10 @@ import ncl.team22.languagetutor.data.DatabaseAdapter;
  */
 public class Test1 extends Activity
 {
-	public static final String	TABLE_TOPIC	= "langset";
-	// public static final String TABLE_ENTITY_SET = "entity_set";
-	public static int			setId		= 0;
+	public static final String	TABLE_TOPIC			= "langset";
+	public static final String	TABLE_ENTITY_SET	= "entity_set";
+	public static final String	TABLE_LANGENTITY	= "langentity";
+	public static int			setId				= 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -40,6 +41,8 @@ public class Test1 extends Activity
 		// doing as well
 		final TextView question = (TextView) findViewById(R.id.multi_question);
 		question.setText("You picked a test on " + topicId);
+
+		getEntities(this, topicId);
 	}
 
 	// Think this could be needed in a class of it's own called Entity perhaps,
@@ -55,10 +58,24 @@ public class Test1 extends Activity
 		c.moveToFirst();
 		// Set the id for next query
 		setId = c.getInt(0);
+		System.out.println("setID is: " + setId); // TRACE - works fine
 
-		// NEED TO DO JOIN
-		// then return data based on set id of entities, further methods to
-		// break up or work with this data perhaps
+		String sqlStatement = "SELECT langentity.entityID _id, langentity.source_text, langentity.dest_text "
+				+ "FROM langentity, entity_set "
+				+ "WHERE langentity.entityId = entity_set.entityId AND entity_set.setID = "
+				+ "?";
+		Cursor d = sDb.rawQuery(sqlStatement, new String[]
+		{Integer.toString(setId)});
+
+		// TRACES
+		System.out.println(d.moveToFirst());
+		d.moveToFirst();
+		while (!d.isAfterLast())
+		{
+			System.out.println(d.getInt(0) + " " + d.getString(1) + " "
+					+ d.getString(2));
+			d.moveToNext();
+		}
 
 		sDba.close();
 
