@@ -1,15 +1,14 @@
 package ncl.team22.languagetutor.test;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import ncl.team22.languagetutor.R;
-import ncl.team22.languagetutor.data.DatabaseAdapter;
+import ncl.team22.languagetutor.data.LangEntity;
 
 /**
  * Activity for first style of test, multiple choice questions
@@ -18,10 +17,6 @@ import ncl.team22.languagetutor.data.DatabaseAdapter;
  */
 public class Test1 extends Activity
 {
-	public static final String	TABLE_TOPIC			= "langset";
-	public static final String	TABLE_ENTITY_SET	= "entity_set";
-	public static final String	TABLE_LANGENTITY	= "langentity";
-	public static int			setId				= 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -42,43 +37,7 @@ public class Test1 extends Activity
 		final TextView question = (TextView) findViewById(R.id.multi_question);
 		question.setText("You picked a test on " + topicId);
 
-		getEntities(this, topicId);
-	}
+		final ArrayList<LangEntity> temp = LangEntity.getEntities(this, topicId);
 
-	// Think this could be needed in a class of it's own called Entity perhaps,
-	// similar to topics (putting stuff in a nicer data structure to work with?
-	public void getEntities(Context ctx, String topicId)
-	{
-		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
-		SQLiteDatabase sDb = sDba.getWritableDatabase();
-
-		Cursor c = sDb.query(TABLE_TOPIC, new String[]
-		{"setID"}, "name = " + "?", new String[]
-		{topicId}, null, null, null);
-		c.moveToFirst();
-		// Set the id for next query
-		setId = c.getInt(0);
-		System.out.println("setID is: " + setId); // TRACE - works fine
-
-		String sqlStatement = "SELECT langentity.entityID _id, langentity.source_text, langentity.dest_text "
-				+ "FROM langentity, entity_set "
-				+ "WHERE langentity.entityId = entity_set.entityId AND entity_set.setID = "
-				+ "?";
-		Cursor d = sDb.rawQuery(sqlStatement, new String[]
-		{Integer.toString(setId)});
-
-		// TRACES
-		System.out.println(d.moveToFirst());
-		d.moveToFirst();
-		while (!d.isAfterLast())
-		{
-			System.out.println(d.getInt(0) + " " + d.getString(1) + " "
-					+ d.getString(2));
-			d.moveToNext();
-		}
-
-		sDba.close();
-
-		// return (if applicable)
 	}
 }

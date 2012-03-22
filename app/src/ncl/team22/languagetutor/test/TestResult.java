@@ -1,5 +1,10 @@
 package ncl.team22.languagetutor.test;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import ncl.team22.languagetutor.data.DatabaseAdapter;
+
 /**
  * Class containing static methods and integer value for keeping track of a test
  * result as a user moves through test screens
@@ -34,9 +39,14 @@ public class TestResult
 	 * Submits the testScore value and time-stamp for the relevant setID to
 	 * database
 	 */
-	public static void submitScore(/* int setID, time-stamp tS */)
+	public static void submitScore(Context ctx/* , int setID, time-stamp tS */)
 	{
+		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
+		SQLiteDatabase sDb = sDba.getWritableDatabase();
+
 		// TODO: Write test result and time-stamp to database
+
+		sDba.close();
 	}
 
 }
