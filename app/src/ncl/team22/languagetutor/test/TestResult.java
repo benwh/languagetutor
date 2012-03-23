@@ -14,6 +14,7 @@ import ncl.team22.languagetutor.data.DatabaseAdapter;
 public class TestResult
 {
 	private static int	testScore	= 0;
+	private static int	counter		= 0;
 
 	/**
 	 * Increase the test score by the value achieved on a test activity
@@ -27,19 +28,34 @@ public class TestResult
 	}
 
 	/**
-	 * Resets the test score (in the case of the test being quit midway through,
-	 * or after the test result has been written to database)
+	 * Increase the counter value by 1
+	 * 
+	 * @return the counter value
 	 */
-	public static void resetScore()
+	public static int increaseCounter()
 	{
-		testScore = 0;
+		return counter++;
 	}
 
 	/**
-	 * Submits the testScore value and time-stamp for the relevant setID to
-	 * database
+	 * Resets the test score and counter value (in the case of the test being
+	 * quit midway through, or after the test result has been written to
+	 * database)
 	 */
-	public static void submitScore(Context ctx/* , int setID, time-stamp tS */)
+	public static void reset()
+	{
+		testScore = 0;
+		counter = 0;
+	}
+
+	/**
+	 * Submits the testScore value and time-stamp for the relevant setID and
+	 * profileID to database
+	 */
+	public static void submitScore(Context ctx/*
+											 * int profileID, int setID,
+											 * time-stamp tS
+											 */)
 	{
 		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
 		SQLiteDatabase sDb = sDba.getWritableDatabase();

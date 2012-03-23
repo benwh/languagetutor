@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import ncl.team22.languagetutor.R;
-import ncl.team22.languagetutor.data.LangEntity;
+import ncl.team22.languagetutor.data.LanguageEntity;
 
 /**
  * Activity for first style of test, multiple choice questions
@@ -26,7 +26,7 @@ public class Test1 extends Activity
 		setContentView(R.layout.test1);
 
 		Intent i = getIntent();
-		Bundle extras = i.getExtras();
+		new Bundle(i.getExtras());
 
 		String topicId = i.getStringExtra("ncl.team22.languagetutor.test.topicId");
 
@@ -37,7 +37,7 @@ public class Test1 extends Activity
 		final TextView question = (TextView) findViewById(R.id.multi_question);
 		question.setText("You picked a test on " + topicId);
 
-		final ArrayList<LangEntity> temp = LangEntity.getEntities(this, topicId);
+		final ArrayList<LanguageEntity> temp = LanguageEntity.getEntities(this, topicId);
 
 	}
 }
