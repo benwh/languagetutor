@@ -1,22 +1,24 @@
 package ncl.team22.languagetutor.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
-public class Topic
+public class Topic implements Serializable
 {
-	protected int				topicID;
-	protected String			name;
-	protected int				level;
-	protected boolean			locked;
-	protected boolean			displayable;
+	private static final long	serialVersionUID	= -4417480132232338235L;
 
-	public static final String	TABLE_TOPIC	= "langset";
-	public static final String	TAG			= "LT-Topic";
+	public int					topicID;
+	public String				name;
+	public int					level;
+	public boolean				locked;
+	public boolean				displayable;
+
+	public static final String	TABLE_TOPIC			= "langset";
+	public static final String	TAG					= "LT-Topic";
 
 	public Topic(int topicID, String name, int level, boolean locked,
 			boolean displayable)
@@ -28,19 +30,48 @@ public class Topic
 		this.displayable = displayable;
 	}
 
-	public Cursor getEntities(Context ctx)
+	// This is no longer used, may be removed if we don't find another use for
+	// it
+	public static Topic getTopicById(Context ctx, int topicID)
 	{
 		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
 		SQLiteDatabase sDb = sDba.getWritableDatabase();
 
-		// TODO: JOIN and return
-		Cursor ents = null;
-		// sDb.query(TABLE_TOPIC, new String[] {"entityID _id"}, null, null,
-		// null, null, null);
+		Cursor c = sDb.query(TABLE_TOPIC, new String[]
+		{"setID", "name", "level", "locked", "displayable"}, "setID = " + "?", new String[]
+		{Integer.toString(topicID)}, null, null, null);
+		c.moveToFirst();
+
+		Topic t = new Topic(c.getInt(0), c.getString(1), c.getInt(2), (c.getInt(3) > 0), (c.getInt(4) > 0));
+		sDba.close();
+
+		return t;
+	}
+
+	public ArrayList<LanguageEntity> getEntities(Context ctx)
+	{
+		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
+		SQLiteDatabase sDb = sDba.getWritableDatabase();
+
+		ArrayList<LanguageEntity> entities = new ArrayList<LanguageEntity>();
+
+		String sqlStatement = "SELECT * "
+				+ "FROM langentity, entity_set "
+				+ "WHERE langentity.entityId = entity_set.entityId AND entity_set.setID = "
+				+ "?";
+		Cursor d = sDb.rawQuery(sqlStatement, new String[]
+		{Integer.toString(this.topicID)});
+
+		d.moveToFirst();
+		while (!d.isAfterLast())
+		{
+			entities.add(new LanguageEntity(d.getInt(0), (d.getInt(1) > 0), (d.getInt(2) > 0), d.getString(3), d.getString(4), (d.getInt(5) > 0), d.getString(6)));
+			d.moveToNext();
+		}
 
 		sDba.close();
 
-		return ents;
+		return entities;
 	}
 
 	// May need to return a Cursor instead
@@ -49,14 +80,11 @@ public class Topic
 		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
 		SQLiteDatabase sDb = sDba.getWritableDatabase();
 
-		final String levelS = Integer.toString(level);
-		Log.d(TAG, "level is: " + levelS);
-
 		ArrayList<Topic> tlist = new ArrayList<Topic>();
 
 		Cursor c = sDb.query(TABLE_TOPIC, new String[]
 		{"setID", "name", "level", "locked", "displayable"}, "level = " + "?", new String[]
-		{levelS}, null, null, null);
+		{Integer.toString(level)}, null, null, null);
 		c.moveToFirst();
 		while (!c.isAfterLast())
 		{

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -24,30 +25,21 @@ import ncl.team22.languagetutor.data.Topic;
  */
 public class Topics1 extends ListActivity
 {
-	private boolean	testsComplete	= false;	// temp variable
-												// for testing
+	private boolean				testsComplete	= false;
+	public static final String	intentTopic		= "ncl.team22.languagetutor.test.selectedTopic";
+	private static final String	TAG				= "LT-Topics1";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_topics);
 
-		final ArrayList<Topic> temp = Topic.getTopics(this, Setup.getLevel());
-
-		System.out.println("Temp size is: " + temp.size());
-
-		final String[] topicNames = new String[temp.size()];
-		for (int i = 0; i < temp.size(); i++)
-		{
-			topicNames[i] = temp.get(i).toString();
-		}
-
-		setListAdapter(new ArrayAdapter<String>(this, R.layout.test_topics_list_row, topicNames));
-
 		final ListView lv = getListView();
 		lv.setTextFilterEnabled(true);
+
+		final ArrayList<Topic> topics = Topic.getTopics(this, Setup.getLevel());
+		setListAdapter(new ArrayAdapter<Topic>(this, R.layout.test_topics_list_row, topics));
 
 		// Add tests click-through (experimental code)
 		lv.setOnItemClickListener(new OnItemClickListener() {
@@ -56,17 +48,19 @@ public class Topics1 extends ListActivity
 			{
 				try
 				{
-					// Passes name of topic along as data to Test1.java (this
-					// could be useful in order to form a where clause to get
-					// the setId, and then use that to return a number of (or
-					// all) entities for use in the test)
-					String topicId = lv.getItemAtPosition(i).toString();
+					// As the ListView is a list of 'Topic's can now just pull
+					// the selected Topic out and use it for the intent
+					Topic selectedTopic = (Topic) lv.getItemAtPosition(i);
 					Intent intent = new Intent(getApplicationContext(), Test1.class);
-					intent.putExtra("ncl.team22.languagetutor.test.topicId", topicId);
+
+					// Use the intentTopic variable as the name of the extra,
+					// which can be used across multiple classes. selectedTopic
+					// is added as an Intent extra, as Topic is Serializable
+					intent.putExtra(intentTopic, selectedTopic);
 					startActivity(intent);
 				} catch (Exception e)
 				{
-					System.out.println("ERROR" + e);
+					Log.e(TAG, e.toString());
 				}
 			}
 		});
