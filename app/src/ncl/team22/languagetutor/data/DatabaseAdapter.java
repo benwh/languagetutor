@@ -25,7 +25,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 	private static int			SQL_CREATE		= R.raw.create;
 	private static int			SQL_TESTDATA	= R.raw.testdata;
 	private static int			SQL_DROP		= R.raw.drop;
-	private static final String	TAG				= "DatabaseAdapter";
+	private static final String	TAG				= "LT-DatabaseAdapter";
 
 	public DatabaseAdapter(Context context)
 	{
@@ -41,11 +41,14 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 		try
 		{
 			db.execSQL(" PRAGMA foreign_keys = ON ");
-			String[] tables = Pattern.compile("-- -+\n--\\sTable.+\n.+", Pattern.MULTILINE).split(creationSQL);
+			String[] tables = Pattern.compile("-- -+[\\r\\n]+--\\sTable.+[\\r\\n]+.+", Pattern.MULTILINE).split(creationSQL);
+			Log.w(TAG, "Got " + tables.length + " tables from SQL string");
 			for (int i = 0; i < tables.length; i++)
 			{
 				if (!tables[i].isEmpty())
 				{
+					Log.w(TAG, "Inserting: " + tables[i].substring(0, 40)
+							+ "...");
 					db.execSQL(tables[i]);
 				}
 			}
