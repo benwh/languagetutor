@@ -2,6 +2,7 @@ package ncl.team22.languagetutor.test;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 
@@ -26,16 +27,27 @@ public class TestResult
 	public static void increaseScore(int i)
 	{
 		testScore = testScore + i;
+		Log.d(TAG, "Score value is: " + testScore);
 	}
 
 	/**
 	 * Increase the counter value by 1
+	 */
+	public static void increaseCounter()
+	{
+		counter++;
+		Log.d(TAG, "Counter value is: " + counter);
+	}
+
+	/**
+	 * Gets counter value
 	 * 
 	 * @return the counter value
 	 */
-	public static int increaseCounter()
+	public static int getCounter()
 	{
-		return counter++;
+		Log.d(TAG, "Counter value is: " + counter);
+		return counter;
 	}
 
 	/**
