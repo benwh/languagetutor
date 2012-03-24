@@ -13,8 +13,9 @@ import ncl.team22.languagetutor.data.DatabaseAdapter;
  */
 public class TestResult
 {
-	private static int	testScore	= 0;
-	private static int	counter		= 0;
+	private static int			testScore	= 0;
+	private static int			counter		= 0;
+	public static final String	TAG			= "LT-TestResult";
 
 	/**
 	 * Increase the test score by the value achieved on a test activity
