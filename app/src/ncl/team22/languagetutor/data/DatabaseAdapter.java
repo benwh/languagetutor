@@ -19,7 +19,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 {
 
 	public static final String	DBNAME			= "languagetutor";
-	public static final int		DBVERSION		= 2;
+	public static final int		DBVERSION		= 3;
 
 	private static Context		ctx;
 	private static int			SQL_CREATE		= R.raw.create;
@@ -86,7 +86,15 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 		Log.i(TAG, "Dropping all tables for DB upgrade from " + oldVersion
 				+ " to " + newVersion);
 		String dropSQL = sqlResourceToString(SQL_DROP);
-		db.execSQL(dropSQL);
+		String[] dropstrings = dropSQL.split("\n");
+		for (int i = 0; i < dropstrings.length; i++)
+		{
+			if (!dropstrings[i].isEmpty())
+			{
+				Log.w(TAG, "Dropping: " + dropstrings[i]);
+				db.execSQL(dropstrings[i]);
+			}
+		}
 		onCreate(db);
 
 	}
@@ -134,7 +142,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 			e.printStackTrace();
 		}
 
-		String result = out.toString();
+		String result = out.toString().trim();
 		return result;
 	}
 }
