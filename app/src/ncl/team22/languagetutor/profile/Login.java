@@ -92,7 +92,7 @@ public class Login extends Activity
 
 		if (Profile.checkName(userString, this))
 		{
-			if (Profile.getPass(userString, this).equals(passString))
+			if (Profile.getPass(userString, this).equals(Profile.hashPassword(passString)))
 			{
 				valid = true;
 			}

@@ -104,7 +104,7 @@ public class Profile
 		return exists;
 	}
 
-	private static String hashPassword(String password)
+	public static String hashPassword(String password)
 	{
 		MessageDigest md;
 
@@ -141,7 +141,7 @@ public class Profile
 			digest = md.digest(salt);
 		}
 
-		return Base64.encodeToString(digest, Base64.DEFAULT);
+		return Base64.encodeToString(digest, Base64.NO_PADDING | Base64.NO_WRAP);
 	}
 
 }

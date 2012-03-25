@@ -1,4 +1,4 @@
-INSERT INTO `profile` VALUES (1, 'Test user', '00000000000000000000', 'Favourite colour?', 'Orange', NULL);
+INSERT INTO `profile` VALUES (1, 'Test user', '571xRkrdqdnxfM7cenA8ltsOATg6UtQF3BRxDxiqinw', 'Favourite colour?', 'Orange', NULL);
 
 INSERT INTO `langset` VALUES (0, 'Colours', 1, 0, 1);
 INSERT INTO `langset` VALUES (1, 'Days of the Week', 1, 0, 1);
