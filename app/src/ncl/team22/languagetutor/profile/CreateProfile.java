@@ -25,7 +25,8 @@ public class CreateProfile extends Activity
 	private EditText			secretAnswer;
 	private String				sAString;
 	private String				errorMessage	= "";
-	private AlertDialog.Builder	builder			= new AlertDialog.Builder(this);
+
+	private AlertDialog.Builder	builder;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -33,13 +34,14 @@ public class CreateProfile extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_profile);
 
-		userName = (EditText) findViewById(R.id.input_username);
-		password = (EditText) findViewById(R.id.input_password);
-		confirmPass = (EditText) findViewById(R.id.input_password);
-		secretQuestion = (EditText) findViewById(R.id.input_password);
-		secretAnswer = (EditText) findViewById(R.id.input_password);
+		userName = (EditText) findViewById(R.id.create_username);
+		password = (EditText) findViewById(R.id.create_password);
+		confirmPass = (EditText) findViewById(R.id.confirm_password);
+		secretQuestion = (EditText) findViewById(R.id.create_sq);
+		secretAnswer = (EditText) findViewById(R.id.create_sa);
 		Button createProfileButton = (Button) findViewById(R.id.create_profile_button);
 
+		builder = new AlertDialog.Builder(this);
 		builder.setMessage(errorMessage).setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int id)
 			{
@@ -50,15 +52,18 @@ public class CreateProfile extends Activity
 		createProfileButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view)
 			{
+
 				userString = userName.getText().toString();
 				passString = password.getText().toString();
 				cPassString = confirmPass.getText().toString();
 				sQString = secretQuestion.getText().toString();
 				sAString = secretAnswer.getText().toString();
+
 				if (validate(userString, passString, cPassString, sQString, sAString))
 				{
 					// LOAD THE RELEVENT USER TO BE ADDED
-					Profile.create(userString, passString, sQString, sAString);
+					// Profile.create(userString, passString, sQString,
+					// sAString);
 					Intent i = new Intent(CreateProfile.this, LanguagetutorActivity.class);
 					startActivity(i);
 				}

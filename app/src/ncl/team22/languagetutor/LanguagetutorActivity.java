@@ -3,6 +3,8 @@ package ncl.team22.languagetutor;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,6 +13,8 @@ import ncl.team22.languagetutor.profile.ProfileSelection;
 
 public class LanguagetutorActivity extends Activity
 {
+	private static final int	LOGOUT	= Menu.FIRST;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -49,5 +53,27 @@ public class LanguagetutorActivity extends Activity
 				startActivity(i);
 			}
 		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		super.onCreateOptionsMenu(menu);
+		menu.add(0, LOGOUT, 0, R.string.logout);
+		return true;
+	}
+
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item)
+	{
+		switch (item.getItemId())
+		{
+			case LOGOUT :
+				// UNLOAD PROFILE
+				Intent createProfile_intent = new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class);
+				startActivity(createProfile_intent);
+				break;
+		}
+		return super.onMenuItemSelected(featureId, item);
 	}
 }

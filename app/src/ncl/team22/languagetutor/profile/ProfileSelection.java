@@ -44,5 +44,4 @@ public class ProfileSelection extends ListActivity
 		Intent i = new Intent(this, ReplacePassword.class);
 		startActivity(i);
 	}
-
 }

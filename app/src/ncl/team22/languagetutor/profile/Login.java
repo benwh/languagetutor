@@ -24,7 +24,8 @@ public class Login extends Activity
 	private String				userString;
 	private String				passString;
 	private String				errorMessage		= "";
-	private AlertDialog.Builder	builder				= new AlertDialog.Builder(this);
+
+	private AlertDialog.Builder	builder;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -50,6 +51,7 @@ public class Login extends Activity
 			}
 		});
 
+		builder = new AlertDialog.Builder(this);
 		builder.setMessage(errorMessage).setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int id)
 			{

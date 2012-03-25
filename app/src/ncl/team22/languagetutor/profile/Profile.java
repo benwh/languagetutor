@@ -42,6 +42,7 @@ public class Profile
 	}
 
 	// Creates a new profile in the database with the values given
+	// currently crashes the application!
 	public static Profile create(String userName, String password,
 			String secretQ, String secretA)
 	{
@@ -53,10 +54,11 @@ public class Profile
 		cv.put("secret_a", secretA);
 		cv.put("theme", 1);
 
+		// from debugging this line seems to be cause a crash null pointer
+		// exception reported
 		int profileID = (int) db.insert("profile", null, cv);
 
 		return Profile.load(profileID);
-
 	}
 
 	public static Profile load(int profileID)
@@ -72,13 +74,15 @@ public class Profile
 		Cursor c;
 		DatabaseAdapter sDba = new DatabaseAdapter(cxt);
 		SQLiteDatabase sDb = sDba.getWritableDatabase();
-		sDba.close();
+		// sDba.close();
 		c = sDb.query(TABLE_PROFILE, new String[]
 		{"password_hash", "display_name"}, "display_name = '" + userName + "'", null, null, null, null);
 
-		if (!c.isNull(c.getColumnIndex("password_hash")))
+		if (c.getCount() > 0)
 		{
-			pass = c.getString(c.getColumnIndex("password_hash"));
+			int index = c.getColumnIndexOrThrow("password_hash");
+			// getString() crashes due to index out of bounds exception...
+			pass = c.getString(index);
 		}
 		return pass;
 	}
@@ -90,11 +94,11 @@ public class Profile
 		Cursor c;
 		DatabaseAdapter sDba = new DatabaseAdapter(cxt);
 		SQLiteDatabase sDb = sDba.getWritableDatabase();
-		sDba.close();
+		// sDba.close();
 		c = sDb.query(TABLE_PROFILE, new String[]
 		{"display_name"}, "display_name = '" + userName + "'", null, null, null, null);
 
-		if (!c.isNull(c.getColumnIndex("display_name")))
+		if (c.getCount() > 0)
 		{
 			exists = true;
 		}

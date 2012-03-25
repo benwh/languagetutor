@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name=".LanguagetutorActivity"
+            android:name=".profile.Login"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,7 @@
         <activity android:name=".profile.ReplaceQA"></activity>
         <activity android:name=".profile.ProfileOptions"></activity>
         <activity android:name=".profile.ReplacePassword"></activity>
-        <activity android:name=".profile.Login"></activity>
+        <activity android:name=".LanguagetutorActivity"></activity>
         <activity android:name=".profile.CreateProfile"></activity>
     </application>
 
