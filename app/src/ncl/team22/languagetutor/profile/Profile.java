@@ -80,9 +80,8 @@ public class Profile
 
 		if (c.getCount() > 0)
 		{
-			int index = c.getColumnIndexOrThrow("password_hash");
-			// getString() crashes due to index out of bounds exception...
-			pass = c.getString(index);
+			c.moveToFirst();
+			pass = c.getString(c.getColumnIndexOrThrow("password_hash"));
 		}
 		return pass;
 	}
