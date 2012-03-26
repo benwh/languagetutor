@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:tag="1"
         android:text="1 (Beginner)" />
     
         <Button
@@ -25,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:tag="2"
         android:text="2 (Intermediate)" />
         
         <Button
@@ -32,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:tag="2"
         android:text="3 (Advanced)" />
     
 </LinearLayout>

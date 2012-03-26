@@ -6,8 +6,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -22,8 +22,6 @@ public class TopicSelectionActivity extends Activity
 {
 
 	ViewFlipper					flipper;
-	LayoutInflater				inflater;
-	public static final String	ALL_TOPICS		= "ncl.team22.languagetutor.TopicSelectionActivity.ALL_TOPICS";
 	public static final String	SELECTED_TOPICS	= "ncl.team22.languagetutor.TopicSelectionActivity.SELECTED_TOPICS";
 
 	private static final String	TAG				= "LT-TopicSelection";
@@ -34,43 +32,19 @@ public class TopicSelectionActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.topicselection_main);
 
-		inflater = getLayoutInflater();
-
 		flipper = (ViewFlipper) findViewById(R.id.topicselection_viewflipper);
 
-		// Launch level one test options
-		final Button one = (Button) findViewById(R.id.level1);
-		one.setOnClickListener(new View.OnClickListener() {
+		OnClickListener buttonListener = new View.OnClickListener() {
 			@Override
 			public void onClick(View v)
 			{
-				displayTopics(1);
-
+				displayTopics(Integer.parseInt((String) v.getTag()));
 			}
-		});
+		};
 
-		// Launch level two test options
-		final Button two = (Button) findViewById(R.id.level2);
-		two.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v)
-			{
-				displayTopics(2);
-			}
-		});
-
-		// Launch level three test options
-		final Button three = (Button) findViewById(R.id.level3);
-		three.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v)
-			{
-				TopicSelectionActivity.this.displayTopics(2);
-			}
-		});
-
-		// final ListView topicList = (ListView)
-		// (flipper.findViewById(R.id.topicselection_topics)).findViewById(android.R.id.list);
+		findViewById(R.id.level1).setOnClickListener(buttonListener);
+		findViewById(R.id.level2).setOnClickListener(buttonListener);
+		findViewById(R.id.level3).setOnClickListener(buttonListener);
 
 	}
 
@@ -90,8 +64,6 @@ public class TopicSelectionActivity extends Activity
 			@Override
 			public void onItemClick(AdapterView<?> a, View v, int i, long l)
 			{
-				// Use ArrayList so that multiple topic selection can be
-				// implemented in the future
 				ArrayList<Topic> selectedTopics = new ArrayList<Topic>();
 				selectedTopics.add((Topic) topiclist.getItemAtPosition(i));
 
@@ -122,5 +94,18 @@ public class TopicSelectionActivity extends Activity
 			}
 		});
 
+	}
+
+	@Override
+	public void onBackPressed()
+	{
+		if (flipper.getDisplayedChild() != 0)
+		{
+			flipper.showPrevious();
+		}
+		else
+		{
+			super.onBackPressed();
+		}
 	}
 }
