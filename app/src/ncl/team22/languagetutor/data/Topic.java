@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class Topic implements Serializable
 {
@@ -55,7 +56,8 @@ public class Topic implements Serializable
 
 		ArrayList<LanguageEntity> entities = new ArrayList<LanguageEntity>();
 
-		String sqlStatement = "SELECT * "
+		Log.d(TAG, "TopicID is: " + this.topicID);
+		String sqlStatement = "SELECT langentity.entityID _id, phrase, phrase_partial, source_text, dest_text, audio_asset, image_asset "
 				+ "FROM langentity, entity_set "
 				+ "WHERE langentity.entityId = entity_set.entityId AND entity_set.setID = "
 				+ "?";
@@ -63,9 +65,16 @@ public class Topic implements Serializable
 		{Integer.toString(this.topicID)});
 
 		d.moveToFirst();
+		int itr = 0; // TRACE
 		while (!d.isAfterLast())
 		{
+			Log.d(TAG, "Should be added: " + d.getInt(0) + " "
+					+ (d.getInt(1) > 0) + " " + (d.getInt(2) > 0) + " "
+					+ d.getString(3) + " " + d.getString(4) + " "
+					+ (d.getInt(5) > 0) + " " + d.getString(6)); // TRACE
 			entities.add(new LanguageEntity(d.getInt(0), (d.getInt(1) > 0), (d.getInt(2) > 0), d.getString(3), d.getString(4), (d.getInt(5) > 0), d.getString(6)));
+			Log.d(TAG, "Entity actually added: " + entities.get(itr).toString()); // TRACE
+			itr++; // TRACE
 			d.moveToNext();
 		}
 

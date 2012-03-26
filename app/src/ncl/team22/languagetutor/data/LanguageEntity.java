@@ -26,6 +26,33 @@ public class LanguageEntity
 		image_asset = this.image_asset;
 	}
 
+	/**
+	 * Get the LanguageEntity as a English word/phrase
+	 * 
+	 * @return the English word/phrase
+	 */
+	public String toSourceString()
+	{
+		return this.source_text;
+	}
+
+	/**
+	 * Get the LanguageEntity as a Spanish word/phrase
+	 * 
+	 * @return the Spanish word/phrase
+	 */
+	public String toDestString()
+	{
+		return this.dest_text;
+	}
+
+	public String toString()
+	{
+		return this.entityID + " " + this.phrase + " " + this.phrase_partial
+				+ " " + this.source_text + " " + this.dest_text + " "
+				+ this.audio_asset + " " + this.image_asset;
+	}
+
 	// TODO: Implement/call scoring algorithm
 	public void updateScore(int score)
 	{
