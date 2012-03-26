@@ -17,13 +17,13 @@ public class LanguageEntity
 			String source_text, String dest_text, boolean audio_asset,
 			String image_asset)
 	{
-		entityID = this.entityID;
-		phrase = this.phrase;
-		phrase_partial = this.phrase_partial;
-		source_text = this.source_text;
-		dest_text = this.dest_text;
-		audio_asset = this.audio_asset;
-		image_asset = this.image_asset;
+		this.entityID = entityID;
+		this.phrase = phrase;
+		this.phrase_partial = phrase_partial;
+		this.source_text = source_text;
+		this.dest_text = dest_text;
+		this.audio_asset = audio_asset;
+		this.image_asset = image_asset;
 	}
 
 	/**

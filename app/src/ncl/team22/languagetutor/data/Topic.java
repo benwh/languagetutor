@@ -65,16 +65,9 @@ public class Topic implements Serializable
 		{Integer.toString(this.topicID)});
 
 		d.moveToFirst();
-		int itr = 0; // TRACE
 		while (!d.isAfterLast())
 		{
-			Log.d(TAG, "Should be added: " + d.getInt(0) + " "
-					+ (d.getInt(1) > 0) + " " + (d.getInt(2) > 0) + " "
-					+ d.getString(3) + " " + d.getString(4) + " "
-					+ (d.getInt(5) > 0) + " " + d.getString(6)); // TRACE
 			entities.add(new LanguageEntity(d.getInt(0), (d.getInt(1) > 0), (d.getInt(2) > 0), d.getString(3), d.getString(4), (d.getInt(5) > 0), d.getString(6)));
-			Log.d(TAG, "Entity actually added: " + entities.get(itr).toString()); // TRACE
-			itr++; // TRACE
 			d.moveToNext();
 		}
 
