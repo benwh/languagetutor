@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/topicselection_viewflipper"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
+
+	<include
+		android:id="@+id/topicselection_levels"
+		layout="@layout/topicselection_levels" />
+
+	<include
+		android:id="@+id/topicselection_topics"
+		layout="@layout/topicselection_topics" />
+
+</ViewFlipper>

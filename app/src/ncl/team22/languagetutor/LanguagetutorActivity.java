@@ -1,19 +1,25 @@
 package ncl.team22.languagetutor;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import ncl.team22.languagetutor.data.Topic;
 import ncl.team22.languagetutor.profile.ProfileOptions;
 import ncl.team22.languagetutor.profile.ProfileSelection;
 
 public class LanguagetutorActivity extends Activity
 {
-	private static final int	LOGOUT	= Menu.FIRST;
+	private static final int	LOGOUT					= Menu.FIRST;
+	protected static final int	TOPICSELECTION_REQUEST	= 1;
+	private static final String	TAG						= "LT-Main";
 
 	/** Called when the activity is first created. */
 	@Override
@@ -40,6 +46,17 @@ public class LanguagetutorActivity extends Activity
 			{
 				Intent i = new Intent(LanguagetutorActivity.this, ProfileOptions.class);
 				startActivity(i);
+			}
+		});
+
+		final Button topicsButton = (Button) findViewById(R.id.topicssbutton);
+		topicsButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				Intent i = new Intent(LanguagetutorActivity.this, TopicSelectionActivity.class);
+				// startActivity(i);
+				startActivityForResult(i, LanguagetutorActivity.TOPICSELECTION_REQUEST);
 			}
 		});
 
@@ -75,5 +92,24 @@ public class LanguagetutorActivity extends Activity
 				break;
 		}
 		return super.onMenuItemSelected(featureId, item);
+	}
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		super.onActivityResult(requestCode, resultCode, data);
+		switch (requestCode)
+		{
+			case LanguagetutorActivity.TOPICSELECTION_REQUEST :
+			{
+				if (resultCode == Activity.RESULT_OK)
+				{
+					@SuppressWarnings("unchecked")
+					ArrayList<Topic> topics = (ArrayList<Topic>) data.getSerializableExtra(TopicSelectionActivity.SELECTED_TOPICS);
+					Log.d(TAG, "Got result OK");
+					Log.d(TAG, "Selected topics: " + topics.toString());
+				}
+				break;
+			}
+		}
 	}
 }

@@ -1,56 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/profilebutton"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Profile" />
+	<Button
+		android:id="@+id/profilebutton"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:text="Profile" />
 
-    <Button
-        android:id="@+id/optionsbutton"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Profile Options" />
+	<Button
+		android:id="@+id/optionsbutton"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:text="Profile Options" />
 
-    <Button
-        android:id="@+id/tutorialsbutton"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Tutorials" />
+	<Button
+		android:id="@+id/topicssbutton"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:text="Topic Selection" />
 
-    <Button
-        android:id="@+id/revisionbutton"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Revision" />
+	<Button
+		android:id="@+id/tutorialsbutton"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:text="Tutorials" />
 
-    <Button
-        android:id="@+id/gamesbutton"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Games" />
+	<Button
+		android:id="@+id/revisionbutton"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:text="Revision" />
 
-    <Button
-        android:id="@+id/testsbutton"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Tests" />
+	<Button
+		android:id="@+id/gamesbutton"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:text="Games" />
 
-    <Button
-        android:id="@+id/statsbutton"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Statistics" />
+	<Button
+		android:id="@+id/testsbutton"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:text="Tests" />
+
+	<Button
+		android:id="@+id/statsbutton"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:text="Statistics" />
 
 </LinearLayout>
