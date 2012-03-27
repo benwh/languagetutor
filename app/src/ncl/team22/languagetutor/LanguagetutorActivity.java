@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -114,10 +115,17 @@ public class LanguagetutorActivity extends Activity
 	{
 		switch (item.getItemId())
 		{
+		// Should probably be split in to a method under Profile
 			case LOGOUT :
-				// UNLOAD PROFILE
-				Intent createProfile_intent = new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class);
-				startActivity(createProfile_intent);
+
+				LanguagetutorActivity.currentProfile = null;
+
+				SharedPreferences settings = getSharedPreferences(LanguagetutorActivity.PREFS_NAME, MODE_PRIVATE);
+				Editor e = settings.edit();
+				e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, -1);
+				e.apply();
+
+				startActivity(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class));
 				break;
 		}
 		return super.onMenuItemSelected(featureId, item);
