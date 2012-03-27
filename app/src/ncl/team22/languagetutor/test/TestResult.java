@@ -1,9 +1,13 @@
 package ncl.team22.languagetutor.test;
 
+import java.util.ArrayList;
+
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import ncl.team22.languagetutor.LanguagetutorActivity;
+import ncl.team22.languagetutor.data.LanguageEntity;
+import ncl.team22.languagetutor.data.Topic;
 
 /**
  * Class containing static methods and integer value for keeping track of a test
@@ -15,6 +19,7 @@ public class TestResult
 {
 	private static int			testScore	= 0;
 	private static int			counter		= 0;
+
 	public static final String	TAG			= "LT-TestResult";
 
 	/**
@@ -72,4 +77,35 @@ public class TestResult
 
 	}
 
+	// DATA SECTION
+
+	private static ArrayList<LanguageEntity>	entitiesList;
+	// Prevent asked questions being asked again but enable them to be fed as
+	// incorrect options
+	private static ArrayList<LanguageEntity>	entitiesRemoved	= new ArrayList<LanguageEntity>();
+
+	public static void setEntitiesListByTopic(Topic selectedTopic)
+	{
+		entitiesList = selectedTopic.getEntities();
+	}
+
+	public static ArrayList<LanguageEntity> getEntitiesList()
+	{
+		return entitiesList;
+	}
+
+	public static ArrayList<LanguageEntity> getRemovedList()
+	{
+		return entitiesRemoved;
+	}
+
+	public static void addToRemovedList(LanguageEntity entity)
+	{
+		entitiesRemoved.add(entity);
+	}
+
+	public static void removeFromEntitiesList(int entityID)
+	{
+		entitiesList.remove(entityID);
+	}
 }
