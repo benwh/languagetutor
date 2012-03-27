@@ -55,6 +55,5 @@ public class ReplacePassword extends Activity
 				}
 			}
 		});
-
 	}
 }

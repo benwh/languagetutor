@@ -91,6 +91,17 @@ public class LanguagetutorActivity extends Activity
 				startActivity(i);
 			}
 		});
+
+		// Add click listener to stats button
+		final Button statsButton = (Button) findViewById(R.id.statsbutton);
+		statsButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				Intent i = new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Statistics.class);
+				startActivity(i);
+			}
+		});
 	}
 
 	@Override
@@ -124,6 +135,7 @@ public class LanguagetutorActivity extends Activity
 				e.apply();
 
 				startActivity(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class));
+
 				break;
 		}
 		return super.onMenuItemSelected(featureId, item);

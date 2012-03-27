@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	
+    <TextView android:id="@+id/usernameStatsBanner" 
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:textSize="40sp"/>
+    
+    <LinearLayout
+       android:orientation="horizontal" 
+       android:layout_width="match_parent" 
+       android:layout_height="wrap_content">
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="20dp"
+		    android:text="@string/userlevel" />
+		<TextView android:id="@+id/userleveltext" 
+		    xmlns:android="http://schemas.android.com/apk/res/android"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"/>
+	</LinearLayout>
+		
+    <LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent" 
+       android:layout_height="wrap_content">
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:text="@string/fravrite_word" />
+		<TextView android:id="@+id/fravrite_word_text" 
+		    xmlns:android="http://schemas.android.com/apk/res/android"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"/>
+	</LinearLayout>>
+	
+	<LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent" 
+       android:layout_height="wrap_content">
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:text="@string/least_favrite_word" />
+		<TextView android:id="@+id/least_favrite_word_text" 
+		    xmlns:android="http://schemas.android.com/apk/res/android"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"/>
+	</LinearLayout>
+	
+	<LinearLayout
+      android:orientation="horizontal"
+       android:layout_width="match_parent" 
+       android:layout_height="wrap_content">
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:text="@string/highest_test_score" />
+		<TextView android:id="@+id/highest_test_score_text" 
+		    xmlns:android="http://schemas.android.com/apk/res/android"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"/>
+	</LinearLayout>
+	
+	<LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent" 
+       android:layout_height="wrap_content">
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:text="@string/highest_game_score" />
+		<TextView android:id="@+id/highest_game_score_text" 
+		    xmlns:android="http://schemas.android.com/apk/res/android"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"/>
+	</LinearLayout>
+	
+	<LinearLayout
+      android:orientation="horizontal"
+       android:layout_width="match_parent" 
+       android:layout_height="wrap_content">
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:text="@string/language_rating" />
+		<TextView android:id="@+id/spanish_language_rating_text" 
+		    xmlns:android="http://schemas.android.com/apk/res/android"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"/>	
+	</LinearLayout>	
+</LinearLayout>
