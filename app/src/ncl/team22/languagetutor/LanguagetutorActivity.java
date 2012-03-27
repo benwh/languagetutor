@@ -61,7 +61,6 @@ public class LanguagetutorActivity extends Activity
 			}
 		});
 
-		// repeated code(thinking of using an array/2Darray of some sort...)
 		final Button optionsButton = (Button) findViewById(R.id.optionsbutton);
 		optionsButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -78,7 +77,6 @@ public class LanguagetutorActivity extends Activity
 			public void onClick(View v)
 			{
 				Intent i = new Intent(LanguagetutorActivity.this, TopicSelectionActivity.class);
-				// startActivity(i);
 				startActivityForResult(i, LanguagetutorActivity.TOPICSELECTION_REQUEST);
 			}
 		});

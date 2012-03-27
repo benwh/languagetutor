@@ -69,9 +69,6 @@ public class CreateProfile extends Activity
 					e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
 					e.apply();
 					finish();
-					// Intent i = new Intent(CreateProfile.this,
-					// LanguagetutorActivity.class);
-					// startActivity(i);
 				}
 			}
 		});

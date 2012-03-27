@@ -74,8 +74,6 @@ public class Profile
 				"secret_a", "theme"}, "_id = ?", new String[]
 		{Integer.toString(profileID)}, null, null, null);
 
-		// sDba.close();
-
 		if (c.getCount() > 0)
 		{
 			c.moveToFirst();

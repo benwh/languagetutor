@@ -1,6 +1,5 @@
 package ncl.team22.languagetutor.profile;
 
-// kyran wrote this :D
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
