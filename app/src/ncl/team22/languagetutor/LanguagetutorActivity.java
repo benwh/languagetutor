@@ -27,7 +27,6 @@ public class LanguagetutorActivity extends Activity
 	public static final String		ACTIVE_PROFILE_ID		= "activeprofile";
 
 	public static DatabaseAdapter	sDBa;
-
 	public static Profile			currentProfile			= null;
 
 	/** Called when the activity is first created. */
@@ -48,7 +47,7 @@ public class LanguagetutorActivity extends Activity
 		}
 		else
 		{
-			currentProfile = Profile.load(getApplicationContext(), activeProfileID);
+			currentProfile = Profile.load(activeProfileID);
 		}
 
 		final Button profileButton = (Button) findViewById(R.id.profilebutton);
@@ -93,6 +92,13 @@ public class LanguagetutorActivity extends Activity
 				startActivity(i);
 			}
 		});
+	}
+
+	@Override
+	protected void onDestroy()
+	{
+		super.onDestroy();
+		sDBa.close();
 	}
 
 	@Override

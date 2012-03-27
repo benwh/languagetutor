@@ -23,7 +23,7 @@ public class ProfileSelection extends ListActivity
 
 	private void populateListView()
 	{
-		Cursor c = Profile.getProfiles(this);
+		Cursor c = Profile.getProfiles();
 		startManagingCursor(c);
 
 		String[] from = new String[]
@@ -39,7 +39,7 @@ public class ProfileSelection extends ListActivity
 	protected void onListItemClick(ListView l, View v, int position, long id)
 	{
 		super.onListItemClick(l, v, position, id);
-		Cursor c = Profile.getProfiles(this);
+		Cursor c = Profile.getProfiles();
 		c.moveToPosition(position);
 		Intent i = new Intent(this, ReplacePassword.class);
 		startActivity(i);

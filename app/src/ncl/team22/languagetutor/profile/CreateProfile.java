@@ -75,7 +75,7 @@ public class CreateProfile extends Activity
 			String vSQ, String vSA)
 	{
 		boolean valid = false;
-		if (!Profile.checkName(vUsename, this))
+		if (!Profile.checkName(vUsename))
 		{
 			if (vCPass.equals(vPass) && (vPass.length() > 0))
 			{

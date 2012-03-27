@@ -48,7 +48,7 @@ public class Test1 extends Activity
 			selectedTopic = (Topic) i.getSerializableExtra(Topics1.intentTopic);
 			Log.d(TAG, "Selected topic was: " + selectedTopic);
 
-			entitiesList = selectedTopic.getEntities(this);
+			entitiesList = selectedTopic.getEntities();
 
 			// TRACE
 			for (int itr = 0; itr < entitiesList.size(); itr++)
@@ -77,7 +77,7 @@ public class Test1 extends Activity
 			getWrittenQuestion();
 
 			// Submit the scores
-			TestResult.submitScore(this);
+			TestResult.submitScore(0, 0, 0);
 			// Reset the values
 			TestResult.reset();
 		}

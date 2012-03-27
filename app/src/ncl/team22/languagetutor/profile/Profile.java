@@ -5,13 +5,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Base64;
 import android.util.Log;
 
-import ncl.team22.languagetutor.data.DatabaseAdapter;
+import ncl.team22.languagetutor.LanguagetutorActivity;
 
 public class Profile
 {
@@ -39,21 +38,19 @@ public class Profile
 		this.theme = theme;
 	}
 
-	public static Cursor getProfiles(Context ctx)
+	public static Cursor getProfiles()
 	{
-		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
-		SQLiteDatabase sDb = sDba.getWritableDatabase();
-		// sDba.close();
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+
 		return sDb.query(TABLE_PROFILE, new String[]
 		{"profileID _id", "display_name"}, null, null, null, null, null);
 	}
 
 	// Creates a new profile in the database with the values given
 	public static Profile create(String userName, String password,
-			String secretQ, String secretA, Context ctx)
+			String secretQ, String secretA)
 	{
-		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
-		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
 		// Don't pass in a profileID, will be inserted automatically
 		ContentValues cv = new ContentValues();
@@ -65,13 +62,13 @@ public class Profile
 
 		int profileID = (int) sDb.insert("profile", null, cv);
 
-		return Profile.load(ctx, profileID);
+		return Profile.load(profileID);
 	}
 
-	public static Profile load(Context ctx, int profileID)
+	public static Profile load(int profileID)
 	{
-		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
-		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+
 		Cursor c = sDb.query(TABLE_PROFILE, new String[]
 		{"profileID _id", "display_name", "password_hash", "secret_q",
 				"secret_a", "theme"}, "_id = ?", new String[]
@@ -83,7 +80,6 @@ public class Profile
 		{
 			c.moveToFirst();
 			Profile p = new Profile(profileID, c.getString(1), c.getString(2), c.getString(3), c.getString(4), c.getInt(5));
-			sDba.close();
 			return p;
 		}
 		else
@@ -93,10 +89,9 @@ public class Profile
 
 	}
 
-	public static Profile authenticate(Context ctx, String user, String pass)
+	public static Profile authenticate(String user, String pass)
 	{
-		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
-		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
 		Cursor c = sDb.query(TABLE_PROFILE, new String[]
 		{"profileID _id", "display_name", "password_hash"}, "display_name = ?", new String[]
@@ -107,8 +102,7 @@ public class Profile
 			c.moveToFirst();
 			if (hashPassword(pass).equals(c.getString(c.getColumnIndex("password_hash"))))
 			{
-				Profile p = Profile.load(ctx, c.getInt(c.getColumnIndex("_id")));
-				sDba.close();
+				Profile p = Profile.load(c.getInt(c.getColumnIndex("_id")));
 				return p;
 			}
 			else
@@ -124,12 +118,12 @@ public class Profile
 	}
 
 	// Checks the username given exists in the database
-	public static boolean checkName(String userName, Context ctx)
+	public static boolean checkName(String userName)
 	{
 		boolean exists = false;
 		Cursor c;
-		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
-		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+
 		c = sDb.query(TABLE_PROFILE, new String[]
 		{"display_name"}, "display_name = ?", new String[]
 		{userName}, null, null, null);
@@ -138,7 +132,6 @@ public class Profile
 		{
 			exists = true;
 		}
-		sDba.close();
 		return exists;
 	}
 

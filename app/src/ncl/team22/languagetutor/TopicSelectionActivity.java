@@ -54,7 +54,7 @@ public class TopicSelectionActivity extends Activity
 		flipper.setDisplayedChild(flipper.indexOfChild(findViewById(R.layout.topicselection_topics)));
 		Log.d(TAG, "Displaying topics for level " + level);
 
-		final ArrayList<Topic> topics = Topic.getTopics(this, level);
+		final ArrayList<Topic> topics = Topic.getTopics(level);
 
 		LinearLayout topicmain = (LinearLayout) flipper.findViewById(R.id.topicselection_topics);
 		final ListView topiclist = (ListView) topicmain.findViewById(android.R.id.list);

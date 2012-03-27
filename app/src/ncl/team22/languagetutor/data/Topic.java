@@ -3,10 +3,11 @@ package ncl.team22.languagetutor.data;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
+import ncl.team22.languagetutor.LanguagetutorActivity;
 
 public class Topic implements Serializable
 {
@@ -33,10 +34,9 @@ public class Topic implements Serializable
 
 	// This is no longer used, may be removed if we don't find another use for
 	// it
-	public static Topic getTopicById(Context ctx, int topicID)
+	public static Topic getTopicById(int topicID)
 	{
-		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
-		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
 		Cursor c = sDb.query(TABLE_TOPIC, new String[]
 		{"setID", "name", "level", "locked", "displayable"}, "setID = " + "?", new String[]
@@ -44,15 +44,13 @@ public class Topic implements Serializable
 		c.moveToFirst();
 
 		Topic t = new Topic(c.getInt(0), c.getString(1), c.getInt(2), (c.getInt(3) > 0), (c.getInt(4) > 0));
-		sDba.close();
 
 		return t;
 	}
 
-	public ArrayList<LanguageEntity> getEntities(Context ctx)
+	public ArrayList<LanguageEntity> getEntities()
 	{
-		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
-		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
 		ArrayList<LanguageEntity> entities = new ArrayList<LanguageEntity>();
 
@@ -71,16 +69,13 @@ public class Topic implements Serializable
 			d.moveToNext();
 		}
 
-		sDba.close();
-
 		return entities;
 	}
 
 	// May need to return a Cursor instead
-	public static ArrayList<Topic> getTopics(Context ctx, int level)
+	public static ArrayList<Topic> getTopics(int level)
 	{
-		DatabaseAdapter sDba = new DatabaseAdapter(ctx);
-		SQLiteDatabase sDb = sDba.getWritableDatabase();
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
 		ArrayList<Topic> tlist = new ArrayList<Topic>();
 
@@ -95,8 +90,6 @@ public class Topic implements Serializable
 			tlist.add(new Topic(c.getInt(0), c.getString(1), c.getInt(2), (c.getInt(3) > 0), (c.getInt(4) > 0)));
 			c.moveToNext();
 		}
-
-		sDba.close();
 
 		return tlist;
 	}

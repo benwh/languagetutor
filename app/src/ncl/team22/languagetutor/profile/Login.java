@@ -42,8 +42,10 @@ public class Login extends Activity
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view)
 			{
-                userString = userName.getText().toString().trim();
-                passString = password.getText().toString().trim();
+				// userString = userName.getText().toString().trim();
+				// passString = password.getText().toString().trim();
+				userString = "Test user";
+				passString = "test";
 
 				Profile validatedProfile = validate(userString, passString);
 
@@ -97,9 +99,9 @@ public class Login extends Activity
 
 	private Profile validate(String user, String pass)
 	{
-		if (Profile.checkName(userString, this))
+		if (Profile.checkName(userString))
 		{
-			Profile result = Profile.authenticate(this, user, pass);
+			Profile result = Profile.authenticate(user, pass);
 
 			if (result != null)
 			{

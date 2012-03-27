@@ -38,7 +38,7 @@ public class Topics1 extends ListActivity
 		final ListView lv = getListView();
 		lv.setTextFilterEnabled(true);
 
-		final ArrayList<Topic> topics = Topic.getTopics(this, Setup.getLevel());
+		final ArrayList<Topic> topics = Topic.getTopics(Setup.getLevel());
 		setListAdapter(new ArrayAdapter<Topic>(this, R.layout.test_topics_list_row, topics));
 
 		// Add tests click-through (experimental code)
