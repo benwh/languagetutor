@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,15 +12,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import ncl.team22.languagetutor.data.DatabaseAdapter;
 import ncl.team22.languagetutor.data.Topic;
+import ncl.team22.languagetutor.profile.Profile;
 import ncl.team22.languagetutor.profile.ProfileOptions;
 import ncl.team22.languagetutor.profile.ProfileSelection;
 
 public class LanguagetutorActivity extends Activity
 {
-	private static final int	LOGOUT					= Menu.FIRST;
-	protected static final int	TOPICSELECTION_REQUEST	= 1;
-	private static final String	TAG						= "LT-Main";
+	private static final int		LOGOUT					= Menu.FIRST;
+	protected static final int		TOPICSELECTION_REQUEST	= 1;
+	private static final String		TAG						= "LT-Main";
+	public static final String		PREFS_NAME				= "ltprefs";
+	public static final String		ACTIVE_PROFILE_ID		= "activeprofile";
+
+	public static DatabaseAdapter	sDBa;
+
+	public static Profile			currentProfile			= null;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -27,6 +36,20 @@ public class LanguagetutorActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+
+		sDBa = new DatabaseAdapter(this);
+
+		SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+		int activeProfileID = settings.getInt(ACTIVE_PROFILE_ID, -1);
+
+		if (activeProfileID == -1)
+		{
+			startActivity(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class));
+		}
+		else
+		{
+			currentProfile = Profile.load(getApplicationContext(), activeProfileID);
+		}
 
 		final Button profileButton = (Button) findViewById(R.id.profilebutton);
 		profileButton.setOnClickListener(new View.OnClickListener() {

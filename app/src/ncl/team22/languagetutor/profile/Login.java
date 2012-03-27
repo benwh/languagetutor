@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,13 +42,20 @@ public class Login extends Activity
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view)
 			{
-				userString = userName.getText().toString();
-				passString = password.getText().toString();
-				if (validate(userString, passString))
+                userString = userName.getText().toString().trim();
+                passString = password.getText().toString().trim();
+
+				Profile validatedProfile = validate(userString, passString);
+
+				if (validatedProfile != null)
 				{
-					// LOAD THE RELEVENT PROFILE. TO BE ADDED!
-					Intent i = new Intent(Login.this, LanguagetutorActivity.class);
-					startActivity(i);
+					LanguagetutorActivity.currentProfile = validatedProfile;
+
+					SharedPreferences settings = getSharedPreferences(LanguagetutorActivity.PREFS_NAME, MODE_PRIVATE);
+					Editor e = settings.edit();
+					e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
+					e.apply();
+					finish();
 				}
 			}
 		});
@@ -86,33 +95,36 @@ public class Login extends Activity
 		return super.onMenuItemSelected(featureId, item);
 	}
 
-	private boolean validate(String user, String pass)
+	private Profile validate(String user, String pass)
 	{
-		boolean valid = false;
-
 		if (Profile.checkName(userString, this))
 		{
-			if (Profile.getPass(userString, this).equals(Profile.hashPassword(passString)))
+			Profile result = Profile.authenticate(this, user, pass);
+
+			if (result != null)
 			{
-				valid = true;
+				return result;
 			}
 			else
 			{
 				errorMessage = "Incorrect password, please try again.";
 			}
-
 		}
 		else
 		{
 			errorMessage = "No such user, please try again.";
 		}
 
-		if (!valid)
-		{
-			builder.setMessage(errorMessage);
-			builder.create();
-			errorMessage = "";
-		}
-		return valid;
+		builder.setMessage(errorMessage);
+		builder.show();
+		errorMessage = "";
+		return null;
 	}
+
+	@Override
+	public void onBackPressed()
+	{
+		// Do nothing, user shouldn't be able to escape back to main activity
+	}
+
 }

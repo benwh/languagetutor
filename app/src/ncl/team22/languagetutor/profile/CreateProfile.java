@@ -53,11 +53,11 @@ public class CreateProfile extends Activity
 			public void onClick(View view)
 			{
 
-				userString = userName.getText().toString();
-				passString = password.getText().toString();
-				cPassString = confirmPass.getText().toString();
-				sQString = secretQuestion.getText().toString();
-				sAString = secretAnswer.getText().toString();
+				userString = userName.getText().toString().trim();
+				passString = password.getText().toString().trim();
+				cPassString = confirmPass.getText().toString().trim();
+				sQString = secretQuestion.getText().toString().trim();
+				sAString = secretAnswer.getText().toString().trim();
 
 				if (validate(userString, passString, cPassString, sQString, sAString))
 				{
