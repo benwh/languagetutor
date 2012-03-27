@@ -86,6 +86,7 @@ public class Login extends Activity
 			case CREATE_NEW_PROFILE :
 				Intent createProfile_intent = new Intent(Login.this, CreateProfile.class);
 				startActivity(createProfile_intent);
+				finish();
 				break;
 			case RECOVER_PASS :
 				Intent recover_intent = new Intent(Login.this, ProfileSelection.class);

@@ -2,13 +2,12 @@
 -- Table `profile`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `profile` (
-  `profileID` INT NOT NULL ,
+  `profileID` INTEGER PRIMARY KEY AUTOINCREMENT,
   `display_name` VARCHAR(30) NOT NULL ,
   `password_hash` VARCHAR(64) NOT NULL ,
   `secret_q` VARCHAR(255) NULL ,
   `secret_a` VARCHAR(30) NULL ,
-  `theme` TINYINT NULL ,
-  PRIMARY KEY (`profileID`) );
+  `theme` TINYINT NULL);
 
 
 -- -----------------------------------------------------

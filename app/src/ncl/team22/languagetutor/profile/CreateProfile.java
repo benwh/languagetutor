@@ -3,7 +3,8 @@ package ncl.team22.languagetutor.profile;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -61,11 +62,16 @@ public class CreateProfile extends Activity
 
 				if (validate(userString, passString, cPassString, sQString, sAString))
 				{
-					// LOAD THE RELEVENT USER TO BE ADDED
-					// Profile.create(userString, passString, sQString,
-					// sAString);
-					Intent i = new Intent(CreateProfile.this, LanguagetutorActivity.class);
-					startActivity(i);
+					LanguagetutorActivity.currentProfile = Profile.create(userString, passString, sQString, sAString);
+
+					SharedPreferences settings = getSharedPreferences(LanguagetutorActivity.PREFS_NAME, MODE_PRIVATE);
+					Editor e = settings.edit();
+					e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
+					e.apply();
+					finish();
+					// Intent i = new Intent(CreateProfile.this,
+					// LanguagetutorActivity.class);
+					// startActivity(i);
 				}
 			}
 		});
@@ -96,7 +102,7 @@ public class CreateProfile extends Activity
 		if (!valid)
 		{
 			builder.setMessage(errorMessage);
-			builder.create();
+			builder.show();
 			errorMessage = "";
 		}
 		return valid;
