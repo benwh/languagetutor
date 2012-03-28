@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import ncl.team22.languagetutor.R;
@@ -57,22 +58,21 @@ public class Test1 extends Activity
 
 			getMultiQuestion();
 		}
-		else if (TestResult.getCounter() < 7)
+		else if (TestResult.getCounter() < 8)
 		{
 			setContentView(R.layout.test2);
 
 			getWrittenQuestion();
 		}
-		else if (TestResult.getCounter() == 7)
+		else if (TestResult.getCounter() == 8)
 		{
-			setContentView(R.layout.test2);
-
-			getWrittenQuestion();
-
 			// Submit the scores
 			TestResult.submitScore(0, 0, 0);
 			// Reset the values
 			TestResult.reset();
+			// Go back to level selection (or somewhere like that)
+			Intent i = new Intent(Test1.this, Setup.class);
+			startActivity(i);
 		}
 	}
 
@@ -138,6 +138,10 @@ public class Test1 extends Activity
 			rand3 = randGen.nextInt(TestResult.getRemovedList().size());
 			rand4 = randGen.nextInt(TestResult.getRemovedList().size());
 		}
+		Log.d(TAG, "Rand 1: " + rand1); // TRACE
+		Log.d(TAG, "Rand 2: " + rand2); // TRACE
+		Log.d(TAG, "Rand 3: " + rand3); // TRACE
+		Log.d(TAG, "Rand 4: " + rand4); // TRACE
 
 		// SET THE ANSWERS
 
@@ -162,6 +166,7 @@ public class Test1 extends Activity
 				}
 				else if (!(TestResult.getEntitiesList().isEmpty()))
 				{
+					Log.d(TAG, "Rand 1: " + rand1); // TRACE
 					option0.setText(""
 							+ TestResult.getEntitiesList().get(rand1).toSourceString());
 					break;
@@ -172,6 +177,7 @@ public class Test1 extends Activity
 					while (rand1 == TestResult.getRemovedList().indexOf(current))
 					{
 						rand1 = randGen.nextInt(TestResult.getRemovedList().size());
+						Log.d(TAG, "Rand 1: " + rand1); // TRACE
 					}
 					option0.setText(""
 							+ TestResult.getRemovedList().get(rand1).toSourceString());
@@ -185,6 +191,7 @@ public class Test1 extends Activity
 				}
 				else if (!(TestResult.getEntitiesList().isEmpty()))
 				{
+					Log.d(TAG, "Rand 1: " + rand1); // TRACE
 					option0.setText(""
 							+ TestResult.getEntitiesList().get(rand1).toDestString());
 					break;
@@ -195,6 +202,7 @@ public class Test1 extends Activity
 					while (rand1 == TestResult.getRemovedList().indexOf(current))
 					{
 						rand1 = randGen.nextInt(TestResult.getRemovedList().size());
+						Log.d(TAG, "Rand 1: " + rand1); // TRACE
 					}
 					option0.setText(""
 							+ TestResult.getRemovedList().get(rand1).toDestString());
@@ -211,13 +219,14 @@ public class Test1 extends Activity
 					option1.setText("" + current.toSourceString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 1)
+				else if (TestResult.getRemovedList().size() > 2)
 				{
 					// This button shall prefer entities which have been removed
 					while (rand2 == TestResult.getRemovedList().indexOf(current)
 							|| rand2 == rand1)
 					{
 						rand2 = randGen.nextInt(TestResult.getRemovedList().size());
+						Log.d(TAG, "Rand 2: " + rand2); // TRACE
 					}
 					option1.setText(""
 							+ TestResult.getRemovedList().get(rand2).toSourceString());
@@ -228,6 +237,7 @@ public class Test1 extends Activity
 					while (rand2 == rand1)
 					{
 						rand2 = randGen.nextInt(TestResult.getEntitiesList().size());
+						Log.d(TAG, "Rand 2: " + rand2); // TRACE
 					}
 					option1.setText(""
 							+ TestResult.getEntitiesList().get(rand2).toSourceString());
@@ -239,13 +249,14 @@ public class Test1 extends Activity
 					option1.setText("" + current.toDestString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 1)
+				else if (TestResult.getRemovedList().size() > 2)
 				{
 					// This button shall prefer entities which have been removed
 					while (rand2 == TestResult.getRemovedList().indexOf(current)
 							|| rand2 == rand1)
 					{
 						rand2 = randGen.nextInt(TestResult.getRemovedList().size());
+						Log.d(TAG, "Rand 2: " + rand2); // TRACE
 					}
 					option1.setText(""
 							+ TestResult.getRemovedList().get(rand2).toDestString());
@@ -256,6 +267,7 @@ public class Test1 extends Activity
 					while (rand2 == rand1)
 					{
 						rand2 = randGen.nextInt(TestResult.getEntitiesList().size());
+						Log.d(TAG, "Rand 2: " + rand2); // TRACE
 					}
 					option1.setText(""
 							+ TestResult.getEntitiesList().get(rand2).toDestString());
@@ -277,6 +289,7 @@ public class Test1 extends Activity
 					while (rand3 == rand2 || rand3 == rand1)
 					{
 						rand3 = randGen.nextInt(TestResult.getEntitiesList().size());
+						Log.d(TAG, "Rand 3: " + rand3); // TRACE
 					}
 					option2.setText(""
 							+ TestResult.getEntitiesList().get(rand3).toSourceString());
@@ -289,6 +302,7 @@ public class Test1 extends Activity
 							|| rand3 == rand2 || rand3 == rand1)
 					{
 						rand3 = randGen.nextInt(TestResult.getRemovedList().size());
+						Log.d(TAG, "Rand 3: " + rand3); // TRACE
 					}
 					option2.setText(""
 							+ TestResult.getRemovedList().get(rand3).toSourceString());
@@ -305,6 +319,7 @@ public class Test1 extends Activity
 					while (rand3 == rand2 || rand3 == rand1)
 					{
 						rand3 = randGen.nextInt(TestResult.getEntitiesList().size());
+						Log.d(TAG, "Rand 3: " + rand3); // TRACE
 					}
 					option2.setText(""
 							+ TestResult.getEntitiesList().get(rand3).toDestString());
@@ -317,6 +332,7 @@ public class Test1 extends Activity
 							|| rand3 == rand2 || rand3 == rand1)
 					{
 						rand3 = randGen.nextInt(TestResult.getRemovedList().size());
+						Log.d(TAG, "Rand 3: " + rand3); // TRACE
 					}
 					option2.setText(""
 							+ TestResult.getRemovedList().get(rand3).toDestString());
@@ -333,7 +349,7 @@ public class Test1 extends Activity
 					option3.setText("" + current.toSourceString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 3)
+				else if (TestResult.getRemovedList().size() > 4)
 				{
 					// This button shall prefer entities which have been removed
 					while (rand4 == TestResult.getRemovedList().indexOf(current)
@@ -342,6 +358,7 @@ public class Test1 extends Activity
 							|| rand4 == rand1)
 					{
 						rand4 = randGen.nextInt(TestResult.getRemovedList().size());
+						Log.d(TAG, "Rand 4: " + rand4); // TRACE
 					}
 					option3.setText(""
 							+ TestResult.getRemovedList().get(rand4).toSourceString());
@@ -352,6 +369,7 @@ public class Test1 extends Activity
 					while (rand4 == rand3 || rand4 == rand2 || rand4 == rand1)
 					{
 						rand4 = randGen.nextInt(TestResult.getEntitiesList().size());
+						Log.d(TAG, "Rand 4: " + rand4); // TRACE
 					}
 					option3.setText(""
 							+ TestResult.getEntitiesList().get(rand4).toSourceString());
@@ -363,7 +381,7 @@ public class Test1 extends Activity
 					option3.setText("" + current.toDestString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 3)
+				else if (TestResult.getRemovedList().size() > 4)
 				{
 					// This button shall prefer entities which have been removed
 					while (rand4 == TestResult.getRemovedList().indexOf(current)
@@ -372,6 +390,7 @@ public class Test1 extends Activity
 							|| rand4 == rand1)
 					{
 						rand4 = randGen.nextInt(TestResult.getRemovedList().size());
+						Log.d(TAG, "Rand 4: " + rand4); // TRACE
 					}
 					option3.setText(""
 							+ TestResult.getRemovedList().get(rand4).toDestString());
@@ -382,6 +401,7 @@ public class Test1 extends Activity
 					while (rand4 == rand3 || rand4 == rand2 || rand4 == rand1)
 					{
 						rand4 = randGen.nextInt(TestResult.getEntitiesList().size());
+						Log.d(TAG, "Rand 4: " + rand4); // TRACE
 					}
 					option3.setText(""
 							+ TestResult.getEntitiesList().get(rand4).toDestString());
@@ -422,17 +442,142 @@ public class Test1 extends Activity
 		option1.setOnClickListener(buttonListener);
 		option2.setOnClickListener(buttonListener);
 		option3.setOnClickListener(buttonListener);
-
-		// TODO: Set up button activity and comparisons, random activity,
-		// proceed action etc.
 	}
 
 	public void getWrittenQuestion()
 	{
+		// Generate a number 0 or 1 for input to switch statement
+		switchVal = randGen.nextInt(2);
+
+		Log.d(TAG, "Case is: " + switchVal); // TRACE
+		Log.d(TAG, "Entity list size is: "
+				+ TestResult.getEntitiesList().size()); // TRACE
+
+		// SET THE QUESTION
+
+		final TextView question = (TextView) findViewById(R.id.written_question);
+		// Generate random id
+		entityID = randGen.nextInt(TestResult.getEntitiesList().size());
+		Log.d(TAG, "Entity ID is: " + entityID); // TRACE
+		current = TestResult.getEntitiesList().get(entityID);
+		Log.d(TAG, "Entity information: " + current.toString()); // TRACE
+		switch (switchVal)
+		{
+			case 0 :
+			// Spanish question
+			{
+				// Set question text
+				question.setText("" + current.toDestString());
+				break;
+			}
+			case 1 :
+			// English question
+			{
+				// Set question text
+				question.setText("" + current.toSourceString());
+				break;
+			}
+		}
+		// Add entity to removed list
+		TestResult.addToRemovedList(current);
+		// Remove entity from initial list
+		TestResult.removeFromEntitiesList(entityID);
+
+		Log.d(TAG, "Entities list:"); // TRACE
+		for (int itr = 0; itr < TestResult.getEntitiesList().size(); itr++)
+		{
+			Log.d(TAG, TestResult.getEntitiesList().get(itr).toString());
+		}
+		Log.d(TAG, "Removed list:"); // TRACE
+		for (int itr1 = 0; itr1 < TestResult.getRemovedList().size(); itr1++)
+		{
+			Log.d(TAG, TestResult.getRemovedList().get(itr1).toString());
+		}
+
+		// SET THE ANSWER
+
+		final EditText answer = (EditText) findViewById(R.id.written_answer);
+
+		// SET THE SUBMIT
+
+		final Button submit = (Button) findViewById(R.id.submit_answer);
+		submit.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				int actualScore = 0;
+				int maxScore = 0;
+				char a;
+				char b;
+				int submissionScore = 0;
+				switch (switchVal)
+				{
+					case 0 :
+						for (int i = 0; i < answer.getText().length()
+								&& i < current.toSourceString().length(); i++)
+						{
+							a = answer.getText().charAt(i);
+							b = current.toSourceString().charAt(i);
+							if (a == b)
+							{
+								actualScore++;
+							}
+							maxScore++;
+						}
+						break;
+					case 1 :
+						for (int i = 0; i < answer.getText().length()
+								&& i < current.toDestString().length(); i++)
+						{
+							a = answer.getText().charAt(i);
+							b = current.toDestString().charAt(i);
+							if (a == b)
+							{
+								actualScore++;
+							}
+							maxScore++;
+						}
+						break;
+				}
+				double percentage = ((double) actualScore / (double) maxScore) * 100;
+				Log.d(TAG, "Actual score is: " + actualScore); // TRACE
+				Log.d(TAG, "Max score is: " + maxScore); // TRACE
+				Log.d(TAG, "Percentage is: " + percentage); // TRACE
+				if (percentage == 100)
+				{
+					submissionScore = 3;
+				}
+				else if (percentage >= 70)
+				{
+					submissionScore = 2;
+				}
+				else if (percentage >= 40)
+				{
+					submissionScore = 1;
+				}
+				Log.d(TAG, "Score incremented by: " + submissionScore); // TRACE
+				if (TestResult.getCounter() != 8)
+				{
+					// Increase counter
+					TestResult.increaseCounter();
+					// Increase score
+					TestResult.increaseScore(submissionScore);
+					// Start new intent
+					Intent i = new Intent(Test1.this, Test1.class);
+					startActivity(i);
+				}
+				else if (TestResult.getCounter() == 8)
+				{
+					Log.d(TAG, "Test complete, reverting to level selection page...");
+					Intent i = new Intent(Test1.this, Test1.class);
+					startActivity(i);
+				}
+			}
+		});
+
 		// TODO: Set up word to translate and comparison algorithm, random
 		// activity, proceed action etc.
 	}
-
 	// TODO: HANDLE BACK BUTTON ACTIVITY, PAUSE ETC. TO RESET TestResult DATA TO
 	// DEFAULT VALUES
 }
