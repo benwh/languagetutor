@@ -17,25 +17,29 @@
         android:textSize="25dp"
         android:gravity="center_horizontal" />
 	
+        <Button android:id="@+id/option0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:tag="0" />
+        
         <Button android:id="@+id/option1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
-        
+        android:layout_weight="1"
+        android:tag="1" />
+                
         <Button android:id="@+id/option2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
-                
+        android:layout_weight="1"
+        android:tag="2" />
+                        
         <Button android:id="@+id/option3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
-                        
-        <Button android:id="@+id/option4"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:tag="3" />
         
         <!-- Deciding not to have a submit button on this test, but to handle checking/submission within other buttons
         <Button android:id="@+id/submit_answer"

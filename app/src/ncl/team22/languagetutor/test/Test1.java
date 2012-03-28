@@ -6,6 +6,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 import ncl.team22.languagetutor.R;
@@ -82,6 +85,8 @@ public class Test1 extends Activity
 		Log.d(TAG, "Entity list size is: "
 				+ TestResult.getEntitiesList().size()); // TRACE
 
+		// SET THE QUESTION
+
 		final TextView question = (TextView) findViewById(R.id.multi_question);
 		// Generate random id
 		entityID = randGen.nextInt(TestResult.getEntitiesList().size());
@@ -120,6 +125,279 @@ public class Test1 extends Activity
 		{
 			Log.d(TAG, TestResult.getRemovedList().get(itr1).toString());
 		}
+
+		int rand1 = 0;
+		int rand2 = 0;
+		int rand3 = 0;
+		int rand4 = 0;
+
+		if (!(TestResult.getRemovedList().isEmpty()))
+		{
+			rand1 = randGen.nextInt(TestResult.getRemovedList().size());
+			rand2 = randGen.nextInt(TestResult.getRemovedList().size());
+			rand3 = randGen.nextInt(TestResult.getRemovedList().size());
+			rand4 = randGen.nextInt(TestResult.getRemovedList().size());
+		}
+
+		// SET THE ANSWERS
+
+		// Determine the correct answer position
+		final int correctPosition = randGen.nextInt(4);
+		Log.d(TAG, "Correct position is: " + correctPosition);
+
+		// Find the buttons
+		final Button option0 = (Button) findViewById(R.id.option0);
+		final Button option1 = (Button) findViewById(R.id.option1);
+		final Button option2 = (Button) findViewById(R.id.option2);
+		final Button option3 = (Button) findViewById(R.id.option3);
+
+		// Button zero logic
+		switch (switchVal)
+		{
+			case 0 :
+				if (0 == correctPosition)
+				{
+					option0.setText("" + current.toSourceString());
+					break;
+				}
+				else if (!(TestResult.getEntitiesList().isEmpty()))
+				{
+					option0.setText(""
+							+ TestResult.getEntitiesList().get(rand1).toSourceString());
+					break;
+				}
+				else
+				{
+					// Check to avoid duplicate answers
+					while (rand1 == TestResult.getRemovedList().indexOf(current))
+					{
+						rand1 = randGen.nextInt(TestResult.getRemovedList().size());
+					}
+					option0.setText(""
+							+ TestResult.getRemovedList().get(rand1).toSourceString());
+					break;
+				}
+			case 1 :
+				if (0 == correctPosition)
+				{
+					option0.setText("" + current.toDestString());
+					break;
+				}
+				else if (!(TestResult.getEntitiesList().isEmpty()))
+				{
+					option0.setText(""
+							+ TestResult.getEntitiesList().get(rand1).toDestString());
+					break;
+				}
+				else
+				{
+					// Check to avoid duplicate answers
+					while (rand1 == TestResult.getRemovedList().indexOf(current))
+					{
+						rand1 = randGen.nextInt(TestResult.getRemovedList().size());
+					}
+					option0.setText(""
+							+ TestResult.getRemovedList().get(rand1).toDestString());
+					break;
+				}
+		}
+
+		// Button one logic
+		switch (switchVal)
+		{
+			case 0 :
+				if (1 == correctPosition)
+				{
+					option1.setText("" + current.toSourceString());
+					break;
+				}
+				else if (TestResult.getRemovedList().size() > 1)
+				{
+					// This button shall prefer entities which have been removed
+					while (rand2 == TestResult.getRemovedList().indexOf(current)
+							|| rand2 == rand1)
+					{
+						rand2 = randGen.nextInt(TestResult.getRemovedList().size());
+					}
+					option1.setText(""
+							+ TestResult.getRemovedList().get(rand2).toSourceString());
+					break;
+				}
+				else
+				{
+					while (rand2 == rand1)
+					{
+						rand2 = randGen.nextInt(TestResult.getEntitiesList().size());
+					}
+					option1.setText(""
+							+ TestResult.getEntitiesList().get(rand2).toSourceString());
+					break;
+				}
+			case 1 :
+				if (1 == correctPosition)
+				{
+					option1.setText("" + current.toDestString());
+					break;
+				}
+				else if (TestResult.getRemovedList().size() > 1)
+				{
+					// This button shall prefer entities which have been removed
+					while (rand2 == TestResult.getRemovedList().indexOf(current)
+							|| rand2 == rand1)
+					{
+						rand2 = randGen.nextInt(TestResult.getRemovedList().size());
+					}
+					option1.setText(""
+							+ TestResult.getRemovedList().get(rand2).toDestString());
+					break;
+				}
+				else
+				{
+					while (rand2 == rand1)
+					{
+						rand2 = randGen.nextInt(TestResult.getEntitiesList().size());
+					}
+					option1.setText(""
+							+ TestResult.getEntitiesList().get(rand2).toDestString());
+					break;
+				}
+		}
+
+		// Button two logic
+		switch (switchVal)
+		{
+			case 0 :
+				if (2 == correctPosition)
+				{
+					option2.setText("" + current.toSourceString());
+					break;
+				}
+				else if (!(TestResult.getEntitiesList().isEmpty()))
+				{
+					while (rand3 == rand1)
+					{
+						rand3 = randGen.nextInt(TestResult.getEntitiesList().size());
+					}
+					option2.setText(""
+							+ TestResult.getEntitiesList().get(rand3).toSourceString());
+					break;
+				}
+				else
+				{
+					// Check to avoid duplicate answers
+					while (rand3 == TestResult.getRemovedList().indexOf(current)
+							|| rand3 == rand2 || rand3 == rand1)
+					{
+						rand3 = randGen.nextInt(TestResult.getRemovedList().size());
+					}
+					option2.setText(""
+							+ TestResult.getRemovedList().get(rand3).toSourceString());
+					break;
+				}
+			case 1 :
+				if (2 == correctPosition)
+				{
+					option2.setText("" + current.toDestString());
+					break;
+				}
+				else if (!(TestResult.getEntitiesList().isEmpty()))
+				{
+					while (rand3 == rand1)
+					{
+						rand3 = randGen.nextInt(TestResult.getEntitiesList().size());
+					}
+					option2.setText(""
+							+ TestResult.getEntitiesList().get(rand3).toDestString());
+					break;
+				}
+				else
+				{
+					// Check to avoid duplicate answers
+					while (rand3 == TestResult.getRemovedList().indexOf(current)
+							|| rand3 == rand2 || rand3 == rand1)
+					{
+						rand3 = randGen.nextInt(TestResult.getRemovedList().size());
+					}
+					option2.setText(""
+							+ TestResult.getRemovedList().get(rand3).toDestString());
+					break;
+				}
+		}
+
+		// Button three logic
+		switch (switchVal)
+		{
+			case 0 :
+				if (3 == correctPosition)
+				{
+					option3.setText("" + current.toSourceString());
+					break;
+				}
+				else if (TestResult.getRemovedList().size() > 3)
+				{
+					// This button shall prefer entities which have been removed
+					while (rand4 == TestResult.getRemovedList().indexOf(current)
+							|| rand4 == rand3
+							|| rand4 == rand2
+							|| rand4 == rand1)
+					{
+						rand4 = randGen.nextInt(TestResult.getRemovedList().size());
+					}
+					option3.setText(""
+							+ TestResult.getRemovedList().get(rand4).toSourceString());
+					break;
+				}
+				else
+				{
+					option3.setText(""
+							+ TestResult.getEntitiesList().get(randGen.nextInt(TestResult.getEntitiesList().size())).toSourceString());
+					break;
+				}
+			case 1 :
+				if (3 == correctPosition)
+				{
+					option3.setText("" + current.toDestString());
+					break;
+				}
+				else if (TestResult.getRemovedList().size() > 3)
+				{
+					// This button shall prefer entities which have been removed
+					while (rand4 == TestResult.getRemovedList().indexOf(current)
+							|| rand4 == rand3
+							|| rand4 == rand2
+							|| rand4 == rand1)
+					{
+						rand4 = randGen.nextInt(TestResult.getRemovedList().size());
+					}
+					option3.setText(""
+							+ TestResult.getRemovedList().get(rand4).toDestString());
+					break;
+				}
+				else
+				{
+					option3.setText(""
+							+ TestResult.getEntitiesList().get(randGen.nextInt(TestResult.getEntitiesList().size())).toDestString());
+					break;
+				}
+		}
+
+		// Listener for button clicks
+		OnClickListener buttonListener = new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				if (correctPosition == Integer.parseInt((String) v.getTag()))
+				{
+					Log.d(TAG, "Clicking the right button!"); // TRACE
+				}
+			}
+		};
+
+		// Set the buttons with click listener
+		option0.setOnClickListener(buttonListener);
+		option1.setOnClickListener(buttonListener);
+		option2.setOnClickListener(buttonListener);
+		option3.setOnClickListener(buttonListener);
 
 		// Increase counter (will go in proceed actions)
 		TestResult.increaseCounter();
