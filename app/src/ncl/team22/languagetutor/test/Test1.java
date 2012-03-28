@@ -274,7 +274,7 @@ public class Test1 extends Activity
 				}
 				else if (!(TestResult.getEntitiesList().isEmpty()))
 				{
-					while (rand3 == rand1)
+					while (rand3 == rand2 || rand3 == rand1)
 					{
 						rand3 = randGen.nextInt(TestResult.getEntitiesList().size());
 					}
@@ -302,7 +302,7 @@ public class Test1 extends Activity
 				}
 				else if (!(TestResult.getEntitiesList().isEmpty()))
 				{
-					while (rand3 == rand1)
+					while (rand3 == rand2 || rand3 == rand1)
 					{
 						rand3 = randGen.nextInt(TestResult.getEntitiesList().size());
 					}
@@ -349,8 +349,12 @@ public class Test1 extends Activity
 				}
 				else
 				{
+					while (rand4 == rand3 || rand4 == rand2 || rand4 == rand1)
+					{
+						rand4 = randGen.nextInt(TestResult.getEntitiesList().size());
+					}
 					option3.setText(""
-							+ TestResult.getEntitiesList().get(randGen.nextInt(TestResult.getEntitiesList().size())).toSourceString());
+							+ TestResult.getEntitiesList().get(rand4).toSourceString());
 					break;
 				}
 			case 1 :
@@ -375,8 +379,12 @@ public class Test1 extends Activity
 				}
 				else
 				{
+					while (rand4 == rand3 || rand4 == rand2 || rand4 == rand1)
+					{
+						rand4 = randGen.nextInt(TestResult.getEntitiesList().size());
+					}
 					option3.setText(""
-							+ TestResult.getEntitiesList().get(randGen.nextInt(TestResult.getEntitiesList().size())).toDestString());
+							+ TestResult.getEntitiesList().get(rand4).toDestString());
 					break;
 				}
 		}
