@@ -28,6 +28,7 @@
         <activity android:name=".profile.Login"></activity>
         <activity android:name=".profile.CreateProfile"></activity>
         <activity android:name=".TopicSelectionActivity"></activity>
+        <activity android:name=".profile.Statistics"></activity>
     </application>
 
 </manifest>
