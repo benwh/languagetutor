@@ -396,7 +396,23 @@ public class Test1 extends Activity
 			{
 				if (correctPosition == Integer.parseInt((String) v.getTag()))
 				{
-					Log.d(TAG, "Clicking the right button!"); // TRACE
+					Log.d(TAG, "Correct answer!"); // TRACE
+					// Increase counter
+					TestResult.increaseCounter();
+					// Increase score
+					TestResult.increaseScore(2);
+					// Start new intent
+					Intent i = new Intent(Test1.this, Test1.class);
+					startActivity(i);
+				}
+				else
+				{
+					Log.d(TAG, "Wrong answer!"); // TRACE
+					// Increase counter
+					TestResult.increaseCounter();
+					// Start new intent
+					Intent i = new Intent(Test1.this, Test1.class);
+					startActivity(i);
 				}
 			}
 		};
@@ -406,17 +422,6 @@ public class Test1 extends Activity
 		option1.setOnClickListener(buttonListener);
 		option2.setOnClickListener(buttonListener);
 		option3.setOnClickListener(buttonListener);
-
-		// Increase counter (will go in proceed actions)
-		TestResult.increaseCounter();
-
-		// At the moment this just shows which topic you selected to go to the
-		// test, but eventually it will formulate some kind of question -
-		// however, this value could be used to show the kind of test you are
-		// doing as well
-		// final TextView question = (TextView)
-		// findViewById(R.id.multi_question);
-		// question.setText("You picked a test on " + selectedTopic.toString());
 
 		// TODO: Set up button activity and comparisons, random activity,
 		// proceed action etc.
