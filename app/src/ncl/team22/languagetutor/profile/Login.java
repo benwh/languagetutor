@@ -122,10 +122,4 @@ public class Login extends Activity
 		return null;
 	}
 
-	@Override
-	public void onBackPressed()
-	{
-		// Do nothing, user shouldn't be able to escape back to main activity
-	}
-
 }
