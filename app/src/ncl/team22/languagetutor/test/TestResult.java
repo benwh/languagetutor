@@ -61,8 +61,11 @@ public class TestResult
 	 */
 	public static void reset()
 	{
-		testScore = 0;
 		counter = 0;
+		testScore = 0;
+		Log.d(TAG, "reset");
+		Log.d(TAG, "Counter value is: " + counter);
+		Log.d(TAG, "Score value is: " + testScore);
 	}
 
 	/**

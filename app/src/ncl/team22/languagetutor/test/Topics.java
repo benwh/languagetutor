@@ -23,11 +23,11 @@ import ncl.team22.languagetutor.data.Topic;
  * 
  * @author james
  */
-public class Topics1 extends ListActivity
+public class Topics extends ListActivity
 {
 	private boolean				testsComplete	= false;
 	public static final String	intentTopic		= "ncl.team22.languagetutor.test.selectedTopic";
-	private static final String	TAG				= "LT-Topics1";
+	private static final String	TAG				= "LT-Topics";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -51,7 +51,7 @@ public class Topics1 extends ListActivity
 					// As the ListView is a list of 'Topic's can now just pull
 					// the selected Topic out and use it for the intent
 					Topic selectedTopic = (Topic) lv.getItemAtPosition(i);
-					Intent intent = new Intent(getApplicationContext(), Test1.class);
+					Intent intent = new Intent(getApplicationContext(), Test.class);
 
 					// Use the intentTopic variable as the name of the extra,
 					// which can be used across multiple classes. selectedTopic

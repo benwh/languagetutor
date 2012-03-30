@@ -21,7 +21,7 @@ import ncl.team22.languagetutor.data.Topic;
  * 
  * @author james
  */
-public class Test1 extends Activity
+public class Test extends Activity
 {
 	Topic						selectedTopic;
 
@@ -30,7 +30,7 @@ public class Test1 extends Activity
 	int							switchVal;
 	int							entityID;
 
-	public static final String	TAG		= "LT-Test1";
+	public static final String	TAG		= "LT-Test";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -44,7 +44,7 @@ public class Test1 extends Activity
 			// Pull the selected topic out of the intent from the previous
 			// activity
 			Intent i = getIntent();
-			selectedTopic = (Topic) i.getSerializableExtra(Topics1.intentTopic);
+			selectedTopic = (Topic) i.getSerializableExtra(Topics.intentTopic);
 			Log.d(TAG, "Selected topic was: " + selectedTopic);
 
 			// Occupy list with topics
@@ -71,7 +71,7 @@ public class Test1 extends Activity
 			// Reset the values
 			TestResult.reset();
 			// Go back to level selection (or somewhere like that)
-			Intent i = new Intent(Test1.this, Setup.class);
+			Intent i = new Intent(Test.this, Setup.class);
 			startActivity(i);
 		}
 	}
@@ -422,7 +422,7 @@ public class Test1 extends Activity
 					// Increase score
 					TestResult.increaseScore(2);
 					// Start new intent
-					Intent i = new Intent(Test1.this, Test1.class);
+					Intent i = new Intent(Test.this, Test.class);
 					startActivity(i);
 				}
 				else
@@ -431,7 +431,7 @@ public class Test1 extends Activity
 					// Increase counter
 					TestResult.increaseCounter();
 					// Start new intent
-					Intent i = new Intent(Test1.this, Test1.class);
+					Intent i = new Intent(Test.this, Test.class);
 					startActivity(i);
 				}
 			}
@@ -563,13 +563,13 @@ public class Test1 extends Activity
 					// Increase score
 					TestResult.increaseScore(submissionScore);
 					// Start new intent
-					Intent i = new Intent(Test1.this, Test1.class);
+					Intent i = new Intent(Test.this, Test.class);
 					startActivity(i);
 				}
 				else if (TestResult.getCounter() == 8)
 				{
 					Log.d(TAG, "Test complete, reverting to level selection page...");
-					Intent i = new Intent(Test1.this, Test1.class);
+					Intent i = new Intent(Test.this, Test.class);
 					startActivity(i);
 				}
 			}
