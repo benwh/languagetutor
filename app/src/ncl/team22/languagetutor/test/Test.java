@@ -166,21 +166,10 @@ public class Test extends Activity
 				}
 				else if (!(TestResult.getEntitiesList().isEmpty()))
 				{
+					rand1 = randGen.nextInt(TestResult.getEntitiesList().size());
 					Log.d(TAG, "Rand 1: " + rand1); // TRACE
 					option0.setText(""
 							+ TestResult.getEntitiesList().get(rand1).toSourceString());
-					break;
-				}
-				else
-				{
-					// Check to avoid duplicate answers
-					while (rand1 == TestResult.getRemovedList().indexOf(current))
-					{
-						rand1 = randGen.nextInt(TestResult.getRemovedList().size());
-						Log.d(TAG, "Rand 1: " + rand1); // TRACE
-					}
-					option0.setText(""
-							+ TestResult.getRemovedList().get(rand1).toSourceString());
 					break;
 				}
 			case 1 :
@@ -191,6 +180,7 @@ public class Test extends Activity
 				}
 				else if (!(TestResult.getEntitiesList().isEmpty()))
 				{
+					rand1 = randGen.nextInt(TestResult.getEntitiesList().size());
 					Log.d(TAG, "Rand 1: " + rand1); // TRACE
 					option0.setText(""
 							+ TestResult.getEntitiesList().get(rand1).toDestString());
@@ -284,18 +274,7 @@ public class Test extends Activity
 					option2.setText("" + current.toSourceString());
 					break;
 				}
-				else if (!(TestResult.getEntitiesList().isEmpty()))
-				{
-					while (rand3 == rand2 || rand3 == rand1)
-					{
-						rand3 = randGen.nextInt(TestResult.getEntitiesList().size());
-						Log.d(TAG, "Rand 3: " + rand3); // TRACE
-					}
-					option2.setText(""
-							+ TestResult.getEntitiesList().get(rand3).toSourceString());
-					break;
-				}
-				else
+				else if (TestResult.getRemovedList().size() > 3)
 				{
 					// Check to avoid duplicate answers
 					while (rand3 == TestResult.getRemovedList().indexOf(current)
@@ -308,10 +287,34 @@ public class Test extends Activity
 							+ TestResult.getRemovedList().get(rand3).toSourceString());
 					break;
 				}
+				else if (!(TestResult.getEntitiesList().isEmpty()))
+				{
+					while (rand3 == rand2 || rand3 == rand1)
+					{
+						rand3 = randGen.nextInt(TestResult.getEntitiesList().size());
+						Log.d(TAG, "Rand 3: " + rand3); // TRACE
+					}
+					option2.setText(""
+							+ TestResult.getEntitiesList().get(rand3).toSourceString());
+					break;
+				}
 			case 1 :
 				if (2 == correctPosition)
 				{
 					option2.setText("" + current.toDestString());
+					break;
+				}
+				else if (TestResult.getRemovedList().size() > 3)
+				{
+					// Check to avoid duplicate answers
+					while (rand3 == TestResult.getRemovedList().indexOf(current)
+							|| rand3 == rand2 || rand3 == rand1)
+					{
+						rand3 = randGen.nextInt(TestResult.getRemovedList().size());
+						Log.d(TAG, "Rand 3: " + rand3); // TRACE
+					}
+					option2.setText(""
+							+ TestResult.getRemovedList().get(rand3).toDestString());
 					break;
 				}
 				else if (!(TestResult.getEntitiesList().isEmpty()))
@@ -323,19 +326,6 @@ public class Test extends Activity
 					}
 					option2.setText(""
 							+ TestResult.getEntitiesList().get(rand3).toDestString());
-					break;
-				}
-				else
-				{
-					// Check to avoid duplicate answers
-					while (rand3 == TestResult.getRemovedList().indexOf(current)
-							|| rand3 == rand2 || rand3 == rand1)
-					{
-						rand3 = randGen.nextInt(TestResult.getRemovedList().size());
-						Log.d(TAG, "Rand 3: " + rand3); // TRACE
-					}
-					option2.setText(""
-							+ TestResult.getRemovedList().get(rand3).toDestString());
 					break;
 				}
 		}
@@ -514,26 +504,38 @@ public class Test extends Activity
 				{
 					case 0 :
 						for (int i = 0; i < answer.getText().length()
-								&& i < current.toSourceString().length(); i++)
+								|| i < current.toSourceString().length(); i++)
 						{
-							a = answer.getText().charAt(i);
-							b = current.toSourceString().charAt(i);
-							if (a == b)
+							try
 							{
-								actualScore++;
+								a = answer.getText().charAt(i);
+								b = current.toSourceString().charAt(i);
+								if (a == b)
+								{
+									actualScore++;
+								}
+							} catch (IndexOutOfBoundsException e)
+							{
+								Log.d(TAG, "Caught: " + e);
 							}
 							maxScore++;
 						}
 						break;
 					case 1 :
 						for (int i = 0; i < answer.getText().length()
-								&& i < current.toDestString().length(); i++)
+								|| i < current.toDestString().length(); i++)
 						{
-							a = answer.getText().charAt(i);
-							b = current.toDestString().charAt(i);
-							if (a == b)
+							try
 							{
-								actualScore++;
+								a = answer.getText().charAt(i);
+								b = current.toDestString().charAt(i);
+								if (a == b)
+								{
+									actualScore++;
+								}
+							} catch (IndexOutOfBoundsException e)
+							{
+								Log.d(TAG, "Caught: " + e);
 							}
 							maxScore++;
 						}
