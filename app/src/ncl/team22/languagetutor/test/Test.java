@@ -172,6 +172,18 @@ public class Test extends Activity
 							+ TestResult.getEntitiesList().get(rand1).toSourceString());
 					break;
 				}
+				else if (TestResult.getRemovedList().size() > 1)
+				{
+					// Check to avoid duplicate answers
+					while (rand1 == TestResult.getRemovedList().indexOf(current))
+					{
+						rand1 = randGen.nextInt(TestResult.getRemovedList().size());
+						Log.d(TAG, "Rand 1: " + rand1); // TRACE
+					}
+					option0.setText(""
+							+ TestResult.getRemovedList().get(rand1).toDestString());
+					break;
+				}
 			case 1 :
 				if (0 == correctPosition)
 				{
@@ -186,7 +198,7 @@ public class Test extends Activity
 							+ TestResult.getEntitiesList().get(rand1).toDestString());
 					break;
 				}
-				else
+				else if (TestResult.getRemovedList().size() > 1)
 				{
 					// Check to avoid duplicate answers
 					while (rand1 == TestResult.getRemovedList().indexOf(current))
@@ -287,7 +299,7 @@ public class Test extends Activity
 							+ TestResult.getRemovedList().get(rand3).toSourceString());
 					break;
 				}
-				else if (!(TestResult.getEntitiesList().isEmpty()))
+				else
 				{
 					while (rand3 == rand2 || rand3 == rand1)
 					{
@@ -317,7 +329,7 @@ public class Test extends Activity
 							+ TestResult.getRemovedList().get(rand3).toDestString());
 					break;
 				}
-				else if (!(TestResult.getEntitiesList().isEmpty()))
+				else
 				{
 					while (rand3 == rand2 || rand3 == rand1)
 					{
