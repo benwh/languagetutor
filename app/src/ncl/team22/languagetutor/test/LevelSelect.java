@@ -13,7 +13,7 @@ import ncl.team22.languagetutor.R;
  * 
  * @author james
  */
-public class Setup extends Activity
+public class LevelSelect extends Activity
 {
 	private static int	level	= 0;
 
@@ -31,7 +31,7 @@ public class Setup extends Activity
 			public void onClick(View v)
 			{
 				level = 1;
-				Intent i = new Intent(Setup.this, Topics.class);
+				Intent i = new Intent(LevelSelect.this, Topics.class);
 				startActivity(i);
 			}
 		});
@@ -43,7 +43,7 @@ public class Setup extends Activity
 			public void onClick(View v)
 			{
 				level = 2;
-				Intent i = new Intent(Setup.this, Topics.class);
+				Intent i = new Intent(LevelSelect.this, Topics.class);
 				startActivity(i);
 			}
 		});
@@ -55,7 +55,7 @@ public class Setup extends Activity
 			public void onClick(View v)
 			{
 				level = 3;
-				Intent i = new Intent(Setup.this, Topics.class);
+				Intent i = new Intent(LevelSelect.this, Topics.class);
 				startActivity(i);
 			}
 		});

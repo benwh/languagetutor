@@ -71,7 +71,7 @@ public class Test extends Activity
 			// Reset the values
 			TestResult.reset();
 			// Go back to level selection (or somewhere like that)
-			Intent i = new Intent(Test.this, Setup.class);
+			Intent i = new Intent(Test.this, LevelSelect.class);
 			startActivity(i);
 		}
 	}

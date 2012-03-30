@@ -18,6 +18,7 @@ import ncl.team22.languagetutor.data.Topic;
 public class TestResult
 {
 	private static int			testScore	= 0;
+	private static int			testMaximum	= 0;
 	private static int			counter		= 0;
 
 	public static final String	TAG			= "LT-TestResult";
@@ -32,6 +33,40 @@ public class TestResult
 	{
 		testScore = testScore + i;
 		Log.d(TAG, "Score value is: " + testScore);
+	}
+
+	/**
+	 * Get the test score
+	 * 
+	 * @return the test score
+	 */
+	public static int getScore()
+	{
+		Log.d(TAG, "Score value is: " + testScore);
+		return testScore;
+	}
+
+	/**
+	 * Increase the maximum score by the highest value available for a question
+	 * 
+	 * @param i
+	 *            - The maximum question value
+	 */
+	public static void increaseMaximum(int i)
+	{
+		testMaximum = testMaximum + i;
+		Log.d(TAG, "Maximum value is: " + testMaximum);
+	}
+
+	/**
+	 * Get the test maximum value
+	 * 
+	 * @return the maximum score available
+	 */
+	public static int getMaximum()
+	{
+		Log.d(TAG, "Maximum value is: " + testMaximum);
+		return testMaximum;
 	}
 
 	/**
