@@ -22,7 +22,7 @@ public class LevelSelect extends Activity
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.test_setup);
+		setContentView(R.layout.test_level_select);
 
 		// Launch level one test options
 		final Button one = (Button) findViewById(R.id.level1);
