@@ -7,23 +7,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 
 public class ReplaceQA extends Activity
 {
+	private String	username;
 	private String	inPass;
 	private String	inQ;
 	private String	inA;
 	private String	mssg;
-	private int		proID;
 
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.replaceqa);
 
-		// get profileID??
-		proID = 1;
+		username = LanguagetutorActivity.currentProfile.display_name;
 
 		// when the "ok" button is clicked
 		final Button doneButton = (Button) findViewById(R.id.button1);
@@ -38,7 +38,7 @@ public class ReplaceQA extends Activity
 				inA = ((EditText) findViewById(R.id.editText3)).getText().toString();
 
 				// should the new password be set? + set appropriate message
-				if (Profile.authenticatePassword(proID, inPass))
+				if (Profile.authenticate(username, inPass) != null)
 				{
 					if (!inQ.isEmpty() && !inA.isEmpty())
 					{

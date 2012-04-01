@@ -114,67 +114,6 @@ public class Profile
 		}
 	}
 
-	// ky: to confirm secret answer is right
-	public static boolean authenticateSA(int profileID, String sA)
-	{
-		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
-
-		// db query
-		Cursor c = sDb.query(TABLE_PROFILE, new String[]
-		{"profileID _id", "secret_a"}, "display_name = ?", new String[]
-		{sA}, null, null, null);
-
-		if (c.getCount() > 0)
-		{
-			c.moveToFirst();
-			if (sA.equals(c.getString(c.getColumnIndex("secret_a"))))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public static boolean authenticatePassword(int profileID, String password1)
-	{
-		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
-
-		// db query
-		Cursor c = sDb.query(TABLE_PROFILE, new String[]
-		{"profileID _id", "password_hash"}, "display_name = ?", new String[]
-		{password1}, null, null, null);
-
-		if (c.getCount() > 0)
-		{
-			c.moveToFirst();
-			if (hashPassword(password1).equals(c.getString(c.getColumnIndex("password_hash"))))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public static String getSQ(int profileID)
-	{
-		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
-
-		// db query
-		Cursor c = sDb.query(TABLE_PROFILE, new String[]
-		{"profileID _id", "secret_q"}, "display_name = ?", new String[]
-		{"" + profileID}, null, null, null);
-
-		if (c.getCount() > 0)
-		{
-			c.moveToFirst();
-			return c.getString(c.getColumnIndex("secret_q"));
-		}
-
-		return "undefined secret question";
-	}
-
 	// Checks the username given exists in the database
 	public static boolean checkName(String userName)
 	{
