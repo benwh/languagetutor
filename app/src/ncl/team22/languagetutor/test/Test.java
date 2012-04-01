@@ -64,6 +64,12 @@ public class Test extends Activity
 
 			getWrittenQuestion();
 		}
+		else if (TestResult.getCounter() == 8)
+		{
+			Log.d(TAG, "Test complete, taking you to the TestReview...");
+			Intent i = new Intent(Test.this, TestReview.class);
+			startActivity(i);
+		}
 	}
 
 	public void getMultiQuestion()
@@ -569,12 +575,6 @@ public class Test extends Activity
 					// Increase maximum score
 					TestResult.increaseMaximum(3);
 					// Start new intent
-					Intent i = new Intent(Test.this, Test.class);
-					startActivity(i);
-				}
-				else if (TestResult.getCounter() == 8)
-				{
-					Log.d(TAG, "Test complete, reverting to level selection page...");
 					Intent i = new Intent(Test.this, Test.class);
 					startActivity(i);
 				}

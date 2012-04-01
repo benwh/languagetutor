@@ -44,5 +44,15 @@ public class TestData
 		entitiesList.remove(entityID);
 	}
 
-	// TODO: Reset data method
+	public static void resetData()
+	{
+		for (int i = 0; i < entitiesList.size(); i++)
+		{
+			entitiesList.remove(i);
+		}
+		for (int j = 0; j < entitiesRemoved.size(); j++)
+		{
+			entitiesRemoved.remove(j);
+		}
+	}
 }

@@ -2,6 +2,7 @@ package ncl.team22.languagetutor.test;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import ncl.team22.languagetutor.R;
 
@@ -21,12 +22,11 @@ public class TestReview extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_review);
 
-		// Values used in setting
-		TestResult.calculateTestPercentage();
-		TestResult.getScore();
-		TestResult.getMaximum();
-
 		// Set score text
+		final TextView score = (TextView) findViewById(R.id.test_score);
+		score.setText("(" + TestResult.getScore() + "/"
+				+ TestResult.getMaximum() + ") - "
+				+ TestResult.calculateTestPercentage() + "%");
 
 		// Set rank text (will mirror whatever the stats page would say for a
 		// respective score)
@@ -36,5 +36,4 @@ public class TestReview extends Activity
 		// Reset values
 		TestResult.reset();
 	}
-
 }
