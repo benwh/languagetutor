@@ -48,7 +48,7 @@ public class Test extends Activity
 			Log.d(TAG, "Selected topic was: " + selectedTopic);
 
 			// Occupy list with topics
-			TestResult.setEntitiesListByTopic(selectedTopic);
+			TestData.setEntitiesListByTopic(selectedTopic);
 
 			getMultiQuestion();
 		}
@@ -64,16 +64,6 @@ public class Test extends Activity
 
 			getWrittenQuestion();
 		}
-		else if (TestResult.getCounter() == 8)
-		{
-			// Submit the scores
-			TestResult.submitScore(0, 0, 0);
-			// Reset the values
-			TestResult.reset();
-			// Go back to level selection (or somewhere like that)
-			Intent i = new Intent(Test.this, LevelSelect.class);
-			startActivity(i);
-		}
 	}
 
 	public void getMultiQuestion()
@@ -82,16 +72,15 @@ public class Test extends Activity
 		switchVal = randGen.nextInt(2);
 
 		Log.d(TAG, "Case is: " + switchVal); // TRACE
-		Log.d(TAG, "Entity list size is: "
-				+ TestResult.getEntitiesList().size()); // TRACE
+		Log.d(TAG, "Entity list size is: " + TestData.getEntitiesList().size()); // TRACE
 
 		// SET THE QUESTION
 
 		final TextView question = (TextView) findViewById(R.id.multi_question);
 		// Generate random id
-		entityID = randGen.nextInt(TestResult.getEntitiesList().size());
+		entityID = randGen.nextInt(TestData.getEntitiesList().size());
 		Log.d(TAG, "Entity ID is: " + entityID); // TRACE
-		current = TestResult.getEntitiesList().get(entityID);
+		current = TestData.getEntitiesList().get(entityID);
 		Log.d(TAG, "Entity information: " + current.toString()); // TRACE
 		switch (switchVal)
 		{
@@ -111,19 +100,19 @@ public class Test extends Activity
 			}
 		}
 		// Add entity to removed list
-		TestResult.addToRemovedList(current);
+		TestData.addToRemovedList(current);
 		// Remove entity from initial list
-		TestResult.removeFromEntitiesList(entityID);
+		TestData.removeFromEntitiesList(entityID);
 
 		Log.d(TAG, "Entities list:"); // TRACE
-		for (int itr = 0; itr < TestResult.getEntitiesList().size(); itr++)
+		for (int itr = 0; itr < TestData.getEntitiesList().size(); itr++)
 		{
-			Log.d(TAG, TestResult.getEntitiesList().get(itr).toString());
+			Log.d(TAG, TestData.getEntitiesList().get(itr).toString());
 		}
 		Log.d(TAG, "Removed list:"); // TRACE
-		for (int itr1 = 0; itr1 < TestResult.getRemovedList().size(); itr1++)
+		for (int itr1 = 0; itr1 < TestData.getRemovedList().size(); itr1++)
 		{
-			Log.d(TAG, TestResult.getRemovedList().get(itr1).toString());
+			Log.d(TAG, TestData.getRemovedList().get(itr1).toString());
 		}
 
 		int rand1 = 0;
@@ -131,12 +120,12 @@ public class Test extends Activity
 		int rand3 = 0;
 		int rand4 = 0;
 
-		if (!(TestResult.getRemovedList().isEmpty()))
+		if (!(TestData.getRemovedList().isEmpty()))
 		{
-			rand1 = randGen.nextInt(TestResult.getRemovedList().size());
-			rand2 = randGen.nextInt(TestResult.getRemovedList().size());
-			rand3 = randGen.nextInt(TestResult.getRemovedList().size());
-			rand4 = randGen.nextInt(TestResult.getRemovedList().size());
+			rand1 = randGen.nextInt(TestData.getRemovedList().size());
+			rand2 = randGen.nextInt(TestData.getRemovedList().size());
+			rand3 = randGen.nextInt(TestData.getRemovedList().size());
+			rand4 = randGen.nextInt(TestData.getRemovedList().size());
 		}
 		Log.d(TAG, "Rand 1: " + rand1); // TRACE
 		Log.d(TAG, "Rand 2: " + rand2); // TRACE
@@ -164,24 +153,24 @@ public class Test extends Activity
 					option0.setText("" + current.toSourceString());
 					break;
 				}
-				else if (!(TestResult.getEntitiesList().isEmpty()))
+				else if (!(TestData.getEntitiesList().isEmpty()))
 				{
-					rand1 = randGen.nextInt(TestResult.getEntitiesList().size());
+					rand1 = randGen.nextInt(TestData.getEntitiesList().size());
 					Log.d(TAG, "Rand 1: " + rand1); // TRACE
 					option0.setText(""
-							+ TestResult.getEntitiesList().get(rand1).toSourceString());
+							+ TestData.getEntitiesList().get(rand1).toSourceString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 1)
+				else if (TestData.getRemovedList().size() > 1)
 				{
 					// Check to avoid duplicate answers
-					while (rand1 == TestResult.getRemovedList().indexOf(current))
+					while (rand1 == TestData.getRemovedList().indexOf(current))
 					{
-						rand1 = randGen.nextInt(TestResult.getRemovedList().size());
+						rand1 = randGen.nextInt(TestData.getRemovedList().size());
 						Log.d(TAG, "Rand 1: " + rand1); // TRACE
 					}
 					option0.setText(""
-							+ TestResult.getRemovedList().get(rand1).toDestString());
+							+ TestData.getRemovedList().get(rand1).toDestString());
 					break;
 				}
 			case 1 :
@@ -190,24 +179,24 @@ public class Test extends Activity
 					option0.setText("" + current.toDestString());
 					break;
 				}
-				else if (!(TestResult.getEntitiesList().isEmpty()))
+				else if (!(TestData.getEntitiesList().isEmpty()))
 				{
-					rand1 = randGen.nextInt(TestResult.getEntitiesList().size());
+					rand1 = randGen.nextInt(TestData.getEntitiesList().size());
 					Log.d(TAG, "Rand 1: " + rand1); // TRACE
 					option0.setText(""
-							+ TestResult.getEntitiesList().get(rand1).toDestString());
+							+ TestData.getEntitiesList().get(rand1).toDestString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 1)
+				else if (TestData.getRemovedList().size() > 1)
 				{
 					// Check to avoid duplicate answers
-					while (rand1 == TestResult.getRemovedList().indexOf(current))
+					while (rand1 == TestData.getRemovedList().indexOf(current))
 					{
-						rand1 = randGen.nextInt(TestResult.getRemovedList().size());
+						rand1 = randGen.nextInt(TestData.getRemovedList().size());
 						Log.d(TAG, "Rand 1: " + rand1); // TRACE
 					}
 					option0.setText(""
-							+ TestResult.getRemovedList().get(rand1).toDestString());
+							+ TestData.getRemovedList().get(rand1).toDestString());
 					break;
 				}
 		}
@@ -221,28 +210,28 @@ public class Test extends Activity
 					option1.setText("" + current.toSourceString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 2)
+				else if (TestData.getRemovedList().size() > 2)
 				{
 					// This button shall prefer entities which have been removed
-					while (rand2 == TestResult.getRemovedList().indexOf(current)
+					while (rand2 == TestData.getRemovedList().indexOf(current)
 							|| rand2 == rand1)
 					{
-						rand2 = randGen.nextInt(TestResult.getRemovedList().size());
+						rand2 = randGen.nextInt(TestData.getRemovedList().size());
 						Log.d(TAG, "Rand 2: " + rand2); // TRACE
 					}
 					option1.setText(""
-							+ TestResult.getRemovedList().get(rand2).toSourceString());
+							+ TestData.getRemovedList().get(rand2).toSourceString());
 					break;
 				}
 				else
 				{
 					while (rand2 == rand1)
 					{
-						rand2 = randGen.nextInt(TestResult.getEntitiesList().size());
+						rand2 = randGen.nextInt(TestData.getEntitiesList().size());
 						Log.d(TAG, "Rand 2: " + rand2); // TRACE
 					}
 					option1.setText(""
-							+ TestResult.getEntitiesList().get(rand2).toSourceString());
+							+ TestData.getEntitiesList().get(rand2).toSourceString());
 					break;
 				}
 			case 1 :
@@ -251,28 +240,28 @@ public class Test extends Activity
 					option1.setText("" + current.toDestString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 2)
+				else if (TestData.getRemovedList().size() > 2)
 				{
 					// This button shall prefer entities which have been removed
-					while (rand2 == TestResult.getRemovedList().indexOf(current)
+					while (rand2 == TestData.getRemovedList().indexOf(current)
 							|| rand2 == rand1)
 					{
-						rand2 = randGen.nextInt(TestResult.getRemovedList().size());
+						rand2 = randGen.nextInt(TestData.getRemovedList().size());
 						Log.d(TAG, "Rand 2: " + rand2); // TRACE
 					}
 					option1.setText(""
-							+ TestResult.getRemovedList().get(rand2).toDestString());
+							+ TestData.getRemovedList().get(rand2).toDestString());
 					break;
 				}
 				else
 				{
 					while (rand2 == rand1)
 					{
-						rand2 = randGen.nextInt(TestResult.getEntitiesList().size());
+						rand2 = randGen.nextInt(TestData.getEntitiesList().size());
 						Log.d(TAG, "Rand 2: " + rand2); // TRACE
 					}
 					option1.setText(""
-							+ TestResult.getEntitiesList().get(rand2).toDestString());
+							+ TestData.getEntitiesList().get(rand2).toDestString());
 					break;
 				}
 		}
@@ -286,28 +275,28 @@ public class Test extends Activity
 					option2.setText("" + current.toSourceString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 3)
+				else if (TestData.getRemovedList().size() > 3)
 				{
 					// Check to avoid duplicate answers
-					while (rand3 == TestResult.getRemovedList().indexOf(current)
+					while (rand3 == TestData.getRemovedList().indexOf(current)
 							|| rand3 == rand2 || rand3 == rand1)
 					{
-						rand3 = randGen.nextInt(TestResult.getRemovedList().size());
+						rand3 = randGen.nextInt(TestData.getRemovedList().size());
 						Log.d(TAG, "Rand 3: " + rand3); // TRACE
 					}
 					option2.setText(""
-							+ TestResult.getRemovedList().get(rand3).toSourceString());
+							+ TestData.getRemovedList().get(rand3).toSourceString());
 					break;
 				}
 				else
 				{
 					while (rand3 == rand2 || rand3 == rand1)
 					{
-						rand3 = randGen.nextInt(TestResult.getEntitiesList().size());
+						rand3 = randGen.nextInt(TestData.getEntitiesList().size());
 						Log.d(TAG, "Rand 3: " + rand3); // TRACE
 					}
 					option2.setText(""
-							+ TestResult.getEntitiesList().get(rand3).toSourceString());
+							+ TestData.getEntitiesList().get(rand3).toSourceString());
 					break;
 				}
 			case 1 :
@@ -316,28 +305,28 @@ public class Test extends Activity
 					option2.setText("" + current.toDestString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 3)
+				else if (TestData.getRemovedList().size() > 3)
 				{
 					// Check to avoid duplicate answers
-					while (rand3 == TestResult.getRemovedList().indexOf(current)
+					while (rand3 == TestData.getRemovedList().indexOf(current)
 							|| rand3 == rand2 || rand3 == rand1)
 					{
-						rand3 = randGen.nextInt(TestResult.getRemovedList().size());
+						rand3 = randGen.nextInt(TestData.getRemovedList().size());
 						Log.d(TAG, "Rand 3: " + rand3); // TRACE
 					}
 					option2.setText(""
-							+ TestResult.getRemovedList().get(rand3).toDestString());
+							+ TestData.getRemovedList().get(rand3).toDestString());
 					break;
 				}
 				else
 				{
 					while (rand3 == rand2 || rand3 == rand1)
 					{
-						rand3 = randGen.nextInt(TestResult.getEntitiesList().size());
+						rand3 = randGen.nextInt(TestData.getEntitiesList().size());
 						Log.d(TAG, "Rand 3: " + rand3); // TRACE
 					}
 					option2.setText(""
-							+ TestResult.getEntitiesList().get(rand3).toDestString());
+							+ TestData.getEntitiesList().get(rand3).toDestString());
 					break;
 				}
 		}
@@ -351,30 +340,29 @@ public class Test extends Activity
 					option3.setText("" + current.toSourceString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 4)
+				else if (TestData.getRemovedList().size() > 4)
 				{
 					// This button shall prefer entities which have been removed
-					while (rand4 == TestResult.getRemovedList().indexOf(current)
-							|| rand4 == rand3
-							|| rand4 == rand2
+					while (rand4 == TestData.getRemovedList().indexOf(current)
+							|| rand4 == rand3 || rand4 == rand2
 							|| rand4 == rand1)
 					{
-						rand4 = randGen.nextInt(TestResult.getRemovedList().size());
+						rand4 = randGen.nextInt(TestData.getRemovedList().size());
 						Log.d(TAG, "Rand 4: " + rand4); // TRACE
 					}
 					option3.setText(""
-							+ TestResult.getRemovedList().get(rand4).toSourceString());
+							+ TestData.getRemovedList().get(rand4).toSourceString());
 					break;
 				}
 				else
 				{
 					while (rand4 == rand3 || rand4 == rand2 || rand4 == rand1)
 					{
-						rand4 = randGen.nextInt(TestResult.getEntitiesList().size());
+						rand4 = randGen.nextInt(TestData.getEntitiesList().size());
 						Log.d(TAG, "Rand 4: " + rand4); // TRACE
 					}
 					option3.setText(""
-							+ TestResult.getEntitiesList().get(rand4).toSourceString());
+							+ TestData.getEntitiesList().get(rand4).toSourceString());
 					break;
 				}
 			case 1 :
@@ -383,30 +371,29 @@ public class Test extends Activity
 					option3.setText("" + current.toDestString());
 					break;
 				}
-				else if (TestResult.getRemovedList().size() > 4)
+				else if (TestData.getRemovedList().size() > 4)
 				{
 					// This button shall prefer entities which have been removed
-					while (rand4 == TestResult.getRemovedList().indexOf(current)
-							|| rand4 == rand3
-							|| rand4 == rand2
+					while (rand4 == TestData.getRemovedList().indexOf(current)
+							|| rand4 == rand3 || rand4 == rand2
 							|| rand4 == rand1)
 					{
-						rand4 = randGen.nextInt(TestResult.getRemovedList().size());
+						rand4 = randGen.nextInt(TestData.getRemovedList().size());
 						Log.d(TAG, "Rand 4: " + rand4); // TRACE
 					}
 					option3.setText(""
-							+ TestResult.getRemovedList().get(rand4).toDestString());
+							+ TestData.getRemovedList().get(rand4).toDestString());
 					break;
 				}
 				else
 				{
 					while (rand4 == rand3 || rand4 == rand2 || rand4 == rand1)
 					{
-						rand4 = randGen.nextInt(TestResult.getEntitiesList().size());
+						rand4 = randGen.nextInt(TestData.getEntitiesList().size());
 						Log.d(TAG, "Rand 4: " + rand4); // TRACE
 					}
 					option3.setText(""
-							+ TestResult.getEntitiesList().get(rand4).toDestString());
+							+ TestData.getEntitiesList().get(rand4).toDestString());
 					break;
 				}
 		}
@@ -423,6 +410,8 @@ public class Test extends Activity
 					TestResult.increaseCounter();
 					// Increase score
 					TestResult.increaseScore(2);
+					// Increase maximum score
+					TestResult.increaseMaximum(2);
 					// Start new intent
 					Intent i = new Intent(Test.this, Test.class);
 					startActivity(i);
@@ -432,6 +421,8 @@ public class Test extends Activity
 					Log.d(TAG, "Wrong answer!"); // TRACE
 					// Increase counter
 					TestResult.increaseCounter();
+					// Increase maximum score
+					TestResult.increaseMaximum(2);
 					// Start new intent
 					Intent i = new Intent(Test.this, Test.class);
 					startActivity(i);
@@ -452,16 +443,15 @@ public class Test extends Activity
 		switchVal = randGen.nextInt(2);
 
 		Log.d(TAG, "Case is: " + switchVal); // TRACE
-		Log.d(TAG, "Entity list size is: "
-				+ TestResult.getEntitiesList().size()); // TRACE
+		Log.d(TAG, "Entity list size is: " + TestData.getEntitiesList().size()); // TRACE
 
 		// SET THE QUESTION
 
 		final TextView question = (TextView) findViewById(R.id.written_question);
 		// Generate random id
-		entityID = randGen.nextInt(TestResult.getEntitiesList().size());
+		entityID = randGen.nextInt(TestData.getEntitiesList().size());
 		Log.d(TAG, "Entity ID is: " + entityID); // TRACE
-		current = TestResult.getEntitiesList().get(entityID);
+		current = TestData.getEntitiesList().get(entityID);
 		Log.d(TAG, "Entity information: " + current.toString()); // TRACE
 		switch (switchVal)
 		{
@@ -481,19 +471,19 @@ public class Test extends Activity
 			}
 		}
 		// Add entity to removed list
-		TestResult.addToRemovedList(current);
+		TestData.addToRemovedList(current);
 		// Remove entity from initial list
-		TestResult.removeFromEntitiesList(entityID);
+		TestData.removeFromEntitiesList(entityID);
 
 		Log.d(TAG, "Entities list:"); // TRACE
-		for (int itr = 0; itr < TestResult.getEntitiesList().size(); itr++)
+		for (int itr = 0; itr < TestData.getEntitiesList().size(); itr++)
 		{
-			Log.d(TAG, TestResult.getEntitiesList().get(itr).toString());
+			Log.d(TAG, TestData.getEntitiesList().get(itr).toString());
 		}
 		Log.d(TAG, "Removed list:"); // TRACE
-		for (int itr1 = 0; itr1 < TestResult.getRemovedList().size(); itr1++)
+		for (int itr1 = 0; itr1 < TestData.getRemovedList().size(); itr1++)
 		{
-			Log.d(TAG, TestResult.getRemovedList().get(itr1).toString());
+			Log.d(TAG, TestData.getRemovedList().get(itr1).toString());
 		}
 
 		// SET THE ANSWER
@@ -576,6 +566,8 @@ public class Test extends Activity
 					TestResult.increaseCounter();
 					// Increase score
 					TestResult.increaseScore(submissionScore);
+					// Increase maximum score
+					TestResult.increaseMaximum(3);
 					// Start new intent
 					Intent i = new Intent(Test.this, Test.class);
 					startActivity(i);
@@ -588,9 +580,6 @@ public class Test extends Activity
 				}
 			}
 		});
-
-		// TODO: Set up word to translate and comparison algorithm, random
-		// activity, proceed action etc.
 	}
 	// TODO: HANDLE BACK BUTTON ACTIVITY, PAUSE ETC. TO RESET TestResult DATA TO
 	// DEFAULT VALUES

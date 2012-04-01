@@ -1,13 +1,9 @@
 package ncl.team22.languagetutor.test;
 
-import java.util.ArrayList;
-
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import ncl.team22.languagetutor.LanguagetutorActivity;
-import ncl.team22.languagetutor.data.LanguageEntity;
-import ncl.team22.languagetutor.data.Topic;
 
 /**
  * Class containing static methods and integer value for keeping track of a test
@@ -17,11 +13,12 @@ import ncl.team22.languagetutor.data.Topic;
  */
 public class TestResult
 {
-	private static int			testScore	= 0;
-	private static int			testMaximum	= 0;
-	private static int			counter		= 0;
+	private static int			testScore		= 0;
+	private static int			testMaximum		= 0;
+	private static double		testPercentage	= 0.0;
+	private static int			counter			= 0;
 
-	public static final String	TAG			= "LT-TestResult";
+	public static final String	TAG				= "LT-TestResult";
 
 	/**
 	 * Increase the test score by the value achieved on a test activity
@@ -90,6 +87,16 @@ public class TestResult
 	}
 
 	/**
+	 * Get the final percentage for the test as a double value
+	 * 
+	 * @return the double percentage value
+	 */
+	public static double calculateTestPercentage()
+	{
+		return testPercentage = ((double) testScore / (double) testMaximum) * 100;
+	}
+
+	/**
 	 * Resets the test score and counter value (in the case of the test being
 	 * quit midway through, or after the test result has been written to
 	 * database)
@@ -98,9 +105,13 @@ public class TestResult
 	{
 		counter = 0;
 		testScore = 0;
+		testMaximum = 0;
+		testPercentage = 0.0;
 		Log.d(TAG, "reset");
 		Log.d(TAG, "Counter value is: " + counter);
 		Log.d(TAG, "Score value is: " + testScore);
+		Log.d(TAG, "Maximum value is: " + testMaximum);
+		Log.d(TAG, "Percentage value is: " + testPercentage);
 	}
 
 	/**
@@ -113,37 +124,5 @@ public class TestResult
 
 		// TODO: Write test result and time-stamp to database
 
-	}
-
-	// DATA SECTION
-
-	private static ArrayList<LanguageEntity>	entitiesList;
-	// Prevent asked questions being asked again but enable them to be fed as
-	// incorrect options
-	private static ArrayList<LanguageEntity>	entitiesRemoved	= new ArrayList<LanguageEntity>();
-
-	public static void setEntitiesListByTopic(Topic selectedTopic)
-	{
-		entitiesList = selectedTopic.getEntities();
-	}
-
-	public static ArrayList<LanguageEntity> getEntitiesList()
-	{
-		return entitiesList;
-	}
-
-	public static ArrayList<LanguageEntity> getRemovedList()
-	{
-		return entitiesRemoved;
-	}
-
-	public static void addToRemovedList(LanguageEntity entity)
-	{
-		entitiesRemoved.add(entity);
-	}
-
-	public static void removeFromEntitiesList(int entityID)
-	{
-		entitiesList.remove(entityID);
 	}
 }
