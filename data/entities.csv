@@ -1,0 +1,11 @@
+entityID, phrase, phrase_partial, source_text, dest_text, audio_asset, image_asset
+0, 0, 0, one, uno, 0, imgasset
+1, 0, 0, two, dos, 0, imgasset
+2, 0, 0, three, tres, 0, imgasset
+3, 0, 0, four, cuatro, 0, imgasset
+4, 0, 0, five, cinco, 0, imgasset
+5, 0, 0, six, seis, 0, imgasset
+6, 0, 0, seven, siete, 0, imgasset
+7, 0, 0, eight, ocho, 0, imgasset
+8, 0, 0, nine, nueve, 0, imgasset
+9, 0, 0, ten, diez, 0, imgasset
