@@ -48,6 +48,20 @@ public class Topic implements Serializable
 		return t;
 	}
 
+	public static int getIdByTopic(Topic selectedTopic)
+	{
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+
+		Cursor c = sDb.query(TABLE_TOPIC, new String[]
+		{"setID"}, "name = " + "?", new String[]
+		{selectedTopic.toString()}, null, null, null);
+		c.moveToFirst();
+
+		int topicId = c.getInt(0);
+		Log.d(TAG, "Topic Id: " + topicId);
+		return topicId;
+	}
+
 	public ArrayList<LanguageEntity> getEntities()
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();

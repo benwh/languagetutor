@@ -54,8 +54,6 @@ public class TestReview extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				// Submit the score
-				TestResult.submitScore(LanguagetutorActivity.currentProfile.profileID, 0, 0);
 				// Reset values (will be in button listener)
 				TestResult.reset();
 				TestData.resetData();

@@ -1,5 +1,6 @@
 package ncl.team22.languagetutor.test;
 
+import java.util.Date;
 import java.util.Random;
 
 import android.app.Activity;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 import ncl.team22.languagetutor.data.LanguageEntity;
 import ncl.team22.languagetutor.data.Topic;
@@ -23,7 +25,7 @@ import ncl.team22.languagetutor.data.Topic;
  */
 public class Test extends Activity
 {
-	Topic						selectedTopic;
+	static Topic				selectedTopic;
 
 	LanguageEntity				current;
 	Random						randGen	= new Random();
@@ -66,6 +68,15 @@ public class Test extends Activity
 		}
 		else if (TestResult.getCounter() == 8)
 		{
+			// Get a UNIX time-stamp
+			long currentTime = System.currentTimeMillis() / 1000L;
+			// Convert to string for insertion to DB
+			String tS = Long.toString(currentTime);
+			// Turn in to a date object. Needs conversion back to milliseconds
+			Date currentDate = new java.util.Date(currentTime * 1000);
+			Log.d(TAG, "Timestamp: " + currentDate.toString());
+			// Submit the score
+			TestResult.submitScore(LanguagetutorActivity.currentProfile.profileID, Topic.getIdByTopic(selectedTopic), tS);
 			Log.d(TAG, "Test complete, taking you to the TestReview...");
 			Intent i = new Intent(Test.this, TestReview.class);
 			startActivity(i);

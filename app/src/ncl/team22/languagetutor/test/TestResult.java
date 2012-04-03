@@ -118,7 +118,7 @@ public class TestResult
 	 * Submits the testScore value and time-stamp for the relevant setID and
 	 * profileID to database
 	 */
-	public static void submitScore(int profileID, int setID, int tS)
+	public static void submitScore(int profileID, int setID, String tS)
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
