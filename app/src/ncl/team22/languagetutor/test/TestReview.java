@@ -1,7 +1,10 @@
 package ncl.team22.languagetutor.test;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import ncl.team22.languagetutor.LanguagetutorActivity;
@@ -26,16 +29,40 @@ public class TestReview extends Activity
 		// Set score text
 		final TextView score = (TextView) findViewById(R.id.test_score);
 		score.setText("(" + TestResult.getScore() + "/"
-				+ TestResult.getMaximum() + ") - "
+				+ TestResult.getMaximum() + ") | "
 				+ TestResult.calculateTestPercentage() + "%");
 
 		// Set rank text (will mirror whatever the stats page would say for a
 		// respective score)
+		final TextView rank = (TextView) findViewById(R.id.rank_awarded);
+		rank.setText("Rank");
+		// TODO: set rank text
 
-		// Submit the score
-		TestResult.submitScore(LanguagetutorActivity.currentProfile.profileID, 0, 0);
-		// Reset values (will be in button listener)
-		// TestResult.reset();
-		// TestData.resetData();
+		// Find the buttons
+		Button review = (Button) findViewById(R.id.review_test);
+		Button menu = (Button) findViewById(R.id.main_menu);
+
+		review.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				//
+			}
+		});
+
+		menu.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				// Submit the score
+				TestResult.submitScore(LanguagetutorActivity.currentProfile.profileID, 0, 0);
+				// Reset values (will be in button listener)
+				TestResult.reset();
+				TestData.resetData();
+				// Go back to main menu
+				Intent i = new Intent(TestReview.this, LanguagetutorActivity.class);
+				startActivity(i);
+			}
+		});
 	}
 }
