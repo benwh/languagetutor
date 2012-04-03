@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 
 /**
@@ -32,8 +33,9 @@ public class TestReview extends Activity
 		// respective score)
 
 		// Submit the score
-		TestResult.submitScore(0, 0, 0);
-		// Reset values
-		TestResult.reset();
+		TestResult.submitScore(LanguagetutorActivity.currentProfile.profileID, 0, 0);
+		// Reset values (will be in button listener)
+		// TestResult.reset();
+		// TestData.resetData();
 	}
 }

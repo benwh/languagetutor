@@ -95,6 +95,10 @@ public class Test extends Activity
 			{
 				// Set question text
 				question.setText("" + current.toDestString());
+				// Add question to review array
+				TestData.addToReviewTest(current.toDestString());
+				// Add answer to review array
+				TestData.addToReviewTest(current.toSourceString());
 				break;
 			}
 			case 1 :
@@ -102,6 +106,10 @@ public class Test extends Activity
 			{
 				// Set question text
 				question.setText("" + current.toSourceString());
+				// Add question to review array
+				TestData.addToReviewTest(current.toSourceString());
+				// Add answer to review array
+				TestData.addToReviewTest(current.toDestString());
 				break;
 			}
 		}
@@ -409,6 +417,23 @@ public class Test extends Activity
 			@Override
 			public void onClick(View v)
 			{
+				// Add user's answer to review string
+				int clickedButton = Integer.parseInt((String) v.getTag());
+				switch (clickedButton)
+				{
+					case 0 :
+						TestData.addToReviewTest((String) option0.getText());
+						break;
+					case 1 :
+						TestData.addToReviewTest((String) option1.getText());
+						break;
+					case 2 :
+						TestData.addToReviewTest((String) option2.getText());
+						break;
+					case 3 :
+						TestData.addToReviewTest((String) option3.getText());
+						break;
+				}
 				if (correctPosition == Integer.parseInt((String) v.getTag()))
 				{
 					Log.d(TAG, "Correct answer!"); // TRACE
@@ -466,6 +491,10 @@ public class Test extends Activity
 			{
 				// Set question text
 				question.setText("" + current.toDestString());
+				// Add question to review array
+				TestData.addToReviewTest(current.toDestString());
+				// Add answer to review array
+				TestData.addToReviewTest(current.toSourceString());
 				break;
 			}
 			case 1 :
@@ -473,6 +502,10 @@ public class Test extends Activity
 			{
 				// Set question text
 				question.setText("" + current.toSourceString());
+				// Add question to review array
+				TestData.addToReviewTest(current.toSourceString());
+				// Add answer to review array
+				TestData.addToReviewTest(current.toDestString());
 				break;
 			}
 		}
@@ -503,6 +536,9 @@ public class Test extends Activity
 			@Override
 			public void onClick(View v)
 			{
+				// Add user's answer to review string
+				TestData.addToReviewTest(answer.getText().toString());
+
 				int actualScore = 0;
 				int maxScore = 0;
 				char a;

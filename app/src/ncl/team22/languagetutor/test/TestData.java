@@ -18,6 +18,8 @@ public class TestData
 	// Prevent asked questions being asked again but enable them to be fed as
 	// incorrect options
 	private static ArrayList<LanguageEntity>	entitiesRemoved	= new ArrayList<LanguageEntity>();
+	// For test review
+	private static ArrayList<String>			reviewTest		= new ArrayList<String>();
 
 	public static void setEntitiesListByTopic(Topic selectedTopic)
 	{
@@ -34,6 +36,11 @@ public class TestData
 		return entitiesRemoved;
 	}
 
+	public static ArrayList<String> getReviewTest()
+	{
+		return reviewTest;
+	}
+
 	public static void addToRemovedList(LanguageEntity entity)
 	{
 		entitiesRemoved.add(entity);
@@ -42,6 +49,11 @@ public class TestData
 	public static void removeFromEntitiesList(int entityID)
 	{
 		entitiesList.remove(entityID);
+	}
+
+	public static void addToReviewTest(String addition)
+	{
+		reviewTest.add(addition);
 	}
 
 	public static void resetData()
@@ -53,6 +65,10 @@ public class TestData
 		for (int j = 0; j < entitiesRemoved.size(); j++)
 		{
 			entitiesRemoved.remove(j);
+		}
+		for (int k = 0; k < reviewTest.size(); k++)
+		{
+			reviewTest.remove(k);
 		}
 	}
 }
