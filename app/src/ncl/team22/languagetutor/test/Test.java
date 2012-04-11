@@ -68,6 +68,8 @@ public class Test extends Activity
 		}
 		else if (TestResult.getCounter() == 8)
 		{
+			setContentView(R.layout.test_submitted);
+
 			// Get a UNIX time-stamp
 			long currentTime = System.currentTimeMillis() / 1000L;
 			// Convert to string for insertion to DB
