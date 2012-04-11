@@ -2,13 +2,13 @@ package ncl.team22.languagetutor.data;
 
 public class LanguageEntity
 {
-	protected int				entityID;
-	protected boolean			phrase;
-	protected boolean			phrase_partial;
-	protected String			source_text;
-	protected String			dest_text;
-	protected boolean			audio_asset;
-	protected String			image_asset;
+	public int					entityID;
+	public boolean				phrase;
+	public boolean				phrase_partial;
+	public String				source_text;
+	public String				dest_text;
+	public boolean				audio_asset;
+	public String				image_asset;
 
 	public static final String	TABLE_TOPIC	= "langset";
 	public static final String	TAG			= "LT-LanguageEntity";
