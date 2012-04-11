@@ -83,17 +83,20 @@ public class Test extends Activity
 		}
 	}
 
-	public void getMultiQuestion()
+	/**
+	 * Used to set question text based on the switch value and question viewId,
+	 * removes some duplicated code
+	 * 
+	 * @param switchVal
+	 *            - the random generated switch value
+	 * @param viewId
+	 *            - the id of the view where the question text is set
+	 */
+	public void setQuestion(int switchVal, int viewId)
 	{
-		// Generate a number 0 or 1 for input to switch statement
-		switchVal = randGen.nextInt(2);
-
-		Log.d(TAG, "Case is: " + switchVal); // TRACE
-		Log.d(TAG, "Entity list size is: " + TestData.getEntitiesList().size()); // TRACE
-
 		// SET THE QUESTION
 
-		final TextView question = (TextView) findViewById(R.id.multi_question);
+		final TextView question = (TextView) findViewById(viewId);
 		// Generate random id
 		entityID = randGen.nextInt(TestData.getEntitiesList().size());
 		Log.d(TAG, "Entity ID is: " + entityID); // TRACE
@@ -128,6 +131,17 @@ public class Test extends Activity
 		TestData.addToRemovedList(current);
 		// Remove entity from initial list
 		TestData.removeFromEntitiesList(entityID);
+	}
+
+	public void getMultiQuestion()
+	{
+		// Generate a number 0 or 1 for input to switch statement
+		switchVal = randGen.nextInt(2);
+
+		Log.d(TAG, "Case is: " + switchVal); // TRACE
+		Log.d(TAG, "Entity list size is: " + TestData.getEntitiesList().size()); // TRACE
+
+		setQuestion(switchVal, R.id.multi_question);
 
 		Log.d(TAG, "Entities list:"); // TRACE
 		for (int itr = 0; itr < TestData.getEntitiesList().size(); itr++)
@@ -487,43 +501,7 @@ public class Test extends Activity
 		Log.d(TAG, "Case is: " + switchVal); // TRACE
 		Log.d(TAG, "Entity list size is: " + TestData.getEntitiesList().size()); // TRACE
 
-		// SET THE QUESTION
-
-		final TextView question = (TextView) findViewById(R.id.written_question);
-		// Generate random id
-		entityID = randGen.nextInt(TestData.getEntitiesList().size());
-		Log.d(TAG, "Entity ID is: " + entityID); // TRACE
-		current = TestData.getEntitiesList().get(entityID);
-		Log.d(TAG, "Entity information: " + current.toString()); // TRACE
-		switch (switchVal)
-		{
-			case 0 :
-			// Spanish question
-			{
-				// Set question text
-				question.setText("" + current.toDestString());
-				// Add question to review array
-				TestData.addToReviewTest(current.toDestString());
-				// Add answer to review array
-				TestData.addToReviewTest(current.toSourceString());
-				break;
-			}
-			case 1 :
-			// English question
-			{
-				// Set question text
-				question.setText("" + current.toSourceString());
-				// Add question to review array
-				TestData.addToReviewTest(current.toSourceString());
-				// Add answer to review array
-				TestData.addToReviewTest(current.toDestString());
-				break;
-			}
-		}
-		// Add entity to removed list
-		TestData.addToRemovedList(current);
-		// Remove entity from initial list
-		TestData.removeFromEntitiesList(entityID);
+		setQuestion(switchVal, R.id.written_question);
 
 		Log.d(TAG, "Entities list:"); // TRACE
 		for (int itr = 0; itr < TestData.getEntitiesList().size(); itr++)
