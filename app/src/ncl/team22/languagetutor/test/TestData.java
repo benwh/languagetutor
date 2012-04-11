@@ -57,17 +57,8 @@ public class TestData
 
 	public static void resetData()
 	{
-		for (int i = 0; i < entitiesList.size(); i++)
-		{
-			entitiesList.remove(i);
-		}
-		for (int j = 0; j < entitiesRemoved.size(); j++)
-		{
-			entitiesRemoved.remove(j);
-		}
-		for (int k = 0; k < reviewTest.size(); k++)
-		{
-			reviewTest.remove(k);
-		}
+		entitiesList.removeAll(entitiesList);
+		entitiesRemoved.removeAll(entitiesRemoved);
+		reviewTest.removeAll(reviewTest);
 	}
 }
