@@ -112,6 +112,26 @@ public class Topic implements Serializable
 		return tlist;
 	}
 
+	public static ArrayList<Topic> getTopics()
+	{
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+
+		ArrayList<Topic> tlist = new ArrayList<Topic>();
+
+		Cursor c = sDb.query(TABLE_TOPIC, new String[]
+		{"setID", "name", "level", "locked", "displayable"}, null, null, null, null, null);
+		c.moveToFirst();
+		while (!c.isAfterLast())
+		{
+			// Expressions required on columns 3 + 4 to return boolean instead
+			// of int
+			tlist.add(new Topic(c.getInt(0), c.getString(1), c.getInt(2), (c.getInt(3) > 0), (c.getInt(4) > 0)));
+			c.moveToNext();
+		}
+
+		return tlist;
+	}
+
 	@Override
 	public String toString()
 	{
