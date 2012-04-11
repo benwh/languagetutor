@@ -3,6 +3,7 @@ package ncl.team22.languagetutor.test;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import ncl.team22.languagetutor.R;
  */
 public class TestReview extends Activity
 {
+	public static final String	TAG	= "LT-TestReview";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -62,5 +64,13 @@ public class TestReview extends Activity
 				startActivity(i);
 			}
 		});
+	}
+
+	@Override
+	public void onBackPressed()
+	{
+		Test.backPressed = true;
+		finish();
+		Log.d(TAG, "Reverting back to topic select...");
 	}
 }

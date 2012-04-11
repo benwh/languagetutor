@@ -26,13 +26,14 @@ import ncl.team22.languagetutor.data.Topic;
 public class Test extends Activity
 {
 	static Topic				selectedTopic;
+	static boolean				backPressed	= false;
 
 	LanguageEntity				current;
-	Random						randGen	= new Random();
+	Random						randGen		= new Random();
 	int							switchVal;
 	int							entityID;
 
-	public static final String	TAG		= "LT-Test";
+	public static final String	TAG			= "LT-Test";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -81,6 +82,7 @@ public class Test extends Activity
 			TestResult.submitScore(LanguagetutorActivity.currentProfile.profileID, Topic.getIdByTopic(selectedTopic), tS);
 			Log.d(TAG, "Test complete, taking you to the TestReview...");
 			Intent i = new Intent(Test.this, TestReview.class);
+			i.setFlags(99);
 			startActivity(i);
 		}
 	}
@@ -472,6 +474,7 @@ public class Test extends Activity
 					TestResult.increaseMaximum(2);
 					// Start new intent
 					Intent i = new Intent(Test.this, Test.class);
+					i.setFlags(99);
 					startActivity(i);
 				}
 				else
@@ -483,6 +486,7 @@ public class Test extends Activity
 					TestResult.increaseMaximum(2);
 					// Start new intent
 					Intent i = new Intent(Test.this, Test.class);
+					i.setFlags(99);
 					startActivity(i);
 				}
 			}
@@ -603,11 +607,34 @@ public class Test extends Activity
 					TestResult.increaseMaximum(3);
 					// Start new intent
 					Intent i = new Intent(Test.this, Test.class);
+					i.setFlags(99);
 					startActivity(i);
 				}
 			}
 		});
 	}
-	// TODO: HANDLE BACK BUTTON ACTIVITY, PAUSE ETC. TO RESET TestResult DATA TO
-	// DEFAULT VALUES
+
+	@Override
+	public void onBackPressed()
+	{
+		backPressed = true;
+		finish();
+		Log.d(TAG, "Reverting back to topic select...");
+	}
+
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus)
+	{
+		if (getIntent().getFlags() == 99 && backPressed == true)
+		{
+			onBackPressed();
+		}
+		else if (getIntent().getFlags() == 98 && backPressed == true)
+		{
+			backPressed = false;
+			TestResult.reset();
+			TestData.resetData();
+			finish();
+		}
+	}
 }

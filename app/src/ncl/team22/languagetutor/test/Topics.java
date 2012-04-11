@@ -57,6 +57,7 @@ public class Topics extends ListActivity
 					// which can be used across multiple classes. selectedTopic
 					// is added as an Intent extra, as Topic is Serializable
 					intent.putExtra(intentTopic, selectedTopic);
+					intent.setFlags(98);
 					startActivity(intent);
 				} catch (Exception e)
 				{
