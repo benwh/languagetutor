@@ -101,7 +101,11 @@ public class Topic implements Serializable
 		{
 			// Expressions required on columns 3 + 4 to return boolean instead
 			// of int
-			tlist.add(new Topic(c.getInt(0), c.getString(1), c.getInt(2), (c.getInt(3) > 0), (c.getInt(4) > 0)));
+			Topic t = new Topic(c.getInt(0), c.getString(1), c.getInt(2), (c.getInt(3) > 0), (c.getInt(4) > 0));
+			if ((t.getEntities()).size() > 0)
+			{
+				tlist.add(t);
+			}
 			c.moveToNext();
 		}
 
