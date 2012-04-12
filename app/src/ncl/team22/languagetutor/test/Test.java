@@ -53,6 +53,11 @@ public class Test extends Activity
 			// Occupy list with topics
 			TestData.setEntitiesListByTopic(selectedTopic);
 
+			// Add header for review
+			TestData.addToReviewTest("ORIGINAL");
+			TestData.addToReviewTest("TRANSLATION");
+			TestData.addToReviewTest("YOUR ANSWER");
+
 			getMultiQuestion();
 		}
 		else if (TestResult.getCounter() < 4)

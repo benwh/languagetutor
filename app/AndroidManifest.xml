@@ -23,6 +23,7 @@
         <activity android:name=".test.Topics"></activity>
         <activity android:name=".test.Test"></activity>
         <activity android:name=".test.TestReview"></activity>
+        <activity android:name=".test.TestReviewGrid"></activity>
         <activity android:name=".profile.ReplaceQA"></activity>
         <activity android:name=".profile.ProfileOptions"></activity>
         <activity android:name=".profile.ReplacePassword"></activity>
