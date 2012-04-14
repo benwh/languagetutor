@@ -79,7 +79,7 @@ public class Topic implements Serializable
 		d.moveToFirst();
 		while (!d.isAfterLast())
 		{
-			entities.add(new LanguageEntity(d.getInt(0), (d.getInt(1) > 0), (d.getInt(2) > 0), d.getString(3), d.getString(4), (d.getInt(5) > 0), d.getString(6)));
+			entities.add(new LanguageEntity(d.getInt(0), (d.getInt(1) > 0), (d.getInt(2) > 0), d.getString(3), d.getString(4), (d.getInt(5) > 0), (d.getInt(6) > 0)));
 			d.moveToNext();
 		}
 

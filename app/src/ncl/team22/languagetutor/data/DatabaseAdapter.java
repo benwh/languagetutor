@@ -19,7 +19,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 {
 
 	public static final String	DBNAME			= "languagetutor";
-	public static final int		DBVERSION		= 3;
+	public static final int		DBVERSION		= 4;
 
 	private static Context		ctx;
 	private static int			SQL_CREATE		= R.raw.create;

@@ -20,7 +20,7 @@ CREATE  TABLE IF NOT EXISTS `langentity` (
   `source_text` VARCHAR(255) NOT NULL ,
   `dest_text` VARCHAR(255) NOT NULL ,
   `audio_asset` TINYINT(1) NULL ,
-  `image_asset` VARCHAR(45) NULL ,
+  `image_asset` TINYINT(1) NULL ,
   PRIMARY KEY (`entityID`) );
 
 

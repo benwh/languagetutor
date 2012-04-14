@@ -8,14 +8,14 @@ public class LanguageEntity
 	public String				source_text;
 	public String				dest_text;
 	public boolean				audio_asset;
-	public String				image_asset;
+	public boolean				image_asset;
 
 	public static final String	TABLE_TOPIC	= "langset";
 	public static final String	TAG			= "LT-LanguageEntity";
 
 	public LanguageEntity(int entityID, boolean phrase, boolean phrase_partial,
 			String source_text, String dest_text, boolean audio_asset,
-			String image_asset)
+			boolean image_asset)
 	{
 		this.entityID = entityID;
 		this.phrase = phrase;
