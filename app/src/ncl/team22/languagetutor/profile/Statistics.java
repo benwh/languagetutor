@@ -16,6 +16,7 @@ public class Statistics extends Activity
 	TextView	testScoreView;
 	TextView	gameScoreView;
 	TextView	ratingView;
+	TextView	noOFWordsView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -30,6 +31,7 @@ public class Statistics extends Activity
 		testScoreView = (TextView) findViewById(R.id.highest_test_score_text);
 		gameScoreView = (TextView) findViewById(R.id.highest_game_score_text);
 		ratingView = (TextView) findViewById(R.id.spanish_language_rating_text);
+		noOFWordsView = (TextView) findViewById(R.id.numOfWords);
 
 		bannerView.setText(LanguagetutorActivity.currentProfile.display_name
 				+ "'s statistics");

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">Language Tutor</string>
+	<string name="app_name">Go Español</string>
 	<string name="no_profiles">No profiles available</string>
 	<string name="no_topics">No topics available</string>
 	<string name="mix_test">Take a mixed test</string>
@@ -29,5 +29,6 @@
 	<string name="highest_test_score">Highest test score:</string>
 	<string name="highest_game_score">Highest game score:</string>
 	<string name="language_rating">Spanish language rating:</string>
+	<string name="words_incountered">Number of words learnt:</string>
 
 </resources>
