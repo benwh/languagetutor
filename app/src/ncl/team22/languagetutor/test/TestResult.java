@@ -93,7 +93,9 @@ public class TestResult
 	 */
 	public static double calculateTestPercentage()
 	{
-		return testPercentage = ((double) testScore / (double) testMaximum) * 100;
+		testPercentage = ((double) testScore / (double) testMaximum) * 100;
+		return (double) Math.round(testPercentage * 100) / 100;
+
 	}
 
 	/**

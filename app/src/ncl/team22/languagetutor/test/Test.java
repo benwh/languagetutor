@@ -90,6 +90,10 @@ public class Test extends Activity
 		{
 			setContentView(R.layout.test_submitted);
 
+			// Reset test data values to default
+			TEST_MAX = 8;
+			TEST_MID = 4;
+
 			// Get a UNIX time-stamp
 			long currentTime = System.currentTimeMillis() / 1000L;
 			// Convert to string for insertion to DB
@@ -416,7 +420,7 @@ public class Test extends Activity
 							+ TestData.getRemovedList().get(rand4).toSourceString());
 					break;
 				}
-				else
+				else if (TestData.getEntitiesList().size() > 3)
 				{
 					while (rand4 == rand3 || rand4 == rand2 || rand4 == rand1)
 					{
@@ -426,6 +430,18 @@ public class Test extends Activity
 					option3.setText(""
 							+ TestData.getEntitiesList().get(rand4).toSourceString());
 					break;
+				}
+				else
+				{
+					while (rand4 == TestData.getRemovedList().indexOf(current)
+							|| rand4 == rand3 || rand4 == rand2
+							|| rand4 == rand1)
+					{
+						rand4 = randGen.nextInt(TestData.getRemovedList().size());
+						Log.d(TAG, "Rand 4: " + rand4); // TRACE
+					}
+					option3.setText(""
+							+ TestData.getRemovedList().get(rand4).toSourceString());
 				}
 			case 1 :
 				if (3 == correctPosition)
@@ -447,7 +463,7 @@ public class Test extends Activity
 							+ TestData.getRemovedList().get(rand4).toDestString());
 					break;
 				}
-				else
+				else if (TestData.getEntitiesList().size() > 3)
 				{
 					while (rand4 == rand3 || rand4 == rand2 || rand4 == rand1)
 					{
@@ -457,6 +473,18 @@ public class Test extends Activity
 					option3.setText(""
 							+ TestData.getEntitiesList().get(rand4).toDestString());
 					break;
+				}
+				else
+				{
+					while (rand4 == TestData.getRemovedList().indexOf(current)
+							|| rand4 == rand3 || rand4 == rand2
+							|| rand4 == rand1)
+					{
+						rand4 = randGen.nextInt(TestData.getRemovedList().size());
+						Log.d(TAG, "Rand 4: " + rand4); // TRACE
+					}
+					option3.setText(""
+							+ TestData.getRemovedList().get(rand4).toDestString());
 				}
 		}
 

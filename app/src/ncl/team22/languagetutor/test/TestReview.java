@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 
 /**
@@ -42,26 +41,12 @@ public class TestReview extends Activity
 
 		// Find the buttons
 		Button review = (Button) findViewById(R.id.review_test);
-		Button menu = (Button) findViewById(R.id.main_menu);
 
 		review.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v)
 			{
 				Intent i = new Intent(TestReview.this, TestReviewGrid.class);
-				startActivity(i);
-			}
-		});
-
-		menu.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v)
-			{
-				// Reset values (will be in button listener)
-				TestResult.reset();
-				TestData.resetData();
-				// Go back to main menu
-				Intent i = new Intent(TestReview.this, LanguagetutorActivity.class);
 				startActivity(i);
 			}
 		});
