@@ -27,6 +27,8 @@ public class Test extends Activity
 {
 	static Topic				selectedTopic;
 	static boolean				backPressed	= false;
+	static int					TEST_MAX	= 8;
+	static int					TEST_MID	= 4;
 
 	LanguageEntity				current;
 	Random						randGen		= new Random();
@@ -58,21 +60,33 @@ public class Test extends Activity
 			TestData.addToReviewTest("TRANSLATION");
 			TestData.addToReviewTest("YOUR ANSWER");
 
+			if (TestData.getEntitiesList().size() < TEST_MAX)
+			{
+				TEST_MAX = TestData.getEntitiesList().size();
+				Log.d(TAG, "Test max is: " + TEST_MAX); // TRACE
+				TEST_MID = TEST_MAX / 2;
+				if (TEST_MID % 2 == 1)
+				{
+					TEST_MID++;
+				}
+				Log.d(TAG, "Test mid is: " + TEST_MID); // TRACE
+			}
+
 			getMultiQuestion();
 		}
-		else if (TestResult.getCounter() < 4)
+		else if (TestResult.getCounter() < TEST_MID)
 		{
 			setContentView(R.layout.test1);
 
 			getMultiQuestion();
 		}
-		else if (TestResult.getCounter() < 8)
+		else if (TestResult.getCounter() < TEST_MAX)
 		{
 			setContentView(R.layout.test2);
 
 			getWrittenQuestion();
 		}
-		else if (TestResult.getCounter() == 8)
+		else if (TestResult.getCounter() == TEST_MAX)
 		{
 			setContentView(R.layout.test_submitted);
 
@@ -406,7 +420,7 @@ public class Test extends Activity
 				{
 					while (rand4 == rand3 || rand4 == rand2 || rand4 == rand1)
 					{
-						rand4 = randGen.nextInt(TestData.getEntitiesList().size());
+						rand4 = randGen.nextInt(4);
 						Log.d(TAG, "Rand 4: " + rand4); // TRACE
 					}
 					option3.setText(""
@@ -437,7 +451,7 @@ public class Test extends Activity
 				{
 					while (rand4 == rand3 || rand4 == rand2 || rand4 == rand1)
 					{
-						rand4 = randGen.nextInt(TestData.getEntitiesList().size());
+						rand4 = randGen.nextInt(4);
 						Log.d(TAG, "Rand 4: " + rand4); // TRACE
 					}
 					option3.setText(""
@@ -602,7 +616,7 @@ public class Test extends Activity
 					submissionScore = 1;
 				}
 				Log.d(TAG, "Score incremented by: " + submissionScore); // TRACE
-				if (TestResult.getCounter() != 8)
+				if (TestResult.getCounter() != TEST_MAX)
 				{
 					// Increase counter
 					TestResult.increaseCounter();
