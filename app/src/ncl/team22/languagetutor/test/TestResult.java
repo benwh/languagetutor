@@ -1,5 +1,6 @@
 package ncl.team22.languagetutor.test;
 
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -124,7 +125,12 @@ public class TestResult
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
-		// TODO: Write test result and time-stamp to database
+		ContentValues data = new ContentValues();
+		data.put("profileID", "" + profileID);
+		data.put("langsetID", "" + setID);
+		data.put("time", tS);
+		data.put("score", "" + calculateTestPercentage());
+		sDb.insert("test_results", null, data);
 
 	}
 }
