@@ -433,15 +433,40 @@ public class Test extends Activity
 				}
 				else
 				{
-					while (rand4 == TestData.getRemovedList().indexOf(current)
-							|| rand4 == rand3 || rand4 == rand2
-							|| rand4 == rand1)
+					try
 					{
-						rand4 = randGen.nextInt(TestData.getRemovedList().size());
-						Log.d(TAG, "Rand 4: " + rand4); // TRACE
+						int i = TestData.getRemovedList().size();
+						while (i > 0)
+						{
+							if (TestData.getRemovedList().size() - i != rand3
+									|| TestData.getRemovedList().size() - i != rand2
+									|| TestData.getRemovedList().size() - i != rand1)
+							{
+								option3.setText(""
+										+ TestData.getRemovedList().get(TestData.getRemovedList().size()
+												- i).toSourceString());
+								break;
+							}
+							i--;
+						}
+						int j = TestData.getEntitiesList().size();
+						while (j > 0)
+						{
+							if (TestData.getEntitiesList().size() - j != rand3
+									|| TestData.getEntitiesList().size() - j != rand2
+									|| TestData.getEntitiesList().size() - j != rand1)
+							{
+								option3.setText(""
+										+ TestData.getEntitiesList().get(TestData.getEntitiesList().size()
+												- j).toSourceString());
+								break;
+							}
+							j--;
+						}
+					} catch (IndexOutOfBoundsException e)
+					{
+						Log.d(TAG, "Exception caught: " + e);
 					}
-					option3.setText(""
-							+ TestData.getRemovedList().get(rand4).toSourceString());
 				}
 			case 1 :
 				if (3 == correctPosition)
@@ -476,15 +501,40 @@ public class Test extends Activity
 				}
 				else
 				{
-					while (rand4 == TestData.getRemovedList().indexOf(current)
-							|| rand4 == rand3 || rand4 == rand2
-							|| rand4 == rand1)
+					try
 					{
-						rand4 = randGen.nextInt(TestData.getRemovedList().size());
-						Log.d(TAG, "Rand 4: " + rand4); // TRACE
+						int i = TestData.getRemovedList().size();
+						while (i > 0)
+						{
+							if (TestData.getRemovedList().size() - i != rand3
+									|| TestData.getRemovedList().size() - i != rand2
+									|| TestData.getRemovedList().size() - i != rand1)
+							{
+								option3.setText(""
+										+ TestData.getRemovedList().get(TestData.getRemovedList().size()
+												- i).toDestString());
+								break;
+							}
+							i--;
+						}
+						int j = TestData.getEntitiesList().size();
+						while (j > 0)
+						{
+							if (TestData.getEntitiesList().size() - j != rand3
+									|| TestData.getEntitiesList().size() - j != rand2
+									|| TestData.getEntitiesList().size() - j != rand1)
+							{
+								option3.setText(""
+										+ TestData.getEntitiesList().get(TestData.getEntitiesList().size()
+												- j).toDestString());
+								break;
+							}
+							j--;
+						}
+					} catch (IndexOutOfBoundsException e)
+					{
+						Log.d(TAG, "Exception caught: " + e);
 					}
-					option3.setText(""
-							+ TestData.getRemovedList().get(rand4).toDestString());
 				}
 		}
 
