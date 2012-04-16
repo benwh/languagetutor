@@ -30,14 +30,14 @@
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_weight="1"
-		android:text="Tutorials" />
+		android:text="Learn" />
 
 	<Button
 		android:id="@+id/revisionbutton"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_weight="1"
-		android:text="Revision" />
+		android:text="Review" />
 
 	<Button
 		android:id="@+id/gamesbutton"
