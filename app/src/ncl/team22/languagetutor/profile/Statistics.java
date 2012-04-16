@@ -25,6 +25,7 @@ public class Statistics extends Activity
 	public static final String	TABLE_LANGENTITY		= "langentity";
 	public static final String	TABLE_TEST_RESULTS		= "test_results";
 	public static final String	TABLE_GAME_RESULTS		= "game_results";
+	public static final String	TABLE_LANGSET			= "langset";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -121,5 +122,111 @@ public class Statistics extends Activity
 			lfWord = "N/A";
 		}
 		leastFaveView.setText(lfWord);
+
+		int[] bestTestScores = new int[10];
+		for (int i = 0; i < 10; i++)
+		{
+			myQuery = "SELECT MAX(score) as high_score FROM "
+					+ TABLE_TEST_RESULTS
+					+ " WHERE profileID = ? AND langsetID = "
+					+ Integer.toString(i);
+			c = sDb.rawQuery(myQuery, new String[]
+			{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
+			if (c.moveToFirst())
+			{
+				bestTestScores[i] = c.getInt(c.getColumnIndex("high_score"));
+			}
+			else
+			{
+				bestTestScores[i] = 0;
+			}
+		}
+
+		if ((bestTestScores[0] > 74) && (bestTestScores[1] > 74)
+				&& (bestTestScores[2] > 74))
+		{
+			if ((bestTestScores[3] > 74) && (bestTestScores[4] > 74)
+					&& (bestTestScores[5] > 74) && (bestTestScores[6] > 74)
+					&& (bestTestScores[7] > 74))
+			{
+				if ((bestTestScores[8] > 74) /** && (bestTestScores[9] > 74) **/
+				)
+				{
+					levelView.setText(" 4");
+				}
+				else
+				{
+					levelView.setText(" 3");
+				}
+			}
+			else
+			{
+				levelView.setText(" 2");
+			}
+		}
+		else
+		{
+			levelView.setText(" 1");
+		}
+
+		int ranking = 0;
+		for (int i = 0; i < 10; i++)
+		{
+			myQuery = "SELECT MAX(score) as high_score FROM "
+					+ TABLE_TEST_RESULTS
+					+ " WHERE profileID = ? AND langsetID = "
+					+ Integer.toString(i);
+			c = sDb.rawQuery(myQuery, new String[]
+			{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
+			if (c.moveToFirst())
+			{
+				ranking = ranking + c.getInt(c.getColumnIndex("high_score"));
+			}
+		}
+		ranking = ranking / 10;
+		if (ranking < 10)
+		{
+			ratingView.setText(" Beginner");
+		}
+		else if (ranking < 20)
+		{
+			ratingView.setText(" Que?");
+		}
+		else if (ranking < 30)
+		{
+			ratingView.setText(" Tourist");
+		}
+		else if (ranking < 40)
+		{
+			ratingView.setText(" Intermediate");
+		}
+		else if (ranking < 50)
+		{
+			ratingView.setText(" Expirenced");
+		}
+		else if (ranking < 60)
+		{
+			ratingView.setText(" Proficient");
+		}
+		else if (ranking < 70)
+		{
+			ratingView.setText(" Advanced");
+		}
+		else if (ranking < 80)
+		{
+			ratingView.setText(" Bilingual");
+		}
+		else if (ranking < 90)
+		{
+			ratingView.setText(" Fluent");
+		}
+		else if (ranking < 100)
+		{
+			ratingView.setText(" Master");
+		}
+		else
+		{
+			ratingView.setText(" Native");
+		}
 	}
 }
