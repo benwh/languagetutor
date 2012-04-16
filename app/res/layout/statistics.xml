@@ -22,7 +22,8 @@
 		<TextView android:id="@+id/userleveltext" 
 		    xmlns:android="http://schemas.android.com/apk/res/android"
 	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"/>
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="10dp"/>
 	</LinearLayout>
 	
      <LinearLayout
@@ -37,7 +38,8 @@
 		<TextView android:id="@+id/numOfWords" 
 		    xmlns:android="http://schemas.android.com/apk/res/android"
 	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"/>
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="10dp"/>
 	</LinearLayout>
 		
     <LinearLayout
@@ -52,7 +54,8 @@
 		<TextView android:id="@+id/fravrite_word_text" 
 		    xmlns:android="http://schemas.android.com/apk/res/android"
 	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"/>
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="10dp"/>
 	</LinearLayout>>
 	
 	<LinearLayout
@@ -67,7 +70,8 @@
 		<TextView android:id="@+id/least_favrite_word_text" 
 		    xmlns:android="http://schemas.android.com/apk/res/android"
 	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"/>
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="10dp"/>
 	</LinearLayout>
 	
 	<LinearLayout
@@ -82,7 +86,8 @@
 		<TextView android:id="@+id/highest_test_score_text" 
 		    xmlns:android="http://schemas.android.com/apk/res/android"
 	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"/>
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="10dp"/>
 	</LinearLayout>
 	
 	<LinearLayout
@@ -97,7 +102,8 @@
 		<TextView android:id="@+id/highest_game_score_text" 
 		    xmlns:android="http://schemas.android.com/apk/res/android"
 	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"/>
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="10dp"/>
 	</LinearLayout>
 	
 	<LinearLayout
@@ -112,6 +118,7 @@
 		<TextView android:id="@+id/spanish_language_rating_text" 
 		    xmlns:android="http://schemas.android.com/apk/res/android"
 	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"/>	
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="10dp"/>	
 	</LinearLayout>	
 </LinearLayout>

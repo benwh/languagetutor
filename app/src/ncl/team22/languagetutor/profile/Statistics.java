@@ -23,6 +23,8 @@ public class Statistics extends Activity
 
 	public static final String	TABLE_ENITITY_PROGRESS	= "entity_progress";
 	public static final String	TABLE_LANGENTITY		= "langentity";
+	public static final String	TABLE_TEST_RESULTS		= "test_results";
+	public static final String	TABLE_GAME_RESULTS		= "game_results";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -37,9 +39,9 @@ public class Statistics extends Activity
 		noOFWordsView = (TextView) findViewById(R.id.numOfWords);
 		favView = (TextView) findViewById(R.id.fravrite_word_text);
 		leastFaveView = (TextView) findViewById(R.id.least_favrite_word_text);
-
 		testScoreView = (TextView) findViewById(R.id.highest_test_score_text);
 		gameScoreView = (TextView) findViewById(R.id.highest_game_score_text);
+
 		ratingView = (TextView) findViewById(R.id.spanish_language_rating_text);
 		levelView = (TextView) findViewById(R.id.userleveltext);
 
@@ -51,6 +53,36 @@ public class Statistics extends Activity
 		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)}, null, null, null);
 		String noOfWordsPracticed = Integer.toString(c.getCount());
 		noOFWordsView.setText(noOfWordsPracticed);
+
+		String bestTestResult;
+		myQuery = "SELECT MAX(score) as high_score FROM " + TABLE_TEST_RESULTS
+				+ " WHERE profileID = ?";
+		c = sDb.rawQuery(myQuery, new String[]
+		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
+		if (c.moveToFirst())
+		{
+			bestTestResult = Integer.toString(c.getInt(c.getColumnIndex("high_score")));
+		}
+		else
+		{
+			bestTestResult = "N/A";
+		}
+		testScoreView.setText(bestTestResult);
+
+		String bestGameResult;
+		myQuery = "SELECT MAX(points) as high_score FROM " + TABLE_GAME_RESULTS
+				+ " WHERE profileID = ?";
+		c = sDb.rawQuery(myQuery, new String[]
+		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
+		if (c.moveToFirst())
+		{
+			bestGameResult = Integer.toString(c.getInt(c.getColumnIndex("high_score")));
+		}
+		else
+		{
+			bestGameResult = "N/A";
+		}
+		gameScoreView.setText(bestGameResult);
 
 		String fWord;
 		myQuery = "SELECT source_text FROM "
