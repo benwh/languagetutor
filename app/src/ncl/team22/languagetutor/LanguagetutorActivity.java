@@ -135,6 +135,8 @@ public class LanguagetutorActivity extends Activity
 				e.apply();
 
 				startActivity(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class));
+				finish();
+
 				break;
 		}
 		return super.onMenuItemSelected(featureId, item);
