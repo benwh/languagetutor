@@ -55,6 +55,7 @@ public class Login extends Activity
 					Editor e = settings.edit();
 					e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
 					e.apply();
+					startActivity(new Intent(ncl.team22.languagetutor.profile.Login.this, LanguagetutorActivity.class));
 					finish();
 				}
 			}
