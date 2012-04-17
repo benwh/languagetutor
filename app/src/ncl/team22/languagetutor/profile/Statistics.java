@@ -8,24 +8,19 @@ import android.widget.TextView;
 
 import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
+import ncl.team22.languagetutor.data.DatabaseAdapter;
 
 public class Statistics extends Activity
 {
-	TextView					bannerView;
-	TextView					levelView;
-	TextView					favView;
-	TextView					leastFaveView;
-	TextView					testScoreView;
-	TextView					gameScoreView;
-	TextView					ratingView;
-	TextView					noOFWordsView;
-	String						myQuery;
-
-	public static final String	TABLE_ENITITY_PROGRESS	= "entity_progress";
-	public static final String	TABLE_LANGENTITY		= "langentity";
-	public static final String	TABLE_TEST_RESULTS		= "test_results";
-	public static final String	TABLE_GAME_RESULTS		= "game_results";
-	public static final String	TABLE_LANGSET			= "langset";
+	TextView	bannerView;
+	TextView	levelView;
+	TextView	favView;
+	TextView	leastFaveView;
+	TextView	testScoreView;
+	TextView	gameScoreView;
+	TextView	ratingView;
+	TextView	noOFWordsView;
+	String		myQuery;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -49,15 +44,15 @@ public class Statistics extends Activity
 		bannerView.setText(LanguagetutorActivity.currentProfile.display_name
 				+ "'s statistics");
 
-		c = sDb.query(TABLE_ENITITY_PROGRESS, new String[]
+		c = sDb.query(DatabaseAdapter.TABLE_ENTITY_PROGRESS, new String[]
 		{"last_attempt"}, "profileID = ? AND last_attempt IS NOT NULL", new String[]
 		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)}, null, null, null);
 		String noOfWordsPracticed = Integer.toString(c.getCount());
 		noOFWordsView.setText(noOfWordsPracticed);
 
 		String bestTestResult;
-		myQuery = "SELECT MAX(score) as high_score FROM " + TABLE_TEST_RESULTS
-				+ " WHERE profileID = ?";
+		myQuery = "SELECT MAX(score) as high_score FROM "
+				+ DatabaseAdapter.TABLE_TEST_RESULTS + " WHERE profileID = ?";
 		c = sDb.rawQuery(myQuery, new String[]
 		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
 		if (c.moveToFirst())
@@ -71,8 +66,8 @@ public class Statistics extends Activity
 		testScoreView.setText(bestTestResult);
 
 		String bestGameResult;
-		myQuery = "SELECT MAX(points) as high_score FROM " + TABLE_GAME_RESULTS
-				+ " WHERE profileID = ?";
+		myQuery = "SELECT MAX(points) as high_score FROM "
+				+ DatabaseAdapter.TABLE_GAME_RESULTS + " WHERE profileID = ?";
 		c = sDb.rawQuery(myQuery, new String[]
 		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
 		if (c.moveToFirst())
@@ -87,11 +82,12 @@ public class Statistics extends Activity
 
 		String fWord;
 		myQuery = "SELECT source_text FROM "
-				+ TABLE_ENITITY_PROGRESS
+				+ DatabaseAdapter.TABLE_ENTITY_PROGRESS
 				+ " NATURAL JOIN "
-				+ TABLE_LANGENTITY
+				+ DatabaseAdapter.TABLE_LANGENTITY
 				+ " WHERE profileID = ? AND score != 0 AND score >= (SELECT MAX(score) as word FROM "
-				+ TABLE_ENITITY_PROGRESS + " WHERE profileID = ? )";
+				+ DatabaseAdapter.TABLE_ENTITY_PROGRESS
+				+ " WHERE profileID = ? )";
 		c = sDb.rawQuery(myQuery, new String[]
 		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
 		if (c.moveToFirst())
@@ -106,11 +102,12 @@ public class Statistics extends Activity
 
 		String lfWord;
 		myQuery = "SELECT source_text FROM "
-				+ TABLE_ENITITY_PROGRESS
+				+ DatabaseAdapter.TABLE_ENTITY_PROGRESS
 				+ " NATURAL JOIN "
-				+ TABLE_LANGENTITY
+				+ DatabaseAdapter.TABLE_LANGENTITY
 				+ " WHERE profileID = ? AND score != 0 AND score <= (SELECT MIN(score) as word FROM "
-				+ TABLE_ENITITY_PROGRESS + " WHERE profileID = ? )";
+				+ DatabaseAdapter.TABLE_ENTITY_PROGRESS
+				+ " WHERE profileID = ? )";
 		c = sDb.rawQuery(myQuery, new String[]
 		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
 		if (c.moveToFirst())
@@ -127,7 +124,7 @@ public class Statistics extends Activity
 		for (int i = 0; i < 10; i++)
 		{
 			myQuery = "SELECT MAX(score) as high_score FROM "
-					+ TABLE_TEST_RESULTS
+					+ DatabaseAdapter.TABLE_TEST_RESULTS
 					+ " WHERE profileID = ? AND langsetID = "
 					+ Integer.toString(i);
 			c = sDb.rawQuery(myQuery, new String[]
@@ -173,7 +170,7 @@ public class Statistics extends Activity
 		for (int i = 0; i < 10; i++)
 		{
 			myQuery = "SELECT MAX(score) as high_score FROM "
-					+ TABLE_TEST_RESULTS
+					+ DatabaseAdapter.TABLE_TEST_RESULTS
 					+ " WHERE profileID = ? AND langsetID = "
 					+ Integer.toString(i);
 			c = sDb.rawQuery(myQuery, new String[]

@@ -10,8 +10,7 @@ public class LanguageEntity
 	public boolean				audio_asset;
 	public boolean				image_asset;
 
-	public static final String	TABLE_TOPIC	= "langset";
-	public static final String	TAG			= "LT-LanguageEntity";
+	public static final String	TAG	= "LT-LanguageEntity";
 
 	public LanguageEntity(int entityID, boolean phrase, boolean phrase_partial,
 			String source_text, String dest_text, boolean audio_asset,

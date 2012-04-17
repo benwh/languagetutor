@@ -18,14 +18,21 @@ import ncl.team22.languagetutor.R;
 public class DatabaseAdapter extends SQLiteOpenHelper
 {
 
-	public static final String	DBNAME			= "languagetutor";
-	public static final int		DBVERSION		= 4;
+	public static final String	DBNAME					= "languagetutor";
+	public static final int		DBVERSION				= 4;
+
+	public static final String	TABLE_PROFILE			= "profile";
+	public static final String	TABLE_TOPIC				= "langset";
+	public static final String	TABLE_TEST_RESULTS		= "test_results";
+	public static final String	TABLE_GAME_RESULTS		= "game_results";
+	public static final String	TABLE_ENTITY_PROGRESS	= "entity_progress";
+	public static final String	TABLE_LANGENTITY		= "langentity";
 
 	private static Context		ctx;
-	private static int			SQL_CREATE		= R.raw.create;
-	private static int			SQL_TESTDATA	= R.raw.testdata;
-	private static int			SQL_DROP		= R.raw.drop;
-	private static final String	TAG				= "LT-DatabaseAdapter";
+	private static int			SQL_CREATE				= R.raw.create;
+	private static int			SQL_TESTDATA			= R.raw.testdata;
+	private static int			SQL_DROP				= R.raw.drop;
+	private static final String	TAG						= "LT-DatabaseAdapter";
 
 	public DatabaseAdapter(Context context)
 	{

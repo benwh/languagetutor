@@ -19,7 +19,6 @@ public class Topic implements Serializable
 	public boolean				locked;
 	public boolean				displayable;
 
-	public static final String	TABLE_TOPIC			= "langset";
 	public static final String	TAG					= "LT-Topic";
 
 	public Topic(int topicID, String name, int level, boolean locked,
@@ -38,7 +37,7 @@ public class Topic implements Serializable
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
-		Cursor c = sDb.query(TABLE_TOPIC, new String[]
+		Cursor c = sDb.query(DatabaseAdapter.TABLE_TOPIC, new String[]
 		{"setID", "name", "level", "locked", "displayable"}, "setID = " + "?", new String[]
 		{Integer.toString(topicID)}, null, null, null);
 		c.moveToFirst();
@@ -52,7 +51,7 @@ public class Topic implements Serializable
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
-		Cursor c = sDb.query(TABLE_TOPIC, new String[]
+		Cursor c = sDb.query(DatabaseAdapter.TABLE_TOPIC, new String[]
 		{"setID"}, "name = " + "?", new String[]
 		{selectedTopic.toString()}, null, null, null);
 		c.moveToFirst();
@@ -93,7 +92,7 @@ public class Topic implements Serializable
 
 		ArrayList<Topic> tlist = new ArrayList<Topic>();
 
-		Cursor c = sDb.query(TABLE_TOPIC, new String[]
+		Cursor c = sDb.query(DatabaseAdapter.TABLE_TOPIC, new String[]
 		{"setID", "name", "level", "locked", "displayable"}, "level = " + "?", new String[]
 		{Integer.toString(level)}, null, null, null);
 		c.moveToFirst();
@@ -118,7 +117,7 @@ public class Topic implements Serializable
 
 		ArrayList<Topic> tlist = new ArrayList<Topic>();
 
-		Cursor c = sDb.query(TABLE_TOPIC, new String[]
+		Cursor c = sDb.query(DatabaseAdapter.TABLE_TOPIC, new String[]
 		{"setID", "name", "level", "locked", "displayable"}, null, null, null, null, null);
 		c.moveToFirst();
 		while (!c.isAfterLast())

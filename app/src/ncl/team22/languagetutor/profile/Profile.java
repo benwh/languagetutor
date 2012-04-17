@@ -11,11 +11,11 @@ import android.util.Base64;
 import android.util.Log;
 
 import ncl.team22.languagetutor.LanguagetutorActivity;
+import ncl.team22.languagetutor.data.DatabaseAdapter;
 
 public class Profile
 {
 
-	public static final String	TABLE_PROFILE	= "profile";
 	public static final String	TAG				= "LT-Profile";
 	private static final String	SALT			= "93nsa9j2b0sb0f6v3lstzlpu2n";
 	private static int			HASH_ITERATIONS	= 5000;
@@ -42,7 +42,7 @@ public class Profile
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
-		return sDb.query(TABLE_PROFILE, new String[]
+		return sDb.query(DatabaseAdapter.TABLE_PROFILE, new String[]
 		{"profileID _id", "display_name"}, null, null, null, null, null);
 	}
 
@@ -69,7 +69,7 @@ public class Profile
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
-		Cursor c = sDb.query(TABLE_PROFILE, new String[]
+		Cursor c = sDb.query(DatabaseAdapter.TABLE_PROFILE, new String[]
 		{"profileID _id", "display_name", "password_hash", "secret_q",
 				"secret_a", "theme"}, "_id = ?", new String[]
 		{Integer.toString(profileID)}, null, null, null);
@@ -91,7 +91,7 @@ public class Profile
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
-		Cursor c = sDb.query(TABLE_PROFILE, new String[]
+		Cursor c = sDb.query(DatabaseAdapter.TABLE_PROFILE, new String[]
 		{"profileID _id", "display_name", "password_hash"}, "display_name = ?", new String[]
 		{user}, null, null, null);
 
@@ -121,7 +121,7 @@ public class Profile
 		Cursor c;
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
-		c = sDb.query(TABLE_PROFILE, new String[]
+		c = sDb.query(DatabaseAdapter.TABLE_PROFILE, new String[]
 		{"display_name"}, "display_name = ?", new String[]
 		{userName}, null, null, null);
 
