@@ -71,13 +71,22 @@ public class LanguagetutorActivity extends Activity
 			}
 		});
 
-		final Button topicsButton = (Button) findViewById(R.id.topicssbutton);
+		final Button topicsButton = (Button) findViewById(R.id.tutorialsbutton);
 		topicsButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v)
 			{
-				Intent i = new Intent(LanguagetutorActivity.this, TopicSelectionActivity.class);
+				Intent i = new Intent(LanguagetutorActivity.this, TutorialActivity.class);
 				startActivityForResult(i, LanguagetutorActivity.TOPICSELECTION_REQUEST);
+			}
+		});
+
+		final Button tutsButton = (Button) findViewById(R.id.topicssbutton);
+		tutsButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				startActivity(new Intent(LanguagetutorActivity.this, TutorialActivity.class));
 			}
 		});
 
