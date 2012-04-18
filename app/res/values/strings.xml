@@ -16,9 +16,12 @@
 	<string name="create_profile">Create new profile</string>
 	<string name="recover_pass">Forgot my username/password</string>
 	<string name="s_question">Secret question:</string>
+	<string name="new_s_question">New secret question:</string>
 	<string name="s_answer">Secret answer:</string>
+	<string name="new_s_answer">New secret answer:</string>
 	<string name="c_password">Confirm password:</string>
 	<string name="username">Username:</string>
+	<string name="new_pass">New password:</string>
 	<string name="password">Password:</string>
 	<string name="login">Login</string>
 	<string name="logout">Log Out</string>
@@ -30,5 +33,6 @@
 	<string name="highest_game_score">Highest game score:</string>
 	<string name="language_rating">Spanish language rating:</string>
 	<string name="words_incountered">Number of words learnt:</string>
+	<string name="confrim">Confirm</string>
 
 </resources>

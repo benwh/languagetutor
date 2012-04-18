@@ -1,6 +1,10 @@
 package ncl.team22.languagetutor.profile;
 
 import android.app.Activity;
+import android.content.ContentValues;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +13,7 @@ import android.widget.Toast;
 
 import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
+import ncl.team22.languagetutor.data.DatabaseAdapter;
 
 public class ReplaceQA extends Activity
 {
@@ -43,7 +48,24 @@ public class ReplaceQA extends Activity
 					if (!inQ.isEmpty() && !inA.isEmpty())
 					{
 						// set q + a
+						SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+
+						ContentValues cv = new ContentValues();
+						cv.put("secret_q", inQ);
+						cv.put("secret_a", inA);
+
+						sDb.update(DatabaseAdapter.TABLE_PROFILE, cv, "profileID=?", new String[]
+						{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
+
+						LanguagetutorActivity.currentProfile = Profile.load(LanguagetutorActivity.currentProfile.profileID);
+						SharedPreferences settings = getSharedPreferences(LanguagetutorActivity.PREFS_NAME, MODE_PRIVATE);
+						Editor e = settings.edit();
+						e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
+						e.apply();
+
 						mssg = "New Question + Answer saved";
+						sDb.close();
+						finish();
 					}
 					else
 					{

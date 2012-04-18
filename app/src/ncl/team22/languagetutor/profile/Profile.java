@@ -132,7 +132,7 @@ public class Profile
 		return exists;
 	}
 
-	private static String hashPassword(String password)
+	public static String hashPassword(String password)
 	{
 		MessageDigest md;
 
