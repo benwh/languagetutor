@@ -53,7 +53,14 @@ public class Test extends Activity
 			Log.d(TAG, "Selected topic was: " + selectedTopic);
 
 			// Occupy list with topics
-			TestData.setEntitiesListByTopic(selectedTopic);
+			if (getIntent().getFlags() == 100)
+			{
+				TestData.setEntitiesList(Topic.getAllEntities());
+			}
+			else
+			{
+				TestData.setEntitiesListByTopic(selectedTopic);
+			}
 
 			// Add header for review
 			TestData.addToReviewTest("ORIGINAL");
@@ -706,7 +713,7 @@ public class Test extends Activity
 	 * @param length
 	 *            - The length of the overall test
 	 */
-	public void setTestLength(int length)
+	public static void setTestLength(int length)
 	{
 		TEST_MAX = length;
 		Log.d(TAG, "Test max is: " + TEST_MAX); // TRACE
@@ -733,7 +740,8 @@ public class Test extends Activity
 		{
 			onBackPressed();
 		}
-		else if (getIntent().getFlags() == 98 && backPressed == true)
+		else if ((getIntent().getFlags() == 98 || getIntent().getFlags() == 100)
+				&& backPressed == true)
 		{
 			backPressed = false;
 			TestResult.reset();

@@ -25,7 +25,7 @@ import ncl.team22.languagetutor.data.Topic;
  */
 public class Topics extends ListActivity
 {
-	private boolean				testsComplete	= false;
+	private boolean				testsComplete	= true;
 	public static final String	intentTopic		= "ncl.team22.languagetutor.test.selectedTopic";
 	private static final String	TAG				= "LT-Topics";
 
@@ -78,5 +78,16 @@ public class Topics extends ListActivity
 			// Sets to approx. 40% opacity
 			mix.getBackground().setAlpha(102);
 		}
+
+		mix.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				Test.setTestLength(16);
+				Intent intent = new Intent(Topics.this, Test.class);
+				intent.setFlags(100);
+				startActivity(intent);
+			}
+		});
 	}
 }

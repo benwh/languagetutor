@@ -25,6 +25,11 @@ public class TestData
 		entitiesList = selectedTopic.getEntities();
 	}
 
+	public static void setEntitiesList(ArrayList<LanguageEntity> entities)
+	{
+		entitiesList = entities;
+	}
+
 	public static ArrayList<LanguageEntity> getEntitiesList()
 	{
 		return entitiesList;

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import ncl.team22.languagetutor.LanguagetutorActivity;
+import ncl.team22.languagetutor.test.LevelSelect;
 
 public class Topic implements Serializable
 {
@@ -74,6 +75,36 @@ public class Topic implements Serializable
 				+ "?";
 		Cursor d = sDb.rawQuery(sqlStatement, new String[]
 		{Integer.toString(this.topicID)});
+
+		d.moveToFirst();
+		while (!d.isAfterLast())
+		{
+			entities.add(new LanguageEntity(d.getInt(0), (d.getInt(1) > 0), (d.getInt(2) > 0), d.getString(3), d.getString(4), (d.getInt(5) > 0), (d.getInt(6) > 0)));
+			d.moveToNext();
+		}
+
+		return entities;
+	}
+
+	/**
+	 * Within a level
+	 * 
+	 * @return the list of entities
+	 */
+	public static ArrayList<LanguageEntity> getAllEntities()
+	{
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+
+		ArrayList<LanguageEntity> entities = new ArrayList<LanguageEntity>();
+
+		Log.d(TAG, "Level is: " + LevelSelect.getLevel());
+
+		String sqlStatement = "SELECT langentity.entityID _id, phrase, phrase_partial, source_text, dest_text, audio_asset, image_asset "
+				+ "FROM langentity, entity_set, langset "
+				+ "WHERE langentity.entityId = entity_set.entityId AND (langset.level = "
+				+ "?" + " AND langset.setId = entity_set.setId)";
+		Cursor d = sDb.rawQuery(sqlStatement, new String[]
+		{Integer.toString(LevelSelect.getLevel())});
 
 		d.moveToFirst();
 		while (!d.isAfterLast())
