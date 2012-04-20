@@ -131,6 +131,5 @@ public class TestResult
 		data.put("time", tS);
 		data.put("score", "" + calculateTestPercentage());
 		sDb.insert("test_results", null, data);
-
 	}
 }

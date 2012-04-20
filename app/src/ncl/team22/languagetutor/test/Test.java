@@ -62,14 +62,7 @@ public class Test extends Activity
 
 			if (TestData.getEntitiesList().size() < TEST_MAX)
 			{
-				TEST_MAX = TestData.getEntitiesList().size();
-				Log.d(TAG, "Test max is: " + TEST_MAX); // TRACE
-				TEST_MID = TEST_MAX / 2;
-				if (TEST_MID % 2 == 1)
-				{
-					TEST_MID++;
-				}
-				Log.d(TAG, "Test mid is: " + TEST_MID); // TRACE
+				setTestLength(TestData.getEntitiesList().size());
 			}
 
 			getMultiQuestion();
@@ -89,10 +82,6 @@ public class Test extends Activity
 		else if (TestResult.getCounter() == TEST_MAX)
 		{
 			setContentView(R.layout.test_submitted);
-
-			// Reset test data values to default
-			TEST_MAX = 8;
-			TEST_MID = 4;
 
 			// Get a UNIX time-stamp
 			long currentTime = System.currentTimeMillis() / 1000L;
@@ -711,6 +700,24 @@ public class Test extends Activity
 		});
 	}
 
+	/**
+	 * Sets the length of static test variable and midpoint
+	 * 
+	 * @param length
+	 *            - The length of the overall test
+	 */
+	public void setTestLength(int length)
+	{
+		TEST_MAX = length;
+		Log.d(TAG, "Test max is: " + TEST_MAX); // TRACE
+		TEST_MID = TEST_MAX / 2;
+		if (TEST_MID % 2 == 1)
+		{
+			TEST_MID++;
+		}
+		Log.d(TAG, "Test mid is: " + TEST_MID); // TRACE
+	}
+
 	@Override
 	public void onBackPressed()
 	{
@@ -731,6 +738,8 @@ public class Test extends Activity
 			backPressed = false;
 			TestResult.reset();
 			TestData.resetData();
+			// Reset test length values to default
+			setTestLength(8);
 			finish();
 		}
 	}
