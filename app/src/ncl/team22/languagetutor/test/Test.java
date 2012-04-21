@@ -27,6 +27,7 @@ public class Test extends Activity
 {
 	static Topic				selectedTopic;
 	static boolean				backPressed	= false;
+	static boolean				isMixedTest	= false;
 	static int					TEST_MAX	= 8;
 	static int					TEST_MID	= 4;
 
@@ -90,15 +91,25 @@ public class Test extends Activity
 		{
 			setContentView(R.layout.test_submitted);
 
-			// Get a UNIX time-stamp
-			long currentTime = System.currentTimeMillis() / 1000L;
-			// Convert to string for insertion to DB
-			String tS = Long.toString(currentTime);
-			// Turn in to a date object. Needs conversion back to milliseconds
-			Date currentDate = new java.util.Date(currentTime * 1000);
-			Log.d(TAG, "Timestamp: " + currentDate.toString());
-			// Submit the score
-			TestResult.submitScore(LanguagetutorActivity.currentProfile.profileID, Topic.getIdByTopic(selectedTopic), tS);
+			if (isMixedTest = true)
+			{
+				final TextView text = (TextView) findViewById(R.id.test_submitted);
+				text.setText("Mix test results are not stored, loading test results...");
+				setMixedTest(false);
+			}
+			else
+			{
+				// Get a UNIX time-stamp
+				long currentTime = System.currentTimeMillis() / 1000L;
+				// Convert to string for insertion to DB
+				String tS = Long.toString(currentTime);
+				// Turn in to a date object. Needs conversion back to
+				// milliseconds
+				Date currentDate = new java.util.Date(currentTime * 1000);
+				Log.d(TAG, "Timestamp: " + currentDate.toString());
+				// Submit the score
+				TestResult.submitScore(LanguagetutorActivity.currentProfile.profileID, Topic.getIdByTopic(selectedTopic), tS);
+			}
 			Log.d(TAG, "Test complete, taking you to the TestReview...");
 			Intent i = new Intent(Test.this, TestReview.class);
 			i.setFlags(99);
@@ -723,6 +734,18 @@ public class Test extends Activity
 			TEST_MID++;
 		}
 		Log.d(TAG, "Test mid is: " + TEST_MID); // TRACE
+	}
+
+	/**
+	 * Sets the boolean isMixedTest, used to determine whether a test score
+	 * should be submitted to database
+	 * 
+	 * @param bool
+	 *            - the boolean value of true or false
+	 */
+	public static void setMixedTest(boolean bool)
+	{
+		isMixedTest = bool;
 	}
 
 	@Override
