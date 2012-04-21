@@ -31,6 +31,8 @@
         <activity android:name=".profile.CreateProfile"></activity>
         <activity android:name=".TopicSelectionActivity"></activity>
         <activity android:name=".profile.Statistics"></activity>
+        <activity android:name=".TutorialActivity"></activity>
+        <activity android:name=".RevisionActivity"></activity>
     </application>
 
 </manifest>
