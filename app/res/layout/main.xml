@@ -18,14 +18,14 @@
 	<LinearLayout style="@style/main_content" >
 
 		<Button
-			android:id="@+id/tutorialsbutton"
+			android:id="@+id/learnbutton"
 			style="@style/menu_btn"
-			android:text="@string/tutorials" />
+			android:text="@string/learn" />
 
 		<Button
-			android:id="@+id/revisionbutton"
+			android:id="@+id/reviewbutton"
 			style="@style/menu_btn"
-			android:text="@string/revision" />
+			android:text="@string/review" />
 
 		<Button
 			android:id="@+id/gamesbutton"

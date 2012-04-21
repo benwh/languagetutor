@@ -53,6 +53,16 @@ public class LanguagetutorActivity extends Activity
 			headerText.setText("Hola " + currentProfile.display_name + "!");
 		}
 
+		final Button learnButton = (Button) findViewById(R.id.learnbutton);
+		learnButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				Intent i = new Intent(LanguagetutorActivity.this, TutorialActivity.class);
+				startActivity(i);
+			}
+		});
+
 		final Button optionsButton = (Button) findViewById(R.id.optionsbutton);
 		optionsButton.setOnClickListener(new View.OnClickListener() {
 			@Override

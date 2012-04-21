@@ -40,8 +40,8 @@
     <string name="words_incountered">Number of words learnt:</string>
     <string name="confirm">Confirm</string>
     <string name="create_prof">Create profile</string>
-    <string name="tutorials">Tutorials</string>
-    <string name="revision">Revision</string>
+    <string name="learn">Learn</string>
+    <string name="review">Review</string>
     <string name="games">Games</string>
     <string name="tests">Tests</string>
     <string name="test">Test</string>
