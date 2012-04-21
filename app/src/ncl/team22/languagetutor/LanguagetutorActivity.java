@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 import ncl.team22.languagetutor.data.Topic;
@@ -48,6 +49,8 @@ public class LanguagetutorActivity extends Activity
 		else
 		{
 			currentProfile = Profile.load(activeProfileID);
+			TextView headerText = (TextView) findViewById(R.id.main_header_text);
+			headerText.setText("Hola " + currentProfile.display_name + "!");
 		}
 
 		final Button optionsButton = (Button) findViewById(R.id.optionsbutton);
