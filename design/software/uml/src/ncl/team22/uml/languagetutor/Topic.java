@@ -1,43 +1,72 @@
 package ncl.team22.uml.languagetutor;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Topic
 {
 
-	/**
-	 * @uml.property  name="languageSetManager"
-	 * @uml.associationEnd  multiplicity="(1 1)" inverse="topic:ncl.team22.uml.languagetutor.LanguageSetManager"
-	 */
-	private LanguageSetManager languageSetManager = new ncl.team22.uml.languagetutor.LanguageSetManager();
+	public int					topicID;
+	public String				name;
+	public int					level;
+	public boolean				locked;
+	public boolean				displayable;
 
-	/**
-	 * Getter of the property <tt>languageSetManager</tt>
-	 * @return  Returns the languageSetManager.
-	 * @uml.property  name="languageSetManager"
-	 */
-	public LanguageSetManager getLanguageSetManager()
+	public Topic(int topicID, String name, int level, boolean locked,
+			boolean displayable)
 	{
-		return languageSetManager;
+		this.topicID = topicID;
+		this.name = name;
+		this.level = level;
+		this.locked = locked;
+		this.displayable = displayable;
 	}
 
-	/**
-	 * Setter of the property <tt>languageSetManager</tt>
-	 * @param languageSetManager  The languageSetManager to set.
-	 * @uml.property  name="languageSetManager"
-	 */
-	public void setLanguageSetManager(LanguageSetManager languageSetManager)
+	// This is no longer used, may be removed if we don't find another use for
+	// it
+	public static Topic getTopicById(int topicID)
 	{
-		this.languageSetManager = languageSetManager;
+		return null;
 	}
 
-	/**
-	 * @uml.property  name="languageEntity"
-	 * @uml.associationEnd  multiplicity="(0 -1)" inverse="topic:ncl.team22.uml.languagetutor.LanguageEntity"
-	 */
-	private Collection<LanguageEntity> languageEntity;
+	public static int getIdByTopic(Topic selectedTopic)
+	{
+		return 0;
+	}
 
-	/**
+	public ArrayList<LanguageEntity> getEntities()
+	{
+		return null;
+	}
+
+	public static ArrayList<LanguageEntity> getAllEntities()
+	{
+		return null;
+	}
+
+	public static ArrayList<Topic> getTopics(int level)
+	{
+		return null;
+	}
+
+	public static ArrayList<Topic> getTopics()
+	{
+		return null;
+	}
+
+	@Override
+	public String toString()
+	{
+		return this.name;
+	}
+
+	/** 
+	 * @uml.property name="languageEntity"
+	 * @uml.associationEnd multiplicity="(1 -1)" inverse="topic:ncl.team22.uml.languagetutor.LanguageEntity"
+	 */
+	private Collection<LanguageEntity>	languageEntity;
+
+	/** 
 	 * Getter of the property <tt>languageEntity</tt>
 	 * @return  Returns the languageEntity.
 	 * @uml.property  name="languageEntity"
@@ -47,7 +76,7 @@ public class Topic
 		return languageEntity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>languageEntity</tt>
 	 * @param languageEntity  The languageEntity to set.
 	 * @uml.property  name="languageEntity"
@@ -56,30 +85,4 @@ public class Topic
 	{
 		this.languageEntity = languageEntity;
 	}
-
-	/** 
-	 * @uml.property name="unlocked"
-	 */
-	boolean unlocked;
-
-	/** 
-	 * Getter of the property <tt>unlocked</tt>
-	 * @return  Returns the unlocked.
-	 * @uml.property  name="unlocked"
-	 */
-	public boolean isUnlocked()
-	{
-		return unlocked;
-	}
-
-	/** 
-	 * Setter of the property <tt>unlocked</tt>
-	 * @param unlocked  The unlocked to set.
-	 * @uml.property  name="unlocked"
-	 */
-	public void setUnlocked(boolean unlocked)
-	{
-		this.unlocked = unlocked;
-	}
-
 }

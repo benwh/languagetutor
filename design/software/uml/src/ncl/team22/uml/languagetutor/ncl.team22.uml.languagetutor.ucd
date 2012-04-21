@@ -1,232 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1324,943" id="ncl.team22.uml.languagetutor" metadata="uml2-1.0" initialized="true" scrolledX="223" scrolledY="431" tag="1000" key="32303037303533312D31303030206C616E67756167657475746F7220554D4C2F42656E2057686561746C6579">
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.2" name="OptionsManager" location="956,327" size="190,86" id="ncl.team22.uml.languagetutor/OptionsManager" runTimeClassModel="getOpt(Ljava.lang.String;),setOpt(Lncl.team22.uml.languagetutor.Option;)">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="167,36">
-      <children xsi:type="editmodel:MethodEditModel" name="getOpt" id="ncl.team22.uml.languagetutor/OptionsManager#getOpt(Ljava.lang.String;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="setOpt" id="ncl.team22.uml.languagetutor/OptionsManager#setOpt(Lncl.team22.uml.languagetutor.Option;)"/>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1683,782" id="ncl.team22.uml.languagetutor" metadata="uml2-1.0" initialized="true" zoom="0.75" scrolledX="57" scrolledY="73" tag="1000" key="32303037303533312D31303030206C616E67756167657475746F7220554D4C2F42656E2057686561746C6579">
+  <children xsi:type="editmodel:ClassEditModel" name="Topic" location="60,435" size="502,283" id="ncl.team22.uml.languagetutor/Topic" runTimeClassModel="displayable,getTopicById(I),getTopics(I),toString(),level,getIdByTopic(Lncl.team22.uml.languagetutor.Topic;),getTopics(),name,topicID,locked,getEntities(),getAllEntities(),Topic(ILjava.lang.String;IZZ)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="136,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="topicID" id="ncl.team22.uml.languagetutor/Topic#topicID"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="name" id="ncl.team22.uml.languagetutor/Topic#name"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="level" id="ncl.team22.uml.languagetutor/Topic#level"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="locked" id="ncl.team22.uml.languagetutor/Topic#locked"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="displayable" id="ncl.team22.uml.languagetutor/Topic#displayable"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="479,144">
+      <children xsi:type="editmodel:MethodEditModel" name="Topic" id="ncl.team22.uml.languagetutor/Topic#Topic(ILjava.lang.String;IZZ)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getTopicById" id="ncl.team22.uml.languagetutor/Topic#getTopicById(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getIdByTopic" id="ncl.team22.uml.languagetutor/Topic#getIdByTopic(Lncl.team22.uml.languagetutor.Topic;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getEntities" id="ncl.team22.uml.languagetutor/Topic#getEntities()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAllEntities" id="ncl.team22.uml.languagetutor/Topic#getAllEntities()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getTopics" id="ncl.team22.uml.languagetutor/Topic#getTopics(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getTopics" id="ncl.team22.uml.languagetutor/Topic#getTopics()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="ncl.team22.uml.languagetutor/Topic#toString()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ncl.team22.uml.languagetutor/OptionsManager@optionsManager+ncl.team22.uml.languagetutor/Option@option" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.0/@children.1" label="//@children.0/@sourceConnections.0/@children.2" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="optionsManager" location="101,86" id="ncl.team22.uml.languagetutor/OptionsManager@optionsManager+ncl.team22.uml.languagetutor/Option@option|ncl.team22.uml.languagetutor/OptionsManager#optionsManager" attachSource="true" multiplicityLabel="//@children.0/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.0/@sourceConnections.0/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - optionsManager" location="1064,420" size="99,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="1043,420" size="7,13" anchorKind="FirstPart"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ncl.team22.uml.languagetutor/LanguageEntity@languageEntity+ncl.team22.uml.languagetutor/Topic@topic" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.0/@children.1" label="//@children.0/@sourceConnections.0/@children.2" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="topic" location="502,132" id="ncl.team22.uml.languagetutor/LanguageEntity@languageEntity+ncl.team22.uml.languagetutor/Topic@topic|ncl.team22.uml.languagetutor/Topic#topic" attachSource="true" multiplicityLabel="//@children.0/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.0/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - topic" location="568,546" size="39,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="568,573" size="6,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="option" location="45,0" id="ncl.team22.uml.languagetutor/OptionsManager@optionsManager+ncl.team22.uml.languagetutor/Option@option|ncl.team22.uml.languagetutor/Option#option" multiplicityLabel="//@children.0/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.0/@sourceConnections.0/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" + option" location="1064,490" size="50,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="*" location="1045,490" size="5,13" anchorKind="LastPart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="languageEntity" location="0,157" id="ncl.team22.uml.languagetutor/LanguageEntity@languageEntity+ncl.team22.uml.languagetutor/Topic@topic|ncl.team22.uml.languagetutor/LanguageEntity#languageEntity" multiplicityLabel="//@children.0/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.0/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - languageEntity" location="661,546" size="96,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="736,573" size="21,13" anchorKind="LastPart"/>
       </children>
       <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="Option" location="1012,510" size="92,30" id="ncl.team22.uml.languagetutor/Option" runTimeClassModel="">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:ClassEditModel" name="LanguageSetManager" location="910,579" size="207,68" id="ncl.team22.uml.languagetutor/LanguageSetManager" runTimeClassModel="getTopics(),getEntities(Ljava.util.ArrayList;)">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="182,18">
-      <children xsi:type="editmodel:MethodEditModel" name="getTopics" id="ncl.team22.uml.languagetutor/LanguageSetManager#getTopics()"/>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="LanguageEntity" location="765,410" size="610,291" id="ncl.team22.uml.languagetutor/LanguageEntity" runTimeClassModel="source_text,phrase_partial,toDestString(),updateScore(I),tAG,entityID,toString(),LanguageEntity(IZZLjava.lang.String;Ljava.lang.String;ZZ),audio_asset,dest_text,phrase,toSourceString(),image_asset">
+    <children xsi:type="editmodel:CompartmentEditModel" size="153,144">
+      <children xsi:type="editmodel:AttributeEditModel" name="entityID" id="ncl.team22.uml.languagetutor/LanguageEntity#entityID"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="phrase" id="ncl.team22.uml.languagetutor/LanguageEntity#phrase"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="phrase_partial" id="ncl.team22.uml.languagetutor/LanguageEntity#phrase_partial"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="source_text" id="ncl.team22.uml.languagetutor/LanguageEntity#source_text"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dest_text" id="ncl.team22.uml.languagetutor/LanguageEntity#dest_text"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="audio_asset" id="ncl.team22.uml.languagetutor/LanguageEntity#audio_asset"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="image_asset" id="ncl.team22.uml.languagetutor/LanguageEntity#image_asset"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tAG" id="ncl.team22.uml.languagetutor/LanguageEntity#tAG"/>
     </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ncl.team22.uml.languagetutor/LanguageSetManager@languageSetManager+ncl.team22.uml.languagetutor/Topic@topic" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.0/@children.1" label="//@children.2/@sourceConnections.0/@children.2" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="languageSetManager" location="103,68" id="ncl.team22.uml.languagetutor/LanguageSetManager@languageSetManager+ncl.team22.uml.languagetutor/Topic@topic|ncl.team22.uml.languagetutor/LanguageSetManager#languageSetManager" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.2/@sourceConnections.0/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - languageSetManager" location="1020,654" size="128,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="999,654" size="7,13" anchorKind="FirstPart"/>
-      </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="topic" location="71,0" id="ncl.team22.uml.languagetutor/LanguageSetManager@languageSetManager+ncl.team22.uml.languagetutor/Topic@topic|ncl.team22.uml.languagetutor/Topic#topic" multiplicityLabel="//@children.2/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.2/@sourceConnections.0/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" + topic" location="1020,700" size="42,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="*" location="1001,700" size="5,13" anchorKind="LastPart"/>
-      </children>
-      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
-    </sourceConnections>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="Topic" location="942,720" size="144,58" id="ncl.team22.uml.languagetutor/Topic" runTimeClassModel="unlocked">
-    <children xsi:type="editmodel:CompartmentEditModel" size="121,18">
-      <children xsi:type="editmodel:AttributeEditModel" name="unlocked" id="ncl.team22.uml.languagetutor/Topic#unlocked"/>
-    </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ncl.team22.uml.languagetutor/Topic@topic+ncl.team22.uml.languagetutor/LanguageEntity@languageEntity" source="//@children.3" target="//@children.4" targetEnd="//@children.3/@sourceConnections.0/@children.1" label="//@children.3/@sourceConnections.0/@children.2" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="topic" location="72,58" id="ncl.team22.uml.languagetutor/Topic@topic+ncl.team22.uml.languagetutor/LanguageEntity@languageEntity|ncl.team22.uml.languagetutor/Topic#topic" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.0/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - topic" location="1021,785" size="37,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="1000,785" size="7,13" anchorKind="FirstPart"/>
-      </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="languageEntity" location="87,0" id="ncl.team22.uml.languagetutor/Topic@topic+ncl.team22.uml.languagetutor/LanguageEntity@languageEntity|ncl.team22.uml.languagetutor/LanguageEntity#languageEntity" multiplicityLabel="//@children.3/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.0/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - languageEntity" location="1021,835" size="93,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="*" location="1002,835" size="5,13" anchorKind="LastPart"/>
-      </children>
-      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
-    </sourceConnections>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0" name="LanguageEntity" location="927,855" size="174,68" id="ncl.team22.uml.languagetutor/LanguageEntity" runTimeClassModel="updateScore(I)">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="151,18">
+    <children xsi:type="editmodel:CompartmentEditModel" size="901,90">
+      <children xsi:type="editmodel:MethodEditModel" name="LanguageEntity" id="ncl.team22.uml.languagetutor/LanguageEntity#LanguageEntity(IZZLjava.lang.String;Ljava.lang.String;ZZ)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toSourceString" id="ncl.team22.uml.languagetutor/LanguageEntity#toSourceString()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toDestString" id="ncl.team22.uml.languagetutor/LanguageEntity#toDestString()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="ncl.team22.uml.languagetutor/LanguageEntity#toString()"/>
       <children xsi:type="editmodel:MethodEditModel" name="updateScore" id="ncl.team22.uml.languagetutor/LanguageEntity#updateScore(I)"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="ProfileManager" location="266,30" size="584,104" id="ncl.team22.uml.languagetutor/ProfileManager" runTimeClassModel="listProfiles(),createNewProfile(Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;),getProfile(I)">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="561,54">
-      <children xsi:type="editmodel:MethodEditModel" name="listProfiles" id="ncl.team22.uml.languagetutor/ProfileManager#listProfiles()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="getProfile" id="ncl.team22.uml.languagetutor/ProfileManager#getProfile(I)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="createNewProfile" id="ncl.team22.uml.languagetutor/ProfileManager#createNewProfile(Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;)"/>
+  <children xsi:type="editmodel:ClassEditModel" name="Profile" location="14,120" size="682,283" id="ncl.team22.uml.languagetutor/Profile" runTimeClassModel="getProfiles(),secret_q,theme,password_hash,create(Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;),hashPassword(Ljava.lang.String;),display_name,profileID,secret_a,authenticate(Ljava.lang.String;Ljava.lang.String;),Profile(ILjava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;I),checkName(Ljava.lang.String;),load(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="147,108">
+      <children xsi:type="editmodel:AttributeEditModel" name="profileID" id="ncl.team22.uml.languagetutor/Profile#profileID"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="display_name" id="ncl.team22.uml.languagetutor/Profile#display_name"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="password_hash" id="ncl.team22.uml.languagetutor/Profile#password_hash"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="secret_q" id="ncl.team22.uml.languagetutor/Profile#secret_q"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="secret_a" id="ncl.team22.uml.languagetutor/Profile#secret_a"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="theme" id="ncl.team22.uml.languagetutor/Profile#theme"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="659,126">
+      <children xsi:type="editmodel:MethodEditModel" name="Profile" id="ncl.team22.uml.languagetutor/Profile#Profile(ILjava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getProfiles" id="ncl.team22.uml.languagetutor/Profile#getProfiles()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="create" id="ncl.team22.uml.languagetutor/Profile#create(Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="load" id="ncl.team22.uml.languagetutor/Profile#load(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="authenticate" id="ncl.team22.uml.languagetutor/Profile#authenticate(Ljava.lang.String;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="checkName" id="ncl.team22.uml.languagetutor/Profile#checkName(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="hashPassword" id="ncl.team22.uml.languagetutor/Profile#hashPassword(Ljava.lang.String;)"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ncl.team22.uml.languagetutor/Profile@profile1+ncl.team22.uml.languagetutor/ProfileManager@profileManager" source="//@children.5" target="//@children.6" targetEnd="//@children.5/@sourceConnections.0/@children.1" label="//@children.5/@sourceConnections.0/@children.2" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="profileManager" location="291,104" id="ncl.team22.uml.languagetutor/Profile@profile1+ncl.team22.uml.languagetutor/ProfileManager@profileManager|ncl.team22.uml.languagetutor/ProfileManager#profileManager" attachSource="true" multiplicityLabel="//@children.5/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.5/@sourceConnections.0/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" + profileManager" location="564,141" size="98,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="543,141" size="7,13" anchorKind="FirstPart"/>
-      </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="profile1" location="133,0" id="ncl.team22.uml.languagetutor/Profile@profile1+ncl.team22.uml.languagetutor/ProfileManager@profileManager|ncl.team22.uml.languagetutor/Profile#profile1" multiplicityLabel="//@children.5/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.5/@sourceConnections.0/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - profile1" location="564,280" size="52,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="*" location="545,280" size="5,13" anchorKind="LastPart"/>
-      </children>
-      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
-    </sourceConnections>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.0" name="Profile" location="424,300" size="267,140" id="ncl.team22.uml.languagetutor/Profile" runTimeClassModel="optMan,testResMan,authenticate(Ljava.lang.String;),passworded,gameResMan">
-    <children xsi:type="editmodel:CompartmentEditModel" size="214,72">
-      <children xsi:type="editmodel:AttributeEditModel" name="passworded" id="ncl.team22.uml.languagetutor/Profile#passworded"/>
-      <children xsi:type="editmodel:AttributeEditModel" name="optMan" id="ncl.team22.uml.languagetutor/Profile#optMan"/>
-      <children xsi:type="editmodel:AttributeEditModel" name="gameResMan" id="ncl.team22.uml.languagetutor/Profile#gameResMan"/>
-      <children xsi:type="editmodel:AttributeEditModel" name="testResMan" id="ncl.team22.uml.languagetutor/Profile#testResMan"/>
-    </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="244,18">
-      <children xsi:type="editmodel:MethodEditModel" name="authenticate" id="ncl.team22.uml.languagetutor/Profile#authenticate(Ljava.lang.String;)"/>
-    </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="ncl.team22.uml.languagetutor/Profile@profile+ncl.team22.uml.languagetutor/GameResultManager@gameResultManager" source="//@children.6" target="//@children.9" targetEnd="//@children.6/@sourceConnections.0/@children.1" label="//@children.6/@sourceConnections.0/@children.2" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="profile" location="9,140" id="ncl.team22.uml.languagetutor/Profile@profile+ncl.team22.uml.languagetutor/GameResultManager@gameResultManager|ncl.team22.uml.languagetutor/Profile#profile" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - profile" location="440,447" size="45,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="419,447" size="7,13" anchorKind="FirstPart"/>
-      </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="gameResultManager" location="237,0" id="ncl.team22.uml.languagetutor/Profile@profile+ncl.team22.uml.languagetutor/GameResultManager@gameResultManager|ncl.team22.uml.languagetutor/GameResultManager#gameResultManager" multiplicityLabel="//@children.6/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" + gameResultManager" location="222,550" size="128,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="364,550" size="7,13" anchorKind="LastPart"/>
-      </children>
-      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
-    </sourceConnections>
-    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="ncl.team22.uml.languagetutor/Profile@profile+ncl.team22.uml.languagetutor/TestResultManager@testResultManager" source="//@children.6" target="//@children.8" targetEnd="//@children.6/@sourceConnections.1/@children.1" label="//@children.6/@sourceConnections.1/@children.2" sourceEnd="//@children.6/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="profile" location="230,140" id="ncl.team22.uml.languagetutor/Profile@profile+ncl.team22.uml.languagetutor/TestResultManager@testResultManager|ncl.team22.uml.languagetutor/Profile#profile" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.6/@sourceConnections.1/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - profile" location="602,447" size="45,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="661,447" size="7,13" anchorKind="FirstPart"/>
-      </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="testResultManager" location="223,0" id="ncl.team22.uml.languagetutor/Profile@profile+ncl.team22.uml.languagetutor/TestResultManager@testResultManager|ncl.team22.uml.languagetutor/TestResultManager#testResultManager" multiplicityLabel="//@children.6/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.1/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" + testResultManager" location="695,550" size="118,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="674,550" size="7,13" anchorKind="LastPart"/>
-      </children>
-      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
-    </sourceConnections>
-    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ncl.team22.uml.languagetutor/OptionsManager@optionsManager+ncl.team22.uml.languagetutor/Profile@profile" source="//@children.6" target="//@children.0" targetEnd="//@children.6/@sourceConnections.2/@children.1" label="//@children.6/@sourceConnections.2/@children.2" sourceEnd="//@children.6/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="profile" location="267,70" id="ncl.team22.uml.languagetutor/OptionsManager@optionsManager+ncl.team22.uml.languagetutor/Profile@profile|ncl.team22.uml.languagetutor/Profile#profile" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.2/@children.0/@children.1" roleLabel="//@children.6/@sourceConnections.2/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" + profile" location="698,350" size="50,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="698,377" size="7,13" anchorKind="FirstPart"/>
-      </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="optionsManager" location="0,43" id="ncl.team22.uml.languagetutor/OptionsManager@optionsManager+ncl.team22.uml.languagetutor/Profile@profile|ncl.team22.uml.languagetutor/OptionsManager#optionsManager" multiplicityLabel="//@children.6/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.2/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - optionsManager" location="850,350" size="99,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="942,377" size="7,13" anchorKind="LastPart"/>
-      </children>
-      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
-    </sourceConnections>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.9/@sourceConnections.1 //@children.8/@sourceConnections.1" name="ResultManager" location="75,180" size="264,99" id="ncl.team22.uml.languagetutor/ResultManager" runTimeClassModel="addResult(LResultType;),getResults()">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="219,36">
-      <children xsi:type="editmodel:MethodEditModel" name="getResults" id="ncl.team22.uml.languagetutor/ResultManager#getResults()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="addResult" id="ncl.team22.uml.languagetutor/ResultManager#addResult(LResultType;)"/>
-    </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.1" name="TestResultManager" location="465,570" size="239,86" id="ncl.team22.uml.languagetutor/TestResultManager" runTimeClassModel="getResults(),addResult(Lncl.team22.uml.languagetutor.TestResult;)">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="216,36">
-      <children xsi:type="editmodel:MethodEditModel" name="getResults" id="ncl.team22.uml.languagetutor/TestResultManager#getResults()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="addResult" id="ncl.team22.uml.languagetutor/TestResultManager#addResult(Lncl.team22.uml.languagetutor.TestResult;)"/>
-    </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="ncl.team22.uml.languagetutor/TestResultManager@testResultManager+ncl.team22.uml.languagetutor/TestResult@testResult" source="//@children.8" target="//@children.12" targetEnd="//@children.8/@sourceConnections.0/@children.1" label="//@children.8/@sourceConnections.0/@children.2" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="testResultManager" location="224,86" id="ncl.team22.uml.languagetutor/TestResultManager@testResultManager+ncl.team22.uml.languagetutor/TestResult@testResult|ncl.team22.uml.languagetutor/TestResultManager#testResultManager" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - testResultManager" location="696,663" size="113,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="675,663" size="7,13" anchorKind="FirstPart"/>
-      </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="testResult" location="119,29" id="ncl.team22.uml.languagetutor/TestResultManager@testResultManager+ncl.team22.uml.languagetutor/TestResult@testResult|ncl.team22.uml.languagetutor/TestResult#testResult" multiplicityLabel="//@children.8/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" + testResult" location="555,852" size="70,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="*" location="555,825" size="5,13" anchorKind="LastPart"/>
-      </children>
-      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
-    </sourceConnections>
-    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="ncl.team22.uml.languagetutor/ResultManager&lt;-ncl.team22.uml.languagetutor/TestResultManager" source="//@children.8" target="//@children.7" targetEnd="//@children.8/@sourceConnections.1/@children.1" sourceEnd="//@children.8/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
-      <children xsi:type="editmodel:AssociationEndEditModel" location="77,0" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="181,99"/>
-    </sourceConnections>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.0" name="GameResultManager" location="120,570" size="249,86" id="ncl.team22.uml.languagetutor/GameResultManager" runTimeClassModel="addResult(Lncl.team22.uml.languagetutor.GameResult;),getResults()">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="226,36">
-      <children xsi:type="editmodel:MethodEditModel" name="getResults" id="ncl.team22.uml.languagetutor/GameResultManager#getResults()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="addResult" id="ncl.team22.uml.languagetutor/GameResultManager#addResult(Lncl.team22.uml.languagetutor.GameResult;)"/>
-    </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="ncl.team22.uml.languagetutor/GameResultManager@gameResultManager+ncl.team22.uml.languagetutor/GameResult@gameResult" source="//@children.9" target="//@children.11" targetEnd="//@children.9/@sourceConnections.0/@children.1" label="//@children.9/@sourceConnections.0/@children.2" sourceEnd="//@children.9/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="gameResultManager" location="18,86" id="ncl.team22.uml.languagetutor/GameResultManager@gameResultManager+ncl.team22.uml.languagetutor/GameResult@gameResult|ncl.team22.uml.languagetutor/GameResultManager#gameResultManager" attachSource="true" multiplicityLabel="//@children.9/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.9/@sourceConnections.0/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - gameResultManager" location="8,663" size="123,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="1" location="145,663" size="7,13" anchorKind="FirstPart"/>
-      </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="gameResult" location="0,20" id="ncl.team22.uml.languagetutor/GameResultManager@gameResultManager+ncl.team22.uml.languagetutor/GameResult@gameResult|ncl.team22.uml.languagetutor/GameResult#gameResult" multiplicityLabel="//@children.9/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.9/@sourceConnections.0/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" + gameResult" location="180,843" size="80,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="*" location="255,816" size="5,13" anchorKind="LastPart"/>
-      </children>
-      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
-    </sourceConnections>
-    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="ncl.team22.uml.languagetutor/ResultManager&lt;-ncl.team22.uml.languagetutor/GameResultManager" source="//@children.9" target="//@children.7" targetEnd="//@children.9/@sourceConnections.1/@children.1" sourceEnd="//@children.9/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
-      <children xsi:type="editmodel:AssociationEndEditModel" location="109,0" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="154,99"/>
-    </sourceConnections>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.11/@sourceConnections.0" name="Result" location="338,690" size="145,76" id="ncl.team22.uml.languagetutor/Result" runTimeClassModel="topic,timeOfResult">
-    <children xsi:type="editmodel:CompartmentEditModel" size="122,36">
-      <children xsi:type="editmodel:AttributeEditModel" name="topic" id="ncl.team22.uml.languagetutor/Result#topic"/>
-      <children xsi:type="editmodel:AttributeEditModel" name="timeOfResult" id="ncl.team22.uml.languagetutor/Result#timeOfResult"/>
-    </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.9/@sourceConnections.0" name="GameResult" location="267,816" size="132,58" id="ncl.team22.uml.languagetutor/GameResult" runTimeClassModel="score">
-    <children xsi:type="editmodel:CompartmentEditModel" size="70,18">
-      <children xsi:type="editmodel:AttributeEditModel" name="score" id="ncl.team22.uml.languagetutor/GameResult#score"/>
-    </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.12/@sourceConnections.0" autoLocated="true" id="ncl.team22.uml.languagetutor/Result&lt;-ncl.team22.uml.languagetutor/GameResult" source="//@children.11" target="//@children.10" targetEnd="//@children.11/@sourceConnections.0/@children.1" sourceEnd="//@children.11/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" location="66,0" anchorKind="FixedAtEdge" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="72,76" anchorKind="FixedAtEdge"/>
-    </sourceConnections>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.0" name="TestResult" location="429,816" size="119,58" id="ncl.team22.uml.languagetutor/TestResult" runTimeClassModel="points">
-    <children xsi:type="editmodel:CompartmentEditModel" size="74,18">
-      <children xsi:type="editmodel:AttributeEditModel" name="points" id="ncl.team22.uml.languagetutor/TestResult#points"/>
-    </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="ncl.team22.uml.languagetutor/Result&lt;-ncl.team22.uml.languagetutor/TestResult" source="//@children.12" target="//@children.11/@sourceConnections.0" targetEnd="//@children.12/@sourceConnections.0/@children.1" sourceEnd="//@children.12/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" location="59,0" anchorKind="FixedAtEdge" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="14,76"/>
-    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
   <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=1;Product=eUML2" autoName="false"/>

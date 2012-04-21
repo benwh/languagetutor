@@ -1,103 +1,59 @@
 package ncl.team22.uml.languagetutor;
 
+import java.util.ArrayList;
+
 public class Profile
 {
-	public boolean passworded;
-	public OptionsManager optMan;
-	public GameResultManager gameResMan;
-	public TestResultManager testResMan;
-	public boolean authenticate(String password) 	{ return true; }
-	/**
-	 * @uml.property  name="testResultManager"
-	 * @uml.associationEnd  multiplicity="(1 1)" inverse="profile:ncl.team22.uml.languagetutor.TestResultManager"
-	 */
-	private TestResultManager testResultManager = new ncl.team22.uml.languagetutor.TestResultManager();
-	/**
-	 * Getter of the property <tt>testResultManager</tt>
-	 * @return  Returns the testResultManager.
-	 * @uml.property  name="testResultManager"
-	 */
-	public TestResultManager getTestResultManager()
+
+	public int					profileID;
+	public String				display_name;
+	public String				password_hash;
+	public String				secret_q;
+	public String				secret_a;
+	public int					theme;
+
+	public Profile(int profileID, String display_name, String password_hash,
+			String secret_q, String secret_a, int theme)
 	{
-		return testResultManager;
+		this.profileID = profileID;
+		this.display_name = display_name;
+		this.password_hash = password_hash;
+		this.secret_q = secret_q;
+		this.secret_a = secret_a;
+		this.theme = theme;
 	}
-	/**
-	 * Setter of the property <tt>testResultManager</tt>
-	 * @param testResultManager  The testResultManager to set.
-	 * @uml.property  name="testResultManager"
-	 */
-	public void setTestResultManager(TestResultManager testResultManager)
+
+	public static ArrayList<Profile> getProfiles()
 	{
-		this.testResultManager = testResultManager;
+		return null;
 	}
-	/**
-	 * @uml.property  name="gameResultManager"
-	 * @uml.associationEnd  multiplicity="(1 1)" inverse="profile:ncl.team22.uml.languagetutor.GameResultManager"
-	 */
-	private GameResultManager gameResultManager = new ncl.team22.uml.languagetutor.GameResultManager();
-	/**
-	 * Getter of the property <tt>gameResultManager</tt>
-	 * @return  Returns the gameResultManager.
-	 * @uml.property  name="gameResultManager"
-	 */
-	public GameResultManager getGameResultManager()
+
+	// Creates a new profile in the database with the values given
+	public static Profile create(String userName, String password,
+			String secretQ, String secretA)
 	{
-		return gameResultManager;
+		return null;
 	}
-	/**
-	 * Setter of the property <tt>gameResultManager</tt>
-	 * @param gameResultManager  The gameResultManager to set.
-	 * @uml.property  name="gameResultManager"
-	 */
-	public void setGameResultManager(GameResultManager gameResultManager)
+
+	public static Profile load(int profileID)
 	{
-		this.gameResultManager = gameResultManager;
+		return null;
 	}
-	/**
-	 * @uml.property  name="profileManager"
-	 * @uml.associationEnd  multiplicity="(1 1)" inverse="profile1:ncl.team22.uml.languagetutor.ProfileManager"
-	 */
-	private ProfileManager profileManager = new ncl.team22.uml.languagetutor.ProfileManager();
-	/**
-	 * Getter of the property <tt>profileManager</tt>
-	 * @return  Returns the profileManager.
-	 * @uml.property  name="profileManager"
-	 */
-	public ProfileManager getProfileManager()
+
+	public static Profile authenticate(String user, String pass)
 	{
-		return profileManager;
+		return null;
 	}
-	/**
-	 * Setter of the property <tt>profileManager</tt>
-	 * @param profileManager  The profileManager to set.
-	 * @uml.property  name="profileManager"
-	 */
-	public void setProfileManager(ProfileManager profileManager)
+
+	// Checks the username given exists in the database
+	public static boolean checkName(String userName)
 	{
-		this.profileManager = profileManager;
+		return false;
 	}
-	/**
-	 * @uml.property  name="optionsManager"
-	 * @uml.associationEnd  multiplicity="(1 1)" inverse="profile:ncl.team22.uml.languagetutor.OptionsManager"
-	 */
-	private OptionsManager optionsManager = new ncl.team22.uml.languagetutor.OptionsManager();
-	/**
-	 * Getter of the property <tt>optionsManager</tt>
-	 * @return  Returns the optionsManager.
-	 * @uml.property  name="optionsManager"
-	 */
-	public OptionsManager getOptionsManager()
+
+	public static String hashPassword(String password)
 	{
-		return optionsManager;
-	}
-	/**
-	 * Setter of the property <tt>optionsManager</tt>
-	 * @param optionsManager  The optionsManager to set.
-	 * @uml.property  name="optionsManager"
-	 */
-	public void setOptionsManager(OptionsManager optionsManager)
-	{
-		this.optionsManager = optionsManager;
+		return null;
 	}
 
 }
