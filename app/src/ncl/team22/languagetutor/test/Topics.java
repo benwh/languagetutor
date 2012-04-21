@@ -25,9 +25,8 @@ import ncl.team22.languagetutor.data.Topic;
  */
 public class Topics extends ListActivity
 {
-	private boolean				testsComplete	= true;
-	public static final String	intentTopic		= "ncl.team22.languagetutor.test.selectedTopic";
-	private static final String	TAG				= "LT-Topics";
+	public static final String	intentTopic	= "ncl.team22.languagetutor.test.selectedTopic";
+	private static final String	TAG			= "LT-Topics";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -68,16 +67,6 @@ public class Topics extends ListActivity
 
 		// Disable mixed test option until all tests are complete
 		final Button mix = (Button) findViewById(R.id.mixtest);
-		if (testsComplete == true)
-		{
-			mix.setClickable(true);
-		}
-		else
-		{
-			mix.setClickable(false);
-			// Sets to approx. 40% opacity
-			mix.getBackground().setAlpha(102);
-		}
 
 		mix.setOnClickListener(new View.OnClickListener() {
 			@Override
