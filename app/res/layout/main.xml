@@ -1,63 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:20/04/2012
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
-	<Button
-		android:id="@+id/profilebutton"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:text="Profile" />
+	<TextView
+		android:id="@+id/main_header_text"
+		style="@style/title_text"
+		android:paddingBottom="10dp"
+		android:textSize="35sp" />
 
-	<Button
-		android:id="@+id/optionsbutton"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:text="Profile Options" />
+	<LinearLayout style="@style/main_content" >
 
-	<Button
-		android:id="@+id/topicssbutton"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:text="Topic Selection" />
+		<Button
+			android:id="@+id/tutorialsbutton"
+			style="@style/menu_btn"
+			android:text="@string/tutorials" />
 
-	<Button
-		android:id="@+id/tutorialsbutton"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:text="Learn" />
+		<Button
+			android:id="@+id/revisionbutton"
+			style="@style/menu_btn"
+			android:text="@string/revision" />
 
-	<Button
-		android:id="@+id/revisionbutton"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:text="Review" />
+		<Button
+			android:id="@+id/gamesbutton"
+			style="@style/menu_btn"
+			android:text="@string/games" />
 
-	<Button
-		android:id="@+id/gamesbutton"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:text="Games" />
+		<Button
+			android:id="@+id/testsbutton"
+			style="@style/menu_btn"
+			android:text="@string/tests" />
 
-	<Button
-		android:id="@+id/testsbutton"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:text="Tests" />
+		<Button
+			android:id="@+id/statsbutton"
+			style="@style/menu_btn"
+			android:text="@string/statistics" />
 
-	<Button
-		android:id="@+id/statsbutton"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:text="Statistics" />
+		<Button
+			android:id="@+id/optionsbutton"
+			style="@style/menu_btn"
+			android:text="@string/prof_optns" />
+	</LinearLayout>
 
 </LinearLayout>

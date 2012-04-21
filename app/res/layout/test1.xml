@@ -1,44 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:20/04/2012
+-->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	
-        <TextView android:id="@+id/multi_question_head"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="@string/multi_question" />
-        
-        <TextView android:id="@+id/multi_question"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="25dp"
-        android:gravity="center_horizontal" />
-	
-        <Button android:id="@+id/option0"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:tag="0" />
-        
-        <Button android:id="@+id/option1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:tag="1" />
-                
-        <Button android:id="@+id/option2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:tag="2" />
-                        
-        <Button android:id="@+id/option3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:tag="3" />
-    
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+
+	<TextView
+		style="@style/title_text"
+		android:text="@string/test" />
+
+	<LinearLayout style="@style/main_content" >
+
+		<TextView
+			android:id="@+id/multi_question_head"
+			style="@style/header_text"
+			android:text="@string/multi_question" />
+
+		<TextView
+			android:id="@+id/multi_question"
+			style="@style/question_text" />
+
+		<Button
+			android:id="@+id/option0"
+			android:tag="0" />
+
+		<Button
+			android:id="@+id/option1"
+			style="@style/menu_btn"
+			android:tag="1" />
+
+		<Button
+			android:id="@+id/option2"
+			style="@style/menu_btn"
+			android:tag="2" />
+
+		<Button
+			android:id="@+id/option3"
+			style="@style/menu_btn"
+			android:tag="3" />
+	</LinearLayout>
+
 </LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author Sarah Joyce
+ * @modified by Sarah Joyce
+ * @date:20/04/2012
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/textfield_default" android:state_enabled="true" android:state_window_focused="false"/>
+    <item android:drawable="@drawable/textfield_disabled_red" android:state_enabled="false" android:state_window_focused="false"/>
+    <item android:drawable="@drawable/textfield_selected_red" android:state_enabled="true" android:state_focused="true"/>
+    <item android:drawable="@drawable/textfield_pressed_red" android:state_pressed="true"/>
+    <item android:drawable="@drawable/textfield_default" android:state_enabled="true"/>
+    <item android:drawable="@drawable/textfield_disabled_selected_red" android:state_focused="true"/>
+    <item android:drawable="@drawable/textfield_disabled_red"/>
+
+</selector>

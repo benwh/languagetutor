@@ -47,7 +47,7 @@ public class ReplacePassword extends Activity
 			{
 
 				// get input from editText fields
-				inputAnswer = ((EditText) findViewById(R.id.intextanswer)).getText().toString();
+				inputAnswer = ((EditText) findViewById(R.id.donebutton)).getText().toString();
 				inPass = ((EditText) findViewById(R.id.intextpass)).getText().toString();
 				inConfirmPass = ((EditText) findViewById(R.id.intextconfirmpass1)).getText().toString();
 

@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:20/04/2012
+-->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	
-        <TextView android:id="@+id/test_score_head"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="@string/test_score" />
-        
-        <TextView android:id="@+id/test_score"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="25dp"
-        android:gravity="center_horizontal" />
-        
-        <TextView android:id="@+id/rank_awarded_head"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="@string/rank_awarded" />
-        
-        <TextView android:id="@+id/rank_awarded"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="25dp"
-        android:gravity="center_horizontal" />
-	
-        <Button android:id="@+id/review_test"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="@string/review_test" />
-    
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/title_text"
+        android:text="@string/test_res" />
+
+    <LinearLayout style="@style/main_content" >
+
+        <TextView
+            android:id="@+id/test_score_head"
+            style="@style/header_text"
+            android:text="@string/test_score" />
+
+        <TextView
+            android:id="@+id/test_score"
+            style="@style/header_text" />
+
+        <TextView
+            android:id="@+id/rank_awarded_head"
+            android:text="@string/rank_awarded"
+            style="@style/header_text" />
+
+        <TextView
+            android:id="@+id/rank_awarded"
+            style="@style/header_text" />
+
+        <Button
+            android:id="@+id/review_test"
+            style="@style/normal_btn"
+            android:text="@string/review_test" />
+    </LinearLayout>
+
 </LinearLayout>

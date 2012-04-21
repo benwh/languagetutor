@@ -1,130 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:20/04/2012
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-	<LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.20"
-        android:orientation="vertical" >
-    </LinearLayout>
 
+    <TextView
+        style="@style/title_text"
+        android:text="@string/chng_secrets"
+        android:textSize="35sp" />
 
     <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-
+        style="@style/main_content" >
+        
         <TextView
-            android:id="@+id/text1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            style="@style/header_text"
+            android:text="@string/password" />
 
         <EditText
             android:id="@+id/editText1"
-            android:inputType="textPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-    
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.10"
-        android:orientation="vertical" >
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
+            style="@style/fwidth_editbox"
+            android:inputType="textPassword" />
 
         <TextView
-            android:id="@+id/textView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/new_s_question"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            style="@style/header_text"
+            android:text="@string/new_s_question" />
 
         <EditText
             android:id="@+id/editText2"
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-    
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
+            style="@style/fwidth_editbox"
+            android:inputType="text" />
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/new_s_answer"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            style="@style/header_text"
+            android:text="@string/new_s_answer" />
 
         <EditText
             android:id="@+id/editText3"
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-
-
-        <LinearLayout
-            android:id="@+id/linearLayout5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.20"
-            android:orientation="vertical" >
-
-        </LinearLayout>
+            style="@style/fwidth_editbox"
+            android:inputType="text" />
 
         <Button
-            android:id="@+id/button1"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="@string/confrim" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.20"
-            android:orientation="vertical" >
-        </LinearLayout>
+            android:id="@+id/confirm_replace_password"
+            style="@style/normal_btn"
+            android:text="@string/confirm" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.20"
-        android:orientation="vertical" >
-    </LinearLayout>
-    
 </LinearLayout>

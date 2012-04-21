@@ -17,7 +17,6 @@ import ncl.team22.languagetutor.data.DatabaseAdapter;
 import ncl.team22.languagetutor.data.Topic;
 import ncl.team22.languagetutor.profile.Profile;
 import ncl.team22.languagetutor.profile.ProfileOptions;
-import ncl.team22.languagetutor.profile.ProfileSelection;
 
 public class LanguagetutorActivity extends Activity
 {
@@ -51,16 +50,6 @@ public class LanguagetutorActivity extends Activity
 			currentProfile = Profile.load(activeProfileID);
 		}
 
-		final Button profileButton = (Button) findViewById(R.id.profilebutton);
-		profileButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v)
-			{
-				Intent i = new Intent(LanguagetutorActivity.this, ProfileSelection.class);
-				startActivity(i);
-			}
-		});
-
 		final Button optionsButton = (Button) findViewById(R.id.optionsbutton);
 		optionsButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -68,25 +57,6 @@ public class LanguagetutorActivity extends Activity
 			{
 				Intent i = new Intent(LanguagetutorActivity.this, ProfileOptions.class);
 				startActivity(i);
-			}
-		});
-
-		final Button topicsButton = (Button) findViewById(R.id.tutorialsbutton);
-		topicsButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v)
-			{
-				Intent i = new Intent(LanguagetutorActivity.this, TutorialActivity.class);
-				startActivityForResult(i, LanguagetutorActivity.TOPICSELECTION_REQUEST);
-			}
-		});
-
-		final Button tutsButton = (Button) findViewById(R.id.topicssbutton);
-		tutsButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v)
-			{
-				startActivity(new Intent(LanguagetutorActivity.this, TutorialActivity.class));
 			}
 		});
 

@@ -1,37 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:20/04/2012
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="match_parent"
-	android:layout_height="match_parent">
-	
-	<TextView
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_marginTop="20dp"
-	    android:text="@string/username" />
-	<EditText
-	    android:id="@+id/input_username"
-	    android:inputType="text"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content" />
-	
-	<TextView
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_marginTop="10dp" 
-	    android:text="@string/password" />
-	<EditText 
-	    android:id="@+id/input_password" 
-	    android:inputType="textPassword"
-	    android:layout_width="match_parent"
-		android:layout_height="wrap_content"/>
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
 
-	<Button
-	    android:id="@+id/login_button"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_gravity="center_horizontal"
-	    android:layout_marginTop="20dp"
-	    android:text="@string/login" />
+	<TextView
+		style="@style/title_text"
+		android:text="@string/login" />
+
+	<LinearLayout style="@style/main_content" >
+
+		<TextView
+			style="@style/header_text"
+			android:text="@string/username" />
+
+		<EditText
+			android:id="@+id/input_username"
+			style="@style/fwidth_editbox"
+			android:inputType="text" />
+
+		<TextView
+			style="@style/header_text"
+			android:text="@string/password" />
+
+		<EditText
+			android:id="@+id/input_password"
+			style="@style/fwidth_editbox"
+			android:inputType="textPassword" />
+
+		<Button
+			android:id="@+id/login_button"
+			style="@style/normal_btn"
+			android:text="@string/login" />
+	</LinearLayout>
 
 </LinearLayout>

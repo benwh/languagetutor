@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author Sarah Joyce
+ * @modified by Sarah Joyce
+ * @date:20/04/2012
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/grn_btn_sel" android:state_focused="true" android:state_pressed="false"/>
+    <item android:drawable="@drawable/grn_btn_pr" android:state_focused="true" android:state_pressed="true"/>
+    <item android:drawable="@drawable/grn_btn_pr" android:state_focused="false" android:state_pressed="true"/>
+    <item android:drawable="@drawable/grn_btn"/>
+
+</selector>

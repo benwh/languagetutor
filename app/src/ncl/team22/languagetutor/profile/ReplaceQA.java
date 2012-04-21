@@ -31,7 +31,7 @@ public class ReplaceQA extends Activity
 		username = LanguagetutorActivity.currentProfile.display_name;
 
 		// when the "ok" button is clicked
-		final Button doneButton = (Button) findViewById(R.id.button1);
+		final Button doneButton = (Button) findViewById(R.id.confirm_replace_password);
 		doneButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v)
