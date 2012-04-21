@@ -25,17 +25,20 @@
         <Button
             android:id="@+id/level1"
             style="@style/menu_btn"
-            android:text="@string/begin_1" />
+            android:text="@string/begin_1"
+            android:tag="1" />
 
         <Button
             android:id="@+id/level2"
             style="@style/menu_btn"
-            android:text="@string/inter_2" />
+            android:text="@string/inter_2"
+            android:tag="2" />
 
         <Button
             android:id="@+id/level3"
             style="@style/menu_btn"
-            android:text="@string/adv_3" />
+            android:text="@string/adv_3"
+            android:tag="3" />
     </LinearLayout>
 
 </LinearLayout>
