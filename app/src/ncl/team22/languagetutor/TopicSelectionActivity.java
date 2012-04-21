@@ -21,16 +21,20 @@ import ncl.team22.languagetutor.data.Topic;
 public class TopicSelectionActivity extends Activity
 {
 
-	ViewFlipper					flipper;
-	public static final String	SELECTED_TOPICS	= "ncl.team22.languagetutor.TopicSelectionActivity.SELECTED_TOPICS";
+	public static final String	SELECTED_TOPICS		= "ncl.team22.languagetutor.TopicSelectionActivity.SELECTED_TOPICS";
+	public static final String	ALLOW_ALLTOPICS		= "ncl.team22.languagetutor.TopicSelectionActivity.ALLOW_ALLTOPICS";
 
-	private static final String	TAG				= "LT-TopicSelection";
+	private ViewFlipper			flipper;
+	private boolean				displayMixedButton	= true;
+	private static final String	TAG					= "LT-TopicSelection";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.topicselection_main);
+
+		displayMixedButton = getIntent().getBooleanExtra(ALLOW_ALLTOPICS, true);
 
 		flipper = (ViewFlipper) findViewById(R.id.topicselection_viewflipper);
 
@@ -76,6 +80,12 @@ public class TopicSelectionActivity extends Activity
 		});
 
 		Button mixedButton = (Button) findViewById(R.id.mixtest);
+		// Don't display the All Topics button if told not to by parent activity
+		if (displayMixedButton == false)
+		{
+			mixedButton.setVisibility(View.GONE);
+		}
+
 		mixedButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v)
