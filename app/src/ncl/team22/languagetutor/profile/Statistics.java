@@ -120,8 +120,6 @@ public class Statistics extends Activity
 		}
 		leastFaveView.setText(lfWord);
 
-		levelView.setText(Integer.toString(Profile.getUserLevel()));
-
 		int ranking = 0;
 		for (int i = 0; i < 10; i++)
 		{
@@ -181,5 +179,7 @@ public class Statistics extends Activity
 		{
 			ratingView.setText(" Native");
 		}
+
+		levelView.setText(Integer.toString(Profile.getUserLevel()));
 	}
 }

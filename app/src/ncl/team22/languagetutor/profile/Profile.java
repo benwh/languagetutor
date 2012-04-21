@@ -176,7 +176,7 @@ public class Profile
 		int userLevel = 0;
 
 		Cursor c;
-		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+		SQLiteDatabase sDbb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
 		int[] bestTestScores = new int[10];
 		for (int i = 0; i < 10; i++)
@@ -185,7 +185,7 @@ public class Profile
 					+ DatabaseAdapter.TABLE_TEST_RESULTS
 					+ " WHERE profileID = ? AND langsetID = "
 					+ Integer.toString(i);
-			c = sDb.rawQuery(myQuery, new String[]
+			c = sDbb.rawQuery(myQuery, new String[]
 			{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
 			if (c.moveToFirst())
 			{
@@ -224,7 +224,7 @@ public class Profile
 			userLevel = 1;
 		}
 
-		sDb.close();
+		sDbb.close();
 		return userLevel;
 	}
 }

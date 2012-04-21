@@ -1,7 +1,6 @@
 package ncl.team22.languagetutor.test;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,9 +16,8 @@ import ncl.team22.languagetutor.profile.Profile;
  */
 public class LevelSelect extends Activity
 {
-	private static int					level		= 0;
-	private int							userLevel	= Profile.getUserLevel();
-	private static AlertDialog.Builder	builder;
+	private static int	level		= 0;
+	private int			userLevel	= Profile.getUserLevel();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -47,15 +45,8 @@ public class LevelSelect extends Activity
 			public void onClick(View v)
 			{
 				level = 2;
-				if (userLevel < level)
-				{
-					showErrorMessage();
-				}
-				else
-				{
-					Intent i = new Intent(LevelSelect.this, Topics.class);
-					startActivity(i);
-				}
+				Intent i = new Intent(LevelSelect.this, Topics.class);
+				startActivity(i);
 			}
 		});
 
@@ -66,27 +57,23 @@ public class LevelSelect extends Activity
 			public void onClick(View v)
 			{
 				level = 3;
-				if (userLevel < level)
-				{
-					showErrorMessage();
-				}
-				else
-				{
-					Intent i = new Intent(LevelSelect.this, Topics.class);
-					startActivity(i);
-				}
+				Intent i = new Intent(LevelSelect.this, Topics.class);
+				startActivity(i);
 			}
 		});
+
+		if (userLevel < 3)
+		{
+			three.setClickable(false);
+		}
+		if (userLevel < 2)
+		{
+			two.setClickable(false);
+		}
 	}
 
 	public static int getLevel()
 	{
 		return level;
-	}
-
-	private static void showErrorMessage()
-	{
-		builder.setMessage("This level has not been unlocked yet.\nTry passing all the tests at the previous level first.");
-		builder.show();
 	}
 }
