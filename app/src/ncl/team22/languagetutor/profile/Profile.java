@@ -171,4 +171,60 @@ public class Profile
 		return Base64.encodeToString(digest, Base64.NO_PADDING | Base64.NO_WRAP);
 	}
 
+	public static int getUserLevel()
+	{
+		int userLevel = 0;
+
+		Cursor c;
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+
+		int[] bestTestScores = new int[10];
+		for (int i = 0; i < 10; i++)
+		{
+			String myQuery = "SELECT MAX(score) as high_score FROM "
+					+ DatabaseAdapter.TABLE_TEST_RESULTS
+					+ " WHERE profileID = ? AND langsetID = "
+					+ Integer.toString(i);
+			c = sDb.rawQuery(myQuery, new String[]
+			{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
+			if (c.moveToFirst())
+			{
+				bestTestScores[i] = c.getInt(c.getColumnIndex("high_score"));
+			}
+			else
+			{
+				bestTestScores[i] = 0;
+			}
+		}
+
+		if ((bestTestScores[0] > 74) && (bestTestScores[1] > 74)
+				&& (bestTestScores[2] > 74))
+		{
+			if ((bestTestScores[3] > 74) && (bestTestScores[4] > 74)
+					&& (bestTestScores[5] > 74) && (bestTestScores[6] > 74)
+					&& (bestTestScores[7] > 74))
+			{
+				if ((bestTestScores[8] > 74) /** && (bestTestScores[9] > 74) **/
+				)
+				{
+					userLevel = 4;
+				}
+				else
+				{
+					userLevel = 3;
+				}
+			}
+			else
+			{
+				userLevel = 2;
+			}
+		}
+		else
+		{
+			userLevel = 1;
+		}
+
+		sDb.close();
+		return userLevel;
+	}
 }

@@ -122,5 +122,4 @@ public class Login extends Activity
 		errorMessage = "";
 		return null;
 	}
-
 }

@@ -120,51 +120,7 @@ public class Statistics extends Activity
 		}
 		leastFaveView.setText(lfWord);
 
-		int[] bestTestScores = new int[10];
-		for (int i = 0; i < 10; i++)
-		{
-			myQuery = "SELECT MAX(score) as high_score FROM "
-					+ DatabaseAdapter.TABLE_TEST_RESULTS
-					+ " WHERE profileID = ? AND langsetID = "
-					+ Integer.toString(i);
-			c = sDb.rawQuery(myQuery, new String[]
-			{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
-			if (c.moveToFirst())
-			{
-				bestTestScores[i] = c.getInt(c.getColumnIndex("high_score"));
-			}
-			else
-			{
-				bestTestScores[i] = 0;
-			}
-		}
-
-		if ((bestTestScores[0] > 74) && (bestTestScores[1] > 74)
-				&& (bestTestScores[2] > 74))
-		{
-			if ((bestTestScores[3] > 74) && (bestTestScores[4] > 74)
-					&& (bestTestScores[5] > 74) && (bestTestScores[6] > 74)
-					&& (bestTestScores[7] > 74))
-			{
-				if ((bestTestScores[8] > 74) /** && (bestTestScores[9] > 74) **/
-				)
-				{
-					levelView.setText(" 4");
-				}
-				else
-				{
-					levelView.setText(" 3");
-				}
-			}
-			else
-			{
-				levelView.setText(" 2");
-			}
-		}
-		else
-		{
-			levelView.setText(" 1");
-		}
+		levelView.setText(Integer.toString(Profile.getUserLevel()));
 
 		int ranking = 0;
 		for (int i = 0; i < 10; i++)
