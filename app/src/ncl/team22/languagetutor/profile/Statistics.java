@@ -153,7 +153,7 @@ public class Statistics extends Activity
 		}
 		else if (ranking < 50)
 		{
-			ratingView.setText(" Expirenced");
+			ratingView.setText(" Experienced");
 		}
 		else if (ranking < 60)
 		{

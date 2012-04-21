@@ -27,17 +27,60 @@ public class TestReview extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_review);
 
+		double result = TestResult.calculateTestPercentage();
+
 		// Set score text
 		final TextView score = (TextView) findViewById(R.id.test_score);
 		score.setText("(" + TestResult.getScore() + "/"
-				+ TestResult.getMaximum() + ") | "
-				+ TestResult.calculateTestPercentage() + "%");
+				+ TestResult.getMaximum() + ") | " + result + "%");
 
 		// Set rank text (will mirror whatever the stats page would say for a
 		// respective score)
 		final TextView rank = (TextView) findViewById(R.id.rank_awarded);
-		rank.setText("Rank");
-		// TODO: set rank text
+		if (result < 10)
+		{
+			rank.setText(" Beginner");
+		}
+		else if (result < 20)
+		{
+			rank.setText(" Que?");
+		}
+		else if (result < 30)
+		{
+			rank.setText(" Tourist");
+		}
+		else if (result < 40)
+		{
+			rank.setText(" Intermediate");
+		}
+		else if (result < 50)
+		{
+			rank.setText(" Experienced");
+		}
+		else if (result < 60)
+		{
+			rank.setText(" Proficient");
+		}
+		else if (result < 70)
+		{
+			rank.setText(" Advanced");
+		}
+		else if (result < 80)
+		{
+			rank.setText(" Bilingual");
+		}
+		else if (result < 90)
+		{
+			rank.setText(" Fluent");
+		}
+		else if (result < 100)
+		{
+			rank.setText(" Master");
+		}
+		else
+		{
+			rank.setText(" Native");
+		}
 
 		// Find the buttons
 		Button review = (Button) findViewById(R.id.review_test);
