@@ -3,6 +3,7 @@ package ncl.team22.languagetutor;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,16 +18,19 @@ import android.widget.ListView;
 import android.widget.ViewFlipper;
 
 import ncl.team22.languagetutor.data.Topic;
+import ncl.team22.languagetutor.profile.Profile;
 
 public class TopicSelectionActivity extends Activity
 {
 
-	public static final String	SELECTED_TOPICS		= "ncl.team22.languagetutor.TopicSelectionActivity.SELECTED_TOPICS";
-	public static final String	ALLOW_ALLTOPICS		= "ncl.team22.languagetutor.TopicSelectionActivity.ALLOW_ALLTOPICS";
+	public static final String			SELECTED_TOPICS		= "ncl.team22.languagetutor.TopicSelectionActivity.SELECTED_TOPICS";
+	public static final String			ALLOW_ALLTOPICS		= "ncl.team22.languagetutor.TopicSelectionActivity.ALLOW_ALLTOPICS";
 
-	private ViewFlipper			flipper;
-	private boolean				displayMixedButton	= true;
-	private static final String	TAG					= "LT-TopicSelection";
+	private ViewFlipper					flipper;
+	private boolean						displayMixedButton	= true;
+	private static final String			TAG					= "LT-TopicSelection";
+	private int							userLevel			= Profile.getUserLevel();
+	private static AlertDialog.Builder	builder;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -42,7 +46,15 @@ public class TopicSelectionActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				displayTopics(Integer.parseInt((String) v.getTag()));
+				int level = Integer.parseInt((String) v.getTag());
+				if (userLevel < level)
+				{
+					showErrorMessage();
+				}
+				else
+				{
+					displayTopics(Integer.parseInt((String) v.getTag()));
+				}
 			}
 		};
 
@@ -117,5 +129,11 @@ public class TopicSelectionActivity extends Activity
 		{
 			super.onBackPressed();
 		}
+	}
+
+	private static void showErrorMessage()
+	{
+		builder.setMessage("This level has not been unlocked yet.\nTry passing all the tests at the previous level first.");
+		builder.show();
 	}
 }
