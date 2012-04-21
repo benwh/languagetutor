@@ -1,7 +1,9 @@
 package ncl.team22.languagetutor.profile;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,17 +21,26 @@ import ncl.team22.languagetutor.data.DatabaseAdapter;
 public class ReplacePassword extends Activity
 {
 
-	private String	theQuestion;
-	private String	theAnswer;
-	private String	inputAnswer;
-	private String	inPass;
-	private String	inConfirmPass;
-	private String	mssg;
+	private String				theQuestion;
+	private String				theAnswer;
+	private String				inputAnswer;
+	private String				inPass;
+	private String				inConfirmPass;
+	private String				mssg;
+	private AlertDialog.Builder	builder;
 
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.replacepassword);
+
+		builder = new AlertDialog.Builder(this);
+		builder.setMessage(mssg).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id)
+			{
+				dialog.cancel();
+			}
+		});
 
 		// get question and answer from profile class **
 		theQuestion = LanguagetutorActivity.currentProfile.secret_q;
@@ -37,7 +48,8 @@ public class ReplacePassword extends Activity
 
 		// display question
 		final TextView textViewToChange = (TextView) findViewById(R.id.textQuestion1);
-		textViewToChange.setText(theQuestion);
+		textViewToChange.setText("Answer your secrate question:\n   "
+				+ theQuestion);
 
 		// when the "ok" button is clicked
 		final Button doneButton = (Button) findViewById(R.id.donebutton);
@@ -47,7 +59,7 @@ public class ReplacePassword extends Activity
 			{
 
 				// get input from editText fields
-				inputAnswer = ((EditText) findViewById(R.id.donebutton)).getText().toString();
+				inputAnswer = ((EditText) findViewById(R.id.intextanswer)).getText().toString();
 				inPass = ((EditText) findViewById(R.id.intextpass)).getText().toString();
 				inConfirmPass = ((EditText) findViewById(R.id.intextconfirmpass1)).getText().toString();
 
@@ -71,26 +83,50 @@ public class ReplacePassword extends Activity
 						e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
 						e.apply();
 
-						mssg = "New Password saved";
+						Toast toast = Toast.makeText(getApplicationContext(), "New Password saved", Toast.LENGTH_SHORT);
+						toast.show();
 						sDb.close();
+
+						if (getIntent().getExtras() != null)
+						{
+							LanguagetutorActivity.currentProfile = null;
+
+							settings = getSharedPreferences(LanguagetutorActivity.PREFS_NAME, MODE_PRIVATE);
+							e = settings.edit();
+							e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, -1);
+							e.apply();
+						}
 						finish();
 					}
 					else
 					{
-						mssg = "passwords are not the same";
+						mssg = "Your passwords didn't match, please try again.";
+						builder.setMessage(mssg);
+						builder.show();
 					}
 				}
 				else
 				{
-					mssg = "incorrect answer";
+					mssg = "Incorrect answer, please try again.";
+					builder.setMessage(mssg);
+					builder.show();
 				}
-
-				// show message to user
-				Toast toast = Toast.makeText(getApplicationContext(), mssg, Toast.LENGTH_SHORT);
-				toast.show();
-
-				// close activity
 			}
 		});
+	}
+
+	@Override
+	public void onBackPressed()
+	{
+		if (getIntent().getExtras() != null)
+		{
+			LanguagetutorActivity.currentProfile = null;
+
+			SharedPreferences settings = getSharedPreferences(LanguagetutorActivity.PREFS_NAME, MODE_PRIVATE);
+			Editor e = settings.edit();
+			e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, -1);
+			e.apply();
+		}
+		super.onBackPressed();
 	}
 }

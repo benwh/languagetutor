@@ -3,6 +3,7 @@ package ncl.team22.languagetutor.profile;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -68,7 +69,9 @@ public class CreateProfile extends Activity
 					Editor e = settings.edit();
 					e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
 					e.apply();
+					startActivity(new Intent(ncl.team22.languagetutor.profile.CreateProfile.this, LanguagetutorActivity.class));
 					finish();
+
 				}
 			}
 		});
@@ -87,7 +90,7 @@ public class CreateProfile extends Activity
 			}
 			else
 			{
-				errorMessage = "Your passwords didn't match please try again.";
+				errorMessage = "Your passwords didn't match, please try again.";
 			}
 
 		}

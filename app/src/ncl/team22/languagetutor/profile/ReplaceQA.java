@@ -1,7 +1,9 @@
 package ncl.team22.languagetutor.profile;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,16 +19,25 @@ import ncl.team22.languagetutor.data.DatabaseAdapter;
 
 public class ReplaceQA extends Activity
 {
-	private String	username;
-	private String	inPass;
-	private String	inQ;
-	private String	inA;
-	private String	mssg;
+	private String				username;
+	private String				inPass;
+	private String				inQ;
+	private String				inA;
+	private String				mssg;
+	private AlertDialog.Builder	builder;
 
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.replaceqa);
+
+		builder = new AlertDialog.Builder(this);
+		builder.setMessage(mssg).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id)
+			{
+				dialog.cancel();
+			}
+		});
 
 		username = LanguagetutorActivity.currentProfile.display_name;
 
@@ -63,26 +74,24 @@ public class ReplaceQA extends Activity
 						e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
 						e.apply();
 
-						mssg = "New Question + Answer saved";
+						Toast toast = Toast.makeText(getApplicationContext(), "Secrate question and answer updated", Toast.LENGTH_SHORT);
+						toast.show();
 						sDb.close();
 						finish();
 					}
 					else
 					{
-						mssg = "Question and Answer Required";
+						mssg = "Question and answer required.";
+						builder.setMessage(mssg);
+						builder.show();
 					}
 				}
 				else
 				{
-					mssg = "incorrect Password";
+					mssg = "Incorrect password, please try again.";
+					builder.setMessage(mssg);
+					builder.show();
 				}
-
-				// show message to user
-				Toast toast = Toast.makeText(getApplicationContext(), mssg, Toast.LENGTH_SHORT);
-				toast.show();
-
-				// close activity
-
 			}
 		});
 	}

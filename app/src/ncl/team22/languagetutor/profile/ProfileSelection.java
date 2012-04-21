@@ -2,12 +2,15 @@ package ncl.team22.languagetutor.profile;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
+import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 
 public class ProfileSelection extends ListActivity
@@ -41,7 +44,16 @@ public class ProfileSelection extends ListActivity
 		super.onListItemClick(l, v, position, id);
 		Cursor c = Profile.getProfiles();
 		c.moveToPosition(position);
+
+		LanguagetutorActivity.currentProfile = Profile.load(c.getPosition() + 1);
+		SharedPreferences settings = getSharedPreferences(LanguagetutorActivity.PREFS_NAME, MODE_PRIVATE);
+		Editor e = settings.edit();
+		e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
+		e.apply();
+
 		Intent i = new Intent(this, ReplacePassword.class);
+		i.putExtra("user verified", 1);
 		startActivity(i);
+		finish();
 	}
 }

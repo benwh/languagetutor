@@ -26,7 +26,6 @@ public class Login extends Activity
 	private String				userString;
 	private String				passString;
 	private String				errorMessage		= "";
-
 	private AlertDialog.Builder	builder;
 
 	@Override
