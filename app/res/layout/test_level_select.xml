@@ -1,40 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
- * @author 
- * @modified by Sarah Joyce
- * @date:20/04/2012
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
 
-    <TextView
-        style="@style/title_text"
-        android:text="@string/tests" />
+	<TextView
+		style="@style/title_text"
+		android:text="@string/tests" />
 
-    <LinearLayout
-        style="@style/main_content" >
-        
-        <TextView
-            android:id="@+id/selectlevel"
-            style="@style/header_text"
-            android:text="@string/sel_difficulty" />
+	<LinearLayout style="@style/main_content" >
 
-        <Button
-            android:id="@+id/level1"
-            style="@style/menu_btn"
-            android:text="@string/begin_1" />
+		<TextView
+			android:id="@+id/selectlevel"
+			style="@style/header_text"
+			android:text="@string/sel_difficulty" />
 
-        <Button
-            android:id="@+id/level2"
-            style="@style/menu_btn"
-            android:text="@string/inter_2" />
+		<Button
+			android:id="@+id/level1"
+			style="@style/menu_btn"
+			android:text="@string/begin_1" />
 
-        <Button
-            android:id="@+id/level3"
-            style="@style/menu_btn"
-            android:text="@string/adv_3" />
-    </LinearLayout>
+		<Button
+			android:id="@+id/level2"
+			style="@style/menu_btn"
+			android:text="@string/inter_2" />
+
+		<Button
+			android:id="@+id/level3"
+			style="@style/menu_btn"
+			android:text="@string/adv_3" />
+	</LinearLayout>
 
 </LinearLayout>

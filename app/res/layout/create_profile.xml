@@ -1,70 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
- * @author 
- * @modified by Sarah Joyce
- * @date:20/04/2012
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
 
-    <TextView
-        style="@style/title_text"
-        android:text="@string/create_prof" />
+	<TextView
+		style="@style/title_text"
+		android:text="@string/create_prof" />
 
-    <LinearLayout style="@style/main_content" >
+	<LinearLayout style="@style/main_content" >
 
-        <TextView
-            style="@style/header_text"
-            android:text="@string/username" />
+		<TextView
+			style="@style/header_text"
+			android:text="@string/username" />
 
-        <EditText
-            android:id="@+id/create_username"
-            style="@style/fwidth_editbox"
-            android:inputType="text" />
+		<EditText
+			android:id="@+id/create_username"
+			style="@style/fwidth_editbox"
+			android:inputType="text" />
 
+		<TextView
+			style="@style/header_text"
+			android:text="@string/password" />
 
-        <TextView
-            style="@style/header_text"
-            android:text="@string/password" />
+		<EditText
+			android:id="@+id/create_password"
+			style="@style/fwidth_editbox"
+			android:inputType="textPassword" />
 
-        <EditText
-            android:id="@+id/create_password"
-            style="@style/fwidth_editbox"
-            android:inputType="textPassword" />
+		<TextView
+			style="@style/header_text"
+			android:text="@string/c_password" />
 
-        <TextView
-            style="@style/header_text"
-            android:text="@string/c_password" />
+		<EditText
+			android:id="@+id/confirm_password"
+			style="@style/fwidth_editbox"
+			android:inputType="textPassword" />
 
-        <EditText
-            android:id="@+id/confirm_password"
-            style="@style/fwidth_editbox"
-            android:inputType="textPassword" />
+		<TextView
+			style="@style/header_text"
+			android:text="@string/s_question" />
 
-        <TextView
-            style="@style/header_text"
-            android:text="@string/s_question" />
+		<EditText
+			android:id="@+id/create_sq"
+			style="@style/fwidth_editbox"
+			android:inputType="text" />
 
-        <EditText
-            android:id="@+id/create_sq"
-            style="@style/fwidth_editbox"
-            android:inputType="text" />
+		<TextView
+			style="@style/header_text"
+			android:text="@string/s_answer" />
 
-        <TextView
-            style="@style/header_text"
-            android:text="@string/s_answer" />
+		<EditText
+			android:id="@+id/create_sa"
+			style="@style/fwidth_editbox"
+			android:inputType="text" />
 
-        <EditText
-            android:id="@+id/create_sa"
-            style="@style/fwidth_editbox"
-            android:inputType="text" />
-
-        <Button
-            android:id="@+id/create_profile_button"
-            style="@style/normal_btn"
-            android:text="@string/create_prof" />
-    </LinearLayout>
+		<Button
+			android:id="@+id/create_profile_button"
+			style="@style/normal_btn"
+			android:text="@string/create_prof" />
+	</LinearLayout>
 
 </LinearLayout>

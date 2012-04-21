@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView android:id="@+id/profile_list_rowtext" xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="40sp"/>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/profile_list_rowtext"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textSize="40sp" />

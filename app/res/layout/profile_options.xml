@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
- * @author 
- * @modified by Sarah Joyce
- * @date:20/04/2012
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
 
-    <TextView
-        style="@style/title_text"
-        android:text="@string/prof_optns" />
+	<TextView
+		style="@style/title_text"
+		android:text="@string/prof_optns" />
 
-    <LinearLayout
-        style="@style/main_content" >
-        <Button
-            android:id="@+id/passwordbutton"
-            style="@style/menu_btn"
-            android:text="@string/chng_password" />
+	<LinearLayout style="@style/main_content" >
 
-        <Button
-            android:id="@+id/qabutton"
-            style="@style/menu_btn"
-            android:text="@string/chng_secrets" />
-    </LinearLayout>
+		<Button
+			android:id="@+id/passwordbutton"
+			style="@style/menu_btn"
+			android:text="@string/chng_password" />
+
+		<Button
+			android:id="@+id/qabutton"
+			style="@style/menu_btn"
+			android:text="@string/chng_secrets" />
+	</LinearLayout>
 
 </LinearLayout>
