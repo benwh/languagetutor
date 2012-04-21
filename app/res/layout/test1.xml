@@ -21,21 +21,25 @@
 
 		<Button
 			android:id="@+id/option0"
+			android:layout_width="wrap_content"
 			android:tag="0" />
 
 		<Button
 			android:id="@+id/option1"
 			style="@style/menu_btn"
+			android:layout_width="wrap_content"
 			android:tag="1" />
 
 		<Button
 			android:id="@+id/option2"
 			style="@style/menu_btn"
+			android:layout_width="wrap_content"
 			android:tag="2" />
 
 		<Button
 			android:id="@+id/option3"
 			style="@style/menu_btn"
+			android:layout_width="wrap_content"
 			android:tag="3" />
 	</LinearLayout>
 
