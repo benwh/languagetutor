@@ -37,49 +37,29 @@ public class TestReview extends Activity
 		// Set rank text (will mirror whatever the stats page would say for a
 		// respective score)
 		final TextView rank = (TextView) findViewById(R.id.rank_awarded);
-		if (result < 10)
+		if (result < 20)
 		{
-			rank.setText(" Beginner");
-		}
-		else if (result < 20)
-		{
-			rank.setText(" Que?");
-		}
-		else if (result < 30)
-		{
-			rank.setText(" Tourist");
+			rank.setText("Foreigner");
 		}
 		else if (result < 40)
 		{
-			rank.setText(" Intermediate");
-		}
-		else if (result < 50)
-		{
-			rank.setText(" Experienced");
+			rank.setText("Tourist");
 		}
 		else if (result < 60)
 		{
-			rank.setText(" Proficient");
-		}
-		else if (result < 70)
-		{
-			rank.setText(" Advanced");
+			rank.setText("Resident");
 		}
 		else if (result < 80)
 		{
-			rank.setText(" Bilingual");
-		}
-		else if (result < 90)
-		{
-			rank.setText(" Fluent");
+			rank.setText("Bilingual");
 		}
 		else if (result < 100)
 		{
-			rank.setText(" Master");
+			rank.setText("Fluent");
 		}
 		else
 		{
-			rank.setText(" Native");
+			rank.setText("Native");
 		}
 
 		// Find the buttons

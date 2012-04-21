@@ -135,49 +135,29 @@ public class Statistics extends Activity
 			}
 		}
 		ranking = ranking / 10;
-		if (ranking < 10)
+		if (ranking < 20)
 		{
-			ratingView.setText(" Beginner");
-		}
-		else if (ranking < 20)
-		{
-			ratingView.setText(" Que?");
-		}
-		else if (ranking < 30)
-		{
-			ratingView.setText(" Tourist");
+			ratingView.setText("Foreigner");
 		}
 		else if (ranking < 40)
 		{
-			ratingView.setText(" Intermediate");
-		}
-		else if (ranking < 50)
-		{
-			ratingView.setText(" Experienced");
+			ratingView.setText("Tourist");
 		}
 		else if (ranking < 60)
 		{
-			ratingView.setText(" Proficient");
-		}
-		else if (ranking < 70)
-		{
-			ratingView.setText(" Advanced");
+			ratingView.setText("Resident");
 		}
 		else if (ranking < 80)
 		{
-			ratingView.setText(" Bilingual");
-		}
-		else if (ranking < 90)
-		{
-			ratingView.setText(" Fluent");
+			ratingView.setText("Bilingual");
 		}
 		else if (ranking < 100)
 		{
-			ratingView.setText(" Master");
+			ratingView.setText("Fluent");
 		}
 		else
 		{
-			ratingView.setText(" Native");
+			ratingView.setText("Native");
 		}
 
 		levelView.setText(Integer.toString(Profile.getUserLevel()));
