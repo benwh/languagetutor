@@ -18,15 +18,15 @@ import ncl.team22.languagetutor.profile.ProfileOptions;
 
 public class LanguagetutorActivity extends Activity
 {
-	private static final int		LOGOUT					= Menu.FIRST;
-	private static final int		PROFILE_LOGIN_REQUEST	= 1;
-	private static final String		TAG						= "LT-Main";
+	private static final int		LOGOUT				= Menu.FIRST;
+	private static final int		REQUEST_LOGIN		= 1;
+	private static final String		TAG					= "LT-Main";
 
-	public static final String		PREFS_NAME				= "ltprefs";
-	public static final String		ACTIVE_PROFILE_ID		= "activeprofile";
+	public static final String		PREFS_NAME			= "ltprefs";
+	public static final String		ACTIVE_PROFILE_ID	= "activeprofile";
 
 	public static DatabaseAdapter	sDBa;
-	public static Profile			currentProfile			= null;
+	public static Profile			currentProfile		= null;
 	public TextView					headerText;
 
 	/** Called when the activity is first created. */
@@ -44,9 +44,7 @@ public class LanguagetutorActivity extends Activity
 
 		if (activeProfileID == -1)
 		{
-			startActivityForResult(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class), LanguagetutorActivity.PROFILE_LOGIN_REQUEST);
-			// startActivity(new Intent(LanguagetutorActivity.this,
-			// ncl.team22.languagetutor.profile.Login.class));
+			startActivityForResult(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class), LanguagetutorActivity.REQUEST_LOGIN);
 		}
 		else
 		{
@@ -127,9 +125,7 @@ public class LanguagetutorActivity extends Activity
 				e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, -1);
 				e.apply();
 
-				startActivity(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class));
-				finish();
-
+				startActivityForResult(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class), REQUEST_LOGIN);
 				break;
 		}
 		return super.onMenuItemSelected(featureId, item);
@@ -137,10 +133,9 @@ public class LanguagetutorActivity extends Activity
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
-		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode)
 		{
-			case LanguagetutorActivity.PROFILE_LOGIN_REQUEST :
+			case LanguagetutorActivity.REQUEST_LOGIN :
 			{
 				if (resultCode == Activity.RESULT_OK)
 				{
@@ -148,6 +143,11 @@ public class LanguagetutorActivity extends Activity
 					headerText.setText("Hola " + currentProfile.display_name
 							+ "!");
 
+				}
+				// Catch back button being pressed in Login activity
+				else if (resultCode == Activity.RESULT_CANCELED)
+				{
+					finish();
 				}
 				break;
 			}
