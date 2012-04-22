@@ -4,14 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 
 public class CreateProfile extends Activity
@@ -29,6 +26,8 @@ public class CreateProfile extends Activity
 	private String				errorMessage	= "";
 
 	private AlertDialog.Builder	builder;
+
+	public static final String	NEW_PROFILEID	= "ncl.team22.languagetutor.profile.CreateProfile.NEW_PROFILEID";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -63,15 +62,12 @@ public class CreateProfile extends Activity
 
 				if (validate(userString, passString, cPassString, sQString, sAString))
 				{
-					LanguagetutorActivity.currentProfile = Profile.create(userString, passString, sQString, sAString);
+					int newProfileID = Profile.create(userString, passString, sQString, sAString);
 
-					SharedPreferences settings = getSharedPreferences(LanguagetutorActivity.PREFS_NAME, MODE_PRIVATE);
-					Editor e = settings.edit();
-					e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
-					e.apply();
-					startActivity(new Intent(ncl.team22.languagetutor.profile.CreateProfile.this, LanguagetutorActivity.class));
+					Intent resultData = new Intent();
+					resultData.putExtra(NEW_PROFILEID, newProfileID);
+					setResult(Activity.RESULT_OK, resultData);
 					finish();
-
 				}
 			}
 		});

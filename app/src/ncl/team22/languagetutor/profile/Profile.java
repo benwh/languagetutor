@@ -47,8 +47,8 @@ public class Profile
 	}
 
 	// Creates a new profile in the database with the values given
-	public static Profile create(String userName, String password,
-			String secretQ, String secretA)
+	public static int create(String userName, String password, String secretQ,
+			String secretA)
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
@@ -62,7 +62,7 @@ public class Profile
 
 		int profileID = (int) sDb.insert("profile", null, cv);
 
-		return Profile.load(profileID);
+		return profileID;
 	}
 
 	public static Profile load(int profileID)
@@ -226,5 +226,13 @@ public class Profile
 
 		sDbb.close();
 		return userLevel;
+	}
+
+	@Override
+	public String toString()
+	{
+		return new String("[" + this.getClass().toString() + ": "
+				+ "profileID=" + this.profileID + ", display_name="
+				+ this.display_name + "]");
 	}
 }

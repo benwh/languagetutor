@@ -19,6 +19,7 @@ import ncl.team22.languagetutor.R;
 public class Login extends Activity
 {
 
+	private static final int	REQUEST_CREATENEW	= 1;
 	private static final int	CREATE_NEW_PROFILE	= Menu.FIRST;
 	private static final int	RECOVER_PASS		= Menu.FIRST + 1;
 	private EditText			userName;
@@ -54,7 +55,8 @@ public class Login extends Activity
 					Editor e = settings.edit();
 					e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
 					e.apply();
-					startActivity(new Intent(ncl.team22.languagetutor.profile.Login.this, LanguagetutorActivity.class));
+
+					setResult(Activity.RESULT_OK);
 					finish();
 				}
 			}
@@ -85,8 +87,7 @@ public class Login extends Activity
 		{
 			case CREATE_NEW_PROFILE :
 				Intent createProfile_intent = new Intent(Login.this, CreateProfile.class);
-				startActivity(createProfile_intent);
-				finish();
+				startActivityForResult(createProfile_intent, REQUEST_CREATENEW);
 				break;
 			case RECOVER_PASS :
 				Intent recover_intent = new Intent(Login.this, ProfileSelection.class);
@@ -120,5 +121,33 @@ public class Login extends Activity
 		builder.show();
 		errorMessage = "";
 		return null;
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		switch (requestCode)
+		{
+			case REQUEST_CREATENEW :
+				if (resultCode == Activity.RESULT_OK)
+				{
+					int newProfileID = data.getIntExtra(CreateProfile.NEW_PROFILEID, -1);
+					if (newProfileID == -1)
+					{
+						throw new RuntimeException("CreateProfile didn't return a valid profile ID");
+					}
+
+					Profile newProfile = Profile.load(newProfileID);
+					LanguagetutorActivity.currentProfile = newProfile;
+
+					SharedPreferences settings = getSharedPreferences(LanguagetutorActivity.PREFS_NAME, MODE_PRIVATE);
+					Editor e = settings.edit();
+					e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
+					e.apply();
+					setResult(Activity.RESULT_OK);
+					finish();
+
+				}
+		}
 	}
 }
