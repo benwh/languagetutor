@@ -36,6 +36,7 @@ public class LanguagetutorActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		TextView headerText = (TextView) findViewById(R.id.main_header_text);
 
 		sDBa = new DatabaseAdapter(this);
 
@@ -49,9 +50,9 @@ public class LanguagetutorActivity extends Activity
 		else
 		{
 			currentProfile = Profile.load(activeProfileID);
-			TextView headerText = (TextView) findViewById(R.id.main_header_text);
-			headerText.setText("Hola " + currentProfile.display_name + "!");
 		}
+
+		headerText.setText("Hola " + currentProfile.display_name + "!");
 
 		final Button learnButton = (Button) findViewById(R.id.learnbutton);
 		learnButton.setOnClickListener(new View.OnClickListener() {
