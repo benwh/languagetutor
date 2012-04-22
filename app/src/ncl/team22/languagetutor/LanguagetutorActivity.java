@@ -52,7 +52,7 @@ public class LanguagetutorActivity extends Activity
 			currentProfile = Profile.load(activeProfileID);
 		}
 
-		headerText.setText("Hola " + currentProfile.display_name + "!");
+		// headerText.setText("Hola " + currentProfile.display_name + "!");
 
 		final Button learnButton = (Button) findViewById(R.id.learnbutton);
 		learnButton.setOnClickListener(new View.OnClickListener() {
