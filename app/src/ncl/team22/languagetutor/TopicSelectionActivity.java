@@ -64,6 +64,7 @@ public class TopicSelectionActivity extends Activity
 	public void displayTopics(int level)
 	{
 
+		// flipper.showNext() ?
 		flipper.setDisplayedChild(flipper.indexOfChild(findViewById(R.layout.topicselection_topics)));
 		Log.d(TAG, "Displaying topics for level " + level);
 
