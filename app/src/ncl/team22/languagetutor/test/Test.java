@@ -93,8 +93,6 @@ public class Test extends Activity
 
 			if (isMixedTest = true)
 			{
-				final TextView text = (TextView) findViewById(R.id.test_submitted);
-				text.setText("Mix test results are not stored, loading test results...");
 				setMixedTest(false);
 			}
 			else

@@ -13,7 +13,7 @@
     <string name="multi_question">Tap the correct translation for the following word:</string>
     <string name="written_question">Translate the following word and type the answer:</string>
     <string name="submit_answer">Submit Answer</string>
-    <string name="test_submitted">Test submitted, loading test results...</string>
+    <string name="test_submitted">Loading...</string>
     <string name="test_score">Test complete, you scored:</string>
     <string name="rank_awarded">Awarding you a rank of:</string>
     <string name="review_test">Review Answers</string>

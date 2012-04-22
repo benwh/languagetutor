@@ -40,7 +40,9 @@ public class Topics extends ListActivity
 		final ArrayList<Topic> topics = Topic.getTopics(LevelSelect.getLevel());
 		setListAdapter(new ArrayAdapter<Topic>(this, R.layout.test_topics_list_row, topics));
 
-		// Add tests click-through (experimental code)
+		// TODO: Look into adding best score to list view (to right of topic
+		// name)
+
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> a, View v, int i, long l)
