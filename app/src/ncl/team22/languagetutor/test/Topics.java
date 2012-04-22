@@ -23,11 +23,11 @@ import ncl.team22.languagetutor.data.Topic;
  */
 public class Topics extends ListActivity
 {
-	public static final String						intentTopic	= "ncl.team22.languagetutor.test.selectedTopic";
-	private static final String						TAG			= "LT-Topics";
+	public static final String					intentTopic	= "ncl.team22.languagetutor.test.selectedTopic";
+	private static final String					TAG			= "LT-Topics";
 
-	static final ArrayList<HashMap<String, String>>	lv			= new ArrayList<HashMap<String, String>>();
-	ArrayList<Topic>								topics		= Topic.getTopics(LevelSelect.getLevel());
+	final ArrayList<HashMap<String, String>>	lv			= new ArrayList<HashMap<String, String>>();
+	ArrayList<Topic>							topics		= Topic.getTopics(LevelSelect.getLevel());
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
