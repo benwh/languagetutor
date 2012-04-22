@@ -1,7 +1,5 @@
 package ncl.team22.languagetutor;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,20 +13,21 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import ncl.team22.languagetutor.data.DatabaseAdapter;
-import ncl.team22.languagetutor.data.Topic;
 import ncl.team22.languagetutor.profile.Profile;
 import ncl.team22.languagetutor.profile.ProfileOptions;
 
 public class LanguagetutorActivity extends Activity
 {
 	private static final int		LOGOUT					= Menu.FIRST;
-	protected static final int		TOPICSELECTION_REQUEST	= 1;
+	private static final int		PROFILE_LOGIN_REQUEST	= 1;
 	private static final String		TAG						= "LT-Main";
+
 	public static final String		PREFS_NAME				= "ltprefs";
 	public static final String		ACTIVE_PROFILE_ID		= "activeprofile";
 
 	public static DatabaseAdapter	sDBa;
 	public static Profile			currentProfile			= null;
+	public TextView					headerText;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -36,7 +35,7 @@ public class LanguagetutorActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		TextView headerText = (TextView) findViewById(R.id.main_header_text);
+		headerText = (TextView) findViewById(R.id.main_header_text);
 
 		sDBa = new DatabaseAdapter(this);
 
@@ -45,14 +44,15 @@ public class LanguagetutorActivity extends Activity
 
 		if (activeProfileID == -1)
 		{
-			startActivity(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class));
+			startActivityForResult(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class), LanguagetutorActivity.PROFILE_LOGIN_REQUEST);
+			// startActivity(new Intent(LanguagetutorActivity.this,
+			// ncl.team22.languagetutor.profile.Login.class));
 		}
 		else
 		{
 			currentProfile = Profile.load(activeProfileID);
+			headerText.setText("Hola " + currentProfile.display_name + "!");
 		}
-
-		headerText.setText("Hola " + currentProfile.display_name + "!");
 
 		final Button learnButton = (Button) findViewById(R.id.learnbutton);
 		learnButton.setOnClickListener(new View.OnClickListener() {
@@ -140,14 +140,14 @@ public class LanguagetutorActivity extends Activity
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode)
 		{
-			case LanguagetutorActivity.TOPICSELECTION_REQUEST :
+			case LanguagetutorActivity.PROFILE_LOGIN_REQUEST :
 			{
 				if (resultCode == Activity.RESULT_OK)
 				{
-					@SuppressWarnings("unchecked")
-					ArrayList<Topic> topics = (ArrayList<Topic>) data.getSerializableExtra(TopicSelectionActivity.SELECTED_TOPICS);
-					Log.d(TAG, "Got result OK");
-					Log.d(TAG, "Selected topics: " + topics.toString());
+					Log.d(TAG, "Login activity returned OK");
+					headerText.setText("Hola " + currentProfile.display_name
+							+ "!");
+
 				}
 				break;
 			}
