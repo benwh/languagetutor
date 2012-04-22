@@ -770,7 +770,6 @@ public class Test extends Activity
 			TestData.resetData();
 			// Reset test length values to default
 			setTestLength(8);
-			// Re-populate list view with updated best score
 			finish();
 		}
 	}
