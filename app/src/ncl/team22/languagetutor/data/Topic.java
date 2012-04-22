@@ -162,6 +162,44 @@ public class Topic implements Serializable
 		return tlist;
 	}
 
+	public static String getBestResultById(int langsetId)
+	{
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+
+		Log.d("TAG", "Langset id is: " + langsetId);
+
+		String query = "SELECT MAX(score) as best_score FROM "
+				+ DatabaseAdapter.TABLE_TEST_RESULTS
+				+ " WHERE profileID = ? AND langsetID = ?";
+		Cursor c = sDb.rawQuery(query, new String[]
+		{Integer.toString(LanguagetutorActivity.currentProfile.profileID),
+				Integer.toString(langsetId)});
+		if (c.moveToFirst())
+		{
+			Log.d(TAG, "Returning: "
+					+ Integer.toString(c.getInt(c.getColumnIndex("best_score")))); // TRACE
+			return Integer.toString(c.getInt(c.getColumnIndex("best_score")));
+		}
+		else
+		{
+			return "N/A";
+		}
+	}
+
+	public static int getLangsetIdByName(String topicName)
+	{
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+
+		Cursor c = sDb.query(DatabaseAdapter.TABLE_TOPIC, new String[]
+		{"setID"}, "name = " + "?", new String[]
+		{topicName}, null, null, null);
+		c.moveToFirst();
+
+		int topicId = c.getInt(0);
+		Log.d(TAG, "Topic Id: " + topicId);
+		return topicId;
+	}
+
 	@Override
 	public String toString()
 	{

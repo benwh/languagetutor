@@ -91,7 +91,7 @@ public class Test extends Activity
 		{
 			setContentView(R.layout.test_submitted);
 
-			if (isMixedTest = true)
+			if (isMixedTest == true)
 			{
 				setMixedTest(false);
 			}
@@ -107,6 +107,7 @@ public class Test extends Activity
 				Log.d(TAG, "Timestamp: " + currentDate.toString());
 				// Submit the score
 				TestResult.submitScore(LanguagetutorActivity.currentProfile.profileID, Topic.getIdByTopic(selectedTopic), tS);
+				Log.d(TAG, "Score submitted...");
 			}
 			Log.d(TAG, "Test complete, taking you to the TestReview...");
 			Intent i = new Intent(Test.this, TestReview.class);
@@ -769,6 +770,7 @@ public class Test extends Activity
 			TestData.resetData();
 			// Reset test length values to default
 			setTestLength(8);
+			// Re-populate list view with updated best score
 			finish();
 		}
 	}
