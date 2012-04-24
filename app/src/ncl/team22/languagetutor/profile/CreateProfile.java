@@ -32,6 +32,7 @@ public class CreateProfile extends Activity
 
 	public static final String	NEW_PROFILEID	= "ncl.team22.languagetutor.profile.CreateProfile.NEW_PROFILEID";
 
+	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);

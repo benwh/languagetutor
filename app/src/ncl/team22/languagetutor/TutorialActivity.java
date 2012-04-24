@@ -30,6 +30,7 @@ public class TutorialActivity extends Activity
 	private ArrayList<LanguageEntity>	entities;
 	private int							numPages;
 
+	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		Log.d(TAG, "Starting");
