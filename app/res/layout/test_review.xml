@@ -29,9 +29,10 @@
 			style="@style/header_text" />
 
 		<Button
-			android:id="@+id/review_test"
-			style="@style/normal_btn"
-			android:text="@string/review_test" />
+		    android:id="@+id/review_test"
+		    style="@style/normal_btn"
+		    android:text="@string/review_test" />
+
 	</LinearLayout>
 
 </LinearLayout>

@@ -30,7 +30,6 @@ public class TopicSelectionActivity extends Activity
 	private static final String	TAG					= "LT-TopicSelection";
 	private int					userLevel			= Profile.getUserLevel();
 
-	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);

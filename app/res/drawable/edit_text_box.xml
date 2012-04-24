@@ -13,5 +13,4 @@
     <item android:drawable="@drawable/textfield_default" android:state_enabled="true"/>
     <item android:drawable="@drawable/textfield_disabled_selected_red" android:state_focused="true"/>
     <item android:drawable="@drawable/textfield_disabled_red"/>
-
 </selector>

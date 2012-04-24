@@ -2,6 +2,7 @@ package ncl.team22.languagetutor.test;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,12 @@ public class LevelSelect extends Activity
 {
 	private static int	level		= 0;
 	private int			userLevel	= Profile.getUserLevel();
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig)
+	{
+		super.onConfigurationChanged(newConfig);
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)

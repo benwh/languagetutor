@@ -6,7 +6,7 @@
 
 	<TextView
 		style="@style/title_text"
-		android:text="@string/topic_selec" />
+		android:text="@string/level_select" />
 
 	<LinearLayout style="@style/main_content" >
 

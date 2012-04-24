@@ -5,6 +5,7 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,12 @@ public class Test extends Activity
 	int							entityID;
 
 	public static final String	TAG			= "LT-Test";
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig)
+	{
+		super.onConfigurationChanged(newConfig);
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)

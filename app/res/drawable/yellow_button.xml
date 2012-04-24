@@ -9,6 +9,7 @@
     <item android:drawable="@drawable/yel_btn_sel" android:state_focused="true" android:state_pressed="false"/>
     <item android:drawable="@drawable/yel_btn_pr" android:state_focused="true" android:state_pressed="true"/>
     <item android:drawable="@drawable/yel_btn_pr" android:state_focused="false" android:state_pressed="true"/>
+    <item android:drawable="@drawable/yel_btn_sel" android:state_enabled="false"/>
     <item android:drawable="@drawable/yel_btn"/>
 
 </selector>

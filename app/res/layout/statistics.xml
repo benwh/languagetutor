@@ -12,7 +12,9 @@
 
 		<TextView
 			android:id="@+id/usernameStatsBanner"
-			style="@style/header_text" />
+			style="@style/header_text"
+			android:textSize="20sp"
+	/>
 
 		<TextView
 			style="@style/header_text"
@@ -20,7 +22,7 @@
 
 		<TextView
 			android:id="@+id/userleveltext"
-			style="@style/header_text" />
+			style="@style/small_text" />
 
 		<TextView
 			style="@style/header_text"
@@ -28,7 +30,7 @@
 
 		<TextView
 			android:id="@+id/numOfWords"
-			style="@style/header_text" />
+			style="@style/small_text" />
 
 		<TextView
 			style="@style/header_text"
@@ -36,7 +38,7 @@
 
 		<TextView
 			android:id="@+id/fravrite_word_text"
-			style="@style/header_text" />
+			style="@style/small_text"  />
 
 		<TextView
 			style="@style/header_text"
@@ -44,7 +46,7 @@
 
 		<TextView
 			android:id="@+id/least_favrite_word_text"
-			style="@style/header_text" />
+			style="@style/small_text"  />
 
 		<TextView
 			style="@style/header_text"
@@ -52,7 +54,7 @@
 
 		<TextView
 			android:id="@+id/highest_test_score_text"
-			style="@style/header_text" />
+			style="@style/small_text"  />
 
 		<TextView
 			style="@style/header_text"
@@ -60,7 +62,7 @@
 
 		<TextView
 			android:id="@+id/highest_game_score_text"
-			style="@style/header_text" />
+			style="@style/small_text"  />
 
 		<TextView
 			style="@style/header_text"
@@ -68,7 +70,7 @@
 
 		<TextView
 			android:id="@+id/spanish_language_rating_text"
-			style="@style/header_text" />
+			style="@style/small_text"  />
 	</LinearLayout>
 
 </LinearLayout>

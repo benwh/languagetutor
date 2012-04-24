@@ -13,6 +13,7 @@ import ncl.team22.languagetutor.data.Topic;
  */
 public class TestData
 {
+
 	private static ArrayList<LanguageEntity>	entitiesList;
 	// Prevent asked questions being asked again but enable them to be fed as
 	// incorrect options

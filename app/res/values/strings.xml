@@ -57,5 +57,10 @@
     <string name="topic_selec">Topic Selection</string>
     <string name="test_com">Test Complete</string>
     <string name="test_res">Test Results</string>
+    <string name="tutorial_comp">Tutorial Completed!</string>
+    <string name="review_topic">Would you like to review this topic now?</string>
+    <string name="answer_yes">Yes</string>
+	<string name="answer_no">No</string>
+	<string name="level_select">Level Selection</string>
 
 </resources>
