@@ -1,13 +1,12 @@
 package ncl.team22.languagetutor.profile;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,29 +17,24 @@ import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 
+/**
+ * Activity for Resetting a profiles password
+ * 
+ * @author Kyran, Misha
+ */
 public class ReplacePassword extends Activity
 {
 
-	private String				theQuestion;
-	private String				theAnswer;
-	private String				inputAnswer;
-	private String				inPass;
-	private String				inConfirmPass;
-	private String				mssg;
-	private AlertDialog.Builder	builder;
+	private String	theQuestion;
+	private String	theAnswer;
+	private String	inputAnswer;
+	private String	inPass;
+	private String	inConfirmPass;
 
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.replacepassword);
-
-		builder = new AlertDialog.Builder(this);
-		builder.setMessage(mssg).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int id)
-			{
-				dialog.cancel();
-			}
-		});
 
 		// get question and answer from profile class **
 		theQuestion = LanguagetutorActivity.currentProfile.secret_q;
@@ -54,6 +48,7 @@ public class ReplacePassword extends Activity
 		// when the "ok" button is clicked
 		final Button doneButton = (Button) findViewById(R.id.donebutton);
 		doneButton.setOnClickListener(new View.OnClickListener() {
+
 			@Override
 			public void onClick(View v)
 			{
@@ -83,8 +78,8 @@ public class ReplacePassword extends Activity
 						e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
 						e.apply();
 
-						Toast toast = Toast.makeText(getApplicationContext(), "New Password saved", Toast.LENGTH_SHORT);
-						toast.show();
+						Toast.makeText(getApplicationContext(), "New Password saved", Toast.LENGTH_SHORT).show();
+
 						sDb.close();
 
 						if (getIntent().getExtras() != null)
@@ -100,21 +95,25 @@ public class ReplacePassword extends Activity
 					}
 					else
 					{
-						mssg = "Your passwords didn't match, please try again.";
-						builder.setMessage(mssg);
-						builder.show();
+						Toast toast = Toast.makeText(getApplicationContext(), "Your passwords didn't match, please try again.", Toast.LENGTH_LONG);
+						toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+						toast.show();
 					}
 				}
 				else
 				{
-					mssg = "Incorrect answer, please try again.";
-					builder.setMessage(mssg);
-					builder.show();
+					Toast toast = Toast.makeText(getApplicationContext(), "Incorrect answer, please try again.", Toast.LENGTH_LONG);
+					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+					toast.show();
 				}
 			}
 		});
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
 	@Override
 	public void onBackPressed()
 	{

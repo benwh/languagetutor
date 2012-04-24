@@ -13,6 +13,10 @@ import android.util.Log;
 import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 
+/**
+ * @author Ben
+ * 
+ */
 public class Profile
 {
 

@@ -1,21 +1,27 @@
 package ncl.team22.languagetutor.profile;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 
+/**
+ * Activity for logging into profiles
+ * 
+ * @author Misha
+ * 
+ */
 public class Login extends Activity
 {
 
@@ -27,7 +33,6 @@ public class Login extends Activity
 	private String				userString;
 	private String				passString;
 	private String				errorMessage		= "";
-	private AlertDialog.Builder	builder;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -61,14 +66,6 @@ public class Login extends Activity
 				}
 			}
 		});
-
-		builder = new AlertDialog.Builder(this);
-		builder.setMessage(errorMessage).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int id)
-			{
-				dialog.cancel();
-			}
-		});
 	}
 
 	@Override
@@ -97,6 +94,20 @@ public class Login extends Activity
 		return super.onMenuItemSelected(featureId, item);
 	}
 
+	/**
+	 * Checks that the user input a valid username and valid matching password
+	 * 
+	 * First checks that the username the user is trying to log in to exists
+	 * then checks that the provided the correct password. If one of these
+	 * checks return false the user is informed about what they input that was
+	 * wrong.
+	 * 
+	 * @param user
+	 *            The profile that the user wants to log in to.
+	 * @param pass
+	 *            The password for that the user entered.
+	 * @return The profile that the user wants to log in to, otherwise null.
+	 */
 	private Profile validate(String user, String pass)
 	{
 		if (Profile.checkName(userString))
@@ -117,9 +128,9 @@ public class Login extends Activity
 			errorMessage = "No such user, please try again.";
 		}
 
-		builder.setMessage(errorMessage);
-		builder.show();
-		errorMessage = "";
+		Toast toast = Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG);
+		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast.show();
 		return null;
 	}
 
@@ -146,7 +157,6 @@ public class Login extends Activity
 					e.apply();
 					setResult(Activity.RESULT_OK);
 					finish();
-
 				}
 		}
 	}

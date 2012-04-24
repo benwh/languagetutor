@@ -1,13 +1,12 @@
 package ncl.team22.languagetutor.profile;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,25 +18,15 @@ import ncl.team22.languagetutor.data.DatabaseAdapter;
 
 public class ReplaceQA extends Activity
 {
-	private String				username;
-	private String				inPass;
-	private String				inQ;
-	private String				inA;
-	private String				mssg;
-	private AlertDialog.Builder	builder;
+	private String	username;
+	private String	inPass;
+	private String	inQ;
+	private String	inA;
 
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.replaceqa);
-
-		builder = new AlertDialog.Builder(this);
-		builder.setMessage(mssg).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int id)
-			{
-				dialog.cancel();
-			}
-		});
 
 		username = LanguagetutorActivity.currentProfile.display_name;
 
@@ -74,23 +63,22 @@ public class ReplaceQA extends Activity
 						e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, LanguagetutorActivity.currentProfile.profileID);
 						e.apply();
 
-						Toast toast = Toast.makeText(getApplicationContext(), "Secrate question and answer updated", Toast.LENGTH_SHORT);
-						toast.show();
+						Toast.makeText(getApplicationContext(), "Secrate question and answer updated", Toast.LENGTH_SHORT).show();
 						sDb.close();
 						finish();
 					}
 					else
 					{
-						mssg = "Question and answer required.";
-						builder.setMessage(mssg);
-						builder.show();
+						Toast toast = Toast.makeText(getApplicationContext(), "Question and answer required.", Toast.LENGTH_LONG);
+						toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+						toast.show();
 					}
 				}
 				else
 				{
-					mssg = "Incorrect password, please try again.";
-					builder.setMessage(mssg);
-					builder.show();
+					Toast toast = Toast.makeText(getApplicationContext(), "Incorrect password, please try again.", Toast.LENGTH_LONG);
+					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+					toast.show();
 				}
 			}
 		});

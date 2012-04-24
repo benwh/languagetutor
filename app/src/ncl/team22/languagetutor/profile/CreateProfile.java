@@ -1,16 +1,21 @@
 package ncl.team22.languagetutor.profile;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import ncl.team22.languagetutor.R;
 
+/**
+ * Activity for creating new profiles
+ * 
+ * @author Misha
+ */
 public class CreateProfile extends Activity
 {
 	private EditText			userName;
@@ -24,8 +29,6 @@ public class CreateProfile extends Activity
 	private EditText			secretAnswer;
 	private String				sAString;
 	private String				errorMessage	= "";
-
-	private AlertDialog.Builder	builder;
 
 	public static final String	NEW_PROFILEID	= "ncl.team22.languagetutor.profile.CreateProfile.NEW_PROFILEID";
 
@@ -41,14 +44,6 @@ public class CreateProfile extends Activity
 		secretQuestion = (EditText) findViewById(R.id.create_sq);
 		secretAnswer = (EditText) findViewById(R.id.create_sa);
 		Button createProfileButton = (Button) findViewById(R.id.create_profile_button);
-
-		builder = new AlertDialog.Builder(this);
-		builder.setMessage(errorMessage).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int id)
-			{
-				dialog.cancel();
-			}
-		});
 
 		createProfileButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view)
@@ -73,6 +68,27 @@ public class CreateProfile extends Activity
 		});
 	}
 
+	/**
+	 * Checks that it is OK to create a profile with the user's input
+	 * 
+	 * First check that the requested username is not already taken, then checks
+	 * that the user knows what they set their password to by comparing vPass to
+	 * vCPass and that the password uses the correct number of characters.
+	 * 
+	 * @param vUsename
+	 *            What the user wanted their username to be.
+	 * @param vPass
+	 *            What the user wanted their password to be.
+	 * @param vCPass
+	 *            The users attempt to reenter what they just put in the
+	 *            password field.
+	 * @param vSQ
+	 *            What the user wanted their secrete question to be.
+	 * @param vSA
+	 *            What the user wanted their secrete answer to be.
+	 * @return True if the user input allows for the creation of a new password,
+	 *         other wise false.
+	 */
 	private boolean validate(String vUsename, String vPass, String vCPass,
 			String vSQ, String vSA)
 	{
@@ -97,9 +113,9 @@ public class CreateProfile extends Activity
 
 		if (!valid)
 		{
-			builder.setMessage(errorMessage);
-			builder.show();
-			errorMessage = "";
+			Toast toast = Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG);
+			toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+			toast.show();
 		}
 		return valid;
 	}
