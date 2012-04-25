@@ -4,13 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/test_topics_list_row1"
-        style="@style/test_topic_text"/>
+
+
+	<TextView
+	    android:id="@+id/test_topics_list_row1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/placeholder_test_topic"
+	    android:textSize="25sp" />
 
 	<TextView
 	    android:id="@+id/test_topics_list_row2"
-		style="@style/test_topic_percent"
-	    android:text="@string/score"/>
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_gravity="right"
+	    android:gravity="right|center_vertical"
+	    android:text="@string/placeholder_test_score"
+	    android:textSize="15sp" />
+
 	
 </LinearLayout>
