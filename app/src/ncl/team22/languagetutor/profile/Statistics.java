@@ -14,6 +14,8 @@ public class Statistics extends Activity
 {
 	TextView	bannerView;
 	TextView	levelView;
+	TextView	favView;
+	TextView	leastFaveView;
 	TextView	testScoreView;
 	TextView	gameScoreView;
 	TextView	ratingView;
@@ -28,9 +30,12 @@ public class Statistics extends Activity
 
 		Cursor c;
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+		int currentProfId = LanguagetutorActivity.currentProfile.profileID;
 
 		bannerView = (TextView) findViewById(R.id.usernameStatsBanner);
 		noOFWordsView = (TextView) findViewById(R.id.numOfWords);
+		favView = (TextView) findViewById(R.id.favourite_word_text);
+		leastFaveView = (TextView) findViewById(R.id.least_favourite_word_text);
 		testScoreView = (TextView) findViewById(R.id.highest_test_score_text);
 		gameScoreView = (TextView) findViewById(R.id.highest_game_score_text);
 
@@ -75,6 +80,32 @@ public class Statistics extends Activity
 			bestGameResult = "N/A";
 		}
 		gameScoreView.setText(bestGameResult);
+
+		String fWord;
+		c = sDb.query("langentity le INNER JOIN entity_progress ep ON (le.entityID = ep.entityID)", null, "ep.profileID = ?", new String[]
+		{Integer.toString(currentProfId)}, null, null, "ep.efactor DESC");
+		if (c.moveToFirst())
+		{
+			fWord = c.getString(c.getColumnIndex("le.source_text"));
+		}
+		else
+		{
+			fWord = "N/A";
+		}
+		favView.setText(fWord);
+
+		String lfWord;
+		c = sDb.query("langentity le INNER JOIN entity_progress ep ON (le.entityID = ep.entityID)", null, "ep.profileID = ?", new String[]
+		{Integer.toString(currentProfId)}, null, null, "ep.efactor ASC");
+		if (c.moveToFirst())
+		{
+			lfWord = c.getString(c.getColumnIndex("source_text"));
+		}
+		else
+		{
+			lfWord = "N/A";
+		}
+		leastFaveView.setText(lfWord);
 
 		int ranking = 0;
 		for (int i = 0; i < 10; i++)
