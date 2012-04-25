@@ -31,6 +31,12 @@ public class Test extends Activity
 	static int					TEST_MAX	= 8;
 	static int					TEST_MID	= 4;
 
+	/**
+	 * Used to monitor if an entity should be added/removed from the lists,
+	 * initially true and reset during click listeners
+	 */
+	static boolean				list		= true;
+
 	LanguageEntity				current;
 	Random						randGen		= new Random();
 	int							switchVal;
@@ -62,11 +68,6 @@ public class Test extends Activity
 			{
 				TestData.setEntitiesListByTopic(selectedTopic);
 			}
-
-			// Add header for review
-			TestData.addToReviewTest("ORIGINAL");
-			TestData.addToReviewTest("TRANSLATION");
-			TestData.addToReviewTest("YOUR ANSWER");
 
 			if (TestData.getEntitiesList().size() < TEST_MAX)
 			{
@@ -142,10 +143,6 @@ public class Test extends Activity
 			{
 				// Set question text
 				question.setText("" + current.toDestString());
-				// Add question to review array
-				TestData.addToReviewTest(current.toDestString());
-				// Add answer to review array
-				TestData.addToReviewTest(current.toSourceString());
 				break;
 			}
 			case 1 :
@@ -153,17 +150,17 @@ public class Test extends Activity
 			{
 				// Set question text
 				question.setText("" + current.toSourceString());
-				// Add question to review array
-				TestData.addToReviewTest(current.toSourceString());
-				// Add answer to review array
-				TestData.addToReviewTest(current.toDestString());
 				break;
 			}
 		}
-		// Add entity to removed list
-		TestData.addToRemovedList(current);
-		// Remove entity from initial list
-		TestData.removeFromEntitiesList(entityID);
+		if (list == true)
+		{
+			// Add entity to removed list
+			TestData.addToRemovedList(current);
+			// Remove entity from initial list
+			TestData.removeFromEntitiesList(entityID);
+			list = false;
+		}
 	}
 
 	public void getMultiQuestion()
@@ -549,6 +546,16 @@ public class Test extends Activity
 			@Override
 			public void onClick(View v)
 			{
+				list = true;
+
+				if (TestResult.getCounter() == 0)
+				{
+					// Add header for review
+					TestData.addToReviewTest("ORIGINAL");
+					TestData.addToReviewTest("TRANSLATION");
+					TestData.addToReviewTest("YOUR ANSWER");
+				}
+				addToReview(switchVal);
 				// Add user's answer to review string
 				int clickedButton = Integer.parseInt((String) v.getTag());
 				switch (clickedButton)
@@ -634,6 +641,9 @@ public class Test extends Activity
 			@Override
 			public void onClick(View v)
 			{
+				list = true;
+
+				addToReview(switchVal);
 				// Add user's answer to review string
 				TestData.addToReviewTest(answer.getText().toString());
 
@@ -745,6 +755,31 @@ public class Test extends Activity
 	public static void setMixedTest(boolean bool)
 	{
 		isMixedTest = bool;
+	}
+
+	/**
+	 * Adds the question data to review grid
+	 * 
+	 * @param switchVal
+	 *            - the case of whether the question is in Spanish or English
+	 */
+	public void addToReview(int switchVal)
+	{
+		switch (switchVal)
+		{
+			case 0 :
+				// Add question to review array
+				TestData.addToReviewTest(current.toDestString());
+				// Add answer to review array
+				TestData.addToReviewTest(current.toSourceString());
+				break;
+			case 1 :
+				// Add question to review array
+				TestData.addToReviewTest(current.toSourceString());
+				// Add answer to review array
+				TestData.addToReviewTest(current.toDestString());
+				break;
+		}
 	}
 
 	@Override
