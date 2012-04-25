@@ -3,32 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
     <TextView
         style="@style/title_text"
-        android:text="Tutorial (topic)" />
+        android:text="@string/placeholder_tutorial_header" />
 
     <LinearLayout style="@style/main_content" >
 
-	<TextView
-		android:id="@+id/tutorial_srctext"
-		android:layout_width="wrap_content"
-		android:layout_height="0dp"
-		android:layout_gravity="center"
-		android:layout_marginBottom="0dp"
-		android:layout_weight="0.50"
-		android:text="SRC"
-		android:textAppearance="?android:attr/textAppearanceLarge" />
+        <TextView
+            android:id="@+id/tutorial_srctext"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="0.50"
+            android:text="@string/placeholder_src"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-	<TextView
-		android:id="@+id/tutorial_dsttext"
-		android:layout_width="wrap_content"
-		android:layout_height="0dp"
-		android:layout_gravity="center"
-		android:layout_weight="0.50"
-		android:text="DST"
-		android:textAppearance="?android:attr/textAppearanceLarge" />
-
+        <TextView
+            android:id="@+id/tutorial_dsttext"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.50"
+            android:text="@string/placeholder_dst"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
 
 </LinearLayout>

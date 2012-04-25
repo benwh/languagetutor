@@ -26,7 +26,7 @@
 			android:layout_height="0dp"
 			android:layout_gravity="center"
 			android:layout_weight="0.40"
-			android:text="@string/placeholder_dst"
+			android:text="@string/placeholder_dst_tap"
 			android:textAppearance="?android:attr/textAppearanceLarge" />
 
 		<LinearLayout

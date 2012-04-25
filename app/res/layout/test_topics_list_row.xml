@@ -17,7 +17,7 @@
 	    android:layout_height="match_parent"
 	    android:layout_gravity="right"
 	    android:gravity="right|center_vertical"
-	    android:text="@string/placeholder_test_topic"
+	    android:text="@string/placeholder_test_score"
 	    android:textSize="15sp" />
 	
 </LinearLayout>
