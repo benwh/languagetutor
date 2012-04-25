@@ -45,11 +45,12 @@ public class LanguageEntity
 		return this.dest_text;
 	}
 
+	@Override
 	public String toString()
 	{
-		return this.entityID + " " + this.phrase + " " + this.phrase_partial
-				+ " " + this.source_text + " " + this.dest_text + " "
-				+ this.audio_asset + " " + this.image_asset;
+		return new String("[" + "LanguageEntity" + ": " + "entityID="
+				+ this.entityID + ", src_text=" + this.source_text
+				+ ", dst_text=" + this.dest_text + "]");
 	}
 
 	// TODO: Implement/call scoring algorithm
