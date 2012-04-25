@@ -86,7 +86,8 @@ public class Profile
 		}
 		else
 		{
-			return null;
+			throw new RuntimeException("Tried to load profileID=" + profileID
+					+ " but not found in DB");
 		}
 
 	}
