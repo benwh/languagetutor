@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/review_viewflipper"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
+
+	<include
+		android:id="@+id/review_start"
+		layout="@layout/review_start" />
+
+	<include
+		android:id="@+id/review_item"
+		layout="@layout/review_item" />
+
+	<include
+		android:id="@+id/review_end"
+		layout="@layout/review_end" />
+
+</ViewFlipper>

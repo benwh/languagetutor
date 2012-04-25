@@ -34,22 +34,6 @@
 
 		<TextView
 			style="@style/header_text"
-			android:text="@string/fravrite_word" />
-
-		<TextView
-			android:id="@+id/fravrite_word_text"
-			style="@style/small_text"  />
-
-		<TextView
-			style="@style/header_text"
-			android:text="@string/least_favrite_word" />
-
-		<TextView
-			android:id="@+id/least_favrite_word_text"
-			style="@style/small_text"  />
-
-		<TextView
-			style="@style/header_text"
 			android:text="@string/highest_test_score" />
 
 		<TextView

@@ -30,7 +30,7 @@ public class LanguagetutorActivity extends Activity
 	public TextView					headerText;
 
 	/** Called when the activity is first created. */
-
+	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -58,6 +58,16 @@ public class LanguagetutorActivity extends Activity
 			public void onClick(View v)
 			{
 				Intent i = new Intent(LanguagetutorActivity.this, TutorialActivity.class);
+				startActivity(i);
+			}
+		});
+
+		final Button reviewButton = (Button) findViewById(R.id.reviewbutton);
+		reviewButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				Intent i = new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.RevisionActivity.class);
 				startActivity(i);
 			}
 		});

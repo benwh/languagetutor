@@ -22,13 +22,15 @@ import ncl.team22.languagetutor.profile.Profile;
 public class TopicSelectionActivity extends Activity
 {
 
-	public static final String	SELECTED_TOPICS		= "ncl.team22.languagetutor.TopicSelectionActivity.SELECTED_TOPICS";
-	public static final String	ALLOW_ALLTOPICS		= "ncl.team22.languagetutor.TopicSelectionActivity.ALLOW_ALLTOPICS";
+	public static final int		TOPICSELECTION_REQUEST	= 1;
+
+	public static final String	SELECTED_TOPICS			= "ncl.team22.languagetutor.TopicSelectionActivity.SELECTED_TOPICS";
+	public static final String	ALLOW_ALLTOPICS			= "ncl.team22.languagetutor.TopicSelectionActivity.ALLOW_ALLTOPICS";
 
 	private ViewFlipper			flipper;
-	private boolean				displayMixedButton	= true;
-	private static final String	TAG					= "LT-TopicSelection";
-	private int					userLevel			= Profile.getUserLevel();
+	private boolean				displayMixedButton		= true;
+	private static final String	TAG						= "LT-TopicSelection";
+	private int					userLevel				= Profile.getUserLevel();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)

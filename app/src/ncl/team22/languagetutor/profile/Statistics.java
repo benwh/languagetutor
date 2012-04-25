@@ -14,8 +14,6 @@ public class Statistics extends Activity
 {
 	TextView	bannerView;
 	TextView	levelView;
-	TextView	favView;
-	TextView	leastFaveView;
 	TextView	testScoreView;
 	TextView	gameScoreView;
 	TextView	ratingView;
@@ -33,8 +31,6 @@ public class Statistics extends Activity
 
 		bannerView = (TextView) findViewById(R.id.usernameStatsBanner);
 		noOFWordsView = (TextView) findViewById(R.id.numOfWords);
-		favView = (TextView) findViewById(R.id.fravrite_word_text);
-		leastFaveView = (TextView) findViewById(R.id.least_favrite_word_text);
 		testScoreView = (TextView) findViewById(R.id.highest_test_score_text);
 		gameScoreView = (TextView) findViewById(R.id.highest_game_score_text);
 
@@ -45,7 +41,7 @@ public class Statistics extends Activity
 				+ "'s statistics");
 
 		c = sDb.query(DatabaseAdapter.TABLE_ENTITY_PROGRESS, new String[]
-		{"last_attempt"}, "profileID = ? AND last_attempt IS NOT NULL", new String[]
+		{"entityID"}, "profileID = ? AND efactor IS NOT NULL", new String[]
 		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)}, null, null, null);
 		String noOfWordsPracticed = Integer.toString(c.getCount());
 		noOFWordsView.setText(noOfWordsPracticed);
@@ -79,46 +75,6 @@ public class Statistics extends Activity
 			bestGameResult = "N/A";
 		}
 		gameScoreView.setText(bestGameResult);
-
-		String fWord;
-		myQuery = "SELECT source_text FROM "
-				+ DatabaseAdapter.TABLE_ENTITY_PROGRESS
-				+ " NATURAL JOIN "
-				+ DatabaseAdapter.TABLE_LANGENTITY
-				+ " WHERE profileID = ? AND score != 0 AND score >= (SELECT MAX(score) as word FROM "
-				+ DatabaseAdapter.TABLE_ENTITY_PROGRESS
-				+ " WHERE profileID = ? )";
-		c = sDb.rawQuery(myQuery, new String[]
-		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
-		if (c.moveToFirst())
-		{
-			fWord = c.getString(c.getColumnIndex("source_text"));
-		}
-		else
-		{
-			fWord = "N/A";
-		}
-		favView.setText(fWord);
-
-		String lfWord;
-		myQuery = "SELECT source_text FROM "
-				+ DatabaseAdapter.TABLE_ENTITY_PROGRESS
-				+ " NATURAL JOIN "
-				+ DatabaseAdapter.TABLE_LANGENTITY
-				+ " WHERE profileID = ? AND score != 0 AND score <= (SELECT MIN(score) as word FROM "
-				+ DatabaseAdapter.TABLE_ENTITY_PROGRESS
-				+ " WHERE profileID = ? )";
-		c = sDb.rawQuery(myQuery, new String[]
-		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
-		if (c.moveToFirst())
-		{
-			lfWord = c.getString(c.getColumnIndex("source_text"));
-		}
-		else
-		{
-			lfWord = "N/A";
-		}
-		leastFaveView.setText(lfWord);
 
 		int ranking = 0;
 		for (int i = 0; i < 10; i++)

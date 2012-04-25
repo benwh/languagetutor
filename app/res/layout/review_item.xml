@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:weightSum="1.0" >
+
+	<TextView
+		style="@style/title_text"
+		android:text="@string/review" />
+
+	<LinearLayout style="@style/main_content" >
+
+		<TextView
+			android:id="@+id/review_srctext"
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			android:layout_gravity="center"
+			android:layout_marginBottom="0dp"
+			android:layout_weight="0.50"
+			android:text="@string/placeholder_src"
+			android:textAppearance="?android:attr/textAppearanceLarge" />
+
+		<TextView
+			android:id="@+id/review_dsttext"
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			android:layout_gravity="center"
+			android:layout_weight="0.40"
+			android:text="@string/placeholder_dst"
+			android:textAppearance="?android:attr/textAppearanceLarge" />
+
+		<LinearLayout
+			android:id="@+id/review_item_bottom"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical" >
+
+			<RatingBar
+				android:id="@+id/review_item_rating"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:maxHeight="1dp"
+				android:numStars="6"
+				android:stepSize="1" />
+
+			<Button
+				android:id="@+id/review_item_nextbutton"
+				style="@style/normal_btn"
+				android:layout_width="60dp"
+				android:layout_height="wrap_content"
+				android:text="@string/next" />
+		</LinearLayout>
+	</LinearLayout>
+
+</LinearLayout>
