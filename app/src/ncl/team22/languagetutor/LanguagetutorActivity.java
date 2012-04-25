@@ -62,6 +62,16 @@ public class LanguagetutorActivity extends Activity
 			}
 		});
 
+		final Button reviewButton = (Button) findViewById(R.id.reviewbutton);
+		reviewButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v)
+			{
+				Intent i = new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.RevisionActivity.class);
+				startActivity(i);
+			}
+		});
+
 		final Button optionsButton = (Button) findViewById(R.id.optionsbutton);
 		optionsButton.setOnClickListener(new View.OnClickListener() {
 			@Override

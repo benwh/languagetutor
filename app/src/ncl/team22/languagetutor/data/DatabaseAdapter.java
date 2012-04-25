@@ -19,7 +19,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 {
 
 	public static final String	DBNAME					= "languagetutor";
-	public static final int		DBVERSION				= 4;
+	public static final int		DBVERSION				= 5;
 
 	public static final String	TABLE_PROFILE			= "profile";
 	public static final String	TABLE_TOPIC				= "langset";

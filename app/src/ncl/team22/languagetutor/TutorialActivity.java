@@ -10,7 +10,9 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,12 +22,14 @@ import ncl.team22.languagetutor.data.Topic;
 public class TutorialActivity extends Activity
 {
 
-	private static final int			TOPICSELECTION_REQUEST	= 1;
-	private static final String			TAG						= "LT-TutorialActivity";
+	private static final String			TAG	= "LT-TutorialActivity";
 
 	private Context						ctx;
 	private TutorialPagerAdapter		pagerAdapter;
 	private ViewPager					tutPager;
+	private Button						yesButton;
+	private Button						noButton;
+
 	private ArrayList<Topic>			selectedTopics;
 	private ArrayList<LanguageEntity>	entities;
 	private int							numPages;
@@ -40,8 +44,7 @@ public class TutorialActivity extends Activity
 
 		Intent topicsel = new Intent(this, TopicSelectionActivity.class);
 		topicsel.putExtra(TopicSelectionActivity.ALLOW_ALLTOPICS, false);
-		startActivityForResult(topicsel, TOPICSELECTION_REQUEST);
-		Log.d(TAG, "After activity");
+		startActivityForResult(topicsel, TopicSelectionActivity.TOPICSELECTION_REQUEST);
 
 	}
 
@@ -69,7 +72,7 @@ public class TutorialActivity extends Activity
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode)
 		{
-			case TutorialActivity.TOPICSELECTION_REQUEST :
+			case TopicSelectionActivity.TOPICSELECTION_REQUEST :
 			{
 				if (resultCode == Activity.RESULT_OK)
 				{
@@ -107,6 +110,35 @@ public class TutorialActivity extends Activity
 			if (position == numPages - 1)
 			{
 				lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial_complete, null);
+
+				yesButton = (Button) lv.findViewById(R.id.tutorial_review_yes);
+				noButton = (Button) lv.findViewById(R.id.tutorial_review_no);
+
+				yesButton.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v)
+					{
+						// Need to use startActivityForResult so
+						// getCallingActivity() works in RevisionActivity. 1 is
+						// used as the requestCode as we don't care what type of
+						// req it is
+						Intent i = new Intent(TutorialActivity.this, ncl.team22.languagetutor.RevisionActivity.class);
+						i.putExtra(RevisionActivity.SELECTED_TOPIC, selectedTopics.get(0));
+						Log.d(TAG, "Putting "
+								+ selectedTopics.get(0).toString());
+						startActivityForResult(i, 1);
+						finish();
+					}
+				});
+
+				noButton.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v)
+					{
+						finish();
+					}
+				});
+
 			}
 			else
 			{
@@ -114,6 +146,8 @@ public class TutorialActivity extends Activity
 
 				TextView src = (TextView) lv.findViewById(R.id.tutorial_srctext);
 				TextView dst = (TextView) lv.findViewById(R.id.tutorial_dsttext);
+
+				entities.get(position).setLearnt();
 
 				src.setText(entities.get(position).source_text);
 				dst.setText(entities.get(position).dest_text);

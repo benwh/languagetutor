@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+
+	<TextView
+		style="@style/title_text"
+		android:text="@string/review_completed"
+		android:textSize="48sp" />
+
+	<RelativeLayout
+		style="@style/main_content"
+		android:gravity="center_vertical" >
+
+		<Button
+			android:id="@+id/review_end_btn"
+			style="@style/normal_btn"
+			android:layout_centerHorizontal="true"
+			android:layout_centerVertical="true"
+			android:text="@string/return_main_menu" />
+	</RelativeLayout>
+
+</LinearLayout>

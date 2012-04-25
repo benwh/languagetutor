@@ -61,9 +61,10 @@ CREATE  TABLE IF NOT EXISTS `entity_set` (
 CREATE  TABLE IF NOT EXISTS `entity_progress` (
   `profileID` INT NOT NULL ,
   `entityID` INT NOT NULL ,
-  `score` SMALLINT NOT NULL DEFAULT 0 ,
-  `hits` SMALLINT NOT NULL DEFAULT 0 ,
-  `last_attempt` DATETIME NULL ,
+  `efactor` REAL NULL ,
+  `current_repetition` INT NULL ,
+  `repetition_interval` INT NULL ,
+  `repetition_nextdue` INT NULL ,
   PRIMARY KEY (`profileID`, `entityID`) ,
   CONSTRAINT `fk_profileID`
     FOREIGN KEY (`profileID` )
