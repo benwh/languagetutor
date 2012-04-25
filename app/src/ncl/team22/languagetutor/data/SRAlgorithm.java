@@ -126,12 +126,13 @@ public class SRAlgorithm
 			c.moveToNext();
 		}
 
-		// Next get all entities which have a due date of <= NOW.
+		// Next get all entities which have a due date of <= NOW, but don't have
+		// a repetition_nextdue of 0 (i.e. have been reviewed previously).
 		if (entities.size() < REVIEW_MAX_ITEMS)
 		{
 			int currentTimestamp = (int) (new java.util.Date(System.currentTimeMillis()).getTime() / 1000);
 
-			Cursor d = sDb.query("langentity le INNER JOIN entity_progress ep ON (le.entityID = ep.entityID)", null, "ep.profileID = ? AND ep.repetition_nextdue <= ?", new String[]
+			Cursor d = sDb.query("langentity le INNER JOIN entity_progress ep ON (le.entityID = ep.entityID)", null, "ep.profileID = ? AND ep.repetition_nextdue != 0 AND ep.repetition_nextdue <= ?", new String[]
 			{Integer.toString(currentProfId),
 					Integer.toString(currentTimestamp)}, null, null, "ep.repetition_nextdue ASC");
 
