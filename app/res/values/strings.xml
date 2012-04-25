@@ -62,5 +62,8 @@
     <string name="answer_yes">Yes</string>
 	<string name="answer_no">No</string>
 	<string name="level_select">Level Selection</string>
+	<string name="topic">Topics</string>
+	<string name="score">Best Score</string>
+	<string name="prof_lst">Profiles</string>
 
 </resources>

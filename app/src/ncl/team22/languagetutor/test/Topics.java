@@ -87,8 +87,12 @@ public class Topics extends ListActivity
 		{
 			HashMap<String, String> temp = new HashMap<String, String>();
 			temp.put("Topic", topics.get(i).name);
-			temp.put("Score", "Best: "
-					+ Topic.getBestResultById(Topic.getLangsetIdByName(topics.get(i).name))
+			// temp.put("Score", "Best: "
+			// +
+			// Topic.getBestResultById(Topic.getLangsetIdByName(topics.get(i).name))
+			// + "%"); SARAH - CHANGED THIS TO JUST REMOVE "BEST" TO DISPLAY
+			// BETTER (look at test topic on phone)
+			temp.put("Score", Topic.getBestResultById(Topic.getLangsetIdByName(topics.get(i).name))
 					+ "%");
 			lv.add(temp);
 		}

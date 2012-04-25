@@ -8,18 +8,20 @@
         style="@style/title_text"
         android:text="@string/topic_selec" />
 
-    <LinearLayout style="@style/main_content" >
+    <TextView
+        style="@style/small_text"
+        android:layout_gravity="right"
+        android:text="@string/score" />
 
-        <!-- As essential layout for each difficulty levels topic selection will be the same, used for all 3 -->
+    <!-- As essential layout for each difficulty levels topic selection will be the same, used for all 3 -->
 
-        <ListView
-            android:id="@+id/android:list"
-            style="@style/topic_text" />
+    <ListView
+        android:id="@+id/android:list"
+        style="@style/seperate" />
 
-        <Button
-            android:id="@+id/mixtest"
-            style="@style/menu_btn"
-            android:text="@string/mix_test" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/mixtest"
+        style="@style/menu_btn"
+        android:text="@string/mix_test" />
 
 </LinearLayout>

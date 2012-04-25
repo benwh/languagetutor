@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/test_topics_list_row"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-	<TextView
-	    android:id="@+id/test_topics_list_row1"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:text="Topic"
-	    android:textSize="25sp" />
+    <TextView
+        android:id="@+id/test_topics_list_row1"
+        style="@style/test_topic_text"/>
 
 	<TextView
 	    android:id="@+id/test_topics_list_row2"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    android:layout_gravity="right"
-	    android:gravity="right|center_vertical"
-	    android:text="Score"
-	    android:textSize="15sp" />
+		style="@style/test_topic_percent"
+	    android:text="@string/score"/>
 	
 </LinearLayout>

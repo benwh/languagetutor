@@ -8,19 +8,15 @@
         style="@style/title_text"
         android:text="@string/topic_selec" />
 
-    <LinearLayout style="@style/main_content" >
+    <!-- As essential layout for each difficulty levels topic selection will be the same, used for all 3 -->
 
-        <!-- As essential layout for each difficulty levels topic selection will be the same, used for all 3 -->
+    <ListView
+        android:id="@+id/android:list"
+        style="@style/seperate" />
 
-        <ListView
-            android:id="@+id/android:list"
-            style="@style/topic_text"/>
-     
-
-        <Button
-            android:id="@+id/mixtest"
-			style="@style/menu_btn"
-            android:text="@string/mixed_topics" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/mixtest"
+        style="@style/menu_btn"
+        android:text="@string/mixed_topics" />
 
 </LinearLayout>

@@ -3,4 +3,4 @@
 	android:id="@+id/test_topics_list_row"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:textSize="40sp" />
+ 	style="@style/test_topic_text" />
