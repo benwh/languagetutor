@@ -69,5 +69,7 @@
 	<string name="placeholder_itemsreview">You have X items to review</string>
 	<string name="next">Next</string>
 	<string name="begin">Begin</string>
+	<string name="placeholder_test_topic">Topic</string>
+	<string name="placeholder_test_score">Score</string>
 
 </resources>

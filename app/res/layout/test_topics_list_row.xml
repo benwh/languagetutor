@@ -8,7 +8,7 @@
 	    android:id="@+id/test_topics_list_row1"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:text="Topic"
+	    android:text="@string/placeholder_test_topic"
 	    android:textSize="25sp" />
 
 	<TextView
@@ -17,7 +17,7 @@
 	    android:layout_height="match_parent"
 	    android:layout_gravity="right"
 	    android:gravity="right|center_vertical"
-	    android:text="Score"
+	    android:text="@string/placeholder_test_topic"
 	    android:textSize="15sp" />
 	
 </LinearLayout>
