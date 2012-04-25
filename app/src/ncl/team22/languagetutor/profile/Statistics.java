@@ -41,7 +41,7 @@ public class Statistics extends Activity
 				+ "'s statistics");
 
 		c = sDb.query(DatabaseAdapter.TABLE_ENTITY_PROGRESS, new String[]
-		{"last_attempt"}, "profileID = ? AND efactor IS NOT NULL", new String[]
+		{"entityID"}, "profileID = ? AND efactor IS NOT NULL", new String[]
 		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)}, null, null, null);
 		String noOfWordsPracticed = Integer.toString(c.getCount());
 		noOFWordsView.setText(noOfWordsPracticed);
