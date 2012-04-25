@@ -25,8 +25,8 @@
 	<string name="logout">Log Out</string>
 	<string name="mixed_topics">Use all topics</string>
 	<string name="userlevel">Current level:</string>
-	<string name="favourite_word">Favorite word:</string>
-	<string name="least_favourite_word">Least favorite word:</string>
+	<string name="favourite_word">Favourite word:</string>
+	<string name="least_favourite_word">Least favourite word:</string>
 	<string name="highest_test_score">Highest test score:</string>
 	<string name="highest_game_score">Highest game score:</string>
 	<string name="language_rating">Spanish language rating:</string>
