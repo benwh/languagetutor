@@ -131,7 +131,7 @@ public class SRAlgorithm
 		{
 			int currentTimestamp = (int) (new java.util.Date(System.currentTimeMillis()).getTime() / 1000);
 
-			Cursor d = sDb.query("langentity le INNER JOIN entity_progress ep ON (le.entityID = ep.entityID)", null, "ep.entityID = ? AND ep.repetition_nextdue <= ?", new String[]
+			Cursor d = sDb.query("langentity le INNER JOIN entity_progress ep ON (le.entityID = ep.entityID)", null, "ep.profileID = ? AND ep.repetition_nextdue <= ?", new String[]
 			{Integer.toString(currentProfId),
 					Integer.toString(currentTimestamp)}, null, null, "ep.repetition_nextdue ASC");
 
