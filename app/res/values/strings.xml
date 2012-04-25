@@ -62,11 +62,11 @@
 	<string name="answer_yes">Yes</string>
 	<string name="answer_no">No</string>
 	<string name="level_select">Level Selection</string>
-<<<<<<< HEAD
+
 	<string name="topic">Topics</string>
 	<string name="score">Best Score</string>
 	<string name="prof_lst">Profiles</string>
-=======
+
 	<string name="return_main_menu">Return to main menu</string>
 	<string name="review_completed">Review completed!</string>
 	<string name="placeholder_src">SRC</string>
@@ -74,6 +74,6 @@
 	<string name="placeholder_itemsreview">You have X items to review</string>
 	<string name="next">Next</string>
 	<string name="begin">Begin</string>
->>>>>>> origin
+
 
 </resources>
