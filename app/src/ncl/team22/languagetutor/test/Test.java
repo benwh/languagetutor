@@ -723,7 +723,7 @@ public class Test extends Activity
 	{
 		TEST_MAX = length;
 		Log.d(TAG, "Test max is: " + TEST_MAX); // TRACE
-		TEST_MID = (TEST_MAX / 4) * 3;
+		TEST_MID = TEST_MAX - (TEST_MAX / 4);
 		if (TEST_MID % 2 == 1)
 		{
 			TEST_MID++;
@@ -786,7 +786,6 @@ public class Test extends Activity
 		else if ((getIntent().getFlags() == 98 || getIntent().getFlags() == 100)
 				&& backPressed == true)
 		{
-			backPressed = false;
 			TestResult.reset();
 			TestData.resetData();
 			// Reset test length values to default

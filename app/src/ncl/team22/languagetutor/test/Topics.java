@@ -120,4 +120,14 @@ public class Topics extends ListActivity
 			Log.e(TAG, e.toString());
 		}
 	}
+
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus)
+	{
+		if ((getIntent().getFlags() == 1) && Test.backPressed == true)
+		{
+			Test.backPressed = false;
+			finish();
+		}
+	}
 }

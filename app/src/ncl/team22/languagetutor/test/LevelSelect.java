@@ -34,6 +34,7 @@ public class LevelSelect extends Activity
 			{
 				level = 1;
 				Intent i = new Intent(LevelSelect.this, Topics.class);
+				i.addFlags(1);
 				startActivity(i);
 			}
 		});
@@ -46,6 +47,7 @@ public class LevelSelect extends Activity
 			{
 				level = 2;
 				Intent i = new Intent(LevelSelect.this, Topics.class);
+				i.addFlags(1);
 				startActivity(i);
 			}
 		});
@@ -58,6 +60,7 @@ public class LevelSelect extends Activity
 			{
 				level = 3;
 				Intent i = new Intent(LevelSelect.this, Topics.class);
+				i.addFlags(1);
 				startActivity(i);
 			}
 		});
