@@ -37,6 +37,14 @@
 		<item name="android:gravity">center</item>
 	</style>
 
+	<!-- HEADER LAYOUT -->
+	<style name="header_layout" parent="android:Theme.Black">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">100dp</item>
+		<item name="android:background">@drawable/spanish_background_top</item>
+		<item name="android:orientation">vertical</item>
+	</style>
+
 	<!-- HEADER TEXT -->
 	<style name="header_text" parent="android:Theme.Black">
 
