@@ -655,12 +655,12 @@ public class Test extends Activity
 				switch (switchVal)
 				{
 					case 0 :
-						for (int i = 0; i < answer.getText().length()
+						for (int i = 0; i < answer.getText().toString().trim().length()
 								|| i < current.toSourceString().length(); i++)
 						{
 							try
 							{
-								a = answer.getText().toString().toLowerCase().charAt(i);
+								a = answer.getText().toString().trim().toLowerCase().charAt(i);
 								b = current.toSourceString().toLowerCase().charAt(i);
 								if (a == b)
 								{
@@ -674,12 +674,12 @@ public class Test extends Activity
 						}
 						break;
 					case 1 :
-						for (int i = 0; i < answer.getText().length()
+						for (int i = 0; i < answer.getText().toString().trim().length()
 								|| i < current.toDestString().length(); i++)
 						{
 							try
 							{
-								a = answer.getText().toString().toLowerCase().charAt(i);
+								a = answer.getText().toString().trim().toLowerCase().charAt(i);
 								b = current.toDestString().toLowerCase().charAt(i);
 								if (a == b)
 								{
