@@ -1,10 +1,14 @@
 package ncl.team22.languagetutor;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -13,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,6 +38,7 @@ public class TutorialActivity extends Activity
 	private ArrayList<Topic>			selectedTopics;
 	private ArrayList<LanguageEntity>	entities;
 	private int							numPages;
+	private AssetManager				assets;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -68,6 +74,8 @@ public class TutorialActivity extends Activity
 		{
 			header.setText(selectedTopics.get(0).name);
 		}
+
+		assets = getAssets();
 
 		// Add an extra page for finished screen
 		numPages = entities.size() + 1;
@@ -153,22 +161,50 @@ public class TutorialActivity extends Activity
 			}
 			else
 			{
-				if (entities.get(position).image_asset)
+
+				LanguageEntity currentEnt = entities.get(position);
+				if (currentEnt.image_asset)
 				{
 					lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial_image, null);
+
+					InputStream assetStream = null;
+					try
+					{
+						assetStream = assets.open("tut-pics/"
+								+ currentEnt.entityID + ".png");
+					} catch (IOException ex)
+					{
+						// If couldn't read asset then go back to non-image
+						// layout
+						lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial, null);
+					} finally
+					{
+						if (assetStream != null)
+						{
+							try
+							{
+								assetStream.close();
+							} catch (IOException ex)
+							{}
+						}
+					}
+
+					BitmapDrawable bm = new BitmapDrawable(getResources(), assetStream);
+					ImageView img = (ImageView) lv.findViewById(R.id.tutorial_imageview);
+					img.setImageDrawable(bm);
 				}
 				else
 				{
 					lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial, null);
-
-					TextView src = (TextView) lv.findViewById(R.id.tutorial_srctext);
-					TextView dst = (TextView) lv.findViewById(R.id.tutorial_dsttext);
-
-					entities.get(position).setLearnt();
-
-					src.setText(entities.get(position).source_text);
-					dst.setText(entities.get(position).dest_text);
 				}
+
+				TextView src = (TextView) lv.findViewById(R.id.tutorial_srctext);
+				TextView dst = (TextView) lv.findViewById(R.id.tutorial_dsttext);
+
+				entities.get(position).setLearnt();
+
+				src.setText(currentEnt.source_text);
+				dst.setText(currentEnt.dest_text);
 
 			}
 
