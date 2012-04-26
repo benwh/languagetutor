@@ -660,8 +660,8 @@ public class Test extends Activity
 						{
 							try
 							{
-								a = answer.getText().charAt(i);
-								b = current.toSourceString().charAt(i);
+								a = answer.getText().toString().toLowerCase().charAt(i);
+								b = current.toSourceString().toLowerCase().charAt(i);
 								if (a == b)
 								{
 									actualScore++;
@@ -679,8 +679,8 @@ public class Test extends Activity
 						{
 							try
 							{
-								a = answer.getText().charAt(i);
-								b = current.toDestString().charAt(i);
+								a = answer.getText().toString().toLowerCase().charAt(i);
+								b = current.toDestString().toLowerCase().charAt(i);
 								if (a == b)
 								{
 									actualScore++;
