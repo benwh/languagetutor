@@ -124,10 +124,11 @@ public class Topics extends ListActivity
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus)
 	{
-		if ((getIntent().getFlags() == 1) && Test.backPressed == true)
+		if ((Test.testComplete == true) && Test.backPressed == true)
 		{
-			Test.backPressed = false;
+			Test.testComplete = false;
 			finish();
 		}
+		Test.backPressed = false;
 	}
 }

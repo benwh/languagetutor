@@ -26,17 +26,18 @@ import ncl.team22.languagetutor.data.Topic;
 public class Test extends Activity
 {
 	static Topic				selectedTopic;
-	static boolean				backPressed	= false;
-	static boolean				isMixedTest	= false;
-	static int					TEST_MAX	= 8;
-	static int					TEST_MID	= 6;
+	static boolean				backPressed		= false;
+	static boolean				testComplete	= false;
+	static boolean				isMixedTest		= false;
+	static int					TEST_MAX		= 8;
+	static int					TEST_MID		= 6;
 
 	LanguageEntity				current;
-	Random						randGen		= new Random();
+	Random						randGen			= new Random();
 	int							switchVal;
 	int							entityID;
 
-	public static final String	TAG			= "LT-Test";
+	public static final String	TAG				= "LT-Test";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -85,6 +86,9 @@ public class Test extends Activity
 		else if (TestResult.getCounter() == TEST_MAX)
 		{
 			setContentView(R.layout.test_submitted);
+
+			// Test is finished
+			testComplete = true;
 
 			if (isMixedTest == true)
 			{
