@@ -31,12 +31,6 @@ public class Test extends Activity
 	static int					TEST_MAX	= 8;
 	static int					TEST_MID	= 4;
 
-	/**
-	 * Used to monitor if an entity should be added/removed from the lists,
-	 * initially true and reset during click listeners
-	 */
-	static boolean				list		= true;
-
 	LanguageEntity				current;
 	Random						randGen		= new Random();
 	int							switchVal;
@@ -153,14 +147,10 @@ public class Test extends Activity
 				break;
 			}
 		}
-		if (list == true)
-		{
-			// Add entity to removed list
-			TestData.addToRemovedList(current);
-			// Remove entity from initial list
-			TestData.removeFromEntitiesList(entityID);
-			list = false;
-		}
+		// Add entity to removed list
+		TestData.addToRemovedList(current);
+		// Remove entity from initial list
+		TestData.removeFromEntitiesList(entityID);
 	}
 
 	public void getMultiQuestion()
@@ -546,8 +536,6 @@ public class Test extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				list = true;
-
 				if (TestResult.getCounter() == 0)
 				{
 					// Add header for review
@@ -641,8 +629,6 @@ public class Test extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				list = true;
-
 				addToReview(switchVal);
 				// Add user's answer to review string
 				TestData.addToReviewTest(answer.getText().toString());
