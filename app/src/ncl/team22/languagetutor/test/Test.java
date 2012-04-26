@@ -29,7 +29,7 @@ public class Test extends Activity
 	static boolean				backPressed	= false;
 	static boolean				isMixedTest	= false;
 	static int					TEST_MAX	= 8;
-	static int					TEST_MID	= 4;
+	static int					TEST_MID	= 6;
 
 	LanguageEntity				current;
 	Random						randGen		= new Random();
@@ -723,7 +723,7 @@ public class Test extends Activity
 	{
 		TEST_MAX = length;
 		Log.d(TAG, "Test max is: " + TEST_MAX); // TRACE
-		TEST_MID = TEST_MAX / 2;
+		TEST_MID = (TEST_MAX / 4) * 3;
 		if (TEST_MID % 2 == 1)
 		{
 			TEST_MID++;
