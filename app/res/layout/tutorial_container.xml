@@ -9,7 +9,7 @@
 	<LinearLayout
 		android:id="@+id/headerLayout"
 		android:layout_width="match_parent"
-		android:layout_height="0dp"
+		android:layout_height="1dp"
 		android:layout_weight="0.15"
 		android:background="@drawable/spanish_background_top"
 		android:orientation="vertical" >
@@ -18,10 +18,11 @@
 		<!-- android:layout_height="90dp" -->
 
 		<TextView
+			style="@style/title_header_text"
 			android:id="@+id/tutorial_header"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:text="@string/placeholder_tutorial_header" />
+			android:text="@string/placeholder_tutorial_header"
+		 />
+
 		<!-- style="@style/title_text" -->
 
 	</LinearLayout>
