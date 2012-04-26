@@ -17,7 +17,7 @@
 	<style name="title_text" parent="android:Theme.Black">
 
 		<!-- FONT -->
-		<item name="android:textSize">40dp</item>
+		<item name="android:textSize">40sp</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<!-- LAYOUT -->
 		<item name="android:layout_marginTop">10dp</item>
@@ -41,7 +41,7 @@
 	<style name="header_text" parent="android:Theme.Black">
 
 		<!-- FONT -->
-		<item name="android:textSize">15dp</item>
+		<item name="android:textSize">15sp</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:textStyle">bold</item>
 		<!-- LAYOUT -->
@@ -55,7 +55,7 @@
 	<style name="question_text" parent="android:Theme.Black">
 
 		<!-- FONT -->
-		<item name="android:textSize">40dp</item>
+		<item name="android:textSize">40sp</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:gravity">center</item>
 		<!-- LAYOUT -->
@@ -68,7 +68,7 @@
 	<style name="center_text" parent="android:Theme.Black">
 
 		<!-- FONT -->
-		<item name="android:textSize">25dp</item>
+		<item name="android:textSize">25sp</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:gravity">center</item>
 		<!-- LAYOUT -->
@@ -82,7 +82,7 @@
 	<style name="tutorial_topic_text">
 
 		<!-- FONT -->
-		<item name="android:textSize">20dp</item>
+		<item name="android:textSize">20sp</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<!-- LAYOUT -->
 		<item name="android:layout_marginTop">5dp</item>
@@ -98,7 +98,7 @@
 	<style name="test_topic_text">
 
 		<!-- FONT -->
-		<item name="android:textSize">26dp</item>
+		<item name="android:textSize">26sp</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<!-- LAYOUT -->
 		<item name="android:layout_marginTop">5dp</item>
@@ -112,7 +112,7 @@
 	<style name="test_topic_percent">
 
 		<!-- FONT -->
-		<item name="android:textSize">14dp</item>
+		<item name="android:textSize">14sp</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<!-- LAYOUT -->
 		<item name="android:layout_marginTop">5dp</item>
@@ -135,7 +135,7 @@
 	<style name="small_text" parent="android:Theme.Black">
 
 		<!-- FONT -->
-		<item name="android:textSize">15dp</item>
+		<item name="android:textSize">15sp</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<!-- LAYOUT -->
 		<item name="android:layout_marginTop">2dp</item>
