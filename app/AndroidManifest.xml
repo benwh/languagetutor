@@ -1,40 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ncl.team22.languagetutor"
-    android:versionCode="1"
-    android:versionName="1.0" >
+	package="ncl.team22.languagetutor"
+	android:versionCode="1"
+	android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="10" />
+	<uses-sdk android:minSdkVersion="10" />
 
-    <application
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/page_standard" android:persistent="false">
-
-        <activity
-            android:name=".LanguagetutorActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".profile.ProfileSelection"></activity>
-        <activity android:name=".test.LevelSelect"></activity>
-        <activity android:name=".test.Topics"></activity>
-        <activity android:name=".test.Test" android:screenOrientation="portrait"></activity>
-        <activity android:name=".test.TestReview"></activity>
-        <activity android:name=".test.TestReviewGrid"></activity>
-        <activity android:name=".profile.ReplaceQA"></activity>
-        <activity android:name=".profile.ProfileOptions"></activity>
-        <activity android:name=".profile.ReplacePassword"></activity>
-        <activity android:name=".profile.Login"></activity>
-        <activity android:name=".profile.CreateProfile"></activity>
-        <activity android:name=".TopicSelectionActivity"></activity>
-        <activity android:name=".profile.Statistics"></activity>
-        <activity android:name=".TutorialActivity"></activity>
-        <activity android:name=".RevisionActivity"></activity>
-    </application>
+	<application
+		android:icon="@drawable/ic_launcher"
+		android:label="@string/app_name"
+		android:persistent="false"
+		android:theme="@style/page_standard" >
+		<activity
+			android:name=".LanguagetutorActivity"
+			android:label="@string/app_name"
+			android:screenOrientation="portrait" >
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".profile.ProfileSelection"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".test.LevelSelect"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".test.Topics"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".test.Test"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".test.TestReview"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".test.TestReviewGrid"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".profile.ReplaceQA"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".profile.ProfileOptions"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".profile.ReplacePassword"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".profile.Login"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".profile.CreateProfile"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".TopicSelectionActivity"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".profile.Statistics"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".TutorialActivity"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name=".RevisionActivity"
+			android:screenOrientation="portrait" >
+		</activity>
+	</application>
 
 </manifest>
