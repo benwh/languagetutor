@@ -775,6 +775,13 @@ public class Test extends Activity
 	@Override
 	public void onBackPressed()
 	{
+		if (getIntent().getFlags() == 100)
+		{
+			TestResult.reset();
+			TestData.resetData();
+			// Reset test length values to default
+			setTestLength(8);
+		}
 		backPressed = true;
 		finish();
 		Log.d(TAG, "Reverting back to topic select...");
