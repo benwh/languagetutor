@@ -5,15 +5,19 @@
 	android:orientation="vertical" >
 
 	<TextView
-		android:id="@+id/review_start_text"
-		style="@style/center_text"
-		android:text="@string/placeholder_itemsreview" />
+		style="@style/title_text"
+		android:text="@string/review" />
 
 	<RelativeLayout
 		style="@style/main_content"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="vertical" >
+		
+	    	<TextView
+		android:id="@+id/review_start_text"
+		style="@style/center_text"
+		android:text="@string/placeholder_itemsreview" />
 
 		<Button
 			android:id="@+id/review_start_button"

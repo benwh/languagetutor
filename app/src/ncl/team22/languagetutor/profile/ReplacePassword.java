@@ -42,7 +42,7 @@ public class ReplacePassword extends Activity
 
 		// display question
 		final TextView textViewToChange = (TextView) findViewById(R.id.textQuestion1);
-		textViewToChange.setText("Answer your secrate question:\n   "
+		textViewToChange.setText("Answer your secret question:\n   "
 				+ theQuestion);
 
 		// when the "ok" button is clicked
