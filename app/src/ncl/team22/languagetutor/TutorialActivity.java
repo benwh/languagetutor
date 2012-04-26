@@ -144,6 +144,17 @@ public class TutorialActivity extends Activity
 			{
 				lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial, null);
 
+				TextView header = (TextView) lv.findViewById(R.id.tutorial_header);
+
+				if (selectedTopics.size() > 1)
+				{
+					header.setText("Mixed");
+				}
+				else
+				{
+					header.setText(selectedTopics.get(0).name);
+				}
+
 				TextView src = (TextView) lv.findViewById(R.id.tutorial_srctext);
 				TextView dst = (TextView) lv.findViewById(R.id.tutorial_dsttext);
 

@@ -5,6 +5,7 @@
     android:orientation="vertical" >
 
     <TextView
+    	android:id="@+id/tutorial_header"
         style="@style/title_text"
         android:text="@string/placeholder_tutorial_header" />
 
