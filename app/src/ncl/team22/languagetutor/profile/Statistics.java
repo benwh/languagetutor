@@ -86,7 +86,7 @@ public class Statistics extends Activity
 		{Integer.toString(currentProfId)}, null, null, "ep.efactor DESC");
 		if (c.moveToFirst())
 		{
-			fWord = c.getString(c.getColumnIndex("le.source_text"));
+			fWord = c.getString(c.getColumnIndex("source_text"));
 		}
 		else
 		{
