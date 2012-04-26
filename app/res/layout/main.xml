@@ -9,38 +9,39 @@
 		style="@style/title_text"
 		android:paddingBottom="10dp"
 		android:textSize="35sp" />
+	
+	<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	        android:layout_width="match_parent"
+			android:layout_height="match_parent">
+		
+		<LinearLayout style="@style/main_content" >
+	    
+			<Button
+				android:id="@+id/learnbutton"
+				style="@style/menu_btn"
+				android:text="@string/learn" />
 
-	<LinearLayout style="@style/main_content" >
+			<Button
+				android:id="@+id/reviewbutton"
+				style="@style/menu_btn"
+				android:text="@string/review" />
 
-		<Button
-			android:id="@+id/learnbutton"
-			style="@style/menu_btn"
-			android:text="@string/learn" />
+			<Button
+				android:id="@+id/testsbutton"
+				style="@style/menu_btn"
+				android:text="@string/tests" />
 
-		<Button
-			android:id="@+id/reviewbutton"
-			style="@style/menu_btn"
-			android:text="@string/review" />
+			<Button
+				android:id="@+id/statsbutton"
+				style="@style/menu_btn"
+				android:text="@string/statistics" />
 
-		<Button
-			android:id="@+id/gamesbutton"
-			style="@style/menu_btn"
-			android:text="@string/games" />
-
-		<Button
-			android:id="@+id/testsbutton"
-			style="@style/menu_btn"
-			android:text="@string/tests" />
-
-		<Button
-			android:id="@+id/statsbutton"
-			style="@style/menu_btn"
-			android:text="@string/statistics" />
-
-		<Button
-			android:id="@+id/optionsbutton"
-			style="@style/menu_btn"
-			android:text="@string/prof_optns" />
-	</LinearLayout>
+			<Button
+				android:id="@+id/optionsbutton"
+				style="@style/menu_btn"
+				android:text="@string/prof_optns" />
+			
+		</LinearLayout>
+	</ScrollView>
 
 </LinearLayout>

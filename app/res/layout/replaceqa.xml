@@ -9,39 +9,43 @@
 		android:text="@string/chng_secrets"
 		android:textSize="35sp" />
 
-	<LinearLayout style="@style/main_content" >
+	<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	        android:layout_width="match_parent"
+			android:layout_height="match_parent">
+	
+		<LinearLayout style="@style/main_content" >
 
-		<TextView
-			style="@style/header_text"
-			android:text="@string/password" />
+			<TextView
+				style="@style/header_text"
+				android:text="@string/password" />
 
-		<EditText
-			android:id="@+id/editText1"
-			style="@style/fwidth_editbox"
-			android:inputType="textPassword" />
+			<EditText
+				android:id="@+id/editText1"
+				style="@style/fwidth_editbox"
+				android:inputType="textPassword" />
 
-		<TextView
-			style="@style/header_text"
-			android:text="@string/new_s_question" />
+			<TextView
+				style="@style/header_text"
+				android:text="@string/new_s_question" />
 
-		<EditText
-			android:id="@+id/editText2"
-			style="@style/fwidth_editbox"
-			android:inputType="text" />
+			<EditText
+				android:id="@+id/editText2"
+				style="@style/fwidth_editbox"
+				android:inputType="text" />
 
-		<TextView
-			style="@style/header_text"
-			android:text="@string/new_s_answer" />
+			<TextView
+				style="@style/header_text"
+				android:text="@string/new_s_answer" />
 
-		<EditText
-			android:id="@+id/editText3"
-			style="@style/fwidth_editbox"
-			android:inputType="text" />
+			<EditText
+				android:id="@+id/editText3"
+				style="@style/fwidth_editbox"
+				android:inputType="text" />
 
-		<Button
-			android:id="@+id/confirm_replace_password"
-			style="@style/normal_btn"
-			android:text="@string/confirm" />
-	</LinearLayout>
-
+			<Button
+				android:id="@+id/confirm_replace_password"
+				style="@style/normal_btn"
+				android:text="@string/confirm" />
+		</LinearLayout>
+	</ScrollView>
 </LinearLayout>
