@@ -9,7 +9,7 @@
 	<!-- Style that is applied across the whole application -->
 	<style name="page_standard" parent="android:Theme.Black">
 		<item name="android:windowNoTitle">true</item>
-		<item name="android:windowBackground">@drawable/spanish_background</item>
+		<item name="android:windowBackground">@drawable/spanish_background_back</item>
 		<item name="android:editTextStyle">@style/red_edittext</item>
 	</style>
 
