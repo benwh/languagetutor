@@ -62,13 +62,13 @@ public class LevelSelect extends Activity
 			}
 		});
 
-		if (userLevel < 3)
-		{
-			three.setClickable(false);
-		}
 		if (userLevel < 2)
 		{
-			two.setClickable(false);
+			two.setEnabled(false);
+		}
+		if (userLevel < 3)
+		{
+			three.setEnabled(false);
 		}
 	}
 

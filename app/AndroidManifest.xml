@@ -23,7 +23,7 @@
         <activity android:name=".profile.ProfileSelection"></activity>
         <activity android:name=".test.LevelSelect"></activity>
         <activity android:name=".test.Topics"></activity>
-        <activity android:name=".test.Test"></activity>
+        <activity android:name=".test.Test" android:screenOrientation="portrait"></activity>
         <activity android:name=".test.TestReview"></activity>
         <activity android:name=".test.TestReviewGrid"></activity>
         <activity android:name=".profile.ReplaceQA"></activity>

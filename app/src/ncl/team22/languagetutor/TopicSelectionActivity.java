@@ -54,12 +54,12 @@ public class TopicSelectionActivity extends Activity
 		findViewById(R.id.level2).setOnClickListener(buttonListener);
 		if (userLevel < 2)
 		{
-			findViewById(R.id.level2).setClickable(false);
+			findViewById(R.id.level2).setEnabled(false);
 		}
 		findViewById(R.id.level3).setOnClickListener(buttonListener);
 		if (userLevel < 3)
 		{
-			findViewById(R.id.level3).setClickable(false);
+			findViewById(R.id.level3).setEnabled(false);
 		}
 	}
 
