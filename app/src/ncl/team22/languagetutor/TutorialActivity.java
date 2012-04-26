@@ -58,6 +58,17 @@ public class TutorialActivity extends Activity
 			entities.addAll(t.getEntities());
 		}
 
+		TextView header = (TextView) findViewById(R.id.tutorial_header);
+
+		if (selectedTopics.size() > 1)
+		{
+			header.setText("Mixed");
+		}
+		else
+		{
+			header.setText(selectedTopics.get(0).name);
+		}
+
 		// Add an extra page for finished screen
 		numPages = entities.size() + 1;
 		Log.d(TAG, "Entities:" + entities.toString());
@@ -142,26 +153,22 @@ public class TutorialActivity extends Activity
 			}
 			else
 			{
-				lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial, null);
-
-				TextView header = (TextView) lv.findViewById(R.id.tutorial_header);
-
-				if (selectedTopics.size() > 1)
+				if (entities.get(position).image_asset)
 				{
-					header.setText("Mixed");
+					lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial_image, null);
 				}
 				else
 				{
-					header.setText(selectedTopics.get(0).name);
+					lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial, null);
+
+					TextView src = (TextView) lv.findViewById(R.id.tutorial_srctext);
+					TextView dst = (TextView) lv.findViewById(R.id.tutorial_dsttext);
+
+					entities.get(position).setLearnt();
+
+					src.setText(entities.get(position).source_text);
+					dst.setText(entities.get(position).dest_text);
 				}
-
-				TextView src = (TextView) lv.findViewById(R.id.tutorial_srctext);
-				TextView dst = (TextView) lv.findViewById(R.id.tutorial_dsttext);
-
-				entities.get(position).setLearnt();
-
-				src.setText(entities.get(position).source_text);
-				dst.setText(entities.get(position).dest_text);
 
 			}
 
