@@ -4,9 +4,12 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical" >
 
-	<TextView
-		style="@style/title_text"
-		android:text="@string/level_select" />
+	<LinearLayout style="@style/header_layout" >
+
+		<TextView
+			style="@style/title_header_text"
+			android:text="@string/level_select" />
+	</LinearLayout>
 
 	<LinearLayout style="@style/main_content" >
 

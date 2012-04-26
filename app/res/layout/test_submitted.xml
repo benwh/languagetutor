@@ -4,11 +4,12 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
-	<TextView
-		style="@style/title_text"
-		android:paddingBottom="10dp"
-		android:text="@string/test_com"
-		android:textSize="35sp" />
+	<LinearLayout style="@style/header_layout" >
+
+		<TextView
+			style="@style/title_header_text"
+			android:text="@string/test_com" />
+	</LinearLayout>
 
 	<LinearLayout style="@style/main_content" >
 

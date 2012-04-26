@@ -4,9 +4,12 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical" >
 
-	<TextView
-		style="@style/title_text"
-		android:text="@string/test_res" />
+	<LinearLayout style="@style/header_layout" >
+
+		<TextView
+			style="@style/title_header_text"
+			android:text="@string/test_res" />
+	</LinearLayout>
 
 	<LinearLayout style="@style/main_content" >
 
@@ -29,10 +32,9 @@
 			style="@style/header_text" />
 
 		<Button
-		    android:id="@+id/review_test"
-		    style="@style/normal_btn"
-		    android:text="@string/review_test" />
-
+			android:id="@+id/review_test"
+			style="@style/normal_btn"
+			android:text="@string/review_test" />
 	</LinearLayout>
 
 </LinearLayout>

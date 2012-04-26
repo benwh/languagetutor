@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
 
-    <TextView
-        style="@style/title_text"
-        android:text="@string/test" />
+	<LinearLayout style="@style/header_layout" >
 
-    <LinearLayout style="@style/main_content" >
+		<TextView
+			style="@style/title_header_text"
+			android:text="@string/test" />
+	</LinearLayout>
 
-        <TextView
-            android:id="@+id/written_question_head"
-            style="@style/header_text"
-            android:text="@string/written_question" />
+	<LinearLayout style="@style/main_content" >
 
-        <TextView
-            android:id="@+id/written_question"
-            style="@style/question_text" />
+		<TextView
+			android:id="@+id/written_question_head"
+			style="@style/header_text"
+			android:text="@string/written_question" />
 
-        <EditText
-            android:id="@+id/written_answer"
-            style="@style/middle_editbox"
-            android:inputType="text" />
+		<TextView
+			android:id="@+id/written_question"
+			style="@style/question_text" />
 
-        <Button
-            android:id="@+id/submit_answer"
-            style="@style/normal_btn"
-            android:text="@string/submit_answer" />
-    </LinearLayout>
+		<EditText
+			android:id="@+id/written_answer"
+			style="@style/middle_editbox"
+			android:inputType="text" />
+
+		<Button
+			android:id="@+id/submit_answer"
+			style="@style/normal_btn"
+			android:text="@string/submit_answer" />
+	</LinearLayout>
 
 </LinearLayout>

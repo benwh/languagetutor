@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical" >
-
-	<TextView
-		style="@style/title_text"
-		android:text="@string/test" />
-	
-	<ScrollView
-    android:layout_width="match_parent"
+	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:isScrollContainer="true">
+	android:orientation="vertical" >
 
-	<LinearLayout style="@style/main_content" >
-
-		<TextView
-			android:id="@+id/multi_question_head"
-			style="@style/header_text"
-			android:text="@string/multi_question" />
+	<LinearLayout style="@style/header_layout" >
 
 		<TextView
-			android:id="@+id/multi_question"
-			style="@style/question_text" />
-
-		<Button
-			android:id="@+id/option0"
-			style="@style/menu_btn"
-			android:tag="0" />
-
-		<Button
-			android:id="@+id/option1"
-			style="@style/menu_btn"
-			android:tag="1" />
-
-		<Button
-			android:id="@+id/option2"
-			style="@style/menu_btn"
-			android:tag="2" />
-
-		<Button
-			android:id="@+id/option3"
-			style="@style/menu_btn"
-			android:tag="3" />
+			style="@style/title_header_text"
+			android:text="@string/test" />
 	</LinearLayout>
-	
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:isScrollContainer="true" >
+
+		<LinearLayout style="@style/main_content" >
+
+			<TextView
+				android:id="@+id/multi_question_head"
+				style="@style/header_text"
+				android:text="@string/multi_question" />
+
+			<TextView
+				android:id="@+id/multi_question"
+				style="@style/question_text" />
+
+			<Button
+				android:id="@+id/option0"
+				style="@style/menu_btn"
+				android:tag="0" />
+
+			<Button
+				android:id="@+id/option1"
+				style="@style/menu_btn"
+				android:tag="1" />
+
+			<Button
+				android:id="@+id/option2"
+				style="@style/menu_btn"
+				android:tag="2" />
+
+			<Button
+				android:id="@+id/option3"
+				style="@style/menu_btn"
+				android:tag="3" />
+		</LinearLayout>
 	</ScrollView>
 
 </LinearLayout>

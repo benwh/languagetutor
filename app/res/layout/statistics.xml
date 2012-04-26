@@ -4,17 +4,19 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
-	<TextView
-		style="@style/title_text"
-		android:text="@string/prof_stats" />
+	<LinearLayout style="@style/header_layout" >
+
+		<TextView
+			style="@style/title_header_text"
+			android:text="@string/prof_stats" />
+	</LinearLayout>
 
 	<LinearLayout style="@style/main_content" >
 
 		<TextView
 			android:id="@+id/usernameStatsBanner"
 			style="@style/header_text"
-			android:textSize="20sp"
-	/>
+			android:textSize="20sp" />
 
 		<TextView
 			style="@style/header_text"
@@ -38,7 +40,7 @@
 
 		<TextView
 			android:id="@+id/favourite_word_text"
-			style="@style/small_text"  />
+			style="@style/small_text" />
 
 		<TextView
 			style="@style/header_text"
@@ -46,7 +48,7 @@
 
 		<TextView
 			android:id="@+id/least_favourite_word_text"
-			style="@style/small_text"  />
+			style="@style/small_text" />
 
 		<TextView
 			style="@style/header_text"
@@ -54,7 +56,7 @@
 
 		<TextView
 			android:id="@+id/highest_test_score_text"
-			style="@style/small_text"  />
+			style="@style/small_text" />
 
 		<TextView
 			style="@style/header_text"
@@ -62,7 +64,7 @@
 
 		<TextView
 			android:id="@+id/highest_game_score_text"
-			style="@style/small_text"  />
+			style="@style/small_text" />
 
 		<TextView
 			style="@style/header_text"
@@ -70,7 +72,7 @@
 
 		<TextView
 			android:id="@+id/spanish_language_rating_text"
-			style="@style/small_text"  />
+			style="@style/small_text" />
 	</LinearLayout>
 
 </LinearLayout>

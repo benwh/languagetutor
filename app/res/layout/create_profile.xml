@@ -4,14 +4,18 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
-	<TextView
-		style="@style/title_text"
-		android:text="@string/create_prof" />
+	<LinearLayout style="@style/header_layout" >
 
-	<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	        android:layout_width="match_parent"
-			android:layout_height="match_parent">
-	
+		<TextView
+			style="@style/title_header_text"
+			android:text="@string/create_prof" />
+	</LinearLayout>
+
+	<ScrollView
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" >
+
 		<LinearLayout style="@style/main_content" >
 
 			<TextView
@@ -64,5 +68,6 @@
 				style="@style/normal_btn"
 				android:text="@string/create_prof" />
 		</LinearLayout>
-	</ScrollView>	
+	</ScrollView>
+
 </LinearLayout>

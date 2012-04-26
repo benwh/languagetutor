@@ -4,6 +4,13 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical" >
 
+	<LinearLayout style="@style/header_layout" >
+
+		<TextView
+			style="@style/title_header_text"
+			android:text="@string/test_res" />
+	</LinearLayout>
+
 	<GridView
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:id="@+id/gridview"

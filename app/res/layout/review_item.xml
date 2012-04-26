@@ -4,9 +4,12 @@
 	android:orientation="vertical"
 	android:weightSum="1.0" >
 
-	<TextView
-		style="@style/title_text"
-		android:text="@string/review" />
+	<LinearLayout style="@style/header_layout" >
+
+		<TextView
+			style="@style/title_header_text"
+			android:text="@string/review" />
+	</LinearLayout>
 
 	<LinearLayout style="@style/main_content" >
 
