@@ -1,71 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Go Español</string>
-	<string name="no_profiles">No profiles available</string>
-	<string name="mix_test">Take a mixed test</string>
-	<string name="multi_question">Tap the correct translation for the following word:</string>
-	<string name="written_question">Translate the following word and type the answer:</string>
-	<string name="submit_answer">Submit Answer</string>
-	<string name="test_submitted">Loading&amp;#8230;</string>
-	<string name="test_score">Test complete, you scored:</string>
-	<string name="rank_awarded">Awarding you a rank of:</string>
-	<string name="review_test">Review Answers</string>
-	<string name="create_profile">Create new profile</string>
-	<string name="recover_pass">Forgot my username/password</string>
-	<string name="s_question">Secret question:</string>
-	<string name="new_s_question">New secret question:</string>
-	<string name="s_answer">Secret answer:</string>
-	<string name="new_s_answer">New secret answer:</string>
-	<string name="c_password">Confirm password:</string>
-	<string name="username">Username:</string>
-	<string name="new_pass">New password:</string>
-	<string name="password">Password:</string>
-	<string name="login">Login</string>
-	<string name="logout">Log Out</string>
-	<string name="mixed_topics">Use all topics</string>
-	<string name="userlevel">Current level:</string>
-	<string name="favourite_word">Favourite word:</string>
-	<string name="least_favourite_word">Least favourite word:</string>
-	<string name="highest_test_score">Highest test score:</string>
-	<string name="highest_game_score">Highest game score:</string>
-	<string name="language_rating">Spanish language rating:</string>
-	<string name="words_incountered">Number of words learnt:</string>
-	<string name="confirm">Confirm</string>
-	<string name="create_prof">Create profile</string>
-	<string name="learn">Learn</string>
-	<string name="review">Review</string>
-	<string name="games">Games</string>
-	<string name="tests">Tests</string>
-	<string name="test">Test</string>
-	<string name="statistics">User Stats</string>
-	<string name="prof_optns">Profile Options</string>
-	<string name="chng_password">Change Password</string>
-	<string name="chng_secrets">Change Secret Q&amp;A</string>
-	<string name="prof_stats">Profile Stats</string>
-	<string name="sel_difficulty">Select a difficulty level</string>
-	<string name="begin_1">1 - Beginner</string>
-	<string name="inter_2">2 - Intermediate</string>
-	<string name="adv_3">3 - Advanced</string>
-	<string name="topic_selec">Topic Selection</string>
-	<string name="test_com">Test Complete</string>
-	<string name="test_res">Test Results</string>
-	<string name="tutorial_comp">Tutorial Completed!</string>
-	<string name="review_topic">Would you like to review this topic now?</string>
-	<string name="answer_yes">Yes</string>
-	<string name="answer_no">No</string>
-	<string name="level_select">Level Selection</string>
-	<string name="score">Best Score</string>
-	<string name="prof_lst">Profiles</string>
-	<string name="return_main_menu">Return to main menu</string>
-	<string name="review_completed">Review completed!</string>
-	<string name="placeholder_src">SRC</string>
-	<string name="placeholder_dst">DST</string>
-	<string name="placeholder_dst_tap">Tap to display</string>
-	<string name="placeholder_itemsreview">You have X items to review</string>
-	<string name="next">Next</string>
-	<string name="begin">Begin</string>
-	<string name="placeholder_test_topic">Topic</string>
-	<string name="placeholder_test_score">Score</string>
-	<string name="placeholder_tutorial_header">Tutorial (topic)</string>
+
+    <string name="app_name">Go Español</string>
+
+<!-- CREATE PROFILE / PROFILE OPTIONS -->
+    <string name="create_profile">Create new profile</string>
+    <string name="create_prof">Create profile</string>
+    <string name="s_question">Secret question:</string>
+    <string name="new_s_question">New secret question:</string>
+    <string name="s_answer">Secret answer:</string>
+    <string name="new_s_answer">New secret answer:</string>
+    <string name="c_password">Confirm password:</string>
+
+<!-- LOGIN -->
+    <string name="no_profiles">No profiles available</string>
+    <string name="recover_pass">Forgot my username/password</string>
+    <string name="login">Login</string>
+    <string name="prof_lst">Profiles</string>
+
+<!-- MAIN -->
+    <string name="logout">Log Out</string>
+    <string name="learn">Learn</string>
+    <string name="review">Review</string>
+    <string name="tests">Tests</string>
+    <string name="statistics">User Stats</string>
+    <string name="prof_optns">Profile Options</string>
+
+<!-- TUTORIAL / LEARN -->
+    <string name="mixed_topics">Use all topics</string>
+    <string name="placeholder_tutorial_header">Tutorial (topic)</string>
+    <string name="review_topic">Would you like to review this topic now?</string>
+    <string name="tutorial_comp">Tutorial Completed!</string>
+
+<!-- REVIEW -->
+    <string name="review_completed">Review completed!</string>
+    <string name="placeholder_src">SRC</string>
+    <string name="placeholder_dst">DST</string>
+    <string name="placeholder_dst_tap">Tap to display</string>
+    <string name="placeholder_itemsreview">You have X items to review</string>
+
+<!-- TESTS -->
+    <string name="test">Test</string>
+    <string name="score">Best Score</string>
+    <string name="mix_test">Take a mixed test</string>
+    <string name="placeholder_test_topic">Topic</string>
+    <string name="placeholder_test_score">Score</string>
+    <string name="multi_question">Tap the correct translation for the following word:</string>
+    <string name="written_question">Translate the following word and type the answer:</string>
+    <string name="submit_answer">Submit Answer</string>
+    <string name="test_com">Test Complete</string>
+    <string name="test_res">Test Results</string>
+	<string name="return_menu">Return to Menu</string>
+	
+<!-- TEST RESULTS -->
+    <string name="test_submitted">Loading&amp;#8230;</string>
+    <string name="test_score">Test complete, you scored:</string>
+    <string name="rank_awarded">Awarding you a rank of:</string>
+    <string name="review_test">Review Answers</string>
+
+<!-- USER STATS -->
+   <string name="prof_stats">Profile Stats</string>
+    <string name="userlevel">Current level:</string>
+    <string name="favourite_word">Favourite word:</string>
+    <string name="least_favourite_word">Least favourite word:</string>
+    <string name="highest_test_score">Highest test score:</string>
+    <string name="highest_game_score">Highest game score:</string>
+    <string name="language_rating">Spanish language rating:</string>
+    <string name="words_incountered">Number of words learnt:</string>
+
+<!-- USER DETAILS -->
+    <string name="username">Username:</string>
+    <string name="new_pass">New password:</string>
+    <string name="password">Password:</string>
+    
+<!-- CHANGE DETAILS -->
+    <string name="chng_password">Change Password</string>
+    <string name="chng_secrets">Change Secret Q&amp;A</string>
+
+<!-- MISC -->
+    <string name="confirm">Confirm</string>
+    <string name="next">Next</string>
+    <string name="begin">Begin</string>
+    <string name="return_main_menu">Return to main menu</string>
+    <string name="level_select">Level Selection</string>
+    <string name="answer_yes">Yes</string>
+    <string name="answer_no">No</string>
+    <string name="begin_1">1 - Beginner</string>
+    <string name="inter_2">2 - Intermediate</string>
+    <string name="adv_3">3 - Advanced</string>
+    <string name="topic_selec">Topic Selection</string>
+    <string name="sel_difficulty">Select a difficulty level</string>
+    
+
 
 </resources>

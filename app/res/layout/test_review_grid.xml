@@ -4,7 +4,7 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical" >
 
-	<LinearLayout style="@style/header_layout" >
+	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
 			style="@style/title_header_text"
@@ -22,5 +22,10 @@
 		android:numColumns="3"
 		android:stretchMode="columnWidth"
 		android:verticalSpacing="10dp" />
+
+	<Button
+	    android:id="@+id/menu_return_btn"
+	    style="@style/normal_btn"
+	    android:text="@string/return_menu" />
 
 </LinearLayout>

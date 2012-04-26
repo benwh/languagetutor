@@ -4,14 +4,14 @@
 	android:orientation="vertical"
 	android:weightSum="1.0" >
 
-	<LinearLayout style="@style/header_layout" >
+	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
 			style="@style/title_header_text"
 			android:text="@string/review" />
 	</LinearLayout>
 
-	<LinearLayout style="@style/main_content" >
+	<LinearLayout style="@style/main_content_layout" >
 
 		<TextView
 			android:id="@+id/review_srctext"
@@ -39,12 +39,12 @@
 			android:orientation="vertical" >
 
 			<RatingBar
-				android:id="@+id/review_item_rating"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:maxHeight="1dp"
-				android:numStars="6"
-				android:stepSize="1" />
+			    android:id="@+id/review_item_rating"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:maxHeight="1dp"
+			    android:numStars="6"
+			    android:stepSize="1" />
 
 			<Button
 				android:id="@+id/review_item_nextbutton"

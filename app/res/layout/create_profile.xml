@@ -4,7 +4,7 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
-	<LinearLayout style="@style/header_layout" >
+	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
 			style="@style/title_header_text"
@@ -12,11 +12,9 @@
 	</LinearLayout>
 
 	<ScrollView
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent" >
+	    style="@style/scrollview_layout" >
 
-		<LinearLayout style="@style/main_content" >
+		<LinearLayout style="@style/main_content_layout" >
 
 			<TextView
 				style="@style/header_text"

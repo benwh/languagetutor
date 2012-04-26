@@ -5,7 +5,7 @@
 	android:orientation="vertical"
 	android:weightSum="1.0" >
 
-	<LinearLayout style="@style/header_layout" >
+	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
 			android:id="@+id/tutorial_header"
