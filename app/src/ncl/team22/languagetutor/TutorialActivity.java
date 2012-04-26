@@ -49,7 +49,6 @@ public class TutorialActivity extends Activity
 		setContentView(R.layout.tutorial_container);
 
 		Intent topicsel = new Intent(this, TopicSelectionActivity.class);
-		topicsel.putExtra(TopicSelectionActivity.ALLOW_ALLTOPICS, false);
 		startActivityForResult(topicsel, TopicSelectionActivity.TOPICSELECTION_REQUEST);
 
 	}
