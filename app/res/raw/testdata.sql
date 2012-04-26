@@ -1,4 +1,14 @@
 INSERT INTO `profile` VALUES (1, 'test', '571xRkrdqdnxfM7cenA8ltsOATg6UtQF3BRxDxiqinw', 'Favourite colour?', 'Orange', NULL);
+INSERT INTO `profile` VALUES (2, 'Level three', '571xRkrdqdnxfM7cenA8ltsOATg6UtQF3BRxDxiqinw', 'Favourite colour?', 'Orange', NULL);
+
+INSERT INTO `test_results` VALUES (2, 0, 10, 80);
+INSERT INTO `test_results` VALUES (2, 1, 10, 80);
+INSERT INTO `test_results` VALUES (2, 2, 10, 80);
+INSERT INTO `test_results` VALUES (2, 3, 10, 80);
+INSERT INTO `test_results` VALUES (2, 4, 10, 80);
+INSERT INTO `test_results` VALUES (2, 5, 10, 80);
+INSERT INTO `test_results` VALUES (2, 6, 10, 80);
+INSERT INTO `test_results` VALUES (2, 7, 10, 80);
 
 INSERT INTO `langset` VALUES (0, 'Colours', 1, 0, 1);
 INSERT INTO `langset` VALUES (1, 'Days of the Week', 1, 0, 1);
