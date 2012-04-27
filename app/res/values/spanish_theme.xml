@@ -13,8 +13,9 @@
 		<item name="android:editTextStyle">@style/red_edittext</item>
 	</style>
 
-<!-- HEADER TEXT -->
+	<!-- HEADER TEXT -->
 	<style name="header_text" parent="android:Theme.Black">
+
 		<!-- FONT -->
 		<item name="android:textSize">40sp</item>
 		<item name="android:textColor">#FFFFFF</item>
@@ -24,7 +25,7 @@
 		<item name="android:gravity">center</item>
 	</style>
 
-<!-- LABLE TEXT -->
+	<!-- LABLE TEXT -->
 	<style name="lable_text" parent="android:Theme.Black">
 
 		<!-- FONT -->
@@ -32,60 +33,90 @@
 		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:textStyle">bold</item>
 		<!-- LAYOUT -->
-		<item name="android:layout_marginTop">5dp</item>
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
 		<item name="android:layout_marginLeft">10dp</item>
+		<item name="android:layout_marginRight">10dp</item>
 	</style>
 
-	<!-- CENTERED TEXT -->
-	<style name="question_text" parent="android:Theme.Black">
+	<!-- SMALL TEXT - BELOW LABELS -->
+	<style name="small_text" parent="android:Theme.Black">
 
 		<!-- FONT -->
-		<item name="android:textSize">40sp</item>
+		<item name="android:textSize">15sp</item>
 		<item name="android:textColor">#FFFFFF</item>
-		<item name="android:gravity">center</item>
 		<!-- LAYOUT -->
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
-		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_marginLeft">10dp</item>
+		<item name="android:layout_marginRight">10dp</item>
 	</style>
 
-	<!-- PARAGRAPH TEXT -->
+	<!-- CENTERED TEXT -->
 	<style name="center_text" parent="android:Theme.Black">
 
 		<!-- FONT -->
 		<item name="android:textSize">25sp</item>
 		<item name="android:textColor">#FFFFFF</item>
-		<item name="android:gravity">center</item>
 		<!-- LAYOUT -->
-		<item name="android:layout_marginTop">0dp</item>
-		<item name="android:layout_width">wrap_content</item>
-		<item name="android:layout_height">120dp</item>
-		<item name="android:layout_marginLeft">10dp</item>
-	</style>
-
-	<!-- TUTORIAL TOPIC TEXT -->
-	<style name="tutorial_topic_text">
-
-		<!-- FONT -->
-		<item name="android:textSize">20sp</item>
-		<item name="android:textColor">#FFFFFF</item>
-		<!-- LAYOUT -->
-		<item name="android:layout_marginTop">5dp</item>
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
-		<item name="android:layout_marginLeft">10dp</item>
+		<item name="android:gravity">center</item>
+	</style>
+
+	<!-- TUTORIAL TEXT -->
+	<!-- TUTORIAL TEXT SRC -->
+	<style name="tutorial_text_src">
+
+		<!-- FONT -->
+		<item name="android:textSize">30sp</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:textStyle">bold</item>
+		<!-- LAYOUT -->
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:gravity">center</item>
+	</style>
+
+	<!-- TUTORIAL TEXT DST -->
+	<style name="tutorial_text_dst">
+
+		<!-- FONT -->
+		<item name="android:textSize">25sp</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<!-- LAYOUT -->
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:gravity">center</item>
+	</style>
+
+	<!-- TOPIC TEXT -->
+	<!-- TUTORIAL TOPIC TEXT -->
+
+	<style name="tut_topic_text">
+
+		<!-- FONT -->
+		<item name="android:textSize">35sp</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<!-- LAYOUT -->
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_gravity">left</item>
+		<item name="android:layout_marginTop">5dp</item>
+		<item name="android:layout_marginBottom">5dp</item>
 		<item name="android:layout_marginRight">10dp</item>
+		<!-- DIVIDER -->
 		<item name="android:divider">#FFFF00</item>
 		<item name="android:dividerHeight">2dp</item>
+		<item name="android:headerDividersEnabled">true</item>
+		<item name="android:footerDividersEnabled">true</item>
 	</style>
 
 	<!-- TEST TOPIC TEXT -->
 	<style name="test_topic_text">
 
 		<!-- FONT -->
-		<item name="android:textSize">26sp</item>
+		<item name="android:textSize">30sp</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<!-- LAYOUT -->
 		<item name="android:layout_marginTop">5dp</item>
@@ -99,61 +130,26 @@
 	<style name="test_topic_percent">
 
 		<!-- FONT -->
-		<item name="android:textSize">14sp</item>
+		<item name="android:textSize">15sp</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<!-- LAYOUT -->
-		<item name="android:layout_marginTop">5dp</item>
-		<item name="android:layout_width">wrap_content</item>
-		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">match_parent</item>
 		<item name="android:layout_marginRight">10dp</item>
-		<item name="android:layout_gravity">right</item>
+		<item name="android:gravity">right|center_vertical</item>
 	</style>
+
 	<!-- LEFT + RIGHT ALIGHN -->
 	<style name="seperate">
+
+		<!-- LAYOUT -->
 		<item name="android:layout_width">match_parent</item>
 		<item name="android:layout_height">wrap_content</item>
+		<!-- DIVIDER -->
 		<item name="android:divider">#FFFF00</item>
 		<item name="android:dividerHeight">2dp</item>
 		<item name="android:headerDividersEnabled">true</item>
 		<item name="android:footerDividersEnabled">true</item>
-	</style>
-
-	<!-- SMALL TEXT -->
-	<style name="small_text" parent="android:Theme.Black">
-
-		<!-- FONT -->
-		<item name="android:textSize">15sp</item>
-		<item name="android:textColor">#FFFFFF</item>
-		<!-- LAYOUT -->
-		<item name="android:layout_marginTop">2dp</item>
-		<item name="android:layout_width">wrap_content</item>
-		<item name="android:layout_height">wrap_content</item>
-		<item name="android:layout_marginLeft">10dp</item>
-		<item name="android:layout_marginRight">10dp</item>
-	</style>
-
-	<!-- INPUT TEXT -->
-	<style name="red_edittext" parent="@android:style/Widget.EditText">
-		<item name="android:focusable">true</item>
-		<item name="android:focusableInTouchMode">true</item>
-		<item name="android:clickable">true</item>
-		<item name="android:background">@drawable/edit_text_box</item>
-		<item name="android:textColor">#000000</item>
-		<item name="android:gravity">center_vertical</item>
-	</style>
-
-<!-- INPUT TEXT BOX ACROSS WHOLE WIDTH 1 LINE TALL -->
-	<style name="fwidth_editbox">
-		<item name="android:layout_width">280dp</item>
-		<item name="android:layout_height">50dp</item>
-		<item name="android:layout_gravity">center</item>
-	</style>
-	<!-- INPUT TEXT BOX IN MIDDLE  -->
-	<style name="middle_editbox">
-		<item name="android:layout_width">180dp</item>
-		<item name="android:layout_height">50dp</item>
-		<item name="android:layout_gravity">center</item>
-		<item name="android:layout_marginTop">20dp</item>
 	</style>
 
 	<!-- MENU BUTTON -->
@@ -171,7 +167,7 @@
 		<item name="android:layout_gravity">center</item>
 	</style>
 
-	<!-- STANDARD BUTTON -->
+	<!-- NORMAL BUTTON -->
 	<style name="normal_btn">
 		<item name="android:background">@drawable/yellow_button</item>
 		<item name="android:layout_width">150dp</item>
@@ -203,54 +199,79 @@
 		<item name="android:layout_gravity">center</item>
 	</style>
 
-	
-<!-- HEADER LAYOUT -->
+	<!-- HEADER LAYOUT -->
 	<style name="header_content_layout">
 		<item name="android:layout_width">match_parent</item>
 		<item name="android:layout_height">80dp</item>
 		<item name="android:background">@drawable/spanish_background_top</item>
 		<item name="android:orientation">vertical</item>
 	</style>
-	
+
 	<!-- MAIN CONTENT LAYOUT -->
-	 <style name="main_content_layout">
+	<style name="main_content_layout">
 		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">fill_parent</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:orientation">vertical</item>
+		<item name="android:layout_marginTop">10dp</item>
+	</style>
+	<!-- SCROLLVIEW LAYOUT -->
+	<style name="scrollview_layout">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">match_parent</item>
 		<item name="android:orientation">vertical</item>
 	</style>
-<!-- SCROLLVIEW LAYOUT -->
-	<style name="scrollview_layout" >
-   		<item name="android:layout_width">match_parent</item> 
-   		<item name="android:layout_height">match_parent</item> 
-   		<item name="android:orientation">vertical</item>   
+
+	<!-- EDIT TEXT BOXES -->
+	<!-- INPUT TEXT (USED AS BASE PROPERTIES FOR OTHER TWO) -->
+	<style name="red_edittext" parent="@android:style/Widget.EditText">
+		<item name="android:textColor">#000000</item>
+		<item name="android:focusable">true</item>
+		<item name="android:focusableInTouchMode">true</item>
+		<item name="android:clickable">true</item>
+		<item name="android:background">@drawable/edit_text_box</item>
+		<item name="android:gravity">center_vertical</item>
 	</style>
-	
-	
-	
-	
-<!-- TUTORIAL TEXT -->	
-	<!-- TUTORIAL TEXT SRC -->
-		<style name="tutorial_text_src" >   		
-	   		<!-- FONT -->
-			<item name="android:textSize">30sp</item>
-			<item name="android:textColor">#FFFFFF</item>
-			<item name="android:textStyle">bold</item>
-			<!-- LAYOUT -->
-			<item name="android:layout_width">match_parent</item> 
-	   		<item name="android:layout_height">match_parent</item> 
-			<item name="android:gravity">center</item>
-	
-		</style>
-		
-	<!-- TUTORIAL TEXT DST -->
-		<style name="tutorial_text_dst" >   		
-	   		<!-- FONT -->
-			<item name="android:textSize">25sp</item>
-			<item name="android:textColor">#FFFFFF</item>
-			<!-- LAYOUT -->
-			<item name="android:layout_width">match_parent</item> 
-	   		<item name="android:layout_height">match_parent</item> 
-			<item name="android:gravity">center</item>
-		</style>
+
+	<!-- INPUT TEXT BOX ACROSS WHOLE WIDTH 1 LINE TALL -->
+	<style name="fwidth_editbox" parent="@style/red_edittext">
+		<item name="android:layout_width">280dp</item>
+		<item name="android:layout_height">50dp</item>
+		<item name="android:layout_gravity">center</item>
+	</style>
+
+	<!-- TEST2 INPUT BOX -->
+	<style name="middle_editbox" parent="@style/red_edittext">
+		<item name="android:layout_width">180dp</item>
+		<item name="android:layout_height">50dp</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_marginTop">20dp</item>
+	</style>
+
+	<!-- RATING BAR -->
+	<style name="rate_bar">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:maxHeight">1dp</item>
+		<item name="android:numStars">6</item>
+		<item name="android:stepSize">1</item>
+	</style>
+
+	<!-- TEST RESULTS GRID -->
+	<style name="test_results_grid">
+
+		<!-- FONT -->
+		<item name="android:textSize">25sp</item>
+		<item name="android:textColor">#FFFFFF</item>
+
+		<!-- LAYOUT -->
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:gravity">center</item>
+		<item name="android:horizontalSpacing">10dp</item>
+		<item name="android:verticalSpacing">10dp</item>
+		<item name="android:numColumns">3</item>
+		<item name="android:columnWidth">90dp</item>
+		<item name="android:stretchMode">columnWidth</item>
+	</style>
 
 </resources>

@@ -3,7 +3,7 @@
  * @author 
  * @modified by Sarah Joyce
  * @date:26/04/2012
- * @info: xml layout for test1
+ * @info: xml layout for test1 (multiple choice question)
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
@@ -26,6 +26,8 @@
 		android:isScrollContainer="true" >
 
 		<LinearLayout style="@style/main_content_layout" >
+			
+			<!-- QUESTION -->
 
 			<TextView
 				android:id="@+id/multi_question_head"
@@ -34,8 +36,9 @@
 
 			<TextView
 				android:id="@+id/multi_question"
-				style="@style/question_text" />
+				style="@style/center_text" />
 
+			<!-- ANSWERS -->
 			<Button
 				android:id="@+id/option0"
 				style="@style/menu_btn"

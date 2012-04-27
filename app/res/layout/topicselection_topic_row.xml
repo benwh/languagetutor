@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: xml file used to format the text for the topic selection of tutorials
+-->
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/test_topics_list_row"
-	style="@style/test_topic_text"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content" />
+	style="@style/tut_topic_text" />

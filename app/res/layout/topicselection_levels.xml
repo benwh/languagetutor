@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: layout for level selection in tutorials
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical" >
+
+	<!-- HEADER CONTENT AREA -->
 
 	<LinearLayout style="@style/header_content_layout" >
 
@@ -11,12 +19,18 @@
 			android:text="@string/level_select" />
 	</LinearLayout>
 
+	<!-- MAIN CONTENT AREA -->
+
 	<LinearLayout style="@style/main_content_layout" >
+
+		<!-- LIST OF TOPICS -->
 
 		<TextView
 			android:id="@+id/selectlevel"
 			style="@style/lable_text"
 			android:text="@string/sel_difficulty" />
+
+		<!-- SELECT LEVEL 1 -->
 
 		<Button
 			android:id="@+id/level1"
@@ -24,11 +38,15 @@
 			android:tag="1"
 			android:text="@string/begin_1" />
 
+		<!-- SELECT LEVEL 2 -->
+
 		<Button
 			android:id="@+id/level2"
 			style="@style/menu_btn"
 			android:tag="2"
 			android:text="@string/inter_2" />
+
+		<!-- SELECT LEVEL 3 -->
 
 		<Button
 			android:id="@+id/level3"

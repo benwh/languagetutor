@@ -12,6 +12,6 @@
 
 	<TextView
 		android:id="@+id/profile_list_rowtext"
-		style="@style/tutorial_topic_text" />
+		style="@style/lable_text" />
 
 </LinearLayout>

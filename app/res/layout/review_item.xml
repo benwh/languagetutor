@@ -1,8 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: layout for reviewing a word on screen
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical"
-	android:weightSum="1.0" >
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+
+	<!-- android:weightSum="1.0" > -->
+
+
+	<!-- HEADER CONTENT AREA -->
 
 	<LinearLayout style="@style/header_content_layout" >
 
@@ -11,26 +22,27 @@
 			android:text="@string/review" />
 	</LinearLayout>
 
+	<!-- MAIN CONTENT AREA -->
+
 	<LinearLayout style="@style/main_content_layout" >
+
+		<!-- ENGLISH WORD -->
 
 		<TextView
 			android:id="@+id/review_srctext"
-			android:layout_width="wrap_content"
-			android:layout_height="0dp"
-			android:layout_gravity="center"
-			android:layout_marginBottom="0dp"
+			style="@style/center_text"
 			android:layout_weight="0.50"
-			android:text="@string/placeholder_src"
-			android:textAppearance="?android:attr/textAppearanceLarge" />
+			android:text="@string/placeholder_src" />
+
+		<!-- SPANISH WORD -->
 
 		<TextView
 			android:id="@+id/review_dsttext"
-			android:layout_width="wrap_content"
-			android:layout_height="0dp"
-			android:layout_gravity="center"
+			style="@style/center_text"
 			android:layout_weight="0.40"
-			android:text="@string/placeholder_dst_tap"
-			android:textAppearance="?android:attr/textAppearanceLarge" />
+			android:text="@string/placeholder_dst_tap" />
+
+		<!-- REVIEW SECTION -->
 
 		<LinearLayout
 			android:id="@+id/review_item_bottom"
@@ -39,18 +51,12 @@
 			android:orientation="vertical" >
 
 			<RatingBar
-			    android:id="@+id/review_item_rating"
-			    android:layout_width="match_parent"
-			    android:layout_height="wrap_content"
-			    android:maxHeight="1dp"
-			    android:numStars="6"
-			    android:stepSize="1" />
+				android:id="@+id/review_item_rating"
+				style="@style/rate_bar" />
 
 			<Button
 				android:id="@+id/review_item_nextbutton"
 				style="@style/normal_btn"
-				android:layout_width="60dp"
-				android:layout_height="wrap_content"
 				android:text="@string/next" />
 		</LinearLayout>
 	</LinearLayout>

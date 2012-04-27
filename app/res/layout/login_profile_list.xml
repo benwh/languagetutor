@@ -27,13 +27,14 @@
 
 		<ListView
 			android:id="@+id/android:list"
-			style="@style/tutorial_topic_text" />
+			style="@style/lable_text" 
+			android:textSize="30dp"  />
 
 		<!-- MESSAGE WHEN NO PROFILES ARE AVAILABLE -->
 
 		<TextView
 			android:id="@+id/android:empty"
-			style="@style/question_text"
+			style="@style/center_text"
 			android:text="@string/no_profiles" />
 	</LinearLayout>
 

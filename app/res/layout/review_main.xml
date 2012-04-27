@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: layout that flips between the review screens as needed.
+-->
 <ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/review_viewflipper"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent" >
-
+	
+	<!-- XML FILES THAT REVIEW_VIEWFLIPPER USES -->
+	
 	<include
 		android:id="@+id/review_start"
 		layout="@layout/review_start" />

@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: tutorial layout used for words and phrases that have images
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
+	<!-- ENGLISH WORD -->
+
 	<TextView
 		android:id="@+id/tutorial_srctext"
 		style="@style/tutorial_text_src"
-		android:text="@string/placeholder_src"
-		android:layout_weight="0.33" />
+		android:layout_weight="0.33"
+		android:text="@string/placeholder_src" />
+
+	<!-- IMAGE -->
 
 	<ImageView
 		android:id="@+id/tutorial_imageview"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_weight="0.33"
-		android:src="@drawable/broken_icon"
-		android:contentDescription="@string/tutimg_desc" />
+		android:contentDescription="@string/tutimg_desc"
+		android:src="@drawable/broken_icon" />
+
+	<!-- SPANISH WORD -->
 
 	<TextView
 		android:id="@+id/tutorial_dsttext"
 		style="@style/tutorial_text_dst"
-		android:text="@string/placeholder_dst"
-		android:layout_weight="0.33"/>
+		android:layout_weight="0.33"
+		android:text="@string/placeholder_dst" />
 
 </LinearLayout>

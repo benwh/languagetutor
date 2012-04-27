@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: layout for users statistics screen
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
+
+	<!-- HEADER CONTENT AREA -->
 
 	<LinearLayout style="@style/header_content_layout" >
 
@@ -11,60 +19,72 @@
 			android:text="@string/prof_stats" />
 	</LinearLayout>
 
-	<LinearLayout style="@style/main_content_layout" >
+		<!-- MAIN CONTENT AREA -->
+	
+	<ScrollView style="@style/scrollview_layout" >
 
-		<TextView
-			android:id="@+id/usernameStatsBanner"
-			style="@style/lable_text"
-			android:textSize="20sp" />
+		<LinearLayout style="@style/main_content_layout" >
 
-		<TextView
-			style="@style/lable_text"
-			android:text="@string/userlevel" />
+			<!-- Username -->
+			<TextView
+				android:id="@+id/usernameStatsBanner"
+				style="@style/lable_text"
+				android:textSize="30sp" />
+			
+			<!-- CURRENT LEVEL -->
+			<TextView
+				style="@style/lable_text"
+				android:text="@string/userlevel" />
 
-		<TextView
-			android:id="@+id/userleveltext"
-			style="@style/small_text" />
+			<TextView
+				android:id="@+id/userleveltext"
+				style="@style/small_text" />
 
-		<TextView
-			style="@style/lable_text"
-			android:text="@string/words_incountered" />
+			<!-- NUMBER OF WORDS LEARNT -->
+			<TextView
+				style="@style/lable_text"
+				android:text="@string/words_incountered" />
 
-		<TextView
-			android:id="@+id/numOfWords"
-			style="@style/small_text" />
+			<TextView
+				android:id="@+id/numOfWords"
+				style="@style/small_text" />
 
-		<TextView
-			style="@style/lable_text"
-			android:text="@string/favourite_word" />
+			<!-- FAVOURITE WORD -->
+			<TextView
+				style="@style/lable_text"
+				android:text="@string/favourite_word" />
 
-		<TextView
-			android:id="@+id/favourite_word_text"
-			style="@style/small_text" />
+			<TextView
+				android:id="@+id/favourite_word_text"
+				style="@style/small_text" />
 
-		<TextView
-			style="@style/lable_text"
-			android:text="@string/least_favourite_word" />
+			<!-- LEAST FAVOURITE WORD -->
+			<TextView
+				style="@style/lable_text"
+				android:text="@string/least_favourite_word" />
 
-		<TextView
-			android:id="@+id/least_favourite_word_text"
-			style="@style/small_text" />
+			<TextView
+				android:id="@+id/least_favourite_word_text"
+				style="@style/small_text" />
 
-		<TextView
-			style="@style/lable_text"
-			android:text="@string/highest_test_score" />
+			<!-- HIGHEST TEST SCORE -->
+			<TextView
+				style="@style/lable_text"
+				android:text="@string/highest_test_score" />
 
-		<TextView
-			android:id="@+id/highest_test_score_text"
-			style="@style/small_text" />
+			<TextView
+				android:id="@+id/highest_test_score_text"
+				style="@style/small_text" />
 
-		<TextView
-			style="@style/lable_text"
-			android:text="@string/language_rating" />
+			<!-- SPANISH LANGUAGE RATING -->
+			<TextView
+				style="@style/lable_text"
+				android:text="@string/language_rating" />
 
-		<TextView
-			android:id="@+id/spanish_language_rating_text"
-			style="@style/small_text" />
-	</LinearLayout>
+			<TextView
+				android:id="@+id/spanish_language_rating_text"
+				style="@style/small_text" />
+		</LinearLayout>
+	</ScrollView>
 
 </LinearLayout>

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: xml layout for test2 (written answer)
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
+
+	<!-- HEADER CONTENT AREA -->
 
 	<LinearLayout style="@style/header_content_layout" >
 
@@ -11,7 +19,11 @@
 			android:text="@string/test" />
 	</LinearLayout>
 
+	<!-- MAIN CONTENT AREA -->
+
 	<LinearLayout style="@style/main_content_layout" >
+
+		<!-- QUESTION -->
 
 		<TextView
 			android:id="@+id/written_question_head"
@@ -20,12 +32,16 @@
 
 		<TextView
 			android:id="@+id/written_question"
-			style="@style/question_text" />
+			style="@style/center_text" />
+
+		<!-- ANSWER BOX -->
 
 		<EditText
 			android:id="@+id/written_answer"
 			style="@style/middle_editbox"
 			android:inputType="text" />
+
+		<!-- SUBMIT ANSWER -->
 
 		<Button
 			android:id="@+id/submit_answer"

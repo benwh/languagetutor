@@ -1,32 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: layout screen for topic selection in the test activity
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
-	
-<!-- HEADER CONTENT AREA -->
+
+	<!-- HEADER CONTENT AREA -->
+
 	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
 			style="@style/header_text"
 			android:text="@string/topic_selec" />
-		
 	</LinearLayout>
-	
-<!-- MAIN CONTENT AREA -->
+
+	<!-- MAIN CONTENT AREA -->
+
 	<LinearLayout style="@style/main_content_layout" >
 
 		<!-- As essential layout for each difficulty levels topic selection will be the same, used for all 3 -->
+		<!-- BEST SCORE -->
 
 		<TextView
 			style="@style/small_text"
 			android:layout_gravity="right"
 			android:text="@string/score" />
+		
+		<!-- LIST OF TOPICS -->
 
 		<ListView
 			android:id="@+id/android:list"
 			style="@style/seperate"
 			android:layout_weight="0.9" />
+		
+		<!-- SELECT MIXED TEST -->
 
 		<Button
 			android:id="@+id/mixtest"
@@ -34,4 +46,5 @@
 			android:layout_weight="0.1"
 			android:text="@string/mix_test" />
 	</LinearLayout>
+
 </LinearLayout>

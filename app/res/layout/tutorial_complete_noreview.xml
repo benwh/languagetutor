@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: tutorial complete for mixed results (no review)
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+	<!-- TUTORIAL COMPLETE TEXT -->
     <TextView
         style="@style/header_text"
         android:text="@string/tutorial_comp"

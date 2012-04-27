@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: main test results screen showing score and rank
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical" >
+
+	<!-- HEADER CONTENT AREA -->
 
 	<LinearLayout style="@style/header_content_layout" >
 
@@ -11,7 +19,11 @@
 			android:text="@string/test_res" />
 	</LinearLayout>
 
+	<!-- MAIN CONTENT AREA -->
+
 	<LinearLayout style="@style/main_content_layout" >
+
+		<!-- SCORE -->
 
 		<TextView
 			android:id="@+id/test_score_head"
@@ -22,6 +34,8 @@
 			android:id="@+id/test_score"
 			style="@style/lable_text" />
 
+		<!-- RANK AWARDED -->
+
 		<TextView
 			android:id="@+id/rank_awarded_head"
 			style="@style/lable_text"
@@ -30,6 +44,8 @@
 		<TextView
 			android:id="@+id/rank_awarded"
 			style="@style/lable_text" />
+
+		<!-- BUTTON TO READ DETAILED RESULTS -->
 
 		<Button
 			android:id="@+id/review_test"
