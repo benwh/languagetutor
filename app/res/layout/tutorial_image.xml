@@ -6,28 +6,21 @@
 
 	<TextView
 		android:id="@+id/tutorial_srctext"
-		android:layout_width="wrap_content"
-		android:layout_height="0dp"
-		android:layout_gravity="center"
-		android:layout_marginBottom="0dp"
-		android:layout_weight="0.33"
+		style="@style/tutorial_text_src"
 		android:text="@string/placeholder_src"
-		android:textAppearance="?android:attr/textAppearanceLarge" />
+		android:layout_weight="0.33" />
 
 	<ImageView
 		android:id="@+id/tutorial_imageview"
 		android:layout_width="match_parent"
-		android:layout_height="0dp"
+		android:layout_height="match_parent"
 		android:layout_weight="0.33"
 		android:src="@drawable/broken_icon" />
 
 	<TextView
 		android:id="@+id/tutorial_dsttext"
-		android:layout_width="wrap_content"
-		android:layout_height="0dp"
-		android:layout_gravity="center"
-		android:layout_weight="0.33"
+		style="@style/tutorial_text_dst"
 		android:text="@string/placeholder_dst"
-		android:textAppearance="?android:attr/textAppearanceLarge" />
+		android:layout_weight="0.33"/>
 
 </LinearLayout>

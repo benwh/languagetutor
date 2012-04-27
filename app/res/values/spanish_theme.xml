@@ -39,8 +39,22 @@
 
 
 
-	<!-- HEADER TEXT -->
+	<!-- HEADER TEXT WILL BE REMOVING WHEN OTHER CLASSES DONE-->
 	<style name="header_text" parent="android:Theme.Black">
+
+		<!-- FONT -->
+		<item name="android:textSize">15sp</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:textStyle">bold</item>
+		<!-- LAYOUT -->
+		<item name="android:layout_marginTop">5dp</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginLeft">10dp</item>
+	</style>
+	
+<!-- LABLE TEXT -->
+	<style name="lable_text" parent="android:Theme.Black">
 
 		<!-- FONT -->
 		<item name="android:textSize">15sp</item>
@@ -157,13 +171,13 @@
 		<item name="android:gravity">center_vertical</item>
 	</style>
 
-	<!-- INPUT TEXT BOX ACROSS WHOLE WIDTH 1 LINE TALL -->
+<!-- INPUT TEXT BOX ACROSS WHOLE WIDTH 1 LINE TALL -->
 	<style name="fwidth_editbox">
 		<item name="android:layout_width">280dp</item>
 		<item name="android:layout_height">50dp</item>
 		<item name="android:layout_gravity">center</item>
 	</style>
-	<!-- INPUT TEXT BOX ACROSS WHOLE WIDTH 1 LINE TALL -->
+	<!-- INPUT TEXT BOX IN MIDDLE  -->
 	<style name="middle_editbox">
 		<item name="android:layout_width">180dp</item>
 		<item name="android:layout_height">50dp</item>
@@ -234,12 +248,36 @@
 		<item name="android:orientation">vertical</item>
 	</style>
 	
-<!-- ScrollView Layout -->
-<style name="scrollview_layout" >
-   <item name="android:layout_width">match_parent</item> 
-   <item name="android:layout_height">match_parent</item> 
-    
-</style>
+<!-- SCROLLVIEW LAYOUT -->
+	<style name="scrollview_layout" >
+   		<item name="android:layout_width">match_parent</item> 
+   		<item name="android:layout_height">match_parent</item> 
+   		<item name="android:orientation">vertical</item>   
+	</style>
+	
+<!-- TUTORIAL TEXT -->	
+<!-- TUTORIAL TEXT SRC -->
+	<style name="tutorial_text_src" >   		
+   		<!-- FONT -->
+		<item name="android:textSize">30sp</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:textStyle">bold</item>
+		<!-- LAYOUT -->
+		<item name="android:layout_width">match_parent</item> 
+   		<item name="android:layout_height">match_parent</item> 
+		<item name="android:gravity">center</item>
 
+	</style>
+	
+<!-- TUTORIAL TEXT DST -->
+	<style name="tutorial_text_dst" >   		
+   		<!-- FONT -->
+		<item name="android:textSize">25sp</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<!-- LAYOUT -->
+		<item name="android:layout_width">match_parent</item> 
+   		<item name="android:layout_height">match_parent</item> 
+		<item name="android:gravity">center</item>
+	</style>
 
 </resources>

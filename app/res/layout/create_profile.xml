@@ -1,62 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:20/04/2012
+ * @info: xml file for the create profile page
+-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
 <!-- HEADER CONTENT AREA -->
+
 	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
 			style="@style/title_header_text"
 			android:text="@string/create_prof" />
-		
-<!-- MAIN CONTENT AREA -->		
 	</LinearLayout>
 
-	<ScrollView
-	    style="@style/scrollview_layout" >
+<!-- MAIN CONTENT AREA -->
+
+	<ScrollView style="@style/scrollview_layout" >
 
 		<LinearLayout style="@style/main_content_layout" >
-
+			
+			<!-- Username -->
 			<TextView
-				style="@style/header_text"
+				style="@style/lable_text"
 				android:text="@string/username" />
 
 			<EditText
 				android:id="@+id/create_username"
 				style="@style/fwidth_editbox"
 				android:inputType="text" />
-
+			
+			<!-- Password -->
 			<TextView
-				style="@style/header_text"
+				style="@style/lable_text"
 				android:text="@string/password" />
 
 			<EditText
 				android:id="@+id/create_password"
 				style="@style/fwidth_editbox"
 				android:inputType="textPassword" />
-
+			
+			<!-- Confirm Password -->
 			<TextView
-				style="@style/header_text"
+				style="@style/lable_text"
 				android:text="@string/c_password" />
 
 			<EditText
 				android:id="@+id/confirm_password"
 				style="@style/fwidth_editbox"
 				android:inputType="textPassword" />
-
+			
+			<!-- Secret Question -->
 			<TextView
-				style="@style/header_text"
+				style="@style/lable_text"
 				android:text="@string/s_question" />
 
+			
 			<EditText
 				android:id="@+id/create_sq"
 				style="@style/fwidth_editbox"
 				android:inputType="text" />
 
+			<!-- Secret Answer -->
 			<TextView
-				style="@style/header_text"
+				style="@style/lable_text"
 				android:text="@string/s_answer" />
 
 			<EditText
@@ -64,11 +77,14 @@
 				style="@style/fwidth_editbox"
 				android:inputType="text" />
 
+			<!-- Submit Profile Creation -->
 			<Button
 				android:id="@+id/create_profile_button"
 				style="@style/normal_btn"
 				android:text="@string/create_prof" />
+			
 		</LinearLayout>
+		
 	</ScrollView>
 
 </LinearLayout>

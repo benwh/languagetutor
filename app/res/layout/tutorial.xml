@@ -6,21 +6,14 @@
 
 	<TextView
 		android:id="@+id/tutorial_srctext"
-		android:layout_width="wrap_content"
-		android:layout_height="0dp"
-		android:layout_gravity="center"
-		android:layout_marginBottom="0dp"
-		android:layout_weight="0.50"
+		style="@style/tutorial_text_src"
 		android:text="@string/placeholder_src"
-		android:textAppearance="?android:attr/textAppearanceLarge" />
+		android:layout_weight="0.50" />
 
 	<TextView
 		android:id="@+id/tutorial_dsttext"
-		android:layout_width="wrap_content"
-		android:layout_height="0dp"
-		android:layout_gravity="center"
-		android:layout_weight="0.50"
+		style="@style/tutorial_text_dst"
 		android:text="@string/placeholder_dst"
-		android:textAppearance="?android:attr/textAppearanceLarge" />
+		android:layout_weight="0.50"/>
 
 </LinearLayout>
