@@ -10,9 +10,6 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
-	<!-- android:weightSum="1.0" > -->
-
-
 	<!-- HEADER CONTENT AREA -->
 
 	<LinearLayout style="@style/header_content_layout" >
@@ -31,7 +28,7 @@
 		<TextView
 			android:id="@+id/review_srctext"
 			style="@style/center_text"
-			android:layout_weight="0.40"
+			android:layout_weight="0.30"
 			android:text="@string/placeholder_src" />
 
 		<!-- SPANISH WORD -->

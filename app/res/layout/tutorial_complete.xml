@@ -5,55 +5,47 @@
  * @date:26/04/2012
  * @info: Layout for screen when a tutorial has been completed
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- HEADER CONTENT AREA -->
+
+<!-- AREA EMPTY DUE TO TUTORIAL CONTAINER -->
+
+<!-- MAIN CONTENT AREA -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/main_content_layout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
-	<!-- HEADER CONTENT AREA -->
+	<TextView
+		style="@style/header_text"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:text="@string/tutorial_comp" />
 
+	<Button
+		android:id="@+id/tutorial_review_no"
+		style="@style/y_n_btn"
+		android:layout_alignBaseline="@+id/tutorial_review_yes"
+		android:layout_alignBottom="@+id/tutorial_review_yes"
+		android:layout_alignParentRight="true"
+		android:text="@string/answer_no" />
 
-	<!-- AREA EMPTY DUE TO TUTORIAL CONTAINER -->
+	<Button
+		android:id="@+id/tutorial_review_yes"
+		style="@style/y_n_btn"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:background="@drawable/green_button"
+		android:text="@string/answer_yes" />
 
+	<TextView
+		android:id="@+id/textView1"
+		style="@style/center_text"
+		android:layout_above="@+id/tutorial_review_no"
+		android:layout_alignParentRight="true"
+		android:layout_marginBottom="156dp"
+		android:text="@string/review_topic"
+		android:textSize="25sp" />
 
-	<!-- MAIN CONTENT AREA -->
-
-	<RelativeLayout style="@style/main_content_layout" >
-
-		<TextView
-			style="@style/header_text"
-			android:layout_height="wrap_content"
-			android:layout_alignParentLeft="true"
-			android:layout_weight="0.33"
-			android:text="@string/tutorial_comp" />
-
-		<Button
-			android:id="@+id/tutorial_review_no"
-			style="@style/y_n_btn"
-			android:layout_alignBaseline="@+id/tutorial_review_yes"
-			android:layout_alignBottom="@+id/tutorial_review_yes"
-			android:layout_alignParentRight="true"
-			android:layout_weight="0.17"
-			android:text="@string/answer_no" />
-
-		<Button
-			android:id="@+id/tutorial_review_yes"
-			style="@style/y_n_btn"
-			android:layout_alignParentBottom="true"
-			android:layout_alignParentLeft="true"
-			android:layout_weight="0.17"
-			android:background="@drawable/green_button"
-			android:text="@string/answer_yes" />
-
-		<TextView
-			android:id="@+id/textView1"
-			style="@style/center_text"
-			android:layout_above="@+id/tutorial_review_no"
-			android:layout_alignParentRight="true"
-			android:layout_marginBottom="156dp"
-			android:layout_weight="0.33"
-			android:text="@string/review_topic"
-			android:textSize="25sp" />
-	</RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>
