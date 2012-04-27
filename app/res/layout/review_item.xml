@@ -31,7 +31,7 @@
 		<TextView
 			android:id="@+id/review_srctext"
 			style="@style/center_text"
-			android:layout_weight="0.50"
+			android:layout_weight="0.40"
 			android:text="@string/placeholder_src" />
 
 		<!-- SPANISH WORD -->
@@ -39,7 +39,7 @@
 		<TextView
 			android:id="@+id/review_dsttext"
 			style="@style/center_text"
-			android:layout_weight="0.40"
+			android:layout_weight="0.30"
 			android:text="@string/placeholder_dst_tap" />
 
 		<!-- REVIEW SECTION -->

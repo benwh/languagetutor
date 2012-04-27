@@ -22,16 +22,19 @@
 	<!-- MAIN CONTENT AREA -->
 
 	<LinearLayout style="@style/main_content_layout" >
-
+
 		<TextView
 			android:id="@+id/review_start_text"
 			style="@style/center_text"
+			android:layout_width="match_parent"
+			android:layout_weight="1"
 			android:text="@string/placeholder_itemsreview" />
 
 		<Button
 			android:id="@+id/review_start_button"
 			style="@style/normal_btn"
 			android:text="@string/begin" />
+
 	</LinearLayout>
 
 </LinearLayout>

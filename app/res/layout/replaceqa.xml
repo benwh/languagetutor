@@ -16,7 +16,8 @@
 
 		<TextView
 			style="@style/header_text"
-			android:text="@string/chng_secrets" />
+			android:text="@string/chng_secrets"
+			android:textSize="35dp" />
 	</LinearLayout>
 
 	<!-- MAIN CONTENT AREA -->
