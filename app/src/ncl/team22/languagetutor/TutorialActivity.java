@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ncl.team22.languagetutor.data.LanguageEntity;
 import ncl.team22.languagetutor.data.SRAlgorithm;
@@ -93,6 +95,11 @@ public class TutorialActivity extends Activity
 		pagerAdapter = new TutorialPagerAdapter();
 		tutPager = (ViewPager) findViewById(R.id.tutpager);
 		tutPager.setAdapter(pagerAdapter);
+
+		// explains to user how to interact with gui, non invasive
+		Toast toast = Toast.makeText(getApplicationContext(), "Swipe To Continue ->", Toast.LENGTH_LONG);
+		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast.show();
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
