@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: layout for completed review screen
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
+	<!-- HEADER CONTENT AREA -->
+
 	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
-			style="@style/title_header_text"
+			style="@style/header_text"
 			android:text="@string/review_completed" />
 	</LinearLayout>
 
-	<RelativeLayout
+	<!-- MAIN CONTENT AREA -->
+
+	<LinearLayout
 		style="@style/main_content_layout"
-		android:gravity="center_vertical" >
+		android:gravity="center" >
+		
+		<!-- BUTTON TO EXIT REVIEW -->
 
 		<Button
 			android:id="@+id/review_end_btn"
 			style="@style/normal_btn"
-			android:layout_centerHorizontal="true"
-			android:layout_centerVertical="true"
 			android:text="@string/return_main_menu" />
-	</RelativeLayout>
+	</LinearLayout>
 
 </LinearLayout>

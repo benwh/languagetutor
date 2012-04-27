@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: xml layout for test1
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
+	<!-- HEADER CONTENT AREA -->
 	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
-			style="@style/title_header_text"
+			style="@style/header_text"
 			android:text="@string/test" />
+		
+	<!-- MAIN CONTENT AREA -->		
 	</LinearLayout>
 
 	<ScrollView
@@ -20,7 +29,7 @@
 
 			<TextView
 				android:id="@+id/multi_question_head"
-				style="@style/header_text"
+				style="@style/lable_text"
 				android:text="@string/multi_question" />
 
 			<TextView

@@ -9,15 +9,11 @@
 
 		<TextView
 			android:id="@+id/tutorial_header"
-			style="@style/title_header_text"
+			style="@style/header_text"
 			android:text="@string/placeholder_tutorial_header" />
 	</LinearLayout>
 
-	<LinearLayout
-		android:id="@+id/tutpager_container"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="vertical" >
+<LinearLayout style="@style/main_content_layout" >
 
 		<android.support.v4.view.ViewPager
 			xmlns:android="http://schemas.android.com/apk/res/android"

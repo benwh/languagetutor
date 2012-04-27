@@ -1,31 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: screen for detailed version of test review
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
-	<LinearLayout style="@style/header_content_layout" >
+	<!-- HEADER CONTENT AREA -->
+
+	<LinearLayout
+		style="@style/header_content_layout"
+		android:layout_width="wrap_content" >
 
 		<TextView
-			style="@style/title_header_text"
+			style="@style/header_text"
 			android:text="@string/test_res" />
 	</LinearLayout>
 
-	<GridView
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/gridview"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:columnWidth="90dp"
-		android:gravity="center"
-		android:horizontalSpacing="10dp"
-		android:numColumns="3"
-		android:stretchMode="columnWidth"
-		android:verticalSpacing="10dp" />
+	<!-- MAIN CONTENT AREA -->
 
-	<Button
-	    android:id="@+id/menu_return_btn"
-	    style="@style/normal_btn"
-	    android:text="@string/return_menu" />
+	<LinearLayout style="@style/main_content_layout" >
+
+		<!-- DETAILS OF TEST RESULTS -->
+
+		<GridView
+			android:id="@+id/gridview"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:columnWidth="90dp"
+			android:gravity="center"
+			android:horizontalSpacing="10dp"
+			android:numColumns="3"
+			android:stretchMode="columnWidth"
+			android:verticalSpacing="10dp" />
+
+		<!-- RETURN TO MENU BUTTON -->
+
+		<Button
+			android:id="@+id/menu_return_btn"
+			style="@style/normal_btn"
+			android:text="@string/return_menu" />
+	</LinearLayout>
 
 </LinearLayout>

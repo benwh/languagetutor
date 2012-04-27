@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
     <TextView
-        style="@style/title_text"
+        style="@style/header_text"
         android:text="@string/tutorial_comp"
         android:textSize="35sp" />
 

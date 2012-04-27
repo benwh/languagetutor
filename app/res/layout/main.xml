@@ -1,42 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: layout for main menu
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
+	<!-- HEADER CONTENT AREA -->
+
 	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
 			android:id="@+id/main_header_text"
-			style="@style/title_text" />
+			style="@style/header_text" />
 	</LinearLayout>
 
-	<ScrollView
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent" >
+	<!-- MAIN CONTENT AREA -->
+
+	<ScrollView style="@style/scrollview_layout" >
 
 		<LinearLayout style="@style/main_content_layout" >
+
+			<!-- TUTORIALS -->
 
 			<Button
 				android:id="@+id/learnbutton"
 				style="@style/menu_btn"
 				android:text="@string/learn" />
+			<!-- REVIEW TUTORIAL -->
 
 			<Button
 				android:id="@+id/reviewbutton"
 				style="@style/menu_btn"
 				android:text="@string/review" />
+			<!-- TESTS -->
 
 			<Button
 				android:id="@+id/testsbutton"
 				style="@style/menu_btn"
 				android:text="@string/tests" />
+			<!-- USER STATS -->
 
 			<Button
 				android:id="@+id/statsbutton"
 				style="@style/menu_btn"
 				android:text="@string/statistics" />
+			<!-- OPTIONS -->
 
 			<Button
 				android:id="@+id/optionsbutton"

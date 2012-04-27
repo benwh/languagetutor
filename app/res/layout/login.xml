@@ -1,40 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: login screen to access main application
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
+	<!-- HEADER CONTENT AREA -->
+
 	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
-			style="@style/title_header_text"
+			style="@style/header_text"
 			android:text="@string/login" />
 	</LinearLayout>
 
-	<LinearLayout style="@style/main_content_layout" >
+	<!-- MAIN CONTENT AREA -->
 
-		<TextView
-			style="@style/header_text"
-			android:text="@string/username" />
+	<ScrollView style="@style/scrollview_layout" >
 
-		<EditText
-			android:id="@+id/input_username"
-			style="@style/fwidth_editbox"
-			android:inputType="text" />
+		<LinearLayout style="@style/main_content_layout" >
 
-		<TextView
-			style="@style/header_text"
-			android:text="@string/password" />
+			<!-- Username -->
 
-		<EditText
-			android:id="@+id/input_password"
-			style="@style/fwidth_editbox"
-			android:inputType="textPassword" />
+			<TextView
+				style="@style/lable_text"
+				android:text="@string/username" />
 
-		<Button
-			android:id="@+id/login_button"
-			style="@style/normal_btn"
-			android:text="@string/login" />
-	</LinearLayout>
+			<EditText
+				android:id="@+id/input_username"
+				style="@style/fwidth_editbox"
+				android:inputType="text" />
+
+			<!-- Password -->
+
+			<TextView
+				style="@style/lable_text"
+				android:text="@string/password" />
+
+			<EditText
+				android:id="@+id/input_password"
+				style="@style/fwidth_editbox"
+				android:inputType="textPassword" />
+
+			<!-- Login Button -->
+
+			<Button
+				android:id="@+id/login_button"
+				style="@style/normal_btn"
+				android:text="@string/login" />
+		</LinearLayout>
+	</ScrollView>
 
 </LinearLayout>

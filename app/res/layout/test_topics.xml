@@ -8,7 +8,7 @@
 	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
-			style="@style/title_header_text"
+			style="@style/header_text"
 			android:text="@string/topic_selec" />
 		
 	</LinearLayout>

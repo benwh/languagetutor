@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @author 
+ * @modified by Sarah Joyce
+ * @date:26/04/2012
+ * @info: layout for replacement secret question & answer
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
+	<!-- HEADER CONTENT AREA -->
+
 	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
-			style="@style/title_header_text"
+			style="@style/header_text"
 			android:text="@string/chng_secrets" />
 	</LinearLayout>
 
-	<ScrollView
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent" >
+	<!-- MAIN CONTENT AREA -->
+
+	<ScrollView style="@style/scrollview_layout" >
 
 		<LinearLayout style="@style/main_content_layout" >
 
+			<!-- PASSWORD VERIFICATION -->
+
 			<TextView
-				style="@style/header_text"
+				style="@style/lable_text"
 				android:text="@string/password" />
 
 			<EditText
@@ -27,8 +36,10 @@
 				style="@style/fwidth_editbox"
 				android:inputType="textPassword" />
 
+			<!-- SET NEW QUESTION -->
+
 			<TextView
-				style="@style/header_text"
+				style="@style/lable_text"
 				android:text="@string/new_s_question" />
 
 			<EditText
@@ -36,14 +47,18 @@
 				style="@style/fwidth_editbox"
 				android:inputType="text" />
 
+			<!-- SET NEW ANSWER -->
+
 			<TextView
-				style="@style/header_text"
+				style="@style/lable_text"
 				android:text="@string/new_s_answer" />
 
 			<EditText
 				android:id="@+id/editText3"
 				style="@style/fwidth_editbox"
 				android:inputType="text" />
+
+			<!-- REPLACEMENT CONFIRMATION -->
 
 			<Button
 				android:id="@+id/confirm_replace_password"

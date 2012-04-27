@@ -4,16 +4,20 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
+	<!-- ENGLISH WORD -->
+
 	<TextView
 		android:id="@+id/tutorial_srctext"
 		style="@style/tutorial_text_src"
-		android:text="@string/placeholder_src"
-		android:layout_weight="0.50" />
+		android:layout_weight="0.50"
+		android:text="@string/placeholder_src" />
+
+	<!-- SPANISH WORD -->
 
 	<TextView
 		android:id="@+id/tutorial_dsttext"
 		style="@style/tutorial_text_dst"
-		android:text="@string/placeholder_dst"
-		android:layout_weight="0.50"/>
+		android:layout_weight="0.50"
+		android:text="@string/placeholder_dst" />
 
 </LinearLayout>

@@ -2,31 +2,31 @@
 <!--
  * @author 
  * @modified by Sarah Joyce
- * @date:20/04/2012
- * @info: xml file for the create profile page
+ * @date:26/04/2012
+ * @info: layout file for the create profile screen
 -->
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
-<!-- HEADER CONTENT AREA -->
+	<!-- HEADER CONTENT AREA -->
 
 	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
-			style="@style/title_header_text"
+			style="@style/header_text"
 			android:text="@string/create_prof" />
 	</LinearLayout>
 
-<!-- MAIN CONTENT AREA -->
+	<!-- MAIN CONTENT AREA -->
 
 	<ScrollView style="@style/scrollview_layout" >
 
 		<LinearLayout style="@style/main_content_layout" >
-			
+
 			<!-- Username -->
+
 			<TextView
 				style="@style/lable_text"
 				android:text="@string/username" />
@@ -35,8 +35,9 @@
 				android:id="@+id/create_username"
 				style="@style/fwidth_editbox"
 				android:inputType="text" />
-			
+
 			<!-- Password -->
+
 			<TextView
 				style="@style/lable_text"
 				android:text="@string/password" />
@@ -45,8 +46,9 @@
 				android:id="@+id/create_password"
 				style="@style/fwidth_editbox"
 				android:inputType="textPassword" />
-			
+
 			<!-- Confirm Password -->
+
 			<TextView
 				style="@style/lable_text"
 				android:text="@string/c_password" />
@@ -55,19 +57,20 @@
 				android:id="@+id/confirm_password"
 				style="@style/fwidth_editbox"
 				android:inputType="textPassword" />
-			
+
 			<!-- Secret Question -->
+
 			<TextView
 				style="@style/lable_text"
 				android:text="@string/s_question" />
 
-			
 			<EditText
 				android:id="@+id/create_sq"
 				style="@style/fwidth_editbox"
 				android:inputType="text" />
 
 			<!-- Secret Answer -->
+
 			<TextView
 				style="@style/lable_text"
 				android:text="@string/s_answer" />
@@ -78,13 +81,12 @@
 				android:inputType="text" />
 
 			<!-- Submit Profile Creation -->
+
 			<Button
 				android:id="@+id/create_profile_button"
 				style="@style/normal_btn"
 				android:text="@string/create_prof" />
-			
 		</LinearLayout>
-		
 	</ScrollView>
 
 </LinearLayout>
