@@ -14,7 +14,7 @@ import ncl.team22.languagetutor.data.Topic;
 public class TestData
 {
 
-	private static ArrayList<LanguageEntity>	entitiesList;
+	private static ArrayList<LanguageEntity>	entitiesList	= new ArrayList<LanguageEntity>();
 	// Prevent asked questions being asked again but enable them to be fed as
 	// incorrect options
 	private static ArrayList<LanguageEntity>	entitiesRemoved	= new ArrayList<LanguageEntity>();
