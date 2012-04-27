@@ -89,6 +89,7 @@ public class Topics extends ListActivity
 		{
 			// Ensure test result and counter values are clear
 			TestResult.reset();
+			Test.setTestLength(8);
 
 			// As the ListView is a list of 'Topic's can now just pull
 			// the selected Topic out and use it for the intent
