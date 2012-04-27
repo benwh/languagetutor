@@ -60,14 +60,6 @@
 
 		<TextView
 			style="@style/lable_text"
-			android:text="@string/highest_game_score" />
-
-		<TextView
-			android:id="@+id/highest_game_score_text"
-			style="@style/small_text" />
-
-		<TextView
-			style="@style/lable_text"
 			android:text="@string/language_rating" />
 
 		<TextView

@@ -65,9 +65,8 @@
     <string name="favourite_word">Favourite word:</string>
     <string name="least_favourite_word">Least favourite word:</string>
     <string name="highest_test_score">Highest test score:</string>
-    <string name="highest_game_score">Highest game score:</string>
     <string name="language_rating">Spanish language rating:</string>
-    <string name="words_incountered">Number of words learnt:</string>
+    <string name="words_incountered">Number of words learned:</string>
 
 <!-- USER DETAILS -->
     <string name="username">Username:</string>
