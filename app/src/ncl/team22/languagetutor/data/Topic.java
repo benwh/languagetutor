@@ -10,6 +10,13 @@ import android.util.Log;
 import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.test.LevelSelect;
 
+/**
+ * Provides topic structure and useful methods for getting information and data
+ * regarding topics from the database, as well as overriding toString
+ * 
+ * @author ben, james
+ * 
+ */
 public class Topic implements Serializable
 {
 	private static final long	serialVersionUID	= -4417480132232338235L;
@@ -34,6 +41,7 @@ public class Topic implements Serializable
 
 	// This is no longer used, may be removed if we don't find another use for
 	// it
+	// TODO: Still not used, can probably remove?
 	public static Topic getTopicById(int topicID)
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
@@ -48,6 +56,13 @@ public class Topic implements Serializable
 		return t;
 	}
 
+	/**
+	 * Get the id of a topic that was selected
+	 * 
+	 * @param selectedTopic
+	 *            - the selected topic
+	 * @return the id value from the database
+	 */
 	public static int getIdByTopic(Topic selectedTopic)
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
@@ -62,6 +77,11 @@ public class Topic implements Serializable
 		return topicId;
 	}
 
+	/**
+	 * Get the arraylist of language entities for a selected topic
+	 * 
+	 * @return arraylist of language entities
+	 */
 	public ArrayList<LanguageEntity> getEntities()
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
@@ -87,9 +107,9 @@ public class Topic implements Serializable
 	}
 
 	/**
-	 * Within a level
+	 * Get all entities from within a level
 	 * 
-	 * @return the list of entities
+	 * @return the arraylist of entities
 	 */
 	public static ArrayList<LanguageEntity> getAllEntities()
 	{
@@ -116,7 +136,13 @@ public class Topic implements Serializable
 		return entities;
 	}
 
-	// May need to return a Cursor instead
+	/**
+	 * Gets arraylist of topics on a specific level
+	 * 
+	 * @param level
+	 *            - the level to get topics from
+	 * @return arraylist of topics
+	 */
 	public static ArrayList<Topic> getTopics(int level)
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
@@ -142,6 +168,7 @@ public class Topic implements Serializable
 		return tlist;
 	}
 
+	// TODO: Method doesn't appear to be used, remove?
 	public static ArrayList<Topic> getTopics()
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
@@ -162,6 +189,13 @@ public class Topic implements Serializable
 		return tlist;
 	}
 
+	/**
+	 * Get the best test result for a given setID
+	 * 
+	 * @param langsetId
+	 *            - the setID
+	 * @return string representation of integer value
+	 */
 	public static String getBestResultById(int langsetId)
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
@@ -186,6 +220,13 @@ public class Topic implements Serializable
 		}
 	}
 
+	/**
+	 * Get the setID of a topic based on the topic name
+	 * 
+	 * @param topicName
+	 *            - name of the topic
+	 * @return the setID of the named topic
+	 */
 	public static int getLangsetIdByName(String topicName)
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
