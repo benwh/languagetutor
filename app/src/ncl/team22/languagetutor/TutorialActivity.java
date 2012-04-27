@@ -8,6 +8,8 @@ import java.util.Collections;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.AssetManager;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -96,10 +98,24 @@ public class TutorialActivity extends Activity
 		tutPager = (ViewPager) findViewById(R.id.tutpager);
 		tutPager.setAdapter(pagerAdapter);
 
-		// explains to user how to interact with gui, non invasive
-		Toast toast = Toast.makeText(getApplicationContext(), "Swipe To Continue ->", Toast.LENGTH_LONG);
-		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-		toast.show();
+		// Display a hint to the user on how to interact with the tutorial
+		int currentProfId = LanguagetutorActivity.currentProfile.profileID;
+		String hintDispKey = new String("hint_tutswipe_displayed_profile:"
+				+ currentProfId);
+		SharedPreferences settings = getSharedPreferences(LanguagetutorActivity.PREFS_NAME, MODE_PRIVATE);
+		boolean hintAlreadyDisplayed = settings.getBoolean(hintDispKey, false);
+
+		if (!hintAlreadyDisplayed)
+		{
+			Toast toast = Toast.makeText(getApplicationContext(), "Swipe left to continue", Toast.LENGTH_LONG);
+			toast.setGravity(Gravity.BOTTOM, 0, 50);
+			toast.show();
+
+			Editor e = settings.edit();
+			e.putBoolean(hintDispKey, true);
+			e.apply();
+		}
+
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
