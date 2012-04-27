@@ -36,7 +36,9 @@
 
 			<TextView
 				android:id="@+id/multi_question"
-				style="@style/center_text" />
+				style="@style/center_text"
+				 android:layout_marginBottom="20dp"
+				 android:layout_marginTop="20dp" />
 
 			<!-- ANSWERS -->
 			<Button
