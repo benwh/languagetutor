@@ -3,6 +3,7 @@ package ncl.team22.languagetutor.test;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,8 +18,10 @@ import ncl.team22.languagetutor.profile.Profile;
  */
 public class LevelSelect extends Activity
 {
-	private static int	level		= 0;
-	private int			userLevel	= Profile.getUserLevel();
+	private static int			level		= 0;
+	private int					userLevel	= Profile.getUserLevel();
+
+	private static final String	TAG			= "LT-LevelSelect";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -36,6 +39,10 @@ public class LevelSelect extends Activity
 				Intent i = new Intent(LevelSelect.this, Topics.class);
 				i.addFlags(1);
 				startActivity(i);
+
+				// EXPERIMENTAL
+				Log.d(TAG, "Finish reached...");
+				finish();
 			}
 		});
 
@@ -49,6 +56,10 @@ public class LevelSelect extends Activity
 				Intent i = new Intent(LevelSelect.this, Topics.class);
 				i.addFlags(1);
 				startActivity(i);
+
+				// EXPERIMENTAL
+				Log.d(TAG, "Finish reached...");
+				finish();
 			}
 		});
 
@@ -62,6 +73,10 @@ public class LevelSelect extends Activity
 				Intent i = new Intent(LevelSelect.this, Topics.class);
 				i.addFlags(1);
 				startActivity(i);
+
+				// EXPERIMENTAL
+				Log.d(TAG, "Finish reached...");
+				finish();
 			}
 		});
 

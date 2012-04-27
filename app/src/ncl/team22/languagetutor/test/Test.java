@@ -26,18 +26,18 @@ import ncl.team22.languagetutor.data.Topic;
 public class Test extends Activity
 {
 	static Topic				selectedTopic;
-	static boolean				backPressed		= false;
-	static boolean				testComplete	= false;
-	static boolean				isMixedTest		= false;
-	static int					TEST_MAX		= 8;
-	static int					TEST_MID		= 6;
+	// static boolean backPressed = false;
+	// static boolean testComplete = false;
+	static boolean				isMixedTest	= false;
+	static int					TEST_MAX	= 8;
+	static int					TEST_MID	= 6;
 
 	LanguageEntity				current;
-	Random						randGen			= new Random();
+	Random						randGen		= new Random();
 	int							switchVal;
 	int							entityID;
 
-	public static final String	TAG				= "LT-Test";
+	public static final String	TAG			= "LT-Test";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -87,11 +87,10 @@ public class Test extends Activity
 		{
 			setContentView(R.layout.test_submitted);
 
-			// Test is finished, as mixed test is not submitted
-			if (isMixedTest == false)
-			{
-				testComplete = true;
-			}
+			/*
+			 * // Test is finished, as mixed test is not submitted if
+			 * (isMixedTest == false) { testComplete = true; }
+			 */
 
 			if (isMixedTest == true)
 			{
@@ -115,6 +114,10 @@ public class Test extends Activity
 			Intent i = new Intent(Test.this, TestReview.class);
 			i.setFlags(99);
 			startActivity(i);
+
+			// EXPERIMENTAL
+			Log.d(TAG, "Finish reached...");
+			finish();
 		}
 	}
 
@@ -585,6 +588,10 @@ public class Test extends Activity
 					Intent i = new Intent(Test.this, Test.class);
 					i.setFlags(99);
 					startActivity(i);
+
+					// EXPERIMENTAL
+					Log.d(TAG, "MQ: Finish reached...");
+					finish();
 				}
 				else
 				{
@@ -597,6 +604,10 @@ public class Test extends Activity
 					Intent i = new Intent(Test.this, Test.class);
 					i.setFlags(99);
 					startActivity(i);
+
+					// EXPERIMENTAL
+					Log.d(TAG, "MQ: Finish reached...");
+					finish();
 				}
 			}
 		};
@@ -723,6 +734,10 @@ public class Test extends Activity
 					Intent i = new Intent(Test.this, Test.class);
 					i.setFlags(99);
 					startActivity(i);
+
+					// EXPERIMENTAL
+					Log.d(TAG, "WQ: Finish reached...");
+					finish();
 				}
 			}
 		});
@@ -783,36 +798,15 @@ public class Test extends Activity
 		}
 	}
 
-	@Override
-	public void onBackPressed()
-	{
-		if (getIntent().getFlags() == 100)
-		{
-			TestResult.reset();
-			TestData.resetData();
-			// Reset test length values to default
-			setTestLength(8);
-		}
-		backPressed = true;
-		finish();
-		Log.d(TAG, "Reverting back to topic select...");
-	}
-
-	@Override
-	public void onWindowFocusChanged(boolean hasFocus)
-	{
-		if (getIntent().getFlags() == 99 && backPressed == true)
-		{
-			onBackPressed();
-		}
-		else if ((getIntent().getFlags() == 98 || getIntent().getFlags() == 100)
-				&& backPressed == true)
-		{
-			TestResult.reset();
-			TestData.resetData();
-			// Reset test length values to default
-			setTestLength(8);
-			finish();
-		}
-	}
+	/*
+	 * @Override public void onBackPressed() { if (getIntent().getFlags() ==
+	 * 100) { TestResult.reset(); TestData.resetData(); // Reset test length
+	 * values to default setTestLength(8); } backPressed = true; finish();
+	 * Log.d(TAG, "Reverting back to topic select..."); }
+	 * @Override public void onWindowFocusChanged(boolean hasFocus) { if
+	 * (getIntent().getFlags() == 99 && backPressed == true) { onBackPressed();
+	 * } else if ((getIntent().getFlags() == 98 || getIntent().getFlags() ==
+	 * 100) && backPressed == true) { TestResult.reset(); TestData.resetData();
+	 * // Reset test length values to default setTestLength(8); finish(); } }
+	 */
 }
