@@ -16,7 +16,8 @@
 
 		<TextView
 			style="@style/header_text"
-			android:text="@string/review_completed" />
+			android:text="@string/review_completed"
+			android:textSize="35dp" />
 	</LinearLayout>
 
 	<!-- MAIN CONTENT AREA -->
