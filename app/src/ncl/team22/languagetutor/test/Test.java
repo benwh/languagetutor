@@ -87,8 +87,11 @@ public class Test extends Activity
 		{
 			setContentView(R.layout.test_submitted);
 
-			// Test is finished
-			testComplete = true;
+			// Test is finished, as mixed test is not submitted
+			if (isMixedTest == false)
+			{
+				testComplete = true;
+			}
 
 			if (isMixedTest == true)
 			{

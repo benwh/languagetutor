@@ -72,7 +72,7 @@ public class Topics extends ListActivity
 			@Override
 			public void onClick(View v)
 			{
-				Test.setTestLength(16);
+				Test.setTestLength(14);
 				Test.setMixedTest(true);
 				Intent intent = new Intent(Topics.this, Test.class);
 				intent.setFlags(100);
