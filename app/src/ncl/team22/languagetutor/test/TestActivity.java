@@ -610,6 +610,15 @@ public class TestActivity extends Activity
 			}
 		};
 
+		// Resize text if phrase/partial-phrase detected
+		if (current.phrase || current.phrase_partial)
+		{
+			option0.setTextSize(15);
+			option1.setTextSize(15);
+			option2.setTextSize(15);
+			option3.setTextSize(15);
+		}
+
 		// Set the buttons with click listener
 		option0.setOnClickListener(buttonListener);
 		option1.setOnClickListener(buttonListener);
