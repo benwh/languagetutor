@@ -50,10 +50,20 @@
 			android:layout_height="wrap_content"
 			android:orientation="vertical" >
 
-			<RatingBar
-				android:id="@+id/review_item_rating"
-				style="@style/rate_bar"
-				android:layout_marginBottom="30dp" />
+			<RelativeLayout
+				android:id="@+id/r"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="30dp" >
+
+				<RatingBar
+					android:id="@+id/review_item_rating"
+					style="@style/rate_bar"
+					android:layout_width="wrap_content"
+					android:layout_alignParentTop="true"
+					android:layout_centerHorizontal="true" />
+
+			</RelativeLayout>
 
 			<Button
 				android:id="@+id/review_item_nextbutton"
