@@ -39,23 +39,6 @@ public class Topic implements Serializable
 		this.displayable = displayable;
 	}
 
-	// This is no longer used, may be removed if we don't find another use for
-	// it
-	// TODO: Still not used, can probably remove?
-	public static Topic getTopicById(int topicID)
-	{
-		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
-
-		Cursor c = sDb.query(DatabaseAdapter.TABLE_TOPIC, new String[]
-		{"setID", "name", "level", "locked", "displayable"}, "setID = " + "?", new String[]
-		{Integer.toString(topicID)}, null, null, null);
-		c.moveToFirst();
-
-		Topic t = new Topic(c.getInt(0), c.getString(1), c.getInt(2), (c.getInt(3) > 0), (c.getInt(4) > 0));
-
-		return t;
-	}
-
 	/**
 	 * Get the id of a topic that was selected
 	 * 
@@ -162,27 +145,6 @@ public class Topic implements Serializable
 			{
 				tlist.add(t);
 			}
-			c.moveToNext();
-		}
-
-		return tlist;
-	}
-
-	// TODO: Method doesn't appear to be used, remove?
-	public static ArrayList<Topic> getTopics()
-	{
-		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
-
-		ArrayList<Topic> tlist = new ArrayList<Topic>();
-
-		Cursor c = sDb.query(DatabaseAdapter.TABLE_TOPIC, new String[]
-		{"setID", "name", "level", "locked", "displayable"}, null, null, null, null, null);
-		c.moveToFirst();
-		while (!c.isAfterLast())
-		{
-			// Expressions required on columns 3 + 4 to return boolean instead
-			// of int
-			tlist.add(new Topic(c.getInt(0), c.getString(1), c.getInt(2), (c.getInt(3) > 0), (c.getInt(4) > 0)));
 			c.moveToNext();
 		}
 
