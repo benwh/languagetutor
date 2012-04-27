@@ -42,7 +42,6 @@ public class Statistics extends Activity
 		favView = (TextView) findViewById(R.id.favourite_word_text);
 		leastFaveView = (TextView) findViewById(R.id.least_favourite_word_text);
 		testScoreView = (TextView) findViewById(R.id.highest_test_score_text);
-		gameScoreView = (TextView) findViewById(R.id.highest_game_score_text);
 		ratingView = (TextView) findViewById(R.id.spanish_language_rating_text);
 		levelView = (TextView) findViewById(R.id.userleveltext);
 
@@ -55,8 +54,7 @@ public class Statistics extends Activity
 		String noOfWordsPracticed = Integer.toString(c.getCount());
 		noOFWordsView.setText(noOfWordsPracticed);
 
-		// Calculate the users best score and put present it in the correct
-		// place
+		// Calculate the users best score and put presents it to the user
 		String bestTestResult;
 		myQuery = "SELECT MAX(score) as high_score FROM "
 				+ DatabaseAdapter.TABLE_TEST_RESULTS + " WHERE profileID = ?";
@@ -71,23 +69,6 @@ public class Statistics extends Activity
 			bestTestResult = "N/A";
 		}
 		testScoreView.setText(bestTestResult);
-
-		// Calculates the users best game score and presents it in the correct
-		// place
-		String bestGameResult;
-		myQuery = "SELECT MAX(points) as high_score FROM "
-				+ DatabaseAdapter.TABLE_GAME_RESULTS + " WHERE profileID = ?";
-		c = sDb.rawQuery(myQuery, new String[]
-		{Integer.toString(LanguagetutorActivity.currentProfile.profileID)});
-		if (c.moveToFirst())
-		{
-			bestGameResult = Integer.toString(c.getInt(c.getColumnIndex("high_score")));
-		}
-		else
-		{
-			bestGameResult = "N/A";
-		}
-		gameScoreView.setText(bestGameResult);
 
 		// Calculates what the users favorite word is and presents it in the
 		// correct place

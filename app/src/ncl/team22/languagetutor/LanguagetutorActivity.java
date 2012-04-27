@@ -16,6 +16,11 @@ import ncl.team22.languagetutor.data.DatabaseAdapter;
 import ncl.team22.languagetutor.profile.Profile;
 import ncl.team22.languagetutor.profile.ProfileOptions;
 
+/**
+ * Main activity for the program presents users with the main menu.
+ * 
+ * @author Ben
+ */
 public class LanguagetutorActivity extends Activity
 {
 	private static final int		LOGOUT				= Menu.FIRST;
@@ -29,7 +34,6 @@ public class LanguagetutorActivity extends Activity
 	public static Profile			currentProfile		= null;
 	public TextView					headerText;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -138,6 +142,7 @@ public class LanguagetutorActivity extends Activity
 		return super.onMenuItemSelected(featureId, item);
 	}
 
+	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
 		switch (requestCode)
@@ -149,7 +154,6 @@ public class LanguagetutorActivity extends Activity
 					Log.d(TAG, "Login activity returned OK");
 					headerText.setText("Hola " + currentProfile.display_name
 							+ "!");
-
 				}
 				// Catch back button being pressed in Login activity
 				else if (resultCode == Activity.RESULT_CANCELED)

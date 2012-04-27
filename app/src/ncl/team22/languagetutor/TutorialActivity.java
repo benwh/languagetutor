@@ -26,6 +26,11 @@ import ncl.team22.languagetutor.data.LanguageEntity;
 import ncl.team22.languagetutor.data.SRAlgorithm;
 import ncl.team22.languagetutor.data.Topic;
 
+/**
+ * Activity for taking the user through a tutorial of the selected topic.
+ * 
+ * @author Ben
+ */
 public class TutorialActivity extends Activity
 {
 

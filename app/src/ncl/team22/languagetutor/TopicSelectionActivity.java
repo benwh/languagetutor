@@ -19,6 +19,11 @@ import android.widget.ViewFlipper;
 import ncl.team22.languagetutor.data.Topic;
 import ncl.team22.languagetutor.profile.Profile;
 
+/**
+ * Activity for selecting a study topic only topics of the users level are
+ * 
+ * @author Ben
+ */
 public class TopicSelectionActivity extends Activity
 {
 

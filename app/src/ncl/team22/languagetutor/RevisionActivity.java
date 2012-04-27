@@ -18,6 +18,12 @@ import ncl.team22.languagetutor.data.LanguageEntity;
 import ncl.team22.languagetutor.data.SRAlgorithm;
 import ncl.team22.languagetutor.data.Topic;
 
+/**
+ * Activity that allows users to review words they have learned
+ * 
+ * @author Ben
+ * 
+ */
 public class RevisionActivity extends Activity
 {
 
