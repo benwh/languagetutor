@@ -29,6 +29,7 @@
 
 		<GridView
 			android:id="@+id/gridview"
+			android:layout_weight="0.85"
 			android:layout_width="fill_parent"
 			android:layout_height="fill_parent"
 			android:columnWidth="90dp"
@@ -43,6 +44,7 @@
 		<Button
 			android:id="@+id/menu_return_btn"
 			style="@style/normal_btn"
+			android:layout_weight="0.15"
 			android:text="@string/return_menu" />
 	</LinearLayout>
 
