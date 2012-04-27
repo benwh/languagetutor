@@ -44,7 +44,7 @@ INSERT INTO `langentity` VALUES(19  , 0 , 0 , "Yellow"                     , "Am
 INSERT INTO `langentity` VALUES(20  , 0 , 0 , "Green"                      , "Verde"                               , 0 , 1);
 INSERT INTO `langentity` VALUES(21  , 0 , 0 , "Blue"                       , "Azul"                                , 0 , 1);
 INSERT INTO `langentity` VALUES(22  , 0 , 0 , "Purple"                     , "Morado"                              , 0 , 1);
-INSERT INTO `langentity` VALUES(23  , 0 , 0 , "Pink "                      , "Rosa"                                , 0 , 1);
+INSERT INTO `langentity` VALUES(23  , 0 , 0 , "Pink"                      , "Rosa"                                , 0 , 1);
 INSERT INTO `langentity` VALUES(24  , 0 , 0 , "White"                      , "Blanco"                              , 0 , 1);
 INSERT INTO `langentity` VALUES(25  , 0 , 0 , "Black"                      , "Negro"                               , 0 , 1);
 INSERT INTO `langentity` VALUES(26  , 0 , 0 , "Brown"                      , "Marron"                              , 0 , 1);
