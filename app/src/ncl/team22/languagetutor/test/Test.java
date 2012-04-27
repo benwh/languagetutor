@@ -160,6 +160,10 @@ public class Test extends Activity
 		TestData.removeFromEntitiesList(entityID);
 	}
 
+	/**
+	 * Sets button text and logic for multiple choice questions, including
+	 * random generations and call to the setQuestion method
+	 */
 	public void getMultiQuestion()
 	{
 		// Generate a number 0 or 1 for input to switch statement
@@ -604,6 +608,10 @@ public class Test extends Activity
 		option3.setOnClickListener(buttonListener);
 	}
 
+	/**
+	 * Sets button text and logic for written questions, including comparison
+	 * algorithm and call to the setQuestion method
+	 */
 	public void getWrittenQuestion()
 	{
 		// Generate a number 0 or 1 for input to switch statement
