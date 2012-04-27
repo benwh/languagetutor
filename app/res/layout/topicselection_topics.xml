@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical" >
-
-	<LinearLayout style="@style/header_content_layout" >
-
-		<TextView
-			style="@style/title_header_text"
-			android:text="@string/topic_selec" />
-	</LinearLayout>
-
-	<!-- As essential layout for each difficulty levels topic selection will be the same, used for all 3 -->
-
-	<ListView
-		android:id="@+id/android:list"
-		style="@style/seperate" />
-
-	<Button
-		android:id="@+id/mixtest"
-		style="@style/menu_btn"
-		android:text="@string/mixed_topics" />
-
-</LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+     
+            <LinearLayout style="@style/header_content_layout" >
+     
+                    <TextView
+                            style="@style/title_header_text"
+                            android:text="@string/topic_selec" />
+            </LinearLayout>
+     
+            <!-- As essential layout for each difficulty levels topic selection will be the same, used for all 3 -->
+     
+            <LinearLayout style="@style/main_content_layout" >
+     
+     
+                    <ListView
+                            android:id="@+id/android:list"
+                            style="@style/seperate"
+                            android:layout_weight="0.9" />
+     
+                    <Button
+							style="@style/menu_btn"
+                            android:id="@+id/mixtest"
+                            android:layout_weight="0.1"
+                            android:text="@string/mixed_topics" />
+                    
+            </LinearLayout>
+     
+    </LinearLayout>

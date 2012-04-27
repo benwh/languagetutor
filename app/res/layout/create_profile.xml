@@ -4,11 +4,14 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
 
+<!-- HEADER CONTENT AREA -->
 	<LinearLayout style="@style/header_content_layout" >
 
 		<TextView
 			style="@style/title_header_text"
 			android:text="@string/create_prof" />
+		
+<!-- MAIN CONTENT AREA -->		
 	</LinearLayout>
 
 	<ScrollView
