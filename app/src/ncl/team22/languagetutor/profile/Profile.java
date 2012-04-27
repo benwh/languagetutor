@@ -14,7 +14,7 @@ import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 
 /**
- * Activity to represent a users profile
+ * Class to represent a users profile
  * 
  * @author Ben
  */
