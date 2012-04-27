@@ -128,36 +128,45 @@ public class TutorialActivity extends Activity
 			// Display tutorial complete page if on last page
 			if (position == numPages - 1)
 			{
-				lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial_complete, null);
+				// Don't offer to review if user has taken a mixed tutorial
+				if (selectedTopics.size() > 1)
+				{
+					lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial_complete_noreview, null);
+				}
+				else
+				{
+					lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial_complete, null);
 
-				yesButton = (Button) lv.findViewById(R.id.tutorial_review_yes);
-				noButton = (Button) lv.findViewById(R.id.tutorial_review_no);
+					yesButton = (Button) lv.findViewById(R.id.tutorial_review_yes);
+					noButton = (Button) lv.findViewById(R.id.tutorial_review_no);
 
-				yesButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v)
-					{
-						// Need to use startActivityForResult so
-						// getCallingActivity() works in RevisionActivity. 1 is
-						// used as the requestCode as we don't care what type of
-						// req it is
-						Intent i = new Intent(TutorialActivity.this, ncl.team22.languagetutor.RevisionActivity.class);
-						i.putExtra(RevisionActivity.SELECTED_TOPIC, selectedTopics.get(0));
-						Log.d(TAG, "Putting "
-								+ selectedTopics.get(0).toString());
-						startActivityForResult(i, 1);
-						finish();
-					}
-				});
+					yesButton.setOnClickListener(new OnClickListener() {
+						@Override
+						public void onClick(View v)
+						{
+							// Need to use startActivityForResult so
+							// getCallingActivity() works in RevisionActivity. 1
+							// is
+							// used as the requestCode as we don't care what
+							// type of
+							// req it is
+							Intent i = new Intent(TutorialActivity.this, ncl.team22.languagetutor.RevisionActivity.class);
+							i.putExtra(RevisionActivity.SELECTED_TOPIC, selectedTopics.get(0));
+							Log.d(TAG, "Putting "
+									+ selectedTopics.get(0).toString());
+							startActivityForResult(i, 1);
+							finish();
+						}
+					});
 
-				noButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v)
-					{
-						finish();
-					}
-				});
-
+					noButton.setOnClickListener(new OnClickListener() {
+						@Override
+						public void onClick(View v)
+						{
+							finish();
+						}
+					});
+				}
 			}
 			else
 			{
