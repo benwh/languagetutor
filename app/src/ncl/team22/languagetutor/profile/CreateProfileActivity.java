@@ -95,14 +95,22 @@ public class CreateProfileActivity extends Activity
 		boolean valid = false;
 		if (!Profile.checkName(vUsename))
 		{
-			if (vCPass.equals(vPass) && (vPass.length() > 0))
+			if (vUsename.length() > 10)
 			{
-				valid = true;
+				if (vCPass.equals(vPass) && (vPass.length() > 0))
+				{
+					valid = true;
+
+				}
+				else
+				{
+					errorMessage = "Your passwords didn't match, please try again.";
+				}
 
 			}
 			else
 			{
-				errorMessage = "Your passwords didn't match, please try again.";
+				errorMessage = "That username has to many charecter, please try a shorter one.";
 			}
 
 		}
