@@ -42,10 +42,10 @@
 		<!-- RETURN TO MENU BUTTON -->
 
 		<Button
-			android:id="@+id/menu_return_btn"
+			android:id="@+id/result_return_btn"
 			style="@style/normal_btn"
 			android:layout_weight="0.15"
-			android:text="@string/return_menu" />
+			android:text="@string/return_result" />
 	</LinearLayout>
 
 </LinearLayout>

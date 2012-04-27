@@ -25,7 +25,7 @@ public class TestReviewGrid extends Activity
 		GridView gridview = (GridView) findViewById(R.id.gridview);
 		gridview.setAdapter(new ArrayAdapter<String>(this, R.layout.test_review_grid_row, review));
 
-		Button returnButton = (Button) findViewById(R.id.menu_return_btn);
+		Button returnButton = (Button) findViewById(R.id.result_return_btn);
 		returnButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v)
