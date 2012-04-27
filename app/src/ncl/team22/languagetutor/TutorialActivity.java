@@ -172,6 +172,10 @@ public class TutorialActivity extends Activity
 					{
 						assetStream = assets.open("tut-pics/"
 								+ currentEnt.entityID + ".png");
+
+						BitmapDrawable bm = new BitmapDrawable(getResources(), assetStream);
+						ImageView img = (ImageView) lv.findViewById(R.id.tutorial_imageview);
+						img.setImageDrawable(bm);
 					} catch (IOException ex)
 					{
 						// If couldn't read asset then go back to non-image
@@ -189,9 +193,6 @@ public class TutorialActivity extends Activity
 						}
 					}
 
-					BitmapDrawable bm = new BitmapDrawable(getResources(), assetStream);
-					ImageView img = (ImageView) lv.findViewById(R.id.tutorial_imageview);
-					img.setImageDrawable(bm);
 				}
 				else
 				{

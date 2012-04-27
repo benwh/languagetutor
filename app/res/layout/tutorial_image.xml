@@ -15,7 +15,7 @@
 		android:textAppearance="?android:attr/textAppearanceLarge" />
 
 	<ImageView
-		android:id="@+id/imageView1"
+		android:id="@+id/tutorial_imageview"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_weight="0.33"
