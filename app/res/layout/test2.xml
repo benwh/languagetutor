@@ -21,34 +21,36 @@
 
 	<!-- MAIN CONTENT AREA -->
 
-	<LinearLayout style="@style/main_content_layout" >
+	<ScrollView style="@style/scrollview_layout" >
 
-		<!-- QUESTION -->
+		<LinearLayout style="@style/main_content_layout" >
 
-		<TextView
-			android:id="@+id/written_question_head"
-			style="@style/lable_text"
-			android:text="@string/written_question" />
+			<!-- QUESTION -->
 
-		<TextView
-			android:id="@+id/written_question"
-			style="@style/center_text"
-			android:layout_marginBottom="20dp"
-			android:layout_marginTop="20dp" />
+			<TextView
+				android:id="@+id/written_question_head"
+				style="@style/lable_text"
+				android:text="@string/written_question" />
 
-		<!-- ANSWER BOX -->
+			<TextView
+				android:id="@+id/written_question"
+				style="@style/center_text"
+				android:layout_marginBottom="20dp"
+				android:layout_marginTop="20dp" />
 
-		<EditText
-			android:id="@+id/written_answer"
-			style="@style/middle_editbox"
-			android:inputType="text" />
+			<!-- ANSWER BOX -->
 
-		<!-- SUBMIT ANSWER -->
+			<EditText
+				android:id="@+id/written_answer"
+				style="@style/middle_editbox"
+				android:inputType="text" />
 
-		<Button
-			android:id="@+id/submit_answer"
-			style="@style/normal_btn"
-			android:text="@string/submit_answer" />
-	</LinearLayout>
+			<!-- SUBMIT ANSWER -->
 
+			<Button
+				android:id="@+id/submit_answer"
+				style="@style/normal_btn"
+				android:text="@string/submit_answer" />
+		</LinearLayout>
+	</ScrollView>
 </LinearLayout>
