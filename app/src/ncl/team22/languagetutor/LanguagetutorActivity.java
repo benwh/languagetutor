@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 import ncl.team22.languagetutor.profile.Profile;
-import ncl.team22.languagetutor.profile.ProfileOptions;
+import ncl.team22.languagetutor.profile.ProfileOptionsActivity;
 
 /**
  * Main activity for the program presents users with the main menu.
@@ -48,7 +48,7 @@ public class LanguagetutorActivity extends Activity
 
 		if (activeProfileID == -1)
 		{
-			startActivityForResult(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class), LanguagetutorActivity.REQUEST_LOGIN);
+			startActivityForResult(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.LoginActivity.class), LanguagetutorActivity.REQUEST_LOGIN);
 		}
 		else
 		{
@@ -81,7 +81,7 @@ public class LanguagetutorActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				Intent i = new Intent(LanguagetutorActivity.this, ProfileOptions.class);
+				Intent i = new Intent(LanguagetutorActivity.this, ProfileOptionsActivity.class);
 				startActivity(i);
 			}
 		});
@@ -91,7 +91,7 @@ public class LanguagetutorActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				Intent i = new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.test.LevelSelect.class);
+				Intent i = new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.test.LevelSelectActivity.class);
 				startActivity(i);
 			}
 		});
@@ -101,7 +101,7 @@ public class LanguagetutorActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				Intent i = new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Statistics.class);
+				Intent i = new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.StatisticsActivity.class);
 				startActivity(i);
 			}
 		});
@@ -136,7 +136,7 @@ public class LanguagetutorActivity extends Activity
 				e.putInt(LanguagetutorActivity.ACTIVE_PROFILE_ID, -1);
 				e.apply();
 
-				startActivityForResult(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.Login.class), REQUEST_LOGIN);
+				startActivityForResult(new Intent(LanguagetutorActivity.this, ncl.team22.languagetutor.profile.LoginActivity.class), REQUEST_LOGIN);
 				break;
 		}
 		return super.onMenuItemSelected(featureId, item);

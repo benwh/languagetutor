@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import ncl.team22.languagetutor.LanguagetutorActivity;
-import ncl.team22.languagetutor.test.LevelSelect;
+import ncl.team22.languagetutor.test.LevelSelectActivity;
 
 /**
  * Provides topic structure and useful methods for getting information and data
@@ -117,14 +117,14 @@ public class Topic implements Serializable
 
 		ArrayList<LanguageEntity> entities = new ArrayList<LanguageEntity>();
 
-		Log.d(TAG, "Level is: " + LevelSelect.getLevel());
+		Log.d(TAG, "Level is: " + LevelSelectActivity.getLevel());
 
 		String sqlStatement = "SELECT langentity.entityID _id, phrase, phrase_partial, source_text, dest_text, audio_asset, image_asset "
 				+ "FROM langentity, entity_set, langset "
 				+ "WHERE langentity.entityId = entity_set.entityId AND (langset.level = "
 				+ "?" + " AND langset.setId = entity_set.setId)";
 		Cursor d = sDb.rawQuery(sqlStatement, new String[]
-		{Integer.toString(LevelSelect.getLevel())});
+		{Integer.toString(LevelSelectActivity.getLevel())});
 
 		d.moveToFirst();
 		while (!d.isAfterLast())

@@ -21,11 +21,11 @@
 			</intent-filter>
 		</activity>
 		<activity
-			android:name=".profile.ProfileSelection"
+			android:name=".profile.ProfileSelectionActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
-			android:name=".test.LevelSelect"
+			android:name=".test.LevelSelectActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
@@ -33,11 +33,11 @@
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
-			android:name=".test.Test"
+			android:name=".test.TestActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
-			android:name=".test.TestReview"
+			android:name=".test.TestReviewActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
@@ -45,23 +45,23 @@
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
-			android:name=".profile.ReplaceQA"
+			android:name=".profile.ReplaceQAActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
-			android:name=".profile.ProfileOptions"
+			android:name=".profile.ProfileOptionsActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
-			android:name=".profile.ReplacePassword"
+			android:name=".profile.ReplacePasswordActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
-			android:name=".profile.Login"
+			android:name=".profile.LoginActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
-			android:name=".profile.CreateProfile"
+			android:name=".profile.CreateProfileActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
@@ -69,7 +69,7 @@
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
-			android:name=".profile.Statistics"
+			android:name=".profile.StatisticsActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
