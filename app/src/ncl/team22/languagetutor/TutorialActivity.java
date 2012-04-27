@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import ncl.team22.languagetutor.data.LanguageEntity;
+import ncl.team22.languagetutor.data.SRAlgorithm;
 import ncl.team22.languagetutor.data.Topic;
 
 public class TutorialActivity extends Activity
@@ -129,7 +130,15 @@ public class TutorialActivity extends Activity
 			if (position == numPages - 1)
 			{
 				// Don't offer to review if user has taken a mixed tutorial
-				if (selectedTopics.size() > 1)
+				// OR
+				// A topic isn't newly learnt. This is defined by whether it has
+				// any entities which have a next repetition date set, meaning
+				// they've been reviewed. This doesn't cover the case where only
+				// some entities in a set have been reviewed, but in that case
+				// the user will review those entities whenever they start a
+				// review directly.
+				if (selectedTopics.size() > 1
+						|| (SRAlgorithm.getNumOfReviewableEntities(selectedTopics.get(0)) > 0))
 				{
 					lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial_complete_noreview, null);
 				}

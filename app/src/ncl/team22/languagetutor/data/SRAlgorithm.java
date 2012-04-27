@@ -150,4 +150,23 @@ public class SRAlgorithm
 		sDb.close();
 		return entities;
 	}
+
+	public static int getNumOfReviewableEntities(Topic t)
+	{
+		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
+		int currentProfId = LanguagetutorActivity.currentProfile.profileID;
+
+		// Select all entities in the set of the topic passed as a parameter
+		// which have been reviewed once or more. We can tell if an entity has
+		// been reviewed before because the repetition_nextdue field will be
+		// something other than 0
+		Cursor c = sDb.query("langentity le INNER JOIN entity_progress ep ON (le.entityID = ep.entityID) INNER JOIN entity_set es ON (es.entityID = le.entityID) JOIN langset ls ON (ls.setID = es.setID)", null, "ep.profileID = ? AND ls.setID = ? AND ep.repetition_nextdue != 0", new String[]
+		{Integer.toString(currentProfId), Integer.toString(t.topicID)}, null, null, "le.entityID ASC");
+
+		int num = c.getCount();
+
+		sDb.close();
+
+		return num;
+	}
 }
