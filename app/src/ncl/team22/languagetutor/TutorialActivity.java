@@ -3,6 +3,7 @@ package ncl.team22.languagetutor;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import android.app.Activity;
 import android.content.Context;
@@ -69,6 +70,8 @@ public class TutorialActivity extends Activity
 
 		if (selectedTopics.size() > 1)
 		{
+			// If user is taking a mixed review then randomise the order
+			Collections.shuffle(entities);
 			header.setText("Mixed");
 		}
 		else
