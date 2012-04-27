@@ -41,7 +41,7 @@
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
-			android:name=".test.TestReviewGrid"
+			android:name=".test.TestReviewGridActivity"
 			android:screenOrientation="portrait" >
 		</activity>
 		<activity
