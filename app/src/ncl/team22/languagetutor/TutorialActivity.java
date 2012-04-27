@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -158,7 +159,7 @@ public class TutorialActivity extends Activity
 		public Object instantiateItem(ViewGroup container, int position)
 		{
 			Log.d(TAG, "Instantiating position " + position);
-			LinearLayout lv;
+			ViewGroup lv;
 
 			// Display tutorial complete page if on last page
 			if (position == numPages - 1)
@@ -178,7 +179,7 @@ public class TutorialActivity extends Activity
 				}
 				else
 				{
-					lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial_complete, null);
+					lv = (RelativeLayout) View.inflate(ctx, R.layout.tutorial_complete, null);
 
 					yesButton = (Button) lv.findViewById(R.id.tutorial_review_yes);
 					noButton = (Button) lv.findViewById(R.id.tutorial_review_no);
@@ -274,7 +275,7 @@ public class TutorialActivity extends Activity
 		@Override
 		public boolean isViewFromObject(View v, Object o)
 		{
-			return v == ((LinearLayout) o);
+			return v == ((ViewGroup) o);
 		}
 
 	}
