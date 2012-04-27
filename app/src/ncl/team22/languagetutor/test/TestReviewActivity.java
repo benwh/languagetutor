@@ -73,9 +73,4 @@ public class TestReviewActivity extends Activity
 			}
 		});
 	}
-
-	/*
-	 * @Override public void onBackPressed() { Test.backPressed = true;
-	 * finish(); Log.d(TAG, "Reverting back to topic select..."); }
-	 */
 }

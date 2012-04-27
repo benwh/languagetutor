@@ -12,6 +12,12 @@ import android.widget.GridView;
 
 import ncl.team22.languagetutor.R;
 
+/**
+ * This activity represents the table of words to be reviewed
+ * 
+ * @author James
+ * 
+ */
 public class TestReviewGridActivity extends Activity
 {
 

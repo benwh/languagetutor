@@ -58,7 +58,6 @@ public class TopicsActivity extends ListActivity
 				intent.setFlags(100);
 				startActivity(intent);
 
-				// EXPERIMENTAL
 				Log.d(TAG, "Finish reached...");
 				finish();
 			}
@@ -103,7 +102,6 @@ public class TopicsActivity extends ListActivity
 			intent.setFlags(98);
 			startActivity(intent);
 
-			// EXPERIMENTAL
 			Log.d(TAG, "Finish reached...");
 			finish();
 		} catch (Exception e)
@@ -111,10 +109,4 @@ public class TopicsActivity extends ListActivity
 			Log.e(TAG, e.toString());
 		}
 	}
-
-	/*
-	 * @Override public void onWindowFocusChanged(boolean hasFocus) { if
-	 * ((Test.testComplete == true) && Test.backPressed == true) {
-	 * Test.testComplete = false; finish(); } Test.backPressed = false; }
-	 */
 }

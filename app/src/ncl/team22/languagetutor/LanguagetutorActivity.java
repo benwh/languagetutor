@@ -19,7 +19,9 @@ import ncl.team22.languagetutor.profile.ProfileOptionsActivity;
 /**
  * Main activity for the program presents users with the main menu.
  * 
- * @author Ben
+ * Also keeps note of the active profile.
+ * 
+ * @author Ben Wheatley
  */
 public class LanguagetutorActivity extends Activity
 {
