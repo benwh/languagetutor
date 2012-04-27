@@ -100,6 +100,7 @@ public class RevisionActivity extends Activity
 
 	}
 
+	// TODO: Needs comments
 	private void displayNextItem()
 	{
 		currentItemIndex++;
@@ -159,6 +160,7 @@ public class RevisionActivity extends Activity
 		}
 	}
 
+	// TODO: Needs comments
 	private void displayComplete()
 	{
 		flipper.setDisplayedChild(2);

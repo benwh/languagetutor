@@ -65,6 +65,7 @@ public class TutorialActivity extends Activity
 
 	}
 
+	// TODO: Needs comments
 	private void setupTutorial()
 	{
 		entities = new ArrayList<LanguageEntity>();
@@ -118,6 +119,7 @@ public class TutorialActivity extends Activity
 
 	}
 
+	// TODO: Needs comments?
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
 		super.onActivityResult(requestCode, resultCode, data);
@@ -142,6 +144,7 @@ public class TutorialActivity extends Activity
 		}
 	}
 
+	// TODO: Needs comments?
 	private class TutorialPagerAdapter extends PagerAdapter
 	{
 

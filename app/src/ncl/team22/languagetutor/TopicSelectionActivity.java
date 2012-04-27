@@ -68,6 +68,7 @@ public class TopicSelectionActivity extends Activity
 		}
 	}
 
+	// TODO: Needs comments
 	public void displayTopics(int level)
 	{
 

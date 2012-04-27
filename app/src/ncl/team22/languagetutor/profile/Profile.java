@@ -184,7 +184,6 @@ public class Profile
 		}
 	}
 
-	//
 	/**
 	 * Checks a profile with the given username exists in the database
 	 * 
