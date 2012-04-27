@@ -146,10 +146,8 @@ public class TutorialActivity extends Activity
 						{
 							// Need to use startActivityForResult so
 							// getCallingActivity() works in RevisionActivity. 1
-							// is
-							// used as the requestCode as we don't care what
-							// type of
-							// req it is
+							// is used as the requestCode as we don't care what
+							// type of req it is
 							Intent i = new Intent(TutorialActivity.this, ncl.team22.languagetutor.RevisionActivity.class);
 							i.putExtra(RevisionActivity.SELECTED_TOPIC, selectedTopics.get(0));
 							Log.d(TAG, "Putting "
