@@ -144,7 +144,7 @@ INSERT INTO `langentity` VALUES(119 , 0 , 0 , "Thirty nine"                , "tr
 INSERT INTO `langentity` VALUES(120 , 0 , 0 , "Forty"                      , "cuarenta"                            , 0 , 0);
 INSERT INTO `langentity` VALUES(121 , 0 , 0 , "Forty one"                  , "cuarenta y uno"                      , 0 , 0);
 INSERT INTO `langentity` VALUES(122 , 0 , 0 , "Forty two"                  , "cuarenta y dos"                      , 0 , 0);
-INSERT INTO `langentity` VALUES(123 , 0 , 0 , "Forty thre"                 , "cuarenta y tres"                     , 0 , 0);
+INSERT INTO `langentity` VALUES(123 , 0 , 0 , "Forty three"                 , "cuarenta y tres"                     , 0 , 0);
 INSERT INTO `langentity` VALUES(124 , 0 , 0 , "Forty four"                 , "cuarenta y cuatro"                   , 0 , 0);
 INSERT INTO `langentity` VALUES(125 , 0 , 0 , "Forty five"                 , "cuarenta y cinco"                    , 0 , 0);
 INSERT INTO `langentity` VALUES(126 , 0 , 0 , "Forty six"                  , "cuarenta y seis"                     , 0 , 0);
