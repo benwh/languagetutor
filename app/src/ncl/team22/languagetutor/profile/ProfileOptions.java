@@ -8,8 +8,14 @@ import android.widget.Button;
 
 import ncl.team22.languagetutor.R;
 
+/**
+ * Activity for selecting which options to change.
+ * 
+ * @author Kyran
+ */
 public class ProfileOptions extends Activity
 {
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{

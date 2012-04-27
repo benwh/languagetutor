@@ -31,6 +31,7 @@ public class ReplacePassword extends Activity
 	private String	inPass;
 	private String	inConfirmPass;
 
+	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -110,10 +111,6 @@ public class ReplacePassword extends Activity
 		});
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see android.app.Activity#onBackPressed()
-	 */
 	@Override
 	public void onBackPressed()
 	{

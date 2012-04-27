@@ -16,6 +16,11 @@ import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 
+/**
+ * Activity for Resetting a profiles Secret question and answer
+ * 
+ * @author Misha
+ */
 public class ReplaceQA extends Activity
 {
 	private String	username;
@@ -23,6 +28,7 @@ public class ReplaceQA extends Activity
 	private String	inQ;
 	private String	inA;
 
+	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);

@@ -14,8 +14,9 @@ import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 
 /**
- * @author Ben
+ * Activity to represent a users profile
  * 
+ * @author Ben
  */
 public class Profile
 {
@@ -31,6 +32,22 @@ public class Profile
 	public String				secret_a;
 	public int					theme;
 
+	/**
+	 * Class constructor creates and initializes the variables for a new profile
+	 * 
+	 * @param profileID
+	 *            Used to initialize the profile ID of the new profile
+	 * @param display_name
+	 *            Used to initialize the username of the new profile
+	 * @param password_hash
+	 *            Used to initialize the password of the new profile
+	 * @param secret_q
+	 *            Used to initialize the secret question of the new profile
+	 * @param secret_a
+	 *            Used to initialize the secret answer of the new profile
+	 * @param theme
+	 *            Used to initialize the theme of the new profile
+	 */
 	public Profile(int profileID, String display_name, String password_hash,
 			String secret_q, String secret_a, int theme)
 	{
@@ -42,6 +59,14 @@ public class Profile
 		this.theme = theme;
 	}
 
+	/**
+	 * Used to retrieve all the users in the database
+	 * 
+	 * Gets a table with the usernames and profileIDs of all users in the
+	 * database.
+	 * 
+	 * @return returns a cursor on a table of all users in the database.
+	 */
 	public static Cursor getProfiles()
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
@@ -50,13 +75,27 @@ public class Profile
 		{"profileID _id", "display_name"}, null, null, null, null, null);
 	}
 
-	// Creates a new profile in the database with the values given
+	/**
+	 * Creates a new profile in the database with the values given
+	 * 
+	 * NOTE: Don't pass in a profileID, will be inserted automatically
+	 * 
+	 * @param userName
+	 *            Username that will be inserted to the database.
+	 * @param password
+	 *            Password that will be inserted to the database.
+	 * @param secretQ
+	 *            Secret question that will be inserted to the database.
+	 * @param secretA
+	 *            Secret answer that will be inserted to the database.
+	 * @return The id number of the profile that was just inserted in the
+	 *         database.
+	 */
 	public static int create(String userName, String password, String secretQ,
 			String secretA)
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
 
-		// Don't pass in a profileID, will be inserted automatically
 		ContentValues cv = new ContentValues();
 		cv.put("display_name", userName);
 		cv.put("password_hash", hashPassword(password));
@@ -69,6 +108,18 @@ public class Profile
 		return profileID;
 	}
 
+	/**
+	 * Loads a profile from the database, specified by the profileID.
+	 * 
+	 * Retrieves the data that corresponds to the requested ProfileID, and
+	 * creates a profile with these values then returns the profile. Does not
+	 * update the active profile.
+	 * 
+	 * @param profileID
+	 *            The profileID of the profile you want to load
+	 * @return A profile with the values of the requested ProfileID otherwise
+	 *         throws RuntimeException
+	 */
 	public static Profile load(int profileID)
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
@@ -92,6 +143,20 @@ public class Profile
 
 	}
 
+	/**
+	 * Used to check a string matches the password of a specified Profile
+	 * 
+	 * Retrieves the 'password_hash' of the requested profile from the database
+	 * and compares it this to the result of hashing the password that is passed
+	 * in as a parameter. If they match the requested profile is returned.
+	 * 
+	 * @param user
+	 *            The username of the profile requested
+	 * @param pass
+	 *            The string to be compared to the password of the requested
+	 *            profile
+	 * @return The profile requested otherwise null
+	 */
 	public static Profile authenticate(String user, String pass)
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();
@@ -119,7 +184,14 @@ public class Profile
 		}
 	}
 
-	// Checks the username given exists in the database
+	//
+	/**
+	 * Checks a profile with the given username exists in the database
+	 * 
+	 * @param userName
+	 *            the username to be checked.
+	 * @return True if a profile with the given username exists otherwise false.
+	 */
 	public static boolean checkName(String userName)
 	{
 		boolean exists = false;
@@ -137,6 +209,13 @@ public class Profile
 		return exists;
 	}
 
+	/**
+	 * Hashes a users password for storage in the database.
+	 * 
+	 * @param password
+	 *            the password to be Hashed
+	 * @return The hash value of the given password
+	 */
 	public static String hashPassword(String password)
 	{
 		MessageDigest md;
@@ -176,6 +255,16 @@ public class Profile
 		return Base64.encodeToString(digest, Base64.NO_PADDING | Base64.NO_WRAP);
 	}
 
+	/**
+	 * Gets the the level of the currently active profile.
+	 * 
+	 * Gets the best scores in all tests done by the currently active profile.
+	 * Then returns the lowest level where all tests have been passed(achieved a
+	 * mark of 75%) + 1. NOTE: Does not include test results for lang_entity 9
+	 * because a test for the male/female topic has not been implemented.
+	 * 
+	 * @return The currently active users level.
+	 */
 	public static int getUserLevel()
 	{
 		int userLevel = 0;

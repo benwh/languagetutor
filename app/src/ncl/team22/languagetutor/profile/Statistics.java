@@ -10,6 +10,11 @@ import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 import ncl.team22.languagetutor.data.DatabaseAdapter;
 
+/**
+ * Activity for presenting a user with their statistics
+ * 
+ * @author Misha
+ */
 public class Statistics extends Activity
 {
 	TextView	bannerView;
@@ -38,7 +43,6 @@ public class Statistics extends Activity
 		leastFaveView = (TextView) findViewById(R.id.least_favourite_word_text);
 		testScoreView = (TextView) findViewById(R.id.highest_test_score_text);
 		gameScoreView = (TextView) findViewById(R.id.highest_game_score_text);
-
 		ratingView = (TextView) findViewById(R.id.spanish_language_rating_text);
 		levelView = (TextView) findViewById(R.id.userleveltext);
 
@@ -51,6 +55,8 @@ public class Statistics extends Activity
 		String noOfWordsPracticed = Integer.toString(c.getCount());
 		noOFWordsView.setText(noOfWordsPracticed);
 
+		// Calculate the users best score and put present it in the correct
+		// place
 		String bestTestResult;
 		myQuery = "SELECT MAX(score) as high_score FROM "
 				+ DatabaseAdapter.TABLE_TEST_RESULTS + " WHERE profileID = ?";
@@ -66,6 +72,8 @@ public class Statistics extends Activity
 		}
 		testScoreView.setText(bestTestResult);
 
+		// Calculates the users best game score and presents it in the correct
+		// place
 		String bestGameResult;
 		myQuery = "SELECT MAX(points) as high_score FROM "
 				+ DatabaseAdapter.TABLE_GAME_RESULTS + " WHERE profileID = ?";
@@ -81,6 +89,8 @@ public class Statistics extends Activity
 		}
 		gameScoreView.setText(bestGameResult);
 
+		// Calculates what the users favorite word is and presents it in the
+		// correct place
 		String fWord;
 		c = sDb.query("langentity le INNER JOIN entity_progress ep ON (le.entityID = ep.entityID)", null, "ep.profileID = ?", new String[]
 		{Integer.toString(currentProfId)}, null, null, "ep.efactor DESC");
@@ -94,6 +104,8 @@ public class Statistics extends Activity
 		}
 		favView.setText(fWord);
 
+		// Calculates what the users least favorite word is and presents it in
+		// the correct place
 		String lfWord;
 		c = sDb.query("langentity le INNER JOIN entity_progress ep ON (le.entityID = ep.entityID)", null, "ep.profileID = ?", new String[]
 		{Integer.toString(currentProfId)}, null, null, "ep.efactor ASC");
@@ -107,6 +119,7 @@ public class Statistics extends Activity
 		}
 		leastFaveView.setText(lfWord);
 
+		// Calculates what overall ranking the user is at.
 		int ranking = 0;
 		for (int i = 0; i < 10; i++)
 		{
@@ -147,6 +160,7 @@ public class Statistics extends Activity
 			ratingView.setText("Native");
 		}
 
+		// Gets the users level and presents it in the correct place.
 		levelView.setText(Integer.toString(Profile.getUserLevel()));
 	}
 }

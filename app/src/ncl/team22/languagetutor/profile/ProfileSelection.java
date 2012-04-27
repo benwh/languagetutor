@@ -13,6 +13,11 @@ import android.widget.SimpleCursorAdapter;
 import ncl.team22.languagetutor.LanguagetutorActivity;
 import ncl.team22.languagetutor.R;
 
+/**
+ * Activity used to allow the user to select their profile.
+ * 
+ * @author Misha
+ */
 public class ProfileSelection extends ListActivity
 {
 
@@ -24,6 +29,10 @@ public class ProfileSelection extends ListActivity
 		populateListView();
 	}
 
+	/**
+	 * Populates the list with the usernames of all the profiles in the
+	 * database.
+	 */
 	private void populateListView()
 	{
 		Cursor c = Profile.getProfiles();

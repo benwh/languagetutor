@@ -82,7 +82,6 @@ public class LanguagetutorActivity extends Activity
 			}
 		});
 
-		// Add click listener to test button
 		final Button testButton = (Button) findViewById(R.id.testsbutton);
 		testButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -93,7 +92,6 @@ public class LanguagetutorActivity extends Activity
 			}
 		});
 
-		// Add click listener to stats button
 		final Button statsButton = (Button) findViewById(R.id.statsbutton);
 		statsButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -125,7 +123,6 @@ public class LanguagetutorActivity extends Activity
 	{
 		switch (item.getItemId())
 		{
-		// Should probably be split in to a method under Profile
 			case LOGOUT :
 
 				LanguagetutorActivity.currentProfile = null;
