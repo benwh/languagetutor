@@ -15,6 +15,9 @@ import android.util.Log;
 
 import ncl.team22.languagetutor.R;
 
+/**
+ * A helper class to manage database creation and version management
+ */
 public class DatabaseAdapter extends SQLiteOpenHelper
 {
 
@@ -117,6 +120,13 @@ public class DatabaseAdapter extends SQLiteOpenHelper
 		}
 	}
 
+	/**
+	 * Converts resource from raw folder into a String
+	 * 
+	 * @param resource
+	 *            - the int value of the raw resource
+	 * @return the result as a String
+	 */
 	private String sqlResourceToString(int resource)
 	{
 		InputStream sqlfile = null;
