@@ -27,12 +27,13 @@
 
 		<TextView
 			android:id="@+id/test_score_head"
-			style="@style/lable_text"
+			style="@style/small_text"
 			android:text="@string/test_score" />
 
 		<TextView
 			android:id="@+id/test_score"
-			style="@style/lable_text" />
+			style="@style/lable_text"
+			android:layout_marginBottom="30dp" />
 
 		<!-- RANK AWARDED -->
 
@@ -43,14 +44,15 @@
 
 		<TextView
 			android:id="@+id/rank_awarded"
-			style="@style/lable_text" />
+			style="@style/small_text"
+			android:layout_marginBottom="60dp" />
 
 		<!-- BUTTON TO READ DETAILED RESULTS -->
 
 		<Button
 			android:id="@+id/review_test"
 			style="@style/normal_btn"
+			android:layout_marginTop="60dp"
 			android:text="@string/review_test" />
 	</LinearLayout>
-
 </LinearLayout>

@@ -52,7 +52,8 @@
 
 			<RatingBar
 				android:id="@+id/review_item_rating"
-				style="@style/rate_bar" />
+				style="@style/rate_bar"
+				android:layout_marginBottom="30dp" />
 
 			<Button
 				android:id="@+id/review_item_nextbutton"
