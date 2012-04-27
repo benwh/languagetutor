@@ -48,6 +48,14 @@ public class Test extends Activity
 		{
 			setContentView(R.layout.test1);
 
+			// Clear data values if necessary
+			if (!TestData.getEntitiesList().isEmpty()
+					|| !TestData.getRemovedList().isEmpty()
+					|| !TestData.getReviewTest().isEmpty())
+			{
+				TestData.resetData();
+			}
+
 			// Pull the selected topic out of the intent from the previous
 			// activity
 			Intent i = getIntent();

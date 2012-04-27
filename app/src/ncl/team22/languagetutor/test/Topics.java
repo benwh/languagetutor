@@ -49,6 +49,9 @@ public class Topics extends ListActivity
 			@Override
 			public void onClick(View v)
 			{
+				// Ensure test result and counter values are clear
+				TestResult.reset();
+
 				Test.setTestLength(14);
 				Test.setMixedTest(true);
 				Intent intent = new Intent(Topics.this, Test.class);
@@ -84,6 +87,9 @@ public class Topics extends ListActivity
 		super.onListItemClick(l, v, position, id);
 		try
 		{
+			// Ensure test result and counter values are clear
+			TestResult.reset();
+
 			// As the ListView is a list of 'Topic's can now just pull
 			// the selected Topic out and use it for the intent
 			Topic selectedTopic = topics.get(position);
