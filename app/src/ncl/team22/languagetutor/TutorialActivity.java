@@ -66,7 +66,10 @@ public class TutorialActivity extends Activity
 
 	}
 
-	// TODO: Needs comments
+	/**
+	 * Setup tutorial by retrieving the list of {@link LanguageEntity}s to go
+	 * through, setting the header text and displaying a hint if necessary
+	 */
 	private void setupTutorial()
 	{
 		entities = new ArrayList<LanguageEntity>();
@@ -120,7 +123,6 @@ public class TutorialActivity extends Activity
 
 	}
 
-	// TODO: Needs comments?
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
 		super.onActivityResult(requestCode, resultCode, data);
@@ -128,6 +130,8 @@ public class TutorialActivity extends Activity
 		{
 			case TopicSelectionActivity.TOPICSELECTION_REQUEST :
 			{
+				// If TopicSelection returned ok then pull out the list of
+				// topics and set up the tutorial
 				if (resultCode == Activity.RESULT_OK)
 				{
 					@SuppressWarnings("unchecked")
@@ -145,7 +149,6 @@ public class TutorialActivity extends Activity
 		}
 	}
 
-	// TODO: Needs comments?
 	private class TutorialPagerAdapter extends PagerAdapter
 	{
 
@@ -155,6 +158,12 @@ public class TutorialActivity extends Activity
 			((ViewPager) vp).removeView((LinearLayout) v);
 		}
 
+		/**
+		 * Sets up pages for each page of the ViewPager
+		 * 
+		 * @see android.support.v4.view.PagerAdapter#instantiateItem(android.view
+		 *      .ViewGroup, int)
+		 */
 		@Override
 		public Object instantiateItem(ViewGroup container, int position)
 		{
@@ -249,6 +258,8 @@ public class TutorialActivity extends Activity
 				{
 					lv = (LinearLayout) View.inflate(ctx, R.layout.tutorial, null);
 				}
+
+				// Set up english and spanish text
 
 				TextView src = (TextView) lv.findViewById(R.id.tutorial_srctext);
 				TextView dst = (TextView) lv.findViewById(R.id.tutorial_dsttext);

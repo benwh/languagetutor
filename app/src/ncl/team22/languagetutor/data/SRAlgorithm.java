@@ -24,6 +24,19 @@ public class SRAlgorithm
 	public static final float	EFACTOR_MIN			= 1.3f;
 	public static final int		SM_MAXSCORE			= 5;
 
+	/**
+	 * Given a rating from a review, update the given {@link LanguageEntity}
+	 * with new values.
+	 * 
+	 * For algorithm details see: <a
+	 * href="http://www.supermemo.com/english/ol/sm2.htm">here</a>
+	 * 
+	 * 
+	 * @param entity
+	 *            Entity to update
+	 * @param rating
+	 *            Number of stars as chosen by user, in range 0-5
+	 */
 	public static void updateEntityFromScore(LanguageEntity entity, int rating)
 	{
 		int currentTimestamp = (int) (new java.util.Date(System.currentTimeMillis()).getTime() / 1000);
@@ -69,7 +82,6 @@ public class SRAlgorithm
 		}
 
 		// Set interval for next review
-		//
 		int daysToAdd = 0;
 
 		if (repNumber == 1)
@@ -86,10 +98,6 @@ public class SRAlgorithm
 			// "If interval is a fraction, round it up to the nearest integer."
 			daysToAdd = Math.round(currentInterval * newEF);
 		}
-		// Returns a negative epoch??
-		// cal.setTimeInMillis(currentTimestamp * 1000);
-		// cal.add(Calendar.DATE, daysToAdd);
-		// nextDueTimestamp = (int) (cal.getTimeInMillis() / 1000);
 
 		nextDueTimestamp = (nextDueTimestamp + (86400 * daysToAdd));
 
@@ -100,6 +108,11 @@ public class SRAlgorithm
 
 	}
 
+	/**
+	 * Gets a list of entities that can be reviewed in a new review session.
+	 * 
+	 * @return list of entities for review
+	 */
 	public static ArrayList<LanguageEntity> getEntitiesForReview()
 	{
 		SQLiteDatabase sDb = LanguagetutorActivity.sDBa.getWritableDatabase();

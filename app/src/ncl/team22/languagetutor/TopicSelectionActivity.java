@@ -68,11 +68,14 @@ public class TopicSelectionActivity extends Activity
 		}
 	}
 
-	// TODO: Needs comments
+	/**
+	 * Display topics for a given level.
+	 * 
+	 * @param level
+	 *            The level (1-3) of topics to display
+	 */
 	public void displayTopics(int level)
 	{
-
-		// flipper.showNext() ?
 		flipper.setDisplayedChild(flipper.indexOfChild(findViewById(R.layout.topicselection_topics)));
 		Log.d(TAG, "Displaying topics for level " + level);
 
@@ -82,6 +85,8 @@ public class TopicSelectionActivity extends Activity
 		final ListView topiclist = (ListView) topicmain.findViewById(android.R.id.list);
 		topiclist.setAdapter(new ArrayAdapter<Topic>(this, R.layout.topicselection_topic_row, topics));
 
+		// List items will end the activity and pass the selected item in to the
+		// intent extra when pressed
 		topiclist.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> a, View v, int i, long l)
@@ -104,6 +109,8 @@ public class TopicSelectionActivity extends Activity
 			mixedButton.setVisibility(View.GONE);
 		}
 
+		// The mixed button adds all items in the current list and finishes the
+		// activity, passing the topics in to the SELECT_TOPICS intent extra
 		mixedButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v)
@@ -124,6 +131,12 @@ public class TopicSelectionActivity extends Activity
 
 	}
 
+	/**
+	 * If the user presses back then display the level selection if on topic
+	 * selection
+	 * 
+	 * @see android.app.Activity#onBackPressed()
+	 */
 	@Override
 	public void onBackPressed()
 	{

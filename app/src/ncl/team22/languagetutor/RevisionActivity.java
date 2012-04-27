@@ -41,6 +41,8 @@ public class RevisionActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.review_main);
 
+		// If review has been started at the end of a tutorial session then
+		// parse the topic that was passed in
 		if (getCallingActivity() != null
 				&& getCallingActivity().getClassName().equals("ncl.team22.languagetutor.TutorialActivity"))
 		{
@@ -52,6 +54,8 @@ public class RevisionActivity extends Activity
 			headerText.setText("You have " + entitiesList.size()
 					+ " items to review");
 		}
+		// Otherwise call SRAlgorithm.getEntitiesForReview() to get a list of
+		// entities that need reviewing
 		else
 		{
 			Log.d(TAG, "Starting rev session for ALL");
@@ -64,11 +68,6 @@ public class RevisionActivity extends Activity
 
 		flipper = (ViewFlipper) findViewById(R.id.review_viewflipper);
 
-		// For some reason this code isn't working, so have to use the line
-		// below. Need to watch for changes to the ordering of review_main with
-		// the hard-coded index
-		// LinearLayout startView = (LinearLayout)
-		// flipper.getChildAt(flipper.indexOfChild(findViewById(R.layout.review_start)));
 		LinearLayout startView = (LinearLayout) flipper.getChildAt(0);
 		Button startButton = (Button) startView.findViewById(R.id.review_start_button);
 
@@ -88,6 +87,8 @@ public class RevisionActivity extends Activity
 			}
 		};
 
+		// If there's no items to review then swap the text and change the
+		// listener to return to previous activity
 		if (entitiesList.size() == 0)
 		{
 			startButton.setText("Return to main menu");
@@ -100,16 +101,20 @@ public class RevisionActivity extends Activity
 
 	}
 
-	// TODO: Needs comments
+	/**
+	 * Display next review item.
+	 */
 	private void displayNextItem()
 	{
 		currentItemIndex++;
+		// Display the completion page if past the last element
 		if (currentItemIndex == entitiesList.size())
 		{
 			displayComplete();
 		}
 		else
 		{
+			// Ideally should be:
 			// flipper.setDisplayedChild(flipper.indexOfChild(findViewById(R.layout.review_item)));
 			flipper.setDisplayedChild(1);
 
@@ -126,6 +131,7 @@ public class RevisionActivity extends Activity
 			rating.setRating(0);
 			nextBtn.setEnabled(false);
 
+			// When the text is tapped, enable the rating bar
 			dsttext.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v)
@@ -137,6 +143,7 @@ public class RevisionActivity extends Activity
 				}
 			});
 
+			// When the rating is set, enable the next button
 			rating.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
 				@Override
 				public void onRatingChanged(RatingBar ratingBar, float rating,
@@ -150,9 +157,9 @@ public class RevisionActivity extends Activity
 				@Override
 				public void onClick(View v)
 				{
+					// Score the item and display next
 					// Cast to int as minimum step size for rating bar is 1
 					SRAlgorithm.updateEntityFromScore(currentEnt, (int) rating.getRating());
-					// XXX: Score item
 					displayNextItem();
 				}
 			});
@@ -160,7 +167,9 @@ public class RevisionActivity extends Activity
 		}
 	}
 
-	// TODO: Needs comments
+	/**
+	 * Display the 'Review Complete' page
+	 */
 	private void displayComplete()
 	{
 		flipper.setDisplayedChild(2);
@@ -169,7 +178,6 @@ public class RevisionActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				// A bit redundant now onBackPressed is working
 				setResult(RESULT_OK);
 				finish();
 			}
