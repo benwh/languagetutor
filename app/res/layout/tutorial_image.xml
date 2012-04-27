@@ -15,7 +15,8 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_weight="0.33"
-		android:src="@drawable/broken_icon" />
+		android:src="@drawable/broken_icon"
+		android:contentDescription="@string/tutimg_desc" />
 
 	<TextView
 		android:id="@+id/tutorial_dsttext"

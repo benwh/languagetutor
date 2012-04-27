@@ -31,6 +31,7 @@
     <string name="placeholder_tutorial_header">Tutorial (topic)</string>
     <string name="review_topic">Would you like to review this topic now?</string>
     <string name="tutorial_comp">Tutorial Completed!</string>
+    <string name="tutimg_decs">Picture representing the current word</string>
 
 <!-- REVIEW -->
     <string name="review_completed">Review completed!</string>
